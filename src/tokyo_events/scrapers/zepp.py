@@ -45,18 +45,36 @@ class ZeppScraper(BaseScraper):
     source_name = "Zepp"
     BASE = "https://www.zepp.co.jp"
 
-    def __init__(self, hall_id: str, **kw):
+    def __init__(self, hall_id: str, months_ahead: int = 6, **kw):
         super().__init__(**kw)
         if hall_id not in HALLS:
             raise ValueError(f"unknown Zepp hall: {hall_id}")
         self.hall = HALLS[hall_id]
         self.source_id = hall_id
+        self.months_ahead = months_ahead
 
     def scrape(self) -> Iterable[Event]:
-        html = self.fetch(f"{self.BASE}/hall/{self.hall['slug']}/schedule/")
-        yield from self.parse(html)
-        # TODO after live validation: month pagination (?month=YYYYMM style)
-        # to reach the ~12 months of forward listings the site holds.
+        # Month pages live on the same URL with ?_y=YYYY&_m=M (M unpadded);
+        # the site's month nav holds ~12 forward months. Stop early after
+        # two consecutive empty months rather than walking the whole year.
+        base = f"{self.BASE}/hall/{self.hall['slug']}/schedule/"
+        first = dt.date.today().replace(day=1)
+        seen: set[str] = set()
+        empty_streak = 0
+        for i in range(self.months_ahead):
+            m = tu.add_months(first, i)
+            url = base if i == 0 else f"{base}?_y={m.year}&_m={m.month}"
+            try:
+                html = self.fetch(url)
+            except RuntimeError:
+                break
+            fresh = [e for e in self.parse(html)
+                     if e.source_url not in seen]
+            seen.update(e.source_url for e in fresh)
+            empty_streak = 0 if fresh else empty_streak + 1
+            if empty_streak >= 2:
+                break
+            yield from fresh
 
     def parse(self, html: str, today: dt.date | None = None, **context
               ) -> list[Event]:

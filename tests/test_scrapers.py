@@ -483,3 +483,18 @@ def test_pick_encoding_prefers_declared_over_detection():
     # bogus meta charset -> detection
     assert pick_encoding("text/html", b'<meta charset="notreal">',
                          "utf-8", None) == "utf-8"
+
+
+# --------------------------------------------- zepp month pagination page
+def test_zepp_live_month_page_parses():
+    """Real September page fetched via ?_y=2026&_m=9 — the month-nav URL
+    pattern scrape() walks. Structure must match the default page."""
+    evs = ZeppScraper("zepp_divercity").parse(
+        _load("zepp_schedule_month_live.html"), today=dt.date(2026, 7, 13))
+    assert len(evs) == 14
+    assert all(e.start_date and e.start_date.startswith("2026-09")
+               for e in evs)
+    sweet = next(e for e in evs if e.title_ja == "Sweet Alley")
+    assert sweet.source_url.startswith(
+        "https://www.zepp.co.jp/hall/divercity/schedule/single/?rid=")
+    assert sweet.start_time is not None
