@@ -436,3 +436,32 @@ def test_pipeline_drains_detail_backlog_when_unchanged(tmp_path, monkeypatch):
     assert (stored["open_time"], stored["start_time"]) == ("18:00", "19:00")
     assert stored["price_min"] == 4000
     assert any(l["provider"] == "eplus" for l in stored["ticket_links"])
+
+
+# ------------------------------------------------- non-music classifier
+def test_nonmusic_classifier():
+    assert tu.is_nonmusic("ディズニー・オン・アイス “Let's Party!”")
+    assert tu.is_nonmusic("STARS ON ICE JAPAN TOUR 2027")
+    assert tu.is_nonmusic("式典")
+    assert tu.is_nonmusic("第43回 マイナビ 東京ガールズコレクション")
+    assert tu.is_nonmusic("ぴあ Presents エンタメ業界研究フェス VOL.2")
+    # concerts must never match
+    assert not tu.is_nonmusic("King Gnu CEN+RAL Tour 2026")
+    assert not tu.is_nonmusic("@JAM EXPO 2026 supported by UP-T")
+    assert not tu.is_nonmusic("ヨルシカ LIVE TOUR 2026「一人称」")
+    assert not tu.is_nonmusic("BABYMONSTER WORLD TOUR [춤(CHOOM)] IN JAPAN")
+
+
+def test_yokohama_arena_marks_nonmusic_rows_other(tmp_path):
+    from tokyo_events.scrapers.yokohama_arena import YokohamaArenaScraper
+    import json as _json
+    rows = [
+        {"title": "ディズニー・オン・アイス", "artist": "",
+         "date1": "2099-08-20", "path": "/event/detail/9999"},
+        {"title": "ROCK BAND LIVE 2099", "artist": "The Band",
+         "date1": "2099-08-21", "path": "/event/detail/8888"},
+    ]
+    evs = YokohamaArenaScraper().parse(_json.dumps(rows))
+    by_date = {e.start_date: e for e in evs}
+    assert by_date["2099-08-20"].category.value == "other"
+    assert by_date["2099-08-21"].category.value == "music"

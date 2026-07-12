@@ -21,6 +21,24 @@ MONTH_DAY_RE = re.compile(
     re.I,
 )
 SOLD_OUT_RE = re.compile(r"SOLD\s*OUT|ソールドアウト|完売", re.I)
+
+# Arena/hall calendars mix in sports, ice shows, ceremonies, fashion shows
+# and trade events. Deliberately precision-first: better to let an odd one
+# through than hide a real concert.
+NONMUSIC_RE = re.compile(
+    r"ディズニー・?オン・?アイス|DISNEY\s*ON\s*ICE|アイスショー|ON\s*ICE\b|"
+    r"フィギュアスケート|Bリーグ|B\.LEAGUE|SVリーグ|Tリーグ|Vリーグ|"
+    r"大相撲|プロレス|ボクシング|RIZIN|K-1|格闘技|"
+    r"卓球|バレーボール|バスケットボール|ハンドボール|"
+    r"世界選手権|全日本選手権|"
+    r"式典|入学式|卒業式|入社式|株主総会|表彰式|説明会|業界研究|"
+    r"東京ガールズコレクション|ガールズアワード|GirlsAward|"
+    r"展示会|見本市|即売会", re.I)
+
+
+def is_nonmusic(text: str) -> bool:
+    """True when an event title/summary is clearly not a concert."""
+    return bool(NONMUSIC_RE.search(text))
 REPEATED_TITLE_RE = re.compile(r"^(.{2,}?)\1+", re.S)
 
 # Playguide / ticketing domains -> provider ids

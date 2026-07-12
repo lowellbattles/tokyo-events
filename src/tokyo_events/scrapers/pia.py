@@ -167,7 +167,8 @@ class PiaArenaMMScraper(BaseScraper):
             ev = Event(
                 source=self.source_id, source_url=url,
                 title_ja=title, subtitle=subtitle,
-                category=Category.MUSIC, start_date=date,
+                category=(Category.OTHER if tu.is_nonmusic(body)
+                          else Category.MUSIC), start_date=date,
                 is_sold_out=bool(tu.SOLD_OUT_RE.search(text)),
                 **self.VENUE,
             )

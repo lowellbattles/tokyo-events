@@ -71,9 +71,11 @@ class YokohamaArenaScraper(BaseScraper):
             open_time = _first_time(row.get("ev_open"))
             start_time = _first_time(row.get("ev_start"))
             ticket = row.get("url") if isinstance(row.get("url"), str) else None
+            cat = (Category.OTHER if tu.is_nonmusic(f"{title} {artist}")
+                   else Category.MUSIC)
             ev = Event(
                 source=self.source_id, source_url=url,
-                title_ja=title, category=Category.MUSIC,
+                title_ja=title, category=cat,
                 start_date=date1,
                 end_date=date2 if date2 != date1 else None,
                 open_time=open_time, start_time=start_time,
