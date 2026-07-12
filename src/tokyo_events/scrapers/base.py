@@ -33,7 +33,7 @@ from ..models import Event
 from . import textutils as tu
 
 USER_AGENT = (
-    "TokyoEventsAggregator/0.1 (+contact: set-your-email-here) "
+    "TokyoEventsAggregator/0.1 (+contact: lowellbattles@gmail.com) "
     "python-requests"
 )
 

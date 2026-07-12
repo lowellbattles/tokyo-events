@@ -17,7 +17,7 @@ TODAY = dt.date(2026, 7, 2)   # pin 'today' so year inference is deterministic
 
 
 def _load(name):
-    return (FIX / name).read_text()
+    return (FIX / name).read_text(encoding="utf-8")
 
 
 # --------------------------------------------------------------- liquidroom
