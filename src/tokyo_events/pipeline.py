@@ -57,8 +57,10 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "shelter":           (lambda: LoftScraper("shelter"),   ReviewStatus.PENDING),
 }
 
-#: max detail-page fetches per source per run (politeness cap)
-DETAIL_CAP = 25
+#: max detail-page fetches per source per run (politeness cap; the
+#: backlog drains across daily runs — raising this trades run time for
+#: faster backfill, ~2.5s per fetch)
+DETAIL_CAP = 40
 
 
 def _needs_detail(ev: Event) -> bool:

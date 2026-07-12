@@ -145,6 +145,42 @@ def test_detail_enrichment_never_overwrites_listing_data():
     assert (enriched.open_time, enriched.price_min) == ("17:30", 6000)
 
 
+# ------------------------------------------------------------------ genres
+from tokyo_events.genres import rule_genres
+
+
+def test_rule_genres_keywords_and_defaults():
+    idol, conf = rule_genres({"source": "zepp_haneda",
+                              "title_ja": "AKB48 19期生コンサート"})
+    assert idol == ["idol"] and conf
+    intl, conf = rule_genres({"source": "toyosu_pit",
+                              "title_ja": "FLO Therapy At The Club Tour 2026 JAPAN."})
+    assert "international" in intl and conf
+    kp, _ = rule_genres({"source": "pia_arena_mm", "title_ja": "김재중 ASIA TOUR"})
+    assert "k-pop" in kp
+    anime, _ = rule_genres({"source": "pia_arena_mm",
+                            "title_ja": "ラブライブ！サンシャイン!! LIVE"})
+    assert anime[0] == "anime-seiyu"
+    # live-house default: unrecognized band -> j-rock, NOT confident
+    dflt, conf = rule_genres({"source": "zepp_divercity", "title_ja": "TRACK15"})
+    assert dflt == ["j-rock"] and not conf
+    # arenas get no default
+    none, conf = rule_genres({"source": "pia_arena_mm", "title_ja": "謎の公演"})
+    assert none == [] and not conf
+
+
+def test_export_applies_genres(tmp_path):
+    from tokyo_events.db import EventStore
+    import json as _json
+    store = EventStore(tmp_path / "g.db")
+    ev = _lq()["betaband_20260609"]         # subtitle "JAPAN TOUR 2026"
+    store.upsert(ev, ReviewStatus.AUTO)
+    out = tmp_path / "pub.json"
+    store.export_public_json(out)
+    data = _json.loads(out.read_text(encoding="utf-8"))
+    assert data["events"][0]["genres"] == ["international"]
+
+
 # ------------------------------------------------------------------- utils
 def test_infer_year_rolls_forward():
     # Jan 15 seen in July 2026 -> must be Jan 2027, not 6 months ago

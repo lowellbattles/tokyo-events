@@ -10,6 +10,7 @@
     --line:#e3e3de; --stamp:#c8102e;
     --f-liquid:#4c5fd5; --f-ogroup:#00a04b; --f-zepp:#0091d4;
     --f-billboard:#8f2d56; --f-pia:#e4007f; --f-other:#6b7280;
+    --f-quattro:#d97706; --f-www:#7c3aed; --f-duo:#0d9488; --f-loft:#b91c1c;
     --radius:10px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -79,6 +80,20 @@
   .stamp{position:absolute;right:12px;top:10px;transform:rotate(7deg);border:2px solid var(--stamp);color:var(--stamp);border-radius:4px;font-size:10px;font-weight:800;letter-spacing:.12em;padding:2px 7px;opacity:.9;background:rgba(255,255,255,.7)}
   .card.past{opacity:.55}
   .multiday{font-size:10px;font-weight:700;color:var(--ink-3);letter-spacing:.06em;margin-top:3px}
+  .alink{cursor:pointer;border-bottom:1px dotted transparent}
+  .alink:hover{border-bottom-color:var(--ink-2)}
+  .venue-tag.alink:hover,.lineup .alink:hover{color:var(--ink)}
+  .day-head{cursor:pointer}
+  .day.collapsed .cards{display:none}
+  .day.collapsed .day-num{opacity:.45}
+  .day-count{font-size:10px;color:var(--ink-3);margin-top:2px}
+  .mini-btn{border:1px solid var(--line);background:var(--card);border-radius:6px;padding:3px 10px;font-size:11.5px;font-weight:700;color:var(--ink-2)}
+  .mini-btn:hover{border-color:var(--ink-2);color:var(--ink)}
+  .detail-head{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px 20px;margin-top:18px}
+  .detail-head h2{font-size:22px;font-weight:800;letter-spacing:-.02em;overflow-wrap:anywhere}
+  .detail-sub{color:var(--ink-2);font-size:13px;margin-top:6px;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+  .back-btn{display:inline-block;margin-top:16px;font-size:13px;font-weight:700;color:var(--ink-2)}
+  .back-btn:hover{color:var(--ink)}
   .empty,.loading,.loaderr{text-align:center;color:var(--ink-2);padding:60px 20px 40px;font-size:14px;line-height:1.8}
   .empty button{text-decoration:underline;font-weight:700}
   .loaderr code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
@@ -128,6 +143,8 @@
   </div>
   <div class="f-row">
     <input class="search" id="search" type="search">
+    <button class="mini-btn" id="expand-all"></button>
+    <button class="mini-btn" id="collapse-all"></button>
     <span class="count" id="count"></span>
   </div>
 </section>
@@ -156,10 +173,17 @@ const VENUE_META = {
   billboard_yokohama:{fam:"billboard",letter:"B"},
   toyosu_pit:        {fam:"pia",      letter:"P"},
   pia_arena_mm:      {fam:"pia",      letter:"M"},
+  quattro_shibuya:   {fam:"quattro",  letter:"Q"},
+  www:               {fam:"www",      letter:"W"},
+  www_x:             {fam:"www",      letter:"X"},
+  duo:               {fam:"duo",      letter:"D"},
+  loft_shinjuku:     {fam:"loft",     letter:"L"},
+  shelter:           {fam:"loft",     letter:"S"},
 };
 const FAM_COLOR = {liquid:"var(--f-liquid)",ogroup:"var(--f-ogroup)",
   zepp:"var(--f-zepp)",billboard:"var(--f-billboard)",pia:"var(--f-pia)",
-  other:"var(--f-other)"};
+  quattro:"var(--f-quattro)",www:"var(--f-www)",duo:"var(--f-duo)",
+  loft:"var(--f-loft)",other:"var(--f-other)"};
 const GENRE_KEYS = ["idol","j-rock","international","k-pop","jazz-soul",
                     "classical","hiphop-rnb","electronic","anime-seiyu"];
 
@@ -186,6 +210,10 @@ const I18N = {
     updated:d=>`データ更新: ${d}`,
     okList:"取得済み",errList:"エラー",waitList:"イベント0件",
     facts:"本サイトは事実情報（日時・会場・料金）のみを掲載し、詳細・写真・チケットは各公演ページへリンクします。",
+    allVenues:"すべて",expandAll:"すべて開く",collapseAll:"すべて閉じる",
+    back:"← 一覧へ戻る",
+    artistShows:n=>`今後の公演 ${n} 件`,venueShows:n=>`公演 ${n} 件`,
+    playsAt:"出演会場",
   },
   en:{
     tagline:"Every live house to every arena. One schedule.",
@@ -209,12 +237,25 @@ const I18N = {
     updated:d=>`Data updated: ${d}`,
     okList:"captured",errList:"errors",waitList:"0 events",
     facts:"This site lists facts only (dates, venues, prices) and links to each event page for details, photos, and tickets.",
+    allVenues:"All",expandAll:"Expand all",collapseAll:"Collapse all",
+    back:"← Back to list",
+    artistShows:n=>`${n} upcoming show${n===1?"":"s"}`,
+    venueShows:n=>`${n} show${n===1?"":"s"}`,
+    playsAt:"Venues",
   }
 };
 
 /* ============================================================ state */
 let DATA=null, VENUES={}, lang="ja", when="week", genre="all", query="";
 let activeVenues=new Set();
+let collapsedDays=new Set();
+/* route: null = main list; {artist:name} or {venue:sourceId} = detail page */
+function parseRoute(){
+  const h=decodeURIComponent(location.hash||"");
+  let m=h.match(/^#\/artist\/(.+)$/); if(m) return {artist:m[1]};
+  m=h.match(/^#\/venue\/(.+)$/);      if(m) return {venue:m[1]};
+  return null;
+}
 const TODAY=new Date(new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Tokyo"})+"T00:00:00+09:00");
 
 /* ============================================================ load */
@@ -273,6 +314,22 @@ function matches(ev){
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
 const dot=(src)=>{const v=VENUES[src];
   return `<span class="v-dot" style="background:${FAM_COLOR[v.fam]}">${v.letter}</span>`;};
+/* --- artist cross-linking (client-side, computed from the feed) --- */
+const norm=s=>String(s||"").normalize("NFKC").toLowerCase().replace(/\s+/g," ").trim();
+function evMatchesArtist(ev,name){
+  const n=norm(name); if(!n) return false;
+  if((ev.lineup||[]).some(a=>norm(a)===n)) return true;
+  return norm(ev.title_ja).includes(n)||norm(ev.title_en).includes(n);
+}
+/* Titles are often "A / B" multi-act bills — make each act clickable. */
+function titleSegments(title){
+  const parts=String(title).split(/\s\/\s|／/).map(s=>s.trim()).filter(Boolean);
+  return (parts.length>1?parts:[title]).map(p=>
+    `<span class="alink" data-artist="${esc(p)}">${esc(p)}</span>`
+  ).join(` <span style="color:var(--ink-3)">/</span> `);
+}
+const artistHash=n=>`#/artist/${encodeURIComponent(n)}`;
+const venueHash=id=>`#/venue/${encodeURIComponent(id)}`;
 
 /* ============================================================ render */
 function renderGenreChips(){
@@ -290,14 +347,29 @@ function renderGenreChips(){
 }
 function renderVenueChips(){
   const wrap=document.getElementById("venue-chips");wrap.innerHTML="";
+  const all=Object.keys(VENUES), L=I18N[lang];
+  const allActive=activeVenues.size===all.length;
+  const allBtn=document.createElement("button");
+  allBtn.className="chip";
+  allBtn.textContent=L.allVenues;
+  allBtn.setAttribute("aria-pressed",allActive);
+  allBtn.onclick=()=>{activeVenues=new Set(all);render();};
+  wrap.appendChild(allBtn);
   for(const [id,v] of Object.entries(VENUES)){
     const b=document.createElement("button");
     b.className="chip v-chip";
-    b.setAttribute("aria-pressed",activeVenues.has(id));
+    b.setAttribute("aria-pressed",activeVenues.has(id)&&!allActive);
     b.innerHTML=`${dot(id)}<span>${esc(v.name)}</span>`;
-    b.onclick=()=>{
-      activeVenues.has(id)?activeVenues.delete(id):activeVenues.add(id);
-      if(activeVenues.size===0) activeVenues=new Set(Object.keys(VENUES));
+    b.onclick=(e)=>{
+      if(e.ctrlKey||e.metaKey||e.shiftKey){
+        /* power-user multi-select: toggle membership */
+        activeVenues.has(id)?activeVenues.delete(id):activeVenues.add(id);
+        if(activeVenues.size===0) activeVenues=new Set(all);
+      }else if(activeVenues.size===1&&activeVenues.has(id)){
+        activeVenues=new Set(all);          /* click solo again -> all */
+      }else{
+        activeVenues=new Set([id]);         /* click -> only this venue */
+      }
       render();
     };
     wrap.appendChild(b);
@@ -311,6 +383,62 @@ function ticketBadges(ev){
   return `<span class="tickets">`+links.map(t=>
     `<a href="${esc(t.url)}" target="_blank" rel="noopener">${label[t.provider]||t.provider}</a>`
   ).join("")+`</span>`;
+}
+function dayGroupsHtml(evs){
+  const L=I18N[lang];
+  const groups=new Map();
+  for(const ev of evs){
+    if(!groups.has(ev.start_date)) groups.set(ev.start_date,[]);
+    groups.get(ev.start_date).push(ev);
+  }
+  let html="";
+  for(const [d,dayEvents] of groups){
+    const dd=P(d),dow=dd.getDay();
+    const isPast=P(dayEvents[0].end_date||d)<TODAY;
+    const collapsed=collapsedDays.has(d);
+    const rel=sameDay(dd,TODAY)?`<div class="day-rel">${L.todayTag}</div>`
+            :isPast?`<div class="day-rel">${L.ended}</div>`:"";
+    html+=`<section class="day ${collapsed?"collapsed":""}" data-day="${d}">
+    <div class="day-head" data-toggle-day="${d}" role="button" aria-expanded="${!collapsed}">
+      <div class="day-num">${dd.getMonth()+1}.${dd.getDate()}</div>
+      <div class="day-dow ${dow===6?"sat":dow===0?"sun":""}">${L.dow[dow]}${lang==="ja"?"曜日":""}</div>${rel}
+      <div class="day-count">${L.count(dayEvents.length)}</div>
+    </div><div class="cards">`;
+    for(const ev of dayEvents){
+      const V=VENUES[ev.source];
+      const past=P(ev.end_date||ev.start_date)<TODAY;
+      const times=ev.open_time||ev.start_time
+        ?`${ev.open_time?`<div class="t-label">${L.open}</div><div class="t-time">${ev.open_time}</div>`:""}
+          ${ev.start_time?`<div class="t-label">${L.start}</div><div class="t-time">${ev.start_time}</div>`:""}`
+        :`<div class="t-none">${L.tbd}</div>`;
+      const price=ev.is_free?`<span class="price">${L.free}</span>`
+        :ev.price_min?`<span class="price">${L.from(ev.price_min)}</span>`:"";
+      const gtags=(ev.genres||[]).map(g=>`<span class="g-tag">${L.genres[g]||g}</span>`).join("");
+      const multi=ev.end_date&&ev.end_date!==ev.start_date
+        ?`<div class="multiday">${L.multi(L.dayfmt(P(ev.start_date)),L.dayfmt(P(ev.end_date)))}</div>`:"";
+      const title=lang==="en"?(ev.title_en||ev.title_ja):(ev.title_ja||ev.title_en);
+      const lineupHtml=(ev.lineup||[]).map(a=>
+        `<span class="alink" data-artist="${esc(a)}">${esc(a)}</span>`).join(" / ");
+      html+=`<article class="card ${past?"past":""}">
+        <div class="stub">${times}</div>
+        <div class="body">
+          <div class="title">${titleSegments(title||"")}</div>
+          ${ev.subtitle?`<div class="subtitle">${esc(ev.subtitle)}</div>`:""}
+          ${multi}
+          <div class="meta">
+            <span class="venue-tag alink" data-venue-link="${esc(ev.source)}">${dot(ev.source)}${esc(V.name)}</span>
+            <span class="area">${esc(V.area)}</span>
+            ${price}${gtags}${ticketBadges(ev)}
+            <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${L.details}</a>
+          </div>
+          ${lineupHtml?`<div class="lineup">${lineupHtml}</div>`:""}
+        </div>
+        ${ev.is_sold_out?`<div class="stamp">${L.sold}</div>`:""}
+      </article>`;
+    }
+    html+=`</div></section>`;
+  }
+  return html;
 }
 function renderList(){
   const L=I18N[lang];
@@ -328,55 +456,7 @@ function renderList(){
     };
     return;
   }
-
-  const groups=new Map();
-  for(const ev of evs){
-    if(!groups.has(ev.start_date)) groups.set(ev.start_date,[]);
-    groups.get(ev.start_date).push(ev);
-  }
-  let html="";
-  for(const [d,dayEvents] of groups){
-    const dd=P(d),dow=dd.getDay();
-    const isPast=P(dayEvents[0].end_date||d)<TODAY;
-    const rel=sameDay(dd,TODAY)?`<div class="day-rel">${L.todayTag}</div>`
-            :isPast?`<div class="day-rel">${L.ended}</div>`:"";
-    html+=`<section class="day"><div class="day-head">
-      <div class="day-num">${dd.getMonth()+1}.${dd.getDate()}</div>
-      <div class="day-dow ${dow===6?"sat":dow===0?"sun":""}">${L.dow[dow]}${lang==="ja"?"曜日":""}</div>${rel}
-    </div><div class="cards">`;
-    for(const ev of dayEvents){
-      const V=VENUES[ev.source];
-      const past=P(ev.end_date||ev.start_date)<TODAY;
-      const times=ev.open_time||ev.start_time
-        ?`${ev.open_time?`<div class="t-label">${L.open}</div><div class="t-time">${ev.open_time}</div>`:""}
-          ${ev.start_time?`<div class="t-label">${L.start}</div><div class="t-time">${ev.start_time}</div>`:""}`
-        :`<div class="t-none">${L.tbd}</div>`;
-      const price=ev.is_free?`<span class="price">${L.free}</span>`
-        :ev.price_min?`<span class="price">${L.from(ev.price_min)}</span>`:"";
-      const gtags=(ev.genres||[]).map(g=>`<span class="g-tag">${L.genres[g]||g}</span>`).join("");
-      const multi=ev.end_date&&ev.end_date!==ev.start_date
-        ?`<div class="multiday">${L.multi(L.dayfmt(P(ev.start_date)),L.dayfmt(P(ev.end_date)))}</div>`:"";
-      const title=lang==="en"?(ev.title_en||ev.title_ja):(ev.title_ja||ev.title_en);
-      html+=`<article class="card ${past?"past":""}">
-        <div class="stub">${times}</div>
-        <div class="body">
-          <div class="title">${esc(title||"")}</div>
-          ${ev.subtitle?`<div class="subtitle">${esc(ev.subtitle)}</div>`:""}
-          ${multi}
-          <div class="meta">
-            <span class="venue-tag">${dot(ev.source)}${esc(V.name)}</span>
-            <span class="area">${esc(V.area)}</span>
-            ${price}${gtags}${ticketBadges(ev)}
-            <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${L.details}</a>
-          </div>
-          ${(ev.lineup||[]).length?`<div class="lineup">${esc(ev.lineup.join(" / "))}</div>`:""}
-        </div>
-        ${ev.is_sold_out?`<div class="stamp">${L.sold}</div>`:""}
-      </article>`;
-    }
-    html+=`</div></section>`;
-  }
-  list.innerHTML=html;
+  list.innerHTML=dayGroupsHtml(evs);
 }
 function renderStrip(){
   const L=I18N[lang];
@@ -396,6 +476,47 @@ function renderStrip(){
   parts.push(L.facts);
   strip.innerHTML=parts.join("<br>");
 }
+/* ============================================================ detail pages */
+function renderArtistPage(name){
+  const L=I18N[lang];
+  const list=document.getElementById("list");
+  const evs=DATA.events.filter(ev=>ev.start_date&&evMatchesArtist(ev,name))
+    .sort((a,b)=>a.start_date.localeCompare(b.start_date));
+  const upcoming=evs.filter(ev=>P(ev.end_date||ev.start_date)>=TODAY);
+  const genres=[...new Set(evs.flatMap(e=>e.genres||[]))];
+  const venues=[...new Set(evs.map(e=>e.source))];
+  list.innerHTML=`<div class="detail-head">
+      <h2>${esc(name)}</h2>
+      <div class="detail-sub">
+        ${genres.map(g=>`<span class="g-tag">${L.genres[g]||g}</span>`).join("")}
+        <span>${L.artistShows(upcoming.length)}</span>
+        <span>${L.playsAt}:</span>
+        ${venues.map(id=>`<span class="venue-tag alink" data-venue-link="${esc(id)}" style="font-size:12px">${dot(id)}${esc(VENUES[id].name)}</span>`).join("")}
+      </div>
+      <a class="back-btn alink" data-back="1">${L.back}</a>
+    </div>`+dayGroupsHtml(upcoming.length?upcoming:evs);
+  document.getElementById("count").textContent=L.count(evs.length);
+}
+function renderVenuePage(id){
+  const L=I18N[lang];
+  const list=document.getElementById("list");
+  const V=VENUES[id];
+  if(!V){list.innerHTML=`<div class="empty">${L.empty}</div>`;return;}
+  const evs=DATA.events.filter(ev=>ev.source===id&&ev.start_date)
+    .sort((a,b)=>a.start_date.localeCompare(b.start_date));
+  const upcoming=evs.filter(ev=>P(ev.end_date||ev.start_date)>=TODAY);
+  const sample=evs.find(e=>e.address);
+  list.innerHTML=`<div class="detail-head">
+      <h2>${dot(id)} ${esc(V.name)}</h2>
+      <div class="detail-sub">
+        <span>${esc(V.area)}</span>
+        ${sample?`<span>${esc(sample.address)}</span>`:""}
+        <span>${L.venueShows(upcoming.length)}</span>
+      </div>
+      <a class="back-btn alink" data-back="1">${L.back}</a>
+    </div>`+dayGroupsHtml(upcoming);
+  document.getElementById("count").textContent=L.count(upcoming.length);
+}
 function render(){
   const L=I18N[lang];
   document.documentElement.lang=lang;
@@ -408,10 +529,16 @@ function render(){
     b.setAttribute("aria-pressed",b.dataset.when===when);
   });
   document.getElementById("search").placeholder=L.search;
+  document.getElementById("expand-all").textContent=L.expandAll;
+  document.getElementById("collapse-all").textContent=L.collapseAll;
   document.getElementById("btn-ja").setAttribute("aria-pressed",lang==="ja");
   document.getElementById("btn-en").setAttribute("aria-pressed",lang==="en");
   renderStrip();
   if(!DATA) return;
+  const route=parseRoute();
+  document.getElementById("filters").hidden=!!route;
+  if(route&&route.artist){renderArtistPage(route.artist);return;}
+  if(route&&route.venue){renderVenuePage(route.venue);return;}
   renderGenreChips();
   renderVenueChips();
   renderList();
@@ -425,6 +552,27 @@ document.querySelectorAll("[data-when]").forEach(b=>{
 document.getElementById("search").addEventListener("input",e=>{
   query=e.target.value.trim().toLowerCase();renderList();
 });
+document.getElementById("expand-all").onclick=()=>{collapsedDays.clear();render();};
+document.getElementById("collapse-all").onclick=()=>{
+  for(const ev of DATA?DATA.events.filter(matches):[]) collapsedDays.add(ev.start_date);
+  render();
+};
+/* delegation: artist links, venue links, day collapse, back buttons */
+document.getElementById("list").addEventListener("click",e=>{
+  const back=e.target.closest("[data-back]");
+  if(back){history.length>1?history.back():(location.hash="");return;}
+  const a=e.target.closest("[data-artist]");
+  if(a){location.hash=artistHash(a.dataset.artist);return;}
+  const v=e.target.closest("[data-venue-link]");
+  if(v){location.hash=venueHash(v.dataset.venueLink);return;}
+  const d=e.target.closest("[data-toggle-day]");
+  if(d){const day=d.dataset.toggleDay;
+    collapsedDays.has(day)?collapsedDays.delete(day):collapsedDays.add(day);
+    d.closest(".day").classList.toggle("collapsed");
+    d.setAttribute("aria-expanded",!collapsedDays.has(day));
+  }
+});
+window.addEventListener("hashchange",render);
 
 render();
 load();

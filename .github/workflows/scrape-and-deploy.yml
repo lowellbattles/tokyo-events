@@ -45,6 +45,8 @@ jobs:
           python cli.py scrape $FLAGS
 
       - name: Export public feed
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # optional: LLM genre tagging
         run: python cli.py export site/public.json
 
       - name: Commit updated data back to repo
