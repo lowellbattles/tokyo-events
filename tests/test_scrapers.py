@@ -465,3 +465,21 @@ def test_yokohama_arena_marks_nonmusic_rows_other(tmp_path):
     by_date = {e.start_date: e for e in evs}
     assert by_date["2099-08-20"].category.value == "other"
     assert by_date["2099-08-21"].category.value == "music"
+
+
+# --------------------------------------------------- response encoding
+def test_pick_encoding_prefers_declared_over_detection():
+    from tokyo_events.scrapers.base import pick_encoding
+    head = b'<html><head><meta charset="utf-8"></head>'
+    # detection says cyrillic (the toyosu mojibake incident) but the
+    # document declares utf-8 -> declaration wins
+    assert pick_encoding("text/html", head, "windows-1251", "ISO-8859-1") \
+        == "utf-8"
+    # header charset short-circuits everything
+    assert pick_encoding("text/html; charset=Shift_JIS", head,
+                         "windows-1251", "shift_jis") == "shift_jis"
+    # nothing declared -> detection
+    assert pick_encoding("text/html", b"<html>", "utf-8", None) == "utf-8"
+    # bogus meta charset -> detection
+    assert pick_encoding("text/html", b'<meta charset="notreal">',
+                         "utf-8", None) == "utf-8"

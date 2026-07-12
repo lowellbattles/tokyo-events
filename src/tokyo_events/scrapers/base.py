@@ -22,6 +22,8 @@ Etiquette rules for all scrapers in this project:
 
 from __future__ import annotations
 
+import codecs
+import re
 import time
 from abc import ABC, abstractmethod
 from typing import Iterable
@@ -36,6 +38,25 @@ USER_AGENT = (
     "TokyoEventsAggregator/0.1 (+contact: lowellbattles@gmail.com) "
     "python-requests"
 )
+
+_META_CHARSET_RE = re.compile(rb"charset=[\"']?([A-Za-z0-9_.:-]+)", re.I)
+
+
+def pick_encoding(content_type: str, head: bytes,
+                  apparent: str | None, declared: str | None) -> str | None:
+    """Decide a response's text encoding. Trust an explicitly declared
+    charset (HTTP header, then <meta>) and only fall back to charset
+    DETECTION when nothing is declared — chardet occasionally misreads
+    CJK pages as Cyrillic, which once mojibake'd a whole scrape."""
+    if "charset=" in content_type.lower():
+        return declared                    # requests parsed the header
+    m = _META_CHARSET_RE.search(head)
+    if m:
+        try:
+            return codecs.lookup(m.group(1).decode("ascii")).name
+        except (LookupError, UnicodeDecodeError):
+            pass
+    return apparent or declared
 
 
 class BaseScraper(ABC):
@@ -64,7 +85,10 @@ class BaseScraper(ABC):
                 resp = self.session.get(url, timeout=20)
                 self._last_request = time.time()
                 resp.raise_for_status()
-                resp.encoding = resp.apparent_encoding or resp.encoding
+                resp.encoding = pick_encoding(
+                    resp.headers.get("Content-Type", ""),
+                    resp.content[:4096],
+                    resp.apparent_encoding, resp.encoding)
                 return resp.text
             except requests.RequestException as e:  # pragma: no cover
                 last_err = e
