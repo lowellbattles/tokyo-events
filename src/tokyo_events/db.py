@@ -177,6 +177,7 @@ class EventStore:
         out: list[Event] = []
         rows = self.conn.execute(
             "SELECT data FROM events WHERE source=? AND status!='rejected' "
+            "AND category!='other' "         # don't spend fetches on non-music
             "AND start_date>=date('now') ORDER BY start_date", (source,))
         for row in rows:
             d = json.loads(row["data"])

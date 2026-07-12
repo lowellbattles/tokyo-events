@@ -402,9 +402,11 @@ def test_pipeline_drains_detail_backlog_when_unchanged(tmp_path, monkeypatch):
     from tokyo_events import pipeline
     from tokyo_events.scrapers.base import BaseScraper
 
+    from tokyo_events.models import Category
+
     def _bare():
         return Event(source="dummy", source_url="https://d/1", title_ja="A",
-                     start_date="2099-01-01")
+                     category=Category.MUSIC, start_date="2099-01-01")
 
     class DummyScraper(BaseScraper):
         source_id = "dummy"
