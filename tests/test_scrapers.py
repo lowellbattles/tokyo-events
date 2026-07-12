@@ -179,7 +179,8 @@ def test_toyosu_parses_events_and_infers_year():
                _load("toyosu_schedule.html"), today=TODAY)}
     assert len(evs) == 3
     e = evs["8554.html"]
-    assert e.title_ja == "CHEHON"
+    assert e.title_ja == 'CHEHON ONEMAN LIVE 2026 "KING OF STAGE"'
+    assert e.lineup == ["CHEHON"]           # artist heading -> lineup
     assert e.start_date == "2026-07-03"     # URL says 202606; text wins
     assert evs["8441.html"].source_url.startswith("https://toyosu.pia-pit.jp/")
     assert evs["8441.html"].open_time == "17:00"
@@ -203,3 +204,48 @@ def test_pia_arena_fields():
     # doubled title collapses: "MyGO!!!!! MyGO!!!!! 9th LIVE"
     assert evs["6217.html"].title_ja == "MyGO!!!!!"
     assert "9th LIVE" in (evs["6217.html"].subtitle or "")
+
+
+# ------------------------------------------- live captures (2026-07-12)
+# Raw HTML saved from the real sites on first live validation. These pin
+# the formats that broke the rendered-capture parsers: O-Group "07 / 01
+# WED" spaced dates, Toyosu/Pia relative hrefs, Toyosu artist-in-heading.
+LIVE_TODAY = dt.date(2026, 7, 12)
+
+
+def test_ogroup_live_page_parses():
+    evs = {e.source_url.rstrip("/").split("/")[-1]: e
+           for e in OGroupScraper("oeast").parse(
+               _load("ogroup_east_live.html"), today=LIVE_TODAY)}
+    assert len(evs) == 35
+    e = evs["snowdrop-japan-tour-2026"]
+    assert "Snowdrop" in e.title_ja
+    assert e.start_date == "2026-07-03"     # "07 / 03 FRI" spaced format
+    assert (e.open_time, e.start_time) == ("18:00", "19:00")
+    assert evs["never-ending-homies"].is_sold_out
+
+
+def test_toyosu_live_list_parses():
+    evs = {e.source_url.split("/")[-1]: e
+           for e in ToyosuPitScraper().parse(
+               _load("toyosu_list_live.html"), today=LIVE_TODAY)}
+    assert len(evs) == 12
+    e = evs["8554.html"]
+    # "../schedule/202606/8554.html" relative href joined correctly
+    assert e.source_url == "https://toyosu.pia-pit.jp/schedule/202606/8554.html"
+    assert e.title_ja == 'CHEHON ONEMAN LIVE 2026 "KING OF STAGE"'
+    assert e.lineup == ["CHEHON"]
+    assert e.start_date == "2026-07-03"
+
+
+def test_pia_arena_live_month_parses():
+    evs = {e.source_url.split("/")[-1]: e
+           for e in PiaArenaMMScraper().parse(
+               _load("pia_arena_month_live.html"), month=dt.date(2026, 7, 1))}
+    assert len(evs) == 12                   # PRIVATE hall-rental days skipped
+    assert not any("PRIVATE" in (e.title_ja or "") for e in evs.values())
+    # "event/6924.html" relative href joined correctly
+    e = evs["6924.html"]
+    assert e.source_url == "https://pia-arena-mm.jp/event/6924.html"
+    assert e.title_ja == "日向坂46 五期生 LIVE"
+    assert e.start_date == "2026-07-15"

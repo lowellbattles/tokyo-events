@@ -4,10 +4,12 @@ Both are run by PIA Corporation but on *different* site generations
 (hypothesis of a shared platform was wrong — verified 2026-07-02):
 
 Toyosu PIT — https://toyosu.pia-pit.jp
-  Listing links: /schedule/{YYYYMM}/{id}.html  (YYYYMM = posting month,
-  NOT the event month, so dates come from block text + year inference).
-  Listing text: "M.D DAY  TITLE ..." — no times/prices on the index,
-  the detail pass fills them.
+  Full listing lives at /schedule-list/index.html with relative links
+  ../schedule/{YYYYMM}/{id}.html (YYYYMM = posting month, NOT the event
+  month, so dates come from block text + year inference). The front page
+  only carries a slider with a reversed "DAY M.D TITLE" format — don't
+  scrape it. Listing text: "MM.DD DAY TITLE ..." — no times/prices on
+  the index, the detail pass fills them.
 
 Pia Arena MM — https://pia-arena-mm.jp
   Month pages: /event@p1={YYYY}&p2={MM}.html
@@ -21,6 +23,7 @@ from __future__ import annotations
 import datetime as dt
 import re
 from typing import Iterable
+from urllib.parse import urljoin
 
 from bs4 import BeautifulSoup
 
@@ -36,24 +39,42 @@ class ToyosuPitScraper(BaseScraper):
     source_id = "toyosu_pit"
     source_name = "Toyosu PIT"
     BASE = "https://toyosu.pia-pit.jp"
-    HREF_RE = re.compile(r"/schedule/\d{6}/\d+\.html$")
+    LIST_URL = "https://toyosu.pia-pit.jp/schedule-list/index.html"
+    # Live links are relative ("../schedule/202605/8527.html"), so no
+    # leading-slash anchor; (?:^|/) keeps e.g. "reschedule/" from matching.
+    HREF_RE = re.compile(r"(?:^|/)schedule/\d{6}/\d+\.html$")
     VENUE = dict(venue_name="Toyosu PIT", venue_area="Toyosu",
                  address="6-1-23 Toyosu, Koto-ku, Tokyo",
                  lat=35.649623, lng=139.792071)
 
-    def scrape(self) -> Iterable[Event]:
-        yield from self.parse(self.fetch(f"{self.BASE}/"))
+    def __init__(self, months_ahead: int = 3, **kw):
+        super().__init__(**kw)
+        self.months_ahead = months_ahead
 
-    def parse(self, html: str, today: dt.date | None = None, **context
-              ) -> list[Event]:
+    def scrape(self) -> Iterable[Event]:
+        yield from self.parse(self.fetch(self.LIST_URL))
+        # Future months live at /schedule-list/{YYYY}/{M}/index.html
+        # (month not zero-padded). A missing far-future page is normal,
+        # not a structure failure — stop quietly there.
+        first = dt.date.today().replace(day=1)
+        for i in range(1, self.months_ahead):
+            m = _add_months(first, i)
+            url = f"{self.BASE}/schedule-list/{m.year}/{m.month}/index.html"
+            try:
+                html = self.fetch(url)
+            except RuntimeError:
+                break
+            yield from self.parse(html, page_url=url)
+
+    def parse(self, html: str, today: dt.date | None = None,
+              page_url: str | None = None, **context) -> list[Event]:
+        page_url = page_url or self.LIST_URL
         soup = BeautifulSoup(html, "lxml")
         events: dict[str, Event] = {}
         for a in soup.find_all("a", href=True):
             if not self.HREF_RE.search(a["href"]):
                 continue
-            url = a["href"]
-            if url.startswith("/"):
-                url = self.BASE + url
+            url = urljoin(page_url, a["href"])
             text = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
             block = a
             if not tu.parse_date(text, today):
@@ -71,20 +92,27 @@ class ToyosuPitScraper(BaseScraper):
         date = tu.parse_date(text, today)
         if not date:
             return None
+        # Card text reads "MM.DD DAY  EVENT TITLE  ARTIST"; the heading
+        # element holds the ARTIST (not the title), so strip it off the
+        # tail and keep it as lineup.
         heading = block.find(["h1", "h2", "h3", "h4", "h5"])
-        if heading and heading.get_text(strip=True):
-            title = re.sub(r"\s+", " ", heading.get_text(" ", strip=True))
-        else:
-            head = _MMDD_DAY_RE.sub("", text)
-            head = re.split(r"OPEN|開場", head, maxsplit=1)[0]
-            title, _ = tu.split_repeated_title(head.strip())
+        artist = (re.sub(r"\s+", " ", heading.get_text(" ", strip=True))
+                  if heading else None)
+        head = _MMDD_DAY_RE.sub("", text)
+        head = re.split(r"OPEN|開場", head, maxsplit=1)[0].strip()
+        if artist and head.endswith(artist) and head != artist:
+            head = head[: -len(artist)].strip()
+        title, subtitle = tu.split_repeated_title(head)
+        if not title:
+            title = artist
         if not title:
             return None
         open_time, start_time = tu.parse_times(text)
         return Event(
             source=self.source_id, source_url=url, title_ja=title,
-            category=Category.MUSIC, start_date=date,
+            subtitle=subtitle, category=Category.MUSIC, start_date=date,
             open_time=open_time, start_time=start_time,
+            lineup=[artist] if artist and artist != title else [],
             is_sold_out=bool(tu.SOLD_OUT_RE.search(text)), **self.VENUE,
         )
 
@@ -93,7 +121,8 @@ class PiaArenaMMScraper(BaseScraper):
     source_id = "pia_arena_mm"
     source_name = "ぴあアリーナMM"
     BASE = "https://pia-arena-mm.jp"
-    HREF_RE = re.compile(r"/event/\d+\.html$")
+    # Live links are relative ("event/6690.html") — no leading slash.
+    HREF_RE = re.compile(r"(?:^|/)event/\d+\.html$")
     VENUE = dict(venue_name="ぴあアリーナMM", venue_area="Minatomirai",
                  address="3-2-2 Minatomirai, Nishi-ku, Yokohama",
                  lat=35.460199, lng=139.628839)
@@ -116,9 +145,7 @@ class PiaArenaMMScraper(BaseScraper):
         for a in soup.find_all("a", href=True):
             if not self.HREF_RE.search(a["href"]):
                 continue
-            url = a["href"]
-            if url.startswith("/"):
-                url = self.BASE + url
+            url = urljoin(f"{self.BASE}/", a["href"])
             text = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
             m = _MMDD_DAY_RE.match(text)
             if not m:

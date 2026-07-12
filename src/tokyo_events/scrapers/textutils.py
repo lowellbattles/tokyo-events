@@ -17,7 +17,7 @@ START_RE = re.compile(r"\[?START[\]】\s:]*(\d{1,2}:\d{2})", re.I)
 YEN_RE = re.compile(r"[¥￥]\s*([\d,，]+)")
 FULL_DATE_RE = re.compile(r"(20\d{2})[./年\s]{1,2}(\d{1,2})[./月\s]{1,2}(\d{1,2})")
 MONTH_DAY_RE = re.compile(
-    r"(\d{1,2})[./](\d{1,2})\s*[(（]?(sun|mon|tue|wed|thu|fri|sat|日|月|火|水|木|金|土)",
+    r"(\d{1,2})\s*[./]\s*(\d{1,2})\s*[(（]?(sun|mon|tue|wed|thu|fri|sat|日|月|火|水|木|金|土)",
     re.I,
 )
 SOLD_OUT_RE = re.compile(r"SOLD\s*OUT|ソールドアウト|完売", re.I)
