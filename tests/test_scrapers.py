@@ -339,6 +339,19 @@ def test_loft_and_shelter_parse_with_variant_hrefs():
     assert (red.start_date, red.open_time) == ("2026-07-12", "12:00")
 
 
+def test_yokohama_arena_json_feed():
+    from tokyo_events.scrapers.yokohama_arena import YokohamaArenaScraper
+    evs = YokohamaArenaScraper().parse(_load("yokohama_arena_202607.json"))
+    assert len(evs) == 19
+    e = evs[0]
+    assert e.title_ja.startswith("We're timelesz")
+    assert e.lineup == ["timelesz"]
+    assert (e.start_date, e.open_time, e.start_time) == \
+        ("2026-07-01", "11:30", "12:30")   # first stage of ①② pair
+    assert e.source_url.endswith("#2026-07-01")   # per-day uniqueness
+    assert e.ticket_url and e.ticket_url.startswith("http")
+
+
 def test_pia_arena_live_month_parses():
     evs = {e.source_url.split("/")[-1]: e
            for e in PiaArenaMMScraper().parse(

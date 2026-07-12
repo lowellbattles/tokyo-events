@@ -93,9 +93,16 @@ parameter — likely the easiest multi-venue win. Strong genre prior
 | 日本武道館 | Kudanshita | 📋 | **use official site, not japanconcerttickets.com** (third-party aggregator — conflicts with our facts-from-source principle; official schedule incl. martial arts events, filter by type) |
 | Tokyo Garden Theater | Ariake | 📋 | user list URL works |
 | Tokyo Dome | Suidōbashi | 📋 | official EN schedule page |
+| Yokohama Arena | Yokohama | ✅ | own JSON API: /event/{YYYYMM}?_format=json — built 2026-07-12 |
 | 有明アリーナ (Ariake Arena) | Ariake | 🔍 | *added — 15,000 cap* |
 | TOYOTA ARENA TOKYO | Odaiba | 🔍 | *added — opened late 2025, 10,000 cap; growing K-pop/major bookings* |
-| Yokohama Arena | Yokohama | 📋 | |
+**Step-4 probe notes (2026-07-12):** Tokyo Dome schedule page is
+JS-rendered (no event content in static HTML) — needs its data endpoint
+found. Budokan homepage only links martial-arts programs; the concert
+calendar needs separate discovery + type filtering. LINE CUBE /event/,
+K-Arena /event/, Hulic /schedule/ all 404 — correct paths TBD.
+tokyo-gardentheater.jp does not resolve — find the real domain.
+Bunkamura Orchard: no event links on top page (renovation era).
 | K-Arena Yokohama | Yokohama | 📋 | EN schedule exists |
 | 国立代々木競技場 第一体育館 | Harajuku | 🔍 | *added* |
 | 国立競技場（MUFGスタジアム） | Sendagaya | 🔍 | user add — former National Stadium, now under MUFG naming rights; stadium-class concerts (alias field again) |
