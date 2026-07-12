@@ -56,6 +56,9 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add events.db site/public.json
           git diff --cached --quiet || git commit -m "data: daily scrape $(date -u +%F)"
+          # main may have moved during the (long) scrape — rebase our
+          # data commit on top instead of failing the push
+          git pull --rebase origin main
           git push
 
       - name: File issue if any scraper errored
