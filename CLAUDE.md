@@ -61,6 +61,10 @@ page; the site holds ~12 months).
    `tests/fixtures/` (raw HTML saved from the live site, UTF-8!) and
    passing tests. Parse steps are pure functions — iterate offline.
    `python -m pytest tests/ -q` must stay green before any commit.
+   **Scrub captured HTML before committing**: venue pages embed their
+   own API keys (Google Maps etc.) — grep fixtures for `AIza`/token
+   patterns and replace with `...-REDACTED` (GitHub secret scanning
+   flags them otherwise; happened 2026-07-12 with www_schedule_live).
 5. **Schema changes** to Event/DB: update `models.py`, keep `to_json()`
    in sync with what `site/index.html` reads, and note the change —
    the frontend and feed contract move together.
