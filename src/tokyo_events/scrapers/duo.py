@@ -51,7 +51,7 @@ class DuoScraper(BaseScraper):
     def scrape(self) -> Iterable[Event]:
         first = dt.date.today().replace(day=1)
         for i in range(self.months_ahead):
-            m = _add_months(first, i)
+            m = tu.add_months(first, i)
             try:
                 html = self.fetch(self.month_url(m))
             except RuntimeError:
@@ -112,8 +112,3 @@ class DuoScraper(BaseScraper):
             if ev.source_url not in events:
                 events[ev.source_url] = ev
         return list(events.values())
-
-
-def _add_months(d: dt.date, n: int) -> dt.date:
-    y, m = divmod(d.month - 1 + n, 12)
-    return d.replace(year=d.year + y, month=m + 1)

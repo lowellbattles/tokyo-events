@@ -77,6 +77,13 @@ def infer_year(month: int, day: int, today: dt.date | None = None) -> str | None
     return None
 
 
+def add_months(d: dt.date, n: int) -> dt.date:
+    """Month arithmetic for month-page pagination (day preserved as d.day
+    only when valid; callers normally pass a first-of-month date)."""
+    y, m = divmod(d.month - 1 + n, 12)
+    return d.replace(year=d.year + y, month=m + 1)
+
+
 def parse_date(text: str, today: dt.date | None = None) -> str | None:
     """Extract the first plausible event date from a block of text."""
     m = FULL_DATE_RE.search(text)

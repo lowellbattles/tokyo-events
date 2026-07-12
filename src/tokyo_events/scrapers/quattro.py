@@ -60,7 +60,7 @@ class QuattroScraper(BaseScraper):
         base = f"{self.BASE}/{self.hall['slug']}/schedule/"
         yield from self.parse(self.fetch(base), month=first)
         for i in range(1, self.months_ahead):
-            m = _add_months(first, i)
+            m = tu.add_months(first, i)
             try:
                 html = self.fetch(f"{base}?ym={m.year}{m.month:02d}")
             except RuntimeError:
@@ -146,8 +146,3 @@ class QuattroScraper(BaseScraper):
             address=self.hall["address"],
             lat=self.hall["lat"], lng=self.hall["lng"],
         )
-
-
-def _add_months(d: dt.date, n: int) -> dt.date:
-    y, m = divmod(d.month - 1 + n, 12)
-    return d.replace(year=d.year + y, month=m + 1)

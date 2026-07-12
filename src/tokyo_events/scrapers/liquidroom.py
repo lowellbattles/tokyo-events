@@ -43,7 +43,7 @@ class LiquidroomScraper(BaseScraper):
     def scrape(self) -> Iterable[Event]:
         today = dt.date.today().replace(day=1)
         for i in range(self.months_ahead):
-            month = _add_months(today, i)
+            month = tu.add_months(today, i)
             html = self.fetch(f"{self.BASE}/schedule/{month:%Y/%m}")
             yield from self.parse(html)
 
@@ -106,8 +106,3 @@ class LiquidroomScraper(BaseScraper):
             is_sold_out=bool(tu.SOLD_OUT_RE.search(text)),
             lineup=lineup, **self.VENUE,
         )
-
-
-def _add_months(d: dt.date, n: int) -> dt.date:
-    y, m = divmod(d.month - 1 + n, 12)
-    return d.replace(year=d.year + y, month=m + 1)

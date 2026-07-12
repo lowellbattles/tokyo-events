@@ -66,7 +66,7 @@ class BillboardScraper(BaseScraper):
     def scrape(self) -> Iterable[Event]:
         first = dt.date.today().replace(day=1)
         for i in range(self.months_ahead):
-            month = _add_months(first, i)
+            month = tu.add_months(first, i)
             url = (f"{self.BASE}/{self.club['city']}/schedules"
                    f"?month={month:%Y-%m-01}")
             yield from self.parse(self.fetch(url))
@@ -128,8 +128,3 @@ class BillboardScraper(BaseScraper):
             address=self.club["address"],
             lat=self.club["lat"], lng=self.club["lng"],
         )
-
-
-def _add_months(d: dt.date, n: int) -> dt.date:
-    y, m = divmod(d.month - 1 + n, 12)
-    return d.replace(year=d.year + y, month=m + 1)

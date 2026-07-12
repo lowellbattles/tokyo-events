@@ -59,7 +59,7 @@ class WWWScraper(BaseScraper):
         yield from self.parse(self.fetch(f"{self.BASE}/schedule/"),
                               month=first)
         for i in range(1, self.months_ahead):
-            m = _add_months(first, i)
+            m = tu.add_months(first, i)
             try:
                 html = self.fetch(
                     f"{self.BASE}/schedule/{m.year}{m.month:02d}.php")
@@ -142,8 +142,3 @@ class WWWScraper(BaseScraper):
             is_sold_out=bool(tu.SOLD_OUT_RE.search(text)),
             venue_name=self.hall["venue_name"], **VENUE_COMMON,
         )
-
-
-def _add_months(d: dt.date, n: int) -> dt.date:
-    y, m = divmod(d.month - 1 + n, 12)
-    return d.replace(year=d.year + y, month=m + 1)

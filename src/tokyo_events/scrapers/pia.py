@@ -58,7 +58,7 @@ class ToyosuPitScraper(BaseScraper):
         # not a structure failure — stop quietly there.
         first = dt.date.today().replace(day=1)
         for i in range(1, self.months_ahead):
-            m = _add_months(first, i)
+            m = tu.add_months(first, i)
             url = f"{self.BASE}/schedule-list/{m.year}/{m.month}/index.html"
             try:
                 html = self.fetch(url)
@@ -134,7 +134,7 @@ class PiaArenaMMScraper(BaseScraper):
     def scrape(self) -> Iterable[Event]:
         first = dt.date.today().replace(day=1)
         for i in range(self.months_ahead):
-            month = _add_months(first, i)
+            month = tu.add_months(first, i)
             url = f"{self.BASE}/event@p1={month.year}&p2={month:%m}.html"
             yield from self.parse(self.fetch(url), month=month)
 
@@ -174,8 +174,3 @@ class PiaArenaMMScraper(BaseScraper):
             if ev.source_url not in events:
                 events[ev.source_url] = ev
         return list(events.values())
-
-
-def _add_months(d: dt.date, n: int) -> dt.date:
-    y, m = divmod(d.month - 1 + n, 12)
-    return d.replace(year=d.year + y, month=m + 1)

@@ -20,6 +20,7 @@ from typing import Iterable
 
 from ..models import Category, Event
 from .base import BaseScraper
+from . import textutils as tu
 
 VENUE = dict(venue_name="横浜アリーナ", venue_area="Shin-Yokohama",
              address="3-10 Shinyokohama, Kohoku-ku, Yokohama",
@@ -42,7 +43,7 @@ class YokohamaArenaScraper(BaseScraper):
     def scrape(self) -> Iterable[Event]:
         first = dt.date.today().replace(day=1)
         for i in range(self.months_ahead):
-            m = _add_months(first, i)
+            m = tu.add_months(first, i)
             url = f"{self.BASE}/event/{m.year}{m.month:02d}?_format=json"
             try:
                 raw = self.fetch(url)
@@ -90,8 +91,3 @@ def _first_time(vals) -> str | None:
         if m:
             return m.group(1)
     return None
-
-
-def _add_months(d: dt.date, n: int) -> dt.date:
-    y, m = divmod(d.month - 1 + n, 12)
-    return d.replace(year=d.year + y, month=m + 1)
