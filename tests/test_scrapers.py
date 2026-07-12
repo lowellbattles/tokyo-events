@@ -238,6 +238,71 @@ def test_toyosu_live_list_parses():
     assert e.start_date == "2026-07-03"
 
 
+# ------------------------------------- roadmap step-3 families (live 2026-07-12)
+from tokyo_events.scrapers.quattro import QuattroScraper
+from tokyo_events.scrapers.www import WWWScraper
+from tokyo_events.scrapers.duo import DuoScraper
+from tokyo_events.scrapers.loft import LoftScraper
+
+JUL = dt.date(2026, 7, 1)
+
+
+def test_quattro_parses_month_and_keeps_query_ids():
+    evs = QuattroScraper("quattro_shibuya").parse(
+        _load("quattro_shibuya_live.html"), month=JUL)
+    assert len(evs) == 33
+    e = next(e for e in evs if "JUDA" in e.title_ja)
+    assert e.source_url.endswith("/shibuya/schedule/detail/?cd=018163")
+    assert e.start_date == "2026-07-01"
+    assert (e.open_time, e.start_time) == ("16:45", "17:30")  # 開場/開演
+    assert e.price_min == 5800                                # 前売 tier
+    assert "SEX MACHINEGUNS" in e.lineup
+
+
+def test_www_splits_halls_and_open_start_pairs():
+    www_list = WWWScraper("www").parse(
+        _load("www_schedule_live.html"), month=JUL)
+    wwwx_list = WWWScraper("www_x").parse(
+        _load("www_schedule_live.html"), month=JUL)
+    assert len(www_list) == 28 and len(wwwx_list) == 28
+    www = {e.start_date: e for e in www_list}
+    wwwx = {e.start_date: e for e in wwwx_list}
+    assert www["2026-07-01"].title_ja == "PRSMIN / キングサリ"
+    assert wwwx["2026-07-01"].title_ja == "OXXXYMIRON"
+    # "OPEN / START 18:30 / 19:30" = two distinct times, not one
+    assert (wwwx["2026-07-01"].open_time,
+            wwwx["2026-07-01"].start_time) == ("18:30", "19:30")
+    assert wwwx["2026-07-01"].venue_name == "WWW X"
+
+
+def test_duo_month_page_events_and_price_zones():
+    evs = {e.source_url.split("#")[-1]: e
+           for e in DuoScraper().parse(_load("duo_month_live.html"),
+                                       month=JUL)}
+    assert len(evs) == 27
+    e = evs["260701"]
+    assert (e.title_ja, e.subtitle) == ("XY", "UNTITLED")
+    assert (e.open_time, e.start_time) == ("18:00", "19:00")
+    assert e.price_min == 7700
+    # drink charge (¥600) must not leak into price_min
+    assert evs["260704"].price_min == 6000
+
+
+def test_loft_and_shelter_parse_with_variant_hrefs():
+    loft = LoftScraper("loft_shinjuku").parse(
+        _load("loft_live.html"), today=dt.date(2026, 7, 12))
+    shelter = LoftScraper("shelter").parse(
+        _load("shelter_live.html"), today=dt.date(2026, 7, 12))
+    assert len(loft) == 16 and len(shelter) == 22
+    ska = next(e for e in loft if "SKA CRASH" in e.title_ja)
+    assert ska.start_date == "2026-07-12"
+    assert (ska.open_time, ska.start_time) == ("13:30", "14:30")
+    # SHELTER links lack the second /schedule/ segment
+    assert all("/schedule/shelter/" in e.source_url for e in shelter)
+    red = next(e for e in shelter if "REDNECKS" in e.title_ja)
+    assert (red.start_date, red.open_time) == ("2026-07-12", "12:00")
+
+
 def test_pia_arena_live_month_parses():
     evs = {e.source_url.split("/")[-1]: e
            for e in PiaArenaMMScraper().parse(

@@ -24,6 +24,10 @@ from .scrapers.zepp import ZeppScraper
 from .scrapers.ogroup import OGroupScraper
 from .scrapers.billboard import BillboardScraper
 from .scrapers.pia import ToyosuPitScraper, PiaArenaMMScraper
+from .scrapers.quattro import QuattroScraper
+from .scrapers.www import WWWScraper
+from .scrapers.duo import DuoScraper
+from .scrapers.loft import LoftScraper
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -43,6 +47,14 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
                            ReviewStatus.PENDING),
     "toyosu_pit":        (ToyosuPitScraper,                 ReviewStatus.PENDING),
     "pia_arena_mm":      (PiaArenaMMScraper,                ReviewStatus.PENDING),
+    "quattro_shibuya":   (lambda: QuattroScraper("quattro_shibuya"),
+                          ReviewStatus.PENDING),
+    "www":               (lambda: WWWScraper("www"),        ReviewStatus.PENDING),
+    "www_x":             (lambda: WWWScraper("www_x"),      ReviewStatus.PENDING),
+    "duo":               (DuoScraper,                       ReviewStatus.PENDING),
+    "loft_shinjuku":     (lambda: LoftScraper("loft_shinjuku"),
+                          ReviewStatus.PENDING),
+    "shelter":           (lambda: LoftScraper("shelter"),   ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap)

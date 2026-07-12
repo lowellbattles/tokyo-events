@@ -11,6 +11,12 @@ Status: ✅ built · 📋 planned · 🔍 needs scrapeability check
 11 sources total, pending first-run live validation. Venues marked
 "user add" below came from the owner's venue document.
 
+**2026-07-12 update:** All 13 original sources live-validated. Step-3
+tranche BUILT and live-validated: Shibuya CLUB QUATTRO, WWW, WWW X,
+duo MUSIC EXCHANGE, Shinjuku LOFT, 下北沢SHELTER (+6 sources → 19).
+Note: there is NO Kawasaki Club Quattro (hall nav verified live:
+shibuya/umeda/nagoya/hiroshima) — the sister-venue note below was wrong.
+
 ---
 
 ## Family A — Zepp chain (1 scraper → 4 Kanto halls) ✅ built
@@ -40,21 +46,21 @@ Clean unified schedule at billboard-live.com/schedules with a `?today=` date
 parameter — likely the easiest multi-venue win. Strong genre prior
 (jazz/soul/city-pop/international). Osaka hall comes free if geography ever widens.
 
-## Family D — Loft group (1 scraper → 2–3 venues) 🔍
+## Family D — Loft group (1 scraper → 2–3 venues) ✅ built (LOFT + SHELTER)
 | Venue | Area | Notes |
 |---|---|---|
-| Shinjuku LOFT | Kabukichō | legendary punk/rock室; check shared platform |
-| Shimokitazawa SHELTER | Shimokitazawa | indie gateway venue; high cultural value |
-| LOFT9 / Loft Heaven | Shibuya | lower priority |
+| Shinjuku LOFT | Kabukichō | ✅ /schedule/loft/schedule/{id} links |
+| Shimokitazawa SHELTER | Shimokitazawa | ✅ /schedule/shelter/{id} links (variant) |
+| LOFT9 / Loft Heaven | Shibuya | lower priority — not built |
 
 ## Independents — mid-size live houses (1 scraper each) 
 | Venue | Area | Status | Notes |
 |---|---|---|---|
 | LIQUIDROOM | Ebisu | ✅ | built + tested |
 | Toyosu PIT | Toyosu | ✅ data captured | index lacks times → detail-page pass |
-| Shibuya CLUB QUATTRO | Shibuya | 📋 | Parco 8F; Kawasaki sister venue shares platform |
-| duo MUSIC EXCHANGE | Shibuya | 📋 | |
-| WWW / WWW X | Shibuya | 📋 | *added — key indie/electronic venue, Udagawa-chō* |
+| Shibuya CLUB QUATTRO | Shibuya | ✅ | ?ym= month pages; NO Kawasaki hall exists |
+| duo MUSIC EXCHANGE | Shibuya | ✅ | month pages; no detail pages (day anchors) |
+| WWW / WWW X | Shibuya | ✅ | one page, data-place attr splits the halls |
 | Daikanyama UNIT | Daikanyama | 🔍 | *added — club/live hybrid* |
 | EX THEATER ROPPONGI | Roppongi | 🔍 | *added — ~1,700 cap, TV Asahi-run* |
 | Blue Note Tokyo / Cotton Club | Aoyama / Marunouchi | 🔍 | *added — jazz; strengthens genre coverage* |
