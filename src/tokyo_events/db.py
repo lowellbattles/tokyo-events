@@ -72,6 +72,14 @@ CREATE TABLE IF NOT EXISTS event_artists (
 """
 
 
+#: fields the detail pass fills; a listing re-parse that lacks them must not
+#: wipe previously enriched values (a listing-only run would otherwise
+#: clobber them AND make the barer version the stored state, so the event
+#: never re-enriches).
+DETAIL_FILL_FIELDS = ("open_time", "start_time", "price_text", "price_min",
+                      "is_free", "ticket_url", "ticket_links")
+
+
 class EventStore:
     def __init__(self, path: str | Path = "events.db"):
         self.conn = sqlite3.connect(str(path))
@@ -81,12 +89,23 @@ class EventStore:
     # --- ingestion ---------------------------------------------------------
     def upsert(self, ev: Event, default_status: ReviewStatus = ReviewStatus.PENDING
                ) -> str:
-        """Insert or update. Returns 'new' | 'changed' | 'unchanged'."""
+        """Insert or update. Returns 'new' | 'changed' | 'unchanged'.
+
+        On update, detail-pass fields the incoming listing event lacks are
+        merged back in from the stored version (mutating ev), so transient
+        listing gaps neither count as changes nor erase enrichment."""
         now = dt.datetime.now().isoformat(timespec="seconds")
         eid, chash = ev.dedupe_key(), ev.content_hash()
         row = self.conn.execute(
-            "SELECT content_hash, status FROM events WHERE id=?", (eid,)
+            "SELECT content_hash, status, data FROM events WHERE id=?", (eid,)
         ).fetchone()
+
+        if row is not None and row["content_hash"] != chash:
+            stored = json.loads(row["data"])
+            for f in DETAIL_FILL_FIELDS:
+                if getattr(ev, f) in (None, []) and stored.get(f) not in (None, []):
+                    setattr(ev, f, stored[f])
+            chash = ev.content_hash()
 
         if row is None:
             self.conn.execute(
@@ -146,6 +165,28 @@ class EventStore:
             d = json.loads(row["data"])
             d["id"], d["status"] = row["id"], row["status"]
             out.append(d)
+        return out
+
+    def events_needing_detail(self, source: str, exclude_urls: set[str],
+                              limit: int) -> list[Event]:
+        """Upcoming events of a source whose stored data still lacks detail
+        fields (ticket links / start time / price) — the backlog the detail
+        pass drains across runs even when listings are unchanged."""
+        if limit <= 0:
+            return []
+        out: list[Event] = []
+        rows = self.conn.execute(
+            "SELECT data FROM events WHERE source=? AND status!='rejected' "
+            "AND start_date>=date('now') ORDER BY start_date", (source,))
+        for row in rows:
+            d = json.loads(row["data"])
+            if d.get("source_url") in exclude_urls:
+                continue
+            if (not d.get("ticket_links") or d.get("start_time") is None
+                    or d.get("price_min") is None):
+                out.append(Event.from_json(d))
+                if len(out) >= limit:
+                    break
         return out
 
     def source_health(self) -> list[dict]:

@@ -92,6 +92,15 @@ def run(store: EventStore, only: list[str] | None = None,
                         and _needs_detail(ev)):
                     to_enrich.append(ev)
 
+            # Backlog drain: stored events still missing details (e.g. from
+            # runs where the cap was hit, or listing-only runs) get enriched
+            # too, even when today's listing parse reports them unchanged.
+            if fetch_details and scraper.supports_detail:
+                seen = {e.source_url for e in to_enrich}
+                to_enrich.extend(store.events_needing_detail(
+                    source_id, exclude_urls=seen,
+                    limit=DETAIL_CAP - len(to_enrich)))
+
             for ev in to_enrich[:DETAIL_CAP]:
                 try:
                     html = scraper.fetch(ev.source_url)

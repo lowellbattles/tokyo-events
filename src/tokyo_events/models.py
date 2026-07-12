@@ -13,7 +13,7 @@ from __future__ import annotations
 
 import hashlib
 import json
-from dataclasses import dataclass, field, asdict
+from dataclasses import dataclass, field, fields as dc_fields, asdict
 from enum import Enum
 from typing import Optional
 
@@ -98,3 +98,12 @@ class Event:
         d = asdict(self)
         d["category"] = self.category.value
         return d
+
+    @classmethod
+    def from_json(cls, d: dict) -> "Event":
+        """Rebuild an Event from stored JSON (inverse of to_json).
+        Ignores DB-added keys like id/status."""
+        known = {f.name for f in dc_fields(cls)}
+        kwargs = {k: v for k, v in d.items() if k in known}
+        kwargs["category"] = Category(kwargs.get("category") or "other")
+        return cls(**kwargs)

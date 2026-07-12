@@ -363,3 +363,76 @@ def test_pia_arena_live_month_parses():
     assert e.source_url == "https://pia-arena-mm.jp/event/6924.html"
     assert e.title_ja == "日向坂46 五期生 LIVE"
     assert e.start_date == "2026-07-15"
+
+
+# ------------------------------------------- enrichment preservation (db)
+def test_upsert_keeps_detail_fields_when_listing_regresses(tmp_path):
+    store = EventStore(tmp_path / "merge.db")
+    full = Event(source="x", source_url="https://x/1", title_ja="A",
+                 start_date="2099-01-01", start_time="19:00",
+                 price_min=5000, price_text="¥5,000",
+                 ticket_links=[{"provider": "eplus",
+                                "url": "https://eplus.jp/x", "code": None}])
+    assert store.upsert(full) == "new"
+
+    bare = Event(source="x", source_url="https://x/1", title_ja="A",
+                 start_date="2099-01-01")
+    # detail fields merge back in -> nothing actually changed
+    assert store.upsert(bare) == "unchanged"
+    stored = store.list_events()[0]
+    assert stored["start_time"] == "19:00"
+    assert stored["price_min"] == 5000
+    assert stored["ticket_links"]
+
+
+def test_upsert_merge_still_detects_real_changes(tmp_path):
+    store = EventStore(tmp_path / "merge2.db")
+    store.upsert(Event(source="x", source_url="https://x/1", title_ja="A",
+                       start_date="2099-01-01", start_time="19:00"))
+    moved = Event(source="x", source_url="https://x/1", title_ja="A",
+                  start_date="2099-01-02")          # date really moved
+    assert store.upsert(moved) == "changed"
+    stored = store.list_events()[0]
+    assert stored["start_date"] == "2099-01-02"
+    assert stored["start_time"] == "19:00"          # enrichment survives
+
+
+# --------------------------------------------- detail backlog (pipeline)
+def test_pipeline_drains_detail_backlog_when_unchanged(tmp_path, monkeypatch):
+    from tokyo_events import pipeline
+    from tokyo_events.scrapers.base import BaseScraper
+
+    def _bare():
+        return Event(source="dummy", source_url="https://d/1", title_ja="A",
+                     start_date="2099-01-01")
+
+    class DummyScraper(BaseScraper):
+        source_id = "dummy"
+
+        def scrape(self):
+            yield _bare()
+
+        def parse(self, html, **context):
+            return [_bare()]
+
+        def fetch(self, url, retries=2):        # no network in tests
+            return ('<html><body>OPEN 18:00 START 19:00 '
+                    '<p>前売 ¥4,000</p>'
+                    '<a href="https://eplus.jp/sf/x">eplus</a>'
+                    '</body></html>')
+
+    store = EventStore(tmp_path / "backlog.db")
+    assert store.upsert(_bare()) == "new"       # stored, missing details
+
+    monkeypatch.setattr(pipeline, "SCRAPERS",
+                        {"dummy": (DummyScraper, ReviewStatus.PENDING)})
+    report = pipeline.run(store, only=["dummy"])[0]
+
+    # listing parse was 'unchanged', yet the backlog got enriched
+    assert report["error"] is None
+    assert report["unchanged"] == 1
+    assert report["details"] == 1
+    stored = store.list_events()[0]
+    assert (stored["open_time"], stored["start_time"]) == ("18:00", "19:00")
+    assert stored["price_min"] == 4000
+    assert any(l["provider"] == "eplus" for l in stored["ticket_links"])
