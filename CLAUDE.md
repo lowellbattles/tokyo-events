@@ -75,7 +75,15 @@ page; the site holds ~12 months).
 - Japanese text everywhere: if console output garbles, set
   `$env:PYTHONUTF8 = "1"`. Always write/read fixtures as UTF-8
   (`open(..., encoding="utf-8")` explicitly when touching files).
-- `py` and `python` both work; prefer `python`.
+- In Claude Code's shell, `python` resolves to the Microsoft Store stub
+  and `py` is missing — use the full path:
+  `$env:LOCALAPPDATA\Programs\Python\Python312\python.exe` (3.12.10).
+  (In the owner's own terminals, plain `python` works.)
+- gh CLI: `$env:ProgramFiles\GitHub CLI\gh.exe` (new shells have it on
+  PATH). Repo: lowellbattles/tokyo-events, Pages at
+  https://lowellbattles.github.io/tokyo-events/, AUTO_PUBLISH=true.
+- Optional ANTHROPIC_API_KEY repo secret enables LLM genre refinement
+  (genres.py); without it, rule-based tagging runs at export.
 
 ## Validation workflow (per source)
 
