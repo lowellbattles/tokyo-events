@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TOKYO EVENTS — 東京イベント</title>
+<style>
+  :root{
+    --paper:#f5f5f2; --card:#ffffff; --ink:#15171c; --ink-2:#5b606b; --ink-3:#9aa0ac;
+    --line:#e3e3de; --stamp:#c8102e;
+    --f-liquid:#4c5fd5; --f-ogroup:#00a04b; --f-zepp:#0091d4;
+    --f-billboard:#8f2d56; --f-pia:#e4007f; --f-other:#6b7280;
+    --radius:10px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{background:var(--paper);color:var(--ink);
+    font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
+    font-size:15px;line-height:1.5}
+  a{color:inherit}
+  button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
+  :focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
+
+  header{border-bottom:1px solid var(--line);background:var(--card);position:sticky;top:0;z-index:20}
+  .h-inner{max-width:980px;margin:0 auto;padding:14px 20px;display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+  .wordmark{font-weight:800;font-size:19px;letter-spacing:-.02em;white-space:nowrap}
+  .wordmark small{font-weight:500;color:var(--ink-3);font-size:12px;margin-left:8px;letter-spacing:.08em}
+  .tagline{color:var(--ink-2);font-size:12.5px;flex:1;min-width:180px}
+  .lang-toggle{display:inline-flex;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;font-size:12px;font-weight:700;letter-spacing:.05em}
+  .lang-toggle button{padding:4px 13px;color:var(--ink-2)}
+  .lang-toggle button[aria-pressed="true"]{background:var(--ink);color:var(--card)}
+
+  .filters{max-width:980px;margin:0 auto;padding:16px 20px 6px}
+  .f-row{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:10px}
+  .f-label{font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--ink-3);text-transform:uppercase;min-width:66px}
+  .chip{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:5px 13px;font-size:13px;font-weight:600;color:var(--ink-2);transition:border-color .12s,color .12s}
+  .chip:hover{border-color:var(--ink-2)}
+  .chip[aria-pressed="true"]{background:var(--ink);color:var(--card);border-color:var(--ink)}
+  .v-chip{display:inline-flex;align-items:center;gap:7px;padding:5px 12px 5px 8px;font-size:12.5px}
+  .v-dot{width:17px;height:17px;border-radius:50%;color:#fff;font-size:10px;font-weight:800;display:inline-flex;align-items:center;justify-content:center;flex:none}
+  .v-chip[aria-pressed="false"] .v-dot{filter:grayscale(1);opacity:.5}
+  .search{border:1px solid var(--line);border-radius:999px;background:var(--card);padding:6px 14px;font-size:13.5px;min-width:210px;flex:1;max-width:320px;color:var(--ink)}
+  .search::placeholder{color:var(--ink-3)}
+  .count{font-size:12px;color:var(--ink-3);margin-left:auto;white-space:nowrap}
+
+  main{max-width:980px;margin:0 auto;padding:8px 20px 30px}
+  .day{display:grid;grid-template-columns:92px 1fr;gap:0 18px;margin-top:22px}
+  .day-head{position:sticky;top:64px;align-self:start;text-align:right;padding-top:2px}
+  .day-num{font-size:30px;font-weight:800;letter-spacing:-.04em;line-height:1;font-variant-numeric:tabular-nums}
+  .day-dow{font-size:11px;font-weight:700;letter-spacing:.16em;color:var(--ink-2);margin-top:3px}
+  .day-dow.sat{color:var(--f-zepp)} .day-dow.sun{color:var(--stamp)}
+  .day-rel{font-size:10.5px;color:var(--ink-3);margin-top:2px}
+  .cards{display:flex;flex-direction:column;gap:10px;border-left:1px solid var(--line);padding-left:18px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);display:flex;overflow:hidden;position:relative;transition:transform .12s ease,box-shadow .12s ease}
+  .card:hover{transform:translateY(-1px);box-shadow:0 3px 14px rgba(21,23,28,.08)}
+  @media (prefers-reduced-motion:reduce){.card,.chip{transition:none}.card:hover{transform:none}}
+  .stub{flex:none;width:74px;padding:12px 8px;border-right:2px dashed var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;position:relative}
+  .card::before,.card::after{content:"";position:absolute;left:74px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:1px solid var(--line);transform:translateX(-7px)}
+  .card::before{top:-7px}.card::after{bottom:-7px}
+  .stub .t-label{font-size:8.5px;font-weight:700;letter-spacing:.14em;color:var(--ink-3)}
+  .stub .t-time{font-size:15px;font-weight:800;font-variant-numeric:tabular-nums;letter-spacing:-.02em}
+  .stub .t-none{font-size:11px;color:var(--ink-3);text-align:center}
+  .body{padding:12px 15px;flex:1;min-width:0}
+  .title{font-size:15.5px;font-weight:750;line-height:1.35;overflow-wrap:anywhere}
+  .subtitle{font-size:12.5px;color:var(--ink-2);margin-top:2px;overflow-wrap:anywhere}
+  .meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:9px;font-size:12px}
+  .venue-tag{display:inline-flex;align-items:center;gap:6px;font-weight:700}
+  .venue-tag .v-dot{width:15px;height:15px;font-size:9px}
+  .area{color:var(--ink-3)}
+  .price{font-variant-numeric:tabular-nums;color:var(--ink-2);font-weight:600}
+  .g-tag{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--ink-2);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+  .tickets{display:inline-flex;gap:5px}
+  .tickets a{font-size:10px;font-weight:700;border:1px solid var(--line);border-radius:4px;padding:1px 6px;text-decoration:none;color:var(--ink-2)}
+  .tickets a:hover{border-color:var(--ink-2);color:var(--ink)}
+  .lineup{font-size:11.5px;color:var(--ink-3);margin-top:6px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
+  .srclink{font-size:12px;font-weight:700;text-decoration:none;color:var(--ink);white-space:nowrap;margin-left:auto}
+  .srclink:hover{text-decoration:underline}
+  .stamp{position:absolute;right:12px;top:10px;transform:rotate(7deg);border:2px solid var(--stamp);color:var(--stamp);border-radius:4px;font-size:10px;font-weight:800;letter-spacing:.12em;padding:2px 7px;opacity:.9;background:rgba(255,255,255,.7)}
+  .card.past{opacity:.55}
+  .multiday{font-size:10px;font-weight:700;color:var(--ink-3);letter-spacing:.06em;margin-top:3px}
+  .empty,.loading,.loaderr{text-align:center;color:var(--ink-2);padding:60px 20px 40px;font-size:14px;line-height:1.8}
+  .empty button{text-decoration:underline;font-weight:700}
+  .loaderr code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
+
+  footer{border-top:1px solid var(--line);margin-top:34px;background:var(--card)}
+  .f-inner{max-width:980px;margin:0 auto;padding:16px 20px;font-size:11.5px;color:var(--ink-3);line-height:1.8}
+  .src-ok{color:var(--f-ogroup);font-weight:700}
+  .src-err{color:var(--stamp);font-weight:700}
+  .src-wait{color:var(--ink-3);font-weight:600}
+
+  @media (max-width:620px){
+    .day{grid-template-columns:56px 1fr;gap:0 12px}
+    .day-num{font-size:22px}
+    .day-head{top:110px}
+    .cards{padding-left:12px}
+    .stub{width:62px}
+    .card::before,.card::after{left:62px}
+    .count{width:100%;margin-left:0}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-inner">
+    <div class="wordmark">TOKYO EVENTS<small>東京イベント</small></div>
+    <div class="tagline" data-i18n="tagline"></div>
+    <div class="lang-toggle" role="group" aria-label="Language">
+      <button id="btn-ja" aria-pressed="true">日本語</button>
+      <button id="btn-en" aria-pressed="false">EN</button>
+    </div>
+  </div>
+</header>
+
+<section class="filters" id="filters" hidden>
+  <div class="f-row">
+    <span class="f-label" data-i18n="l_when"></span>
+    <button class="chip" data-when="today"></button>
+    <button class="chip" data-when="week" aria-pressed="true"></button>
+    <button class="chip" data-when="weekend"></button>
+    <button class="chip" data-when="all"></button>
+  </div>
+  <div class="f-row" id="genre-row"><span class="f-label" data-i18n="l_genre"></span></div>
+  <div class="f-row" style="align-items:flex-start">
+    <span class="f-label" style="padding-top:6px" data-i18n="l_venue"></span>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;flex:1" id="venue-chips"></div>
+  </div>
+  <div class="f-row">
+    <input class="search" id="search" type="search">
+    <span class="count" id="count"></span>
+  </div>
+</section>
+
+<main id="list"><div class="loading" data-i18n="loading"></div></main>
+
+<footer><div class="f-inner" id="src-strip"></div></footer>
+
+<script>
+/* ============================================================
+   Data contract: ./public.json produced by `cli.py export`
+   { generated_at, sources:[{source,started_at,found,error}],
+     events:[Event.to_json()...] }
+   ============================================================ */
+const VENUE_META = {
+  liquidroom:        {fam:"liquid",   letter:"L"},
+  oeast:             {fam:"ogroup",   letter:"E"},
+  owest:             {fam:"ogroup",   letter:"W"},
+  ocrest:            {fam:"ogroup",   letter:"C"},
+  onest:             {fam:"ogroup",   letter:"N"},
+  zepp_divercity:    {fam:"zepp",     letter:"Z"},
+  zepp_haneda:       {fam:"zepp",     letter:"Z"},
+  zepp_shinjuku:     {fam:"zepp",     letter:"Z"},
+  zepp_yokohama:     {fam:"zepp",     letter:"Z"},
+  billboard_tokyo:   {fam:"billboard",letter:"B"},
+  billboard_yokohama:{fam:"billboard",letter:"B"},
+  toyosu_pit:        {fam:"pia",      letter:"P"},
+  pia_arena_mm:      {fam:"pia",      letter:"M"},
+};
+const FAM_COLOR = {liquid:"var(--f-liquid)",ogroup:"var(--f-ogroup)",
+  zepp:"var(--f-zepp)",billboard:"var(--f-billboard)",pia:"var(--f-pia)",
+  other:"var(--f-other)"};
+const GENRE_KEYS = ["idol","j-rock","international","k-pop","jazz-soul",
+                    "classical","hiphop-rnb","electronic","anime-seiyu"];
+
+const I18N = {
+  ja:{
+    tagline:"都内ライブハウスからアリーナまで、ひとつに。",
+    l_when:"日付",l_genre:"ジャンル",l_venue:"会場",
+    today:"今日",week:"今週",weekend:"今週末",all:"すべて",
+    genres:{all:"すべて",idol:"アイドル","j-rock":"ロック・バンド",
+      international:"来日・海外","k-pop":"K-POP","jazz-soul":"ジャズ・ソウル",
+      classical:"クラシック","hiphop-rnb":"ヒップホップ/R&B",
+      electronic:"エレクトロニック","anime-seiyu":"アニメ・声優"},
+    search:"アーティスト・公演名で検索",
+    count:n=>`${n} 件`,
+    open:"OPEN",start:"START",tbd:"詳細は公演ページへ",
+    from:p=>`¥${p.toLocaleString()}〜`,free:"無料",
+    details:"公演ページ →",sold:"SOLD OUT",ended:"終了",todayTag:"本日",
+    multi:(a,b)=>`${a}〜${b}`,
+    dow:["日","月","火","水","木","金","土"],
+    dayfmt:d=>`${d.getMonth()+1}月${d.getDate()}日`,
+    loading:"読み込み中…",
+    loaderr:"イベントデータ（<code>public.json</code>）を読み込めませんでした。<br>初回はGitHub Actionsの「Scrape and deploy」を実行してください。",
+    empty:"条件に合う公演がありません。",clear:"フィルターをリセット",
+    updated:d=>`データ更新: ${d}`,
+    okList:"取得済み",errList:"エラー",waitList:"イベント0件",
+    facts:"本サイトは事実情報（日時・会場・料金）のみを掲載し、詳細・写真・チケットは各公演ページへリンクします。",
+  },
+  en:{
+    tagline:"Every live house to every arena. One schedule.",
+    l_when:"When",l_genre:"Genre",l_venue:"Venue",
+    today:"Today",week:"This week",weekend:"Weekend",all:"All dates",
+    genres:{all:"All",idol:"Idol","j-rock":"Rock / Band",
+      international:"Int'l artists","k-pop":"K-pop","jazz-soul":"Jazz / Soul",
+      classical:"Classical","hiphop-rnb":"Hip-hop / R&B",
+      electronic:"Electronic","anime-seiyu":"Anime / Seiyū"},
+    search:"Search artist or event",
+    count:n=>`${n} event${n===1?"":"s"}`,
+    open:"OPEN",start:"START",tbd:"See event page",
+    from:p=>`From ¥${p.toLocaleString()}`,free:"Free",
+    details:"Details →",sold:"SOLD OUT",ended:"Ended",todayTag:"Today",
+    multi:(a,b)=>`${a} – ${b}`,
+    dow:["SUN","MON","TUE","WED","THU","FRI","SAT"],
+    dayfmt:d=>`${["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]} ${d.getDate()}`,
+    loading:"Loading…",
+    loaderr:"Couldn't load the event feed (<code>public.json</code>).<br>Run the “Scrape and deploy” GitHub Action to generate it.",
+    empty:"No events match your filters.",clear:"Clear filters",
+    updated:d=>`Data updated: ${d}`,
+    okList:"captured",errList:"errors",waitList:"0 events",
+    facts:"This site lists facts only (dates, venues, prices) and links to each event page for details, photos, and tickets.",
+  }
+};
+
+/* ============================================================ state */
+let DATA=null, VENUES={}, lang="ja", when="week", genre="all", query="";
+let activeVenues=new Set();
+const TODAY=new Date(new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Tokyo"})+"T00:00:00+09:00");
+
+/* ============================================================ load */
+async function load(){
+  try{
+    const r=await fetch("./public.json",{cache:"no-store"});
+    if(!r.ok) throw new Error(r.status);
+    DATA=await r.json();
+  }catch(e){
+    document.getElementById("list").innerHTML=
+      `<div class="loaderr">${I18N[lang].loaderr}</div>`;
+    return;
+  }
+  // Build the venue registry from events (name/area come from the data).
+  for(const ev of DATA.events){
+    if(!VENUES[ev.source]){
+      const meta=VENUE_META[ev.source]||
+        {fam:"other",letter:(ev.venue_name||"?")[0].toUpperCase()};
+      VENUES[ev.source]={...meta,
+        name:ev.venue_name||ev.source, area:ev.venue_area||""};
+    }
+  }
+  activeVenues=new Set(Object.keys(VENUES));
+  document.getElementById("filters").hidden=false;
+  render();
+}
+
+/* ============================================================ helpers */
+const P=s=>new Date(s+"T00:00:00+09:00");
+const sameDay=(a,b)=>a.getTime()===b.getTime();
+function inWindow(ev){
+  const s=P(ev.start_date), e=P(ev.end_date||ev.start_date);
+  if(when==="all") return true;
+  if(e<TODAY) return false;
+  if(when==="today") return s<=TODAY&&TODAY<=e;
+  if(when==="week"){const end=new Date(TODAY);end.setDate(end.getDate()+6);return s<=end&&e>=TODAY;}
+  if(when==="weekend"){
+    const sat=new Date(TODAY);sat.setDate(sat.getDate()+((6-sat.getDay()+7)%7));
+    const sun=new Date(sat);sun.setDate(sat.getDate()+1);
+    return s<=sun&&e>=sat;
+  }
+  return true;
+}
+function matches(ev){
+  if(!ev.start_date) return false;
+  if(!activeVenues.has(ev.source)) return false;
+  if(genre!=="all"&&!(ev.genres||[]).includes(genre)) return false;
+  if(!inWindow(ev)) return false;
+  if(query){
+    const hay=[ev.title_ja,ev.title_en,ev.subtitle,
+      (ev.lineup||[]).join(" ")].filter(Boolean).join(" ").toLowerCase();
+    if(!hay.includes(query)) return false;
+  }
+  return true;
+}
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const dot=(src)=>{const v=VENUES[src];
+  return `<span class="v-dot" style="background:${FAM_COLOR[v.fam]}">${v.letter}</span>`;};
+
+/* ============================================================ render */
+function renderGenreChips(){
+  const row=document.getElementById("genre-row");
+  row.querySelectorAll(".chip").forEach(n=>n.remove());
+  const L=I18N[lang];
+  const present=new Set(DATA.events.flatMap(e=>e.genres||[]));
+  for(const g of ["all",...GENRE_KEYS.filter(g=>present.has(g))]){
+    const b=document.createElement("button");
+    b.className="chip";b.textContent=L.genres[g]||g;
+    b.setAttribute("aria-pressed",genre===g);
+    b.onclick=()=>{genre=g;render();};
+    row.appendChild(b);
+  }
+}
+function renderVenueChips(){
+  const wrap=document.getElementById("venue-chips");wrap.innerHTML="";
+  for(const [id,v] of Object.entries(VENUES)){
+    const b=document.createElement("button");
+    b.className="chip v-chip";
+    b.setAttribute("aria-pressed",activeVenues.has(id));
+    b.innerHTML=`${dot(id)}<span>${esc(v.name)}</span>`;
+    b.onclick=()=>{
+      activeVenues.has(id)?activeVenues.delete(id):activeVenues.add(id);
+      if(activeVenues.size===0) activeVenues=new Set(Object.keys(VENUES));
+      render();
+    };
+    wrap.appendChild(b);
+  }
+}
+function ticketBadges(ev){
+  const links=(ev.ticket_links||[]).filter(t=>t.url).slice(0,3);
+  if(!links.length) return "";
+  const label={eplus:"e+",pia:"ぴあ",lawson:"ローチケ",rakuten:"楽天",
+    zaiko:"ZAIKO",livepocket:"LivePocket",tiget:"TIGET",ticketmaster:"TM"};
+  return `<span class="tickets">`+links.map(t=>
+    `<a href="${esc(t.url)}" target="_blank" rel="noopener">${label[t.provider]||t.provider}</a>`
+  ).join("")+`</span>`;
+}
+function renderList(){
+  const L=I18N[lang];
+  const list=document.getElementById("list");
+  const evs=DATA.events.filter(matches).sort((a,b)=>
+    a.start_date.localeCompare(b.start_date)||
+    (a.start_time||"99").localeCompare(b.start_time||"99"));
+  document.getElementById("count").textContent=L.count(evs.length);
+
+  if(!evs.length){
+    list.innerHTML=`<div class="empty"><p>${L.empty}</p><p style="margin-top:8px"><button id="clear-btn">${L.clear}</button></p></div>`;
+    document.getElementById("clear-btn").onclick=()=>{
+      when="all";genre="all";query="";document.getElementById("search").value="";
+      activeVenues=new Set(Object.keys(VENUES));render();
+    };
+    return;
+  }
+
+  const groups=new Map();
+  for(const ev of evs){
+    if(!groups.has(ev.start_date)) groups.set(ev.start_date,[]);
+    groups.get(ev.start_date).push(ev);
+  }
+  let html="";
+  for(const [d,dayEvents] of groups){
+    const dd=P(d),dow=dd.getDay();
+    const isPast=P(dayEvents[0].end_date||d)<TODAY;
+    const rel=sameDay(dd,TODAY)?`<div class="day-rel">${L.todayTag}</div>`
+            :isPast?`<div class="day-rel">${L.ended}</div>`:"";
+    html+=`<section class="day"><div class="day-head">
+      <div class="day-num">${dd.getMonth()+1}.${dd.getDate()}</div>
+      <div class="day-dow ${dow===6?"sat":dow===0?"sun":""}">${L.dow[dow]}${lang==="ja"?"曜日":""}</div>${rel}
+    </div><div class="cards">`;
+    for(const ev of dayEvents){
+      const V=VENUES[ev.source];
+      const past=P(ev.end_date||ev.start_date)<TODAY;
+      const times=ev.open_time||ev.start_time
+        ?`${ev.open_time?`<div class="t-label">${L.open}</div><div class="t-time">${ev.open_time}</div>`:""}
+          ${ev.start_time?`<div class="t-label">${L.start}</div><div class="t-time">${ev.start_time}</div>`:""}`
+        :`<div class="t-none">${L.tbd}</div>`;
+      const price=ev.is_free?`<span class="price">${L.free}</span>`
+        :ev.price_min?`<span class="price">${L.from(ev.price_min)}</span>`:"";
+      const gtags=(ev.genres||[]).map(g=>`<span class="g-tag">${L.genres[g]||g}</span>`).join("");
+      const multi=ev.end_date&&ev.end_date!==ev.start_date
+        ?`<div class="multiday">${L.multi(L.dayfmt(P(ev.start_date)),L.dayfmt(P(ev.end_date)))}</div>`:"";
+      const title=lang==="en"?(ev.title_en||ev.title_ja):(ev.title_ja||ev.title_en);
+      html+=`<article class="card ${past?"past":""}">
+        <div class="stub">${times}</div>
+        <div class="body">
+          <div class="title">${esc(title||"")}</div>
+          ${ev.subtitle?`<div class="subtitle">${esc(ev.subtitle)}</div>`:""}
+          ${multi}
+          <div class="meta">
+            <span class="venue-tag">${dot(ev.source)}${esc(V.name)}</span>
+            <span class="area">${esc(V.area)}</span>
+            ${price}${gtags}${ticketBadges(ev)}
+            <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${L.details}</a>
+          </div>
+          ${(ev.lineup||[]).length?`<div class="lineup">${esc(ev.lineup.join(" / "))}</div>`:""}
+        </div>
+        ${ev.is_sold_out?`<div class="stamp">${L.sold}</div>`:""}
+      </article>`;
+    }
+    html+=`</div></section>`;
+  }
+  list.innerHTML=html;
+}
+function renderStrip(){
+  const L=I18N[lang];
+  const strip=document.getElementById("src-strip");
+  if(!DATA){strip.textContent="";return;}
+  const ok=[],err=[],wait=[];
+  for(const s of DATA.sources||[]){
+    if(s.error) err.push(s.source);
+    else if(s.found>0) ok.push(s.source);
+    else wait.push(s.source);
+  }
+  const parts=[L.updated(new Date(DATA.generated_at).toLocaleString(
+    lang==="ja"?"ja-JP":"en-US",{timeZone:"Asia/Tokyo"}))];
+  if(ok.length) parts.push(`${L.okList}: <span class="src-ok">${ok.map(s=>s+" ✓").join(" ")}</span>`);
+  if(err.length) parts.push(`${L.errList}: <span class="src-err">${err.map(s=>s+" ✗").join(" ")}</span>`);
+  if(wait.length) parts.push(`${L.waitList}: <span class="src-wait">${wait.map(s=>s+" ○").join(" ")}</span>`);
+  parts.push(L.facts);
+  strip.innerHTML=parts.join("<br>");
+}
+function render(){
+  const L=I18N[lang];
+  document.documentElement.lang=lang;
+  document.querySelectorAll("[data-i18n]").forEach(n=>{
+    const v=L[n.dataset.i18n];
+    if(typeof v==="string") n.innerHTML=v;
+  });
+  document.querySelectorAll("[data-when]").forEach(b=>{
+    b.textContent=L[b.dataset.when];
+    b.setAttribute("aria-pressed",b.dataset.when===when);
+  });
+  document.getElementById("search").placeholder=L.search;
+  document.getElementById("btn-ja").setAttribute("aria-pressed",lang==="ja");
+  document.getElementById("btn-en").setAttribute("aria-pressed",lang==="en");
+  renderStrip();
+  if(!DATA) return;
+  renderGenreChips();
+  renderVenueChips();
+  renderList();
+}
+
+document.getElementById("btn-ja").onclick=()=>{lang="ja";render();};
+document.getElementById("btn-en").onclick=()=>{lang="en";render();};
+document.querySelectorAll("[data-when]").forEach(b=>{
+  b.onclick=()=>{when=b.dataset.when;render();};
+});
+document.getElementById("search").addEventListener("input",e=>{
+  query=e.target.value.trim().toLowerCase();renderList();
+});
+
+render();
+load();
+</script>
+</body>
+</html>

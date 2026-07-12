@@ -1,0 +1,78 @@
+name: Scrape and deploy
+
+on:
+  schedule:
+    - cron: "0 22 * * *"        # 07:00 JST daily
+  workflow_dispatch: {}          # manual run button
+  push:
+    branches: [main]
+    paths: ["site/**", "src/**", "cli.py", ".github/workflows/**"]
+
+permissions:
+  contents: write                # commit events.db + public.json
+  pages: write                   # deploy Pages
+  id-token: write                # Pages OIDC
+  issues: write                  # file scraper-error issues
+
+concurrency:
+  group: scrape-deploy
+  cancel-in-progress: false
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - run: pip install -r requirements.txt
+
+      - name: Tests (fixture-based, offline)
+        run: python -m pytest tests/ -q
+
+      # Scheduled/manual runs scrape; push runs just redeploy the site.
+      - name: Scrape all sources
+        if: github.event_name != 'push'
+        env:
+          AUTO_PUBLISH: ${{ vars.AUTO_PUBLISH }}   # repo variable, "true"/"false"
+        run: |
+          FLAGS="--report scrape_report.json"
+          if [ "$AUTO_PUBLISH" = "true" ]; then FLAGS="$FLAGS --auto"; fi
+          python cli.py scrape $FLAGS
+
+      - name: Export public feed
+        run: python cli.py export site/public.json
+
+      - name: Commit updated data back to repo
+        if: github.event_name != 'push'
+        run: |
+          git config user.name "tokyo-events-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add events.db site/public.json
+          git diff --cached --quiet || git commit -m "data: daily scrape $(date -u +%F)"
+          git push
+
+      - name: File issue if any scraper errored
+        if: github.event_name != 'push'
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+        run: python scripts/report_errors.py scrape_report.json
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: scrape
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
