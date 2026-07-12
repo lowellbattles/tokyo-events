@@ -322,6 +322,7 @@ const dot=(src)=>{const v=VENUES[src];
 const norm=s=>String(s||"").normalize("NFKC").toLowerCase().replace(/\s+/g," ").trim();
 function evMatchesArtist(ev,name){
   const n=norm(name); if(!n) return false;
+  if((ev.artists||[]).some(a=>norm(a)===n)) return true;   /* server index */
   if((ev.lineup||[]).some(a=>norm(a)===n)) return true;
   return norm(ev.title_ja).includes(n)||norm(ev.title_en).includes(n);
 }

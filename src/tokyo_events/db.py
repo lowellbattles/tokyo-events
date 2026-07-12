@@ -201,8 +201,10 @@ class EventStore:
     def export_public_json(self, path: str | Path) -> int:
         """Dump approved events + source health as the frontend feed."""
         from .genres import apply_genres
+        from .artists import apply_artists
         events = self.list_events(public_only=True)
         apply_genres(self.conn, events)
+        apply_artists(self.conn, events)
         Path(path).write_text(
             json.dumps({"generated_at": dt.datetime.now().isoformat(),
                         "sources": self.source_health(),
