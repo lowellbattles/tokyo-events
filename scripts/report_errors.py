@@ -5,7 +5,7 @@ Reads the run report written by `cli.py scrape --report`, and uses the
 `gh` CLI (preinstalled on GitHub runners; GH_TOKEN/GH_REPO from env).
 
 Behavior:
-- No errors -> exit 0 silently.
+- No errors -> close the rolling issue if one is open, exit 0.
 - Errors -> if an open issue labeled 'scraper-error' exists, add a comment;
   otherwise create one. One rolling issue instead of daily spam.
 - Never fails the workflow (exit 0 always) — a broken scraper shouldn't
@@ -29,6 +29,16 @@ def gh(*args, capture=False):
         sys.exit(0)
 
 
+def find_open_issue() -> str | None:
+    raw = gh("issue", "list", "--label", LABEL, "--state", "open",
+             "--json", "number", "--limit", "1", capture=True) or "[]"
+    try:
+        issues = json.loads(raw)
+    except json.JSONDecodeError:
+        issues = []
+    return str(issues[0]["number"]) if issues else None
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(0)
@@ -40,6 +50,11 @@ def main():
     failed = [r for r in reports if r.get("error")]
     if not failed:
         print("all scrapers OK")
+        num = find_open_issue()
+        if num:
+            gh("issue", "close", num, "--comment",
+               f"All sources OK on {date.today().isoformat()} — closing.")
+            print(f"closed issue #{num}")
         sys.exit(0)
 
     lines = [f"Scrape run {date.today().isoformat()} — "
@@ -61,15 +76,8 @@ def main():
     gh("label", "create", LABEL, "--color", "d73a4a",
        "--description", "A venue scraper is failing", "--force")
 
-    existing = gh("issue", "list", "--label", LABEL, "--state", "open",
-                  "--json", "number", "--limit", "1", capture=True) or "[]"
-    try:
-        issues = json.loads(existing)
-    except json.JSONDecodeError:
-        issues = []
-
-    if issues:
-        num = str(issues[0]["number"])
+    num = find_open_issue()
+    if num:
         gh("issue", "comment", num, "--body", body)
         print(f"commented on existing issue #{num}")
     else:
