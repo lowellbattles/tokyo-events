@@ -17,6 +17,25 @@ duo MUSIC EXCHANGE, Shinjuku LOFT, 下北沢SHELTER (+6 sources → 19).
 Note: there is NO Kawasaki Club Quattro (hall nav verified live:
 shibuya/umeda/nagoya/hiroshima) — the sister-venue note below was wrong.
 
+**2026-07-13 update (music build-out COMPLETE):** 40-venue probe sweep +
+33 new sources built, tested, live-validated → **53 sources total**.
+Every remaining viable venue below is now ✅. Newly discovered during
+probes: 下北沢Que moved to its own clubque.net (operator change
+2026-07-01, ex-UK PROJECT); ReNY lives at ruido.org (whole RUIDO chain
+shares the template — future family); Hulic Hall is hulic-theater.com;
+Stellar Ball is under princehotels.co.jp; 国立競技場 entertainment
+schedule is jns-e.com (MUFG naming rights); Tokyo Garden Theater is on
+shopping-sumitomo-rd.com; Tokyo Dome schedule is actually STATIC (a
+full-year single page — the earlier "JS-rendered" note was a
+user-agent/fetch artifact). Not scrapeable, verified: Budokan (official
+site publishes no concert data), Hibiya Yaon (closed for
+reconstruction from 2025-10), Koenji HIGH + 東京体育館 (robots.txt
+disallow — politeness rule), Pacifico Yokohama (no public event
+schedule), 東京キネマ倶楽部 (kinema.tokyo calendar verifiably empty —
+revisit). Future leads: RUIDO family (赤羽ReNY alpha, Yokohama ReNY,
+RizM, REX), SALOON (saloon-tokyo.com, UNIT's sister floor), other
+TV-Asahi TDP JSON feeds (ex_theater/sgc_hall pattern).
+
 ---
 
 ## Family A — Zepp chain (1 scraper → 4 Kanto halls) ✅ built
@@ -51,7 +70,7 @@ parameter — likely the easiest multi-venue win. Strong genre prior
 |---|---|---|
 | Shinjuku LOFT | Kabukichō | ✅ /schedule/loft/schedule/{id} links |
 | Shimokitazawa SHELTER | Shimokitazawa | ✅ /schedule/shelter/{id} links (variant) |
-| LOFT9 / Loft Heaven | Shibuya | lower priority — not built |
+| LOFT9 / Loft Heaven | Shibuya | Heaven ✅ (loft_heaven); LOFT9 excluded — talk venue |
 
 ## Independents — mid-size live houses (1 scraper each) 
 | Venue | Area | Status | Notes |
@@ -61,55 +80,54 @@ parameter — likely the easiest multi-venue win. Strong genre prior
 | Shibuya CLUB QUATTRO | Shibuya | ✅ | ?ym= month pages; NO Kawasaki hall exists |
 | duo MUSIC EXCHANGE | Shibuya | ✅ | month pages; no detail pages (day anchors) |
 | WWW / WWW X | Shibuya | ✅ | one page, data-place attr splits the halls |
-| Daikanyama UNIT | Daikanyama | 🔍 | *added — club/live hybrid* |
-| EX THEATER ROPPONGI | Roppongi | 🔍 | *added — ~1,700 cap, TV Asahi-run* |
-| Blue Note Tokyo / Cotton Club | Aoyama / Marunouchi | 🔍 | *added — jazz; strengthens genre coverage* |
-| Shinagawa Stellar Ball | Shinagawa | 🔍 | *added — idol/anime heavy* |
-| 日比谷野外音楽堂 (Hibiya Yaon) | Hibiya | 🔍 | *added — iconic outdoor; seasonal* |
-| CLUB CITTA' | Kawasaki | 🔍 | *added — ~1,300 cap, metal/international* |
-| shibuya eggman | Shibuya | 🔍 | user add — small (~350), indie/idol |
-| SHIBUYA DIVE | Shibuya | 🔍 | user add — newer venue; confirm official schedule page |
-| 新宿ReNY | Shinjuku | 🔍 | user add — visual-kei/idol heavy; sister 赤羽ReNY alpha may share platform |
-| 下北沢Que | Shimokitazawa | 🔍 | user add — pairs with SHELTER for Shimokita indie depth |
-| 東京キネマ倶楽部 | Uguisudani | 🔍 | user add — grand-cabaret hall; visual-kei/idol/retro |
-| 横浜ベイホール | Yokohama | 🔍 | user add — ~1,000 cap live house |
+| Daikanyama UNIT | Daikanyama | ✅ | unit_daikanyama; SALOON floor = separate domain, future |
+| EX THEATER ROPPONGI | Roppongi | ✅ | ex_theater; official TDP JSON feed |
+| Blue Note Tokyo / Cotton Club | Aoyama / Marunouchi | ✅ | bluenote_tokyo + cotton_club; jazz-soul prior |
+| Shinagawa Stellar Ball | Shinagawa | ✅ | stellar_ball; princehotels.co.jp; mixed 2.5D/idol |
+| 日比谷野外音楽堂 (Hibiya Yaon) | Hibiya | ⏸ | CLOSED for reconstruction since 2025-10 — add on reopening |
+| CLUB CITTA' | Kawasaki | ✅ | club_citta |
+| shibuya eggman | Shibuya | ✅ | eggman; daytime + nighttime archives |
+| SHIBUYA DIVE | Shibuya | ✅ | shibuya_dive; idol prior |
+| 新宿ReNY | Shinjuku | ✅ | reny_shinjuku on ruido.org; RUIDO chain = future family |
+| 下北沢Que | Shimokitazawa | ✅ | que_shimokitazawa; NEW domain clubque.net (2026-07 operator change) |
+| 東京キネマ倶楽部 | Uguisudani | ⏸ | kinema.tokyo calendar empty (12mo fwd) — revisit |
+| 横浜ベイホール | Yokohama | ✅ | yokohama_bay_hall |
+| 新代田FEVER | Shindaita | ✅ | fever_shindaita; j-rock prior *(2026-07-13 add)* |
+| Veats Shibuya | Shibuya | ✅ | veats_shibuya; Victor Entertainment *(2026-07-13 add)* |
+| 吉祥寺CLUB SEATA | Kichijoji | ✅ | club_seata; drink-charge price trap handled *(2026-07-13 add)* |
+| 高円寺HIGH | Koenji | ⛔ | robots.txt disallows — politeness rule *(2026-07-13 add, evaluated)* |
 
 ## Halls & theaters (seated, 700–2,500)
 | Venue | Area | Status | Notes |
 |---|---|---|---|
-| LINE CUBE SHIBUYA | Shibuya | 📋 | |
-| Bunkamura Orchard Hall | Shibuya | 📋 | classical/adult prior; EN calendar exists |
-| Hulic Hall Tokyo | Yurakucho | 📋 | |
-| Kanadevia Hall（旧TOKYO DOME CITY HALL） | Suidōbashi | 🔍 | renamed Apr 2025 via naming rights (through Mar 2028) — store former names as venue aliases; naming-rights churn is constant |
-| SGCホール有明 (SGC Hall Ariake) | Ariake | 🔍 | user add — newer hall |
-| 東京国際フォーラム Hall A | Yurakucho | 🔍 | *added — 5,000 cap* |
-| NHKホール | Shibuya | 🔍 | *added* |
-| 東京オペラシティ | Hatsudai | 🔍 | *added — classical* |
-| Tachikawa Stage Garden | Tachikawa | 📋 | user list (t-sg.jp) |
+| LINE CUBE SHIBUYA | Shibuya | ✅ | line_cube_shibuya |
+| Bunkamura Orchard Hall | Shibuya | ✅ | orchard_hall via my.bunkamura.co.jp program list |
+| Hulic Hall Tokyo | Yurakucho | ✅ | hulic_hall; domain is hulic-theater.com |
+| Kanadevia Hall（旧TOKYO DOME CITY HALL） | Suidōbashi | ✅ | kanadevia_hall; store former names as venue aliases when dedupe lands — naming-rights churn is constant |
+| SGCホール有明 (SGC Hall Ariake) | Ariake | ✅ | sgc_hall_ariake; TDP JSON feed |
+| 東京国際フォーラム Hall A | Yurakucho | ✅ | tokyo_intl_forum; complex-wide listing funneled to Hall A concerts via detail pass |
+| NHKホール | Shibuya | ✅ | nhk_hall; single static 6-month page |
+| 東京オペラシティ | Hatsudai | ✅ | opera_city; fragment endpoint; classical prior |
+| Tachikawa Stage Garden | Tachikawa | ✅ | tachikawa_stage_garden (www.t-sg.jp — apex host refuses TCP) |
 
 ## Arenas / domes / mega (event-class venues)
 | Venue | Area | Status | Notes |
 |---|---|---|---|
-| 日本武道館 | Kudanshita | 📋 | **use official site, not japanconcerttickets.com** (third-party aggregator — conflicts with our facts-from-source principle; official schedule incl. martial arts events, filter by type) |
-| Tokyo Garden Theater | Ariake | 📋 | user list URL works |
-| Tokyo Dome | Suidōbashi | 📋 | official EN schedule page |
+| 日本武道館 | Kudanshita | ⛔ | official site publishes NO concert listings (martial arts only) — no compliant source; revisit if they add one |
+| Tokyo Garden Theater | Ariake | ✅ | tokyo_garden_theater on shopping-sumitomo-rd.com |
+| Tokyo Dome | Suidōbashi | ✅ | tokyo_dome; static full-year schedule.html, concert rows only |
 | Yokohama Arena | Yokohama | ✅ | own JSON API: /event/{YYYYMM}?_format=json — built 2026-07-12 |
-| 有明アリーナ (Ariake Arena) | Ariake | 🔍 | *added — 15,000 cap* |
-| TOYOTA ARENA TOKYO | Odaiba | 🔍 | *added — opened late 2025, 10,000 cap; growing K-pop/major bookings* |
-**Step-4 probe notes (2026-07-12):** Tokyo Dome schedule page is
-JS-rendered (no event content in static HTML) — needs its data endpoint
-found. Budokan homepage only links martial-arts programs; the concert
-calendar needs separate discovery + type filtering. LINE CUBE /event/,
-K-Arena /event/, Hulic /schedule/ all 404 — correct paths TBD.
-tokyo-gardentheater.jp does not resolve — find the real domain.
-Bunkamura Orchard: no event links on top page (renovation era).
-| K-Arena Yokohama | Yokohama | 📋 | EN schedule exists |
-| 国立代々木競技場 第一体育館 | Harajuku | 🔍 | *added* |
-| 国立競技場（MUFGスタジアム） | Sendagaya | 🔍 | user add — former National Stadium, now under MUFG naming rights; stadium-class concerts (alias field again) |
-| 東京体育館 | Sendagaya | 🔍 | user add — Tokyo Metropolitan Gymnasium, ~10,000 for concerts |
-| ぴあアリーナMM | Yokohama | 🔍 | *added — sister to Toyosu PIT, likely same platform → free coverage* |
+| 有明アリーナ (Ariake Arena) | Ariake | ✅ | ariake_arena; fixed 5-slug pagination |
+| TOYOTA ARENA TOKYO | Odaiba | ✅ | toyota_arena_tokyo; Next.js RSC flight payload, text-keyed |
+| K-Arena Yokohama | Yokohama | ✅ | k_arena_yokohama; 円-suffix prices need custom detail parse |
+| 横浜BUNTAI | Yokohama (Kannai) | ✅ | yokohama_buntai; reopened 2024 |
+| パシフィコ横浜 | Yokohama (MM) | ⛔ | no public schedule of external events on pacifico.co.jp |
+| 国立代々木競技場 第一体育館 | Harajuku | ✅ | yoyogi_gym1; sports rows → category other |
+| 国立競技場（MUFGスタジアム） | Sendagaya | ✅ | kokuritsu_stadium; official entertainment site jns-e.com |
+| 東京体育館 | Sendagaya | ⛔ | robots.txt disallows — politeness rule |
+| ぴあアリーナMM | Yokohama | ✅ | pia_arena_mm (built earlier in the Pia family) |
 | Saitama Super Arena | Saitama | ⏸ | under renovation (per user) — add on reopening |
-| 幕張メッセ | Chiba | 🔍 | *added — Countdown Japan / Summer Sonic home* |
+| 幕張メッセ | Chiba | ✅ | makuhari_messe; site's own music filter ?c=2 |
 
 ## Festivals (new source class — annual, lineup-wave updates)
 Fuji Rock (Naeba) · Summer Sonic (Chiba/Osaka) · Rock in Japan ·

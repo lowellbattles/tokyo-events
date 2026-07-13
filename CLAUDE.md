@@ -19,31 +19,50 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
 
 - `src/tokyo_events/models.py` — canonical `Event` dataclass. Bilingual
   title fields, `genres[]`, `ticket_links[]`, `end_date` for multi-day.
+  `category` is "music" for concerts; mixed arena/hall calendars mark
+  sports/ice shows/ceremonies as "other" (`textutils.is_nonmusic`), and
+  the frontend main list shows only "music".
 - `src/tokyo_events/db.py` — EventStore: upsert with content-hash change
   detection (changed events re-stage as pending), source_health, export.
-  Artist tables exist but are unpopulated (future phase).
+  Upsert merges stored detail-pass fields into listing events that lack
+  them (listing gaps are neither changes nor destructive).
+- `src/tokyo_events/artists.py` — artist index rebuilt at export from
+  lineups + guarded title matching; fills artists/artist_aliases/
+  event_artists and each exported event's `artists[]`.
+- `src/tokyo_events/genres.py` — export-time tagging: rules → cached LLM
+  (optional) → `_VENUE_PRIOR` venue defaults.
 - `src/tokyo_events/scrapers/` — one module per family. `base.py` has
-  polite fetch (rate limit, UA, retries) + generic `parse_detail()`
-  enrichment (OPEN/START, ¥ tiers, playguide links, P/L codes).
-  `textutils.py` holds shared JP-venue parsing conventions.
+  polite fetch (rate limit, UA, retries, declared-charset-first decoding)
+  + generic `parse_detail()` enrichment (OPEN/START, ¥ tiers, playguide
+  links, P/L codes). `textutils.py` holds shared JP-venue parsing
+  conventions (incl. `add_months` for month-page walks).
 - `src/tokyo_events/pipeline.py` — SCRAPERS registry; two-stage scrape
-  (listing pass, then detail fetch for new/changed events, capped at 25/run).
+  (listing pass, then detail fetches for new/changed events plus the
+  stored missing-details backlog, capped at DETAIL_CAP=40/source/run).
 - `cli.py` — scrape / list / approve / reject / export, `--auto`, `--report`.
 
-## Registered sources (13)
+## Registered sources (53, all live-validated with fixture tests)
 
-| Family | source_ids | Status |
+| Family / class | source_ids | Notes |
 |---|---|---|
-| Liquidroom | liquidroom | parser from near-raw structure; NOT yet live-validated |
-| O-Group | oeast owest ocrest onest | built from rendered capture; NOT yet live-validated |
-| Zepp | zepp_divercity zepp_haneda zepp_shinjuku zepp_yokohama | built from rendered capture; NOT yet live-validated |
-| Billboard | billboard_tokyo billboard_yokohama | built from live HTML fetch (highest confidence) |
-| Pia | toyosu_pit pia_arena_mm | built from rendered capture; NOT yet live-validated |
+| Liquidroom | liquidroom | |
+| O-Group | oeast owest ocrest onest | |
+| Zepp | zepp_divercity zepp_haneda zepp_shinjuku zepp_yokohama | month pages `?_y=YYYY&_m=M`, walks 6 months |
+| Billboard | billboard_tokyo billboard_yokohama | scraper-set genres |
+| Pia | toyosu_pit pia_arena_mm | |
+| Shibuya indie (step 3) | quattro_shibuya www www_x duo | |
+| Loft group | loft_shinjuku shelter loft_heaven | LOFT9 excluded (talk venue) |
+| Live houses (2026-07-13) | unit_daikanyama club_citta eggman shibuya_dive reny_shinjuku que_shimokitazawa yokohama_bay_hall fever_shindaita veats_shibuya club_seata stellar_ball | reny = ruido.org (detail-page-driven, RUIDO family expandable); que = clubque.net (operator changed 2026-07); stellar_ball under princehotels.co.jp |
+| Jazz (Blue Note Japan) | bluenote_tokyo cotton_club | jazz-soul prior |
+| Halls / theaters | ex_theater line_cube_shibuya hulic_hall kanadevia_hall sgc_hall_ariake tokyo_intl_forum nhk_hall opera_city tachikawa_stage_garden orchard_hall | ex_theater + sgc_hall = TV-Asahi TDP JSON feeds; tokyo_intl_forum funnels the 8-hall complex to Hall A concerts via the detail pass; hulic = hulic-theater.com |
+| Arenas / domes / stadiums | yokohama_arena tokyo_dome tokyo_garden_theater ariake_arena toyota_arena_tokyo k_arena_yokohama yoyogi_gym1 kokuritsu_stadium makuhari_messe yokohama_buntai | tokyo_dome = one static full-year page, concert rows only; makuhari uses the site's own music-category filter (?c=2); kokuritsu = jns-e.com (MUFG naming) |
 
-"Rendered capture" = parser written against text-rendered pages, not raw
-HTML. Expect some field-extraction bugs on first live runs. Zepp month
-pagination is a known TODO (currently only fetches the default schedule
-page; the site holds ~12 months).
+Checked and NOT scrapeable (2026-07-13): Budokan (official site
+publishes no concert listings), Hibiya Yaon (closed for reconstruction),
+Koenji HIGH + Tokyo Taiikukan (robots.txt disallow), Pacifico Yokohama
+(no public schedule), Tokyo Kinema Club (kinema.tokyo calendar empty —
+revisit). Future family leads: RUIDO group (Akabane/Yokohama ReNY...),
+SALOON (saloon-tokyo.com, UNIT's sister floor), other TDP JSON feeds.
 
 ## Hard rules
 
@@ -100,14 +119,16 @@ page; the site holds ~12 months).
 
 ## Roadmap priorities (owner-confirmed order)
 
-1. Live-validate all 13 sources (see above).
-2. Artist cross-referencing: populate artists/aliases/event_artists from
-   `lineup` + solo titles; normalization (NFKC, casing, JA/EN aliases);
-   artist pages on the frontend ("this artist's other upcoming shows").
-   This is the product's killer feature.
-3. Next venue families: Club Quattro, WWW/WWW X, duo, Loft group
-   (Shinjuku LOFT / 下北沢SHELTER / Que). Then halls/arenas per
-   `docs/venue-coverage-roadmap.md`.
-4. LLM-assisted genre tagging in the pipeline (facets in models.GENRES).
+1. ~~Live-validate all sources~~ DONE 2026-07-13 (53 sources).
+2. ~~Artist cross-referencing~~ DONE 2026-07-13 (artists.py at export;
+   frontend artist pages match the canonical `artists[]` field). Still
+   open within it: human/LLM alias merging across JA/EN spellings.
+3. ~~Venue build-out (live houses, halls, arenas)~~ DONE 2026-07-13 —
+   see the source table above; leads for later: RUIDO family, SALOON,
+   more TDP feeds. `docs/venue-coverage-roadmap.md` has per-venue notes.
+4. LLM-assisted genre tagging in the pipeline (facets in models.GENRES) —
+   rule+prior+cached-LLM tagging exists at export; extend as needed.
 5. Festivals as a curated source class (Fuji Rock, Summer Sonic, ...).
-6. Later: dedupe across sources, iCal export, OGP/sitemap, custom domain.
+6. Later: dedupe across sources (venue aliases: Kanadevia Hall ex-TDC
+   Hall, MUFG Stadium ex-国立競技場), iCal export, OGP/sitemap, custom
+   domain. New-source AUTO promotion after a few clean daily runs.
