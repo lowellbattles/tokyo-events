@@ -169,9 +169,13 @@ class EventStore:
 
     def events_needing_detail(self, source: str, exclude_urls: set[str],
                               limit: int) -> list[Event]:
-        """Upcoming events of a source whose stored data still lacks detail
-        fields (ticket links / start time / price) — the backlog the detail
-        pass drains across runs even when listings are unchanged."""
+        """Upcoming events of a source that were never detail-enriched at
+        all (no start time AND no price AND no ticket links) — the backlog
+        the detail pass drains across runs even when listings are
+        unchanged. Deliberately conservative: an event where SOME detail
+        fields stuck is not retried, because many venues simply never
+        publish the rest (retrying those would refetch the same pages
+        every day forever)."""
         if limit <= 0:
             return []
         out: list[Event] = []
@@ -183,8 +187,8 @@ class EventStore:
             d = json.loads(row["data"])
             if d.get("source_url") in exclude_urls:
                 continue
-            if (not d.get("ticket_links") or d.get("start_time") is None
-                    or d.get("price_min") is None):
+            if (not d.get("ticket_links") and d.get("start_time") is None
+                    and d.get("price_min") is None):
                 out.append(Event.from_json(d))
                 if len(out) >= limit:
                     break
