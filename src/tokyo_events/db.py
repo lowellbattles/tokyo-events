@@ -125,8 +125,14 @@ class EventStore:
             self.conn.commit()
             return "unchanged"
 
-        new_status = (row["status"] if default_status == ReviewStatus.AUTO
-                      else ReviewStatus.PENDING.value)
+        # A human's reject is a curation decision — content churn (sold-out
+        # flips, time corrections) must not resurface the event for review.
+        if row["status"] == ReviewStatus.REJECTED.value:
+            new_status = ReviewStatus.REJECTED.value
+        elif default_status == ReviewStatus.AUTO:
+            new_status = row["status"]
+        else:
+            new_status = ReviewStatus.PENDING.value
         self.conn.execute(
             "UPDATE events SET content_hash=?, data=?, start_date=?, "
             "end_date=?, category=?, status=?, last_seen=?, updated_at=? "

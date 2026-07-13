@@ -51,17 +51,43 @@ def clean_artist(raw: str) -> str | None:
     return s
 
 
+#: script class of a char, for CJK boundary guards
+def _script(ch: str) -> str:
+    o = ord(ch)
+    if 0x3041 <= o <= 0x309f:
+        return "hira"
+    if 0x30a0 <= o <= 0x30ff or o == 0x30fc:      # incl. long-vowel mark
+        return "kata"
+    if 0x4e00 <= o <= 0x9fff:
+        return "kanji"
+    if ch.isascii() and ch.isalnum():
+        return "latin"
+    return "other"
+
+
 def _title_match_re(key: str) -> re.Pattern | None:
-    """A guarded pattern for finding an artist key inside a normalized
-    title. ASCII-only keys need word boundaries; short keys are too
-    false-positive-prone to match at all."""
-    if re.fullmatch(r"[\x20-\x7e]+", key):
-        if len(key) < 4:
-            return None
-        return re.compile(rf"(?<![0-9a-z]){re.escape(key)}(?![0-9a-z])")
-    if len(key) < 3:
+    """Guarded pattern for finding an ASCII artist key inside a normalized
+    title: word boundaries, and short keys are too false-positive-prone to
+    match at all. (CJK keys go through _cjk_bounded instead.)"""
+    if len(key) < 4:
         return None
-    return re.compile(re.escape(key))
+    return re.compile(rf"(?<![0-9a-z]){re.escape(key)}(?![0-9a-z])")
+
+
+def _cjk_bounded(key: str, hay: str) -> bool:
+    """True if `key` occurs in `hay` with script-class boundaries: the
+    char immediately before/after the match must not continue the same
+    script as the key's edge char (レモン must not match inside
+    レモンジャム; ヨルシカ in ヨルシカな夜 is fine — な switches script)."""
+    start = 0
+    while (i := hay.find(key, start)) != -1:
+        left_ok = i == 0 or _script(hay[i - 1]) != _script(key[0])
+        j = i + len(key)
+        right_ok = j >= len(hay) or _script(hay[j]) != _script(key[-1])
+        if left_ok and right_ok:
+            return True
+        start = i + 1
+    return False
 
 
 def apply_artists(conn, events: list[dict]) -> None:
@@ -96,14 +122,24 @@ def _apply(conn, events: list[dict]) -> None:
             links.setdefault(key, set()).add(d["id"])
 
     # -- pass 2: title matching against the known universe ---------------
-    matchers = {k: rx for k in votes
-                if (rx := _title_match_re(k)) is not None}
+    ascii_matchers: dict[str, re.Pattern] = {}
+    cjk_keys: list[str] = []
+    for k in votes:
+        if re.fullmatch(r"[\x20-\x7e]+", k):
+            rx = _title_match_re(k)
+            if rx is not None:
+                ascii_matchers[k] = rx
+        elif len(k) >= 3:
+            cjk_keys.append(k)
     for d in events:
         hay = norm_key(f"{d.get('title_ja') or ''} {d.get('title_en') or ''}")
         if not hay:
             continue
-        for key, rx in matchers.items():
+        for key, rx in ascii_matchers.items():
             if d["id"] not in links[key] and rx.search(hay):
+                links[key].add(d["id"])
+        for key in cjk_keys:
+            if d["id"] not in links[key] and _cjk_bounded(key, hay):
                 links[key].add(d["id"])
 
     # -- rebuild tables (derived index: wipe links, upsert artists) ------

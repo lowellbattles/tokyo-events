@@ -102,7 +102,6 @@ class KArenaScraper(BaseScraper):
         base = f"{self.BASE}/schedule/"
         first = dt.date.today().replace(day=1)
         seen: set[str] = set()
-        empty_streak = 0
         for i in range(self.months_ahead):
             m = tu.add_months(first, i)
             # bare /schedule/ = current month; ?y=&m= (m unpadded) for the rest
@@ -113,13 +112,11 @@ class KArenaScraper(BaseScraper):
                 if i == 0:
                     raise            # current month must be reachable
                 break
+            # Arenas book far out with normal multi-month interior gaps —
+            # walk the whole window (card dates are self-contained, so an
+            # empty/clamped page can't mis-date anything; dedupe via seen).
             fresh = [e for e in self.parse(html) if e.source_url not in seen]
             seen.update(e.source_url for e in fresh)
-            # Most far-future months are legitimately empty; stop after a run
-            # of them rather than walking the whole advertised range.
-            empty_streak = 0 if fresh else empty_streak + 1
-            if empty_streak >= 2:
-                break
             yield from fresh
 
     # -- pure parse: html in, Events out (no fetching) --

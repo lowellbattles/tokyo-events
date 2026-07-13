@@ -82,3 +82,17 @@ def test_display_name_voting(tmp_path):
     n_alias = store.conn.execute(
         "SELECT COUNT(*) FROM artist_aliases").fetchone()[0]
     assert n_alias == 1
+
+
+def test_cjk_title_match_respects_script_boundaries(tmp_path):
+    store = EventStore(tmp_path / "cjk.db")
+    events = [
+        _ev("e1", "対バン", ["レモン", "おとぎ話"]),
+        _ev("e2", "レモンジャム 5周年Fes"),        # レモン must NOT match
+        _ev("e3", "「ロマンスのおとぎ話」"),        # common noun, NOT the band
+        _ev("e4", "レモン 単独公演"),               # bounded -> matches
+    ]
+    apply_artists(store.conn, events)
+    assert events[1]["artists"] == []
+    assert events[2]["artists"] == []
+    assert events[3]["artists"] == ["レモン"]

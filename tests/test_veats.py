@@ -113,7 +113,7 @@ def test_nonmusic_row_downgraded_to_other():
         '<li class="this-month"><a href="/schedule/?param=202607">07</a></li>'
         '<a href="https://veats.jp/schedule/9999/" class="today-lists">'
         '<p class="day">15<span class="date">TUE</span></p>'
-        '<p class="ttl text-overhidden4">プロレス 特別興行</p>'
+        '<p class="ttl text-overhidden4">新日本プロレス 特別興行</p>'
         '<p class="text-overhidden5">興行タイトル</p>'
         '<dl class="open-start"><dt>OPEN/START</dt><dd>17:00 / 18:00</dd></dl>'
         '<dl><dt>LINE UP</dt><dd class="one-column">-</dd></dl>'

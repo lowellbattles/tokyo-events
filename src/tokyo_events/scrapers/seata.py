@@ -152,7 +152,7 @@ class SeataScraper(BaseScraper):
             seen.update(e.source_url for e in fresh)
             # Dense venue: empty months only appear past the schedule horizon.
             empty_streak = 0 if fresh else empty_streak + 1
-            if empty_streak >= 2:
+            if empty_streak >= 3:
                 break
             yield from fresh
 

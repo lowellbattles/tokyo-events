@@ -149,10 +149,10 @@ class ToyotaArenaScraper(BaseScraper):
                 html = self.fetch(url)
             except RuntimeError:
                 break               # months that far out may not exist yet
-            evs = self.parse(html, today=m)
-            if not evs:
-                break               # stop on the first empty future month
-            yield from evs
+            # A sporadically-booked arena has normal interior empty months —
+            # card dates are absolute (YYYY.M.D), so walking the full window
+            # is safe and an empty month is just one cheap fetch.
+            yield from self.parse(html, today=m)
 
     def parse(self, html: str, today: dt.date | None = None,
               month: dt.date | None = None, **context) -> list[Event]:

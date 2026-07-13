@@ -114,7 +114,7 @@ class OperaCityScraper(BaseScraper):
             evs = self.parse(html, month=m)
             empty_streak = 0 if evs else empty_streak + 1
             yield from evs
-            if empty_streak >= 2:
+            if empty_streak >= 3:
                 break
 
     # ------------------------------------------------------------------ parse

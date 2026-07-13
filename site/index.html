@@ -339,11 +339,12 @@ function inWindow(ev){
   }
   return true;
 }
+/* music site (for now): arena/hall calendars also carry sports,
+   ice shows, ceremonies — scrapers mark those category:"other" */
+const isMusic=ev=>(ev.category||"music")==="music";
 function matches(ev){
   if(!ev.start_date) return false;
-  /* music site (for now): arena/hall calendars also carry sports,
-     ice shows, ceremonies — scrapers mark those category:"other" */
-  if((ev.category||"music")!=="music") return false;
+  if(!isMusic(ev)) return false;
   if(!activeVenues.has(ev.source)) return false;
   if(genre!=="all"&&!(ev.genres||[]).includes(genre)) return false;
   if(!inWindow(ev)) return false;
@@ -524,7 +525,7 @@ function renderStrip(){
 function renderArtistPage(name){
   const L=I18N[lang];
   const list=document.getElementById("list");
-  const evs=DATA.events.filter(ev=>ev.start_date&&evMatchesArtist(ev,name))
+  const evs=DATA.events.filter(ev=>ev.start_date&&isMusic(ev)&&evMatchesArtist(ev,name))
     .sort((a,b)=>a.start_date.localeCompare(b.start_date));
   const upcoming=evs.filter(ev=>P(ev.end_date||ev.start_date)>=TODAY);
   const genres=[...new Set(evs.flatMap(e=>e.genres||[]))];
@@ -546,7 +547,7 @@ function renderVenuePage(id){
   const list=document.getElementById("list");
   const V=VENUES[id];
   if(!V){list.innerHTML=`<div class="empty">${L.empty}</div>`;return;}
-  const evs=DATA.events.filter(ev=>ev.source===id&&ev.start_date)
+  const evs=DATA.events.filter(ev=>ev.source===id&&ev.start_date&&isMusic(ev))
     .sort((a,b)=>a.start_date.localeCompare(b.start_date));
   const upcoming=evs.filter(ev=>P(ev.end_date||ev.start_date)>=TODAY);
   const sample=evs.find(e=>e.address);

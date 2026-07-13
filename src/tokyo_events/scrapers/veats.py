@@ -75,7 +75,7 @@ class VeatsScraper(BaseScraper):
                      if e.source_url not in seen]
             seen.update(e.source_url for e in fresh)
             empty_streak = 0 if fresh else empty_streak + 1
-            if empty_streak >= 2:
+            if empty_streak >= 3:
                 break
             yield from fresh
 

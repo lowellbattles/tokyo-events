@@ -114,7 +114,7 @@ class ClubCittaScraper(BaseScraper):
             # A real future month can legitimately be empty; stop after two
             # consecutive empties rather than walking the whole calendar.
             empty_streak = 0 if fresh else empty_streak + 1
-            if i and empty_streak >= 2:
+            if i and empty_streak >= 3:
                 break
             yield from fresh
 

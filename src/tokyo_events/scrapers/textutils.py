@@ -28,7 +28,11 @@ SOLD_OUT_RE = re.compile(r"SOLD\s*OUT|ソールドアウト|完売", re.I)
 NONMUSIC_RE = re.compile(
     r"ディズニー・?オン・?アイス|DISNEY\s*ON\s*ICE|アイスショー|ON\s*ICE\b|"
     r"フィギュアスケート|Bリーグ|B\.LEAGUE|SVリーグ|Tリーグ|Vリーグ|"
-    r"大相撲|プロレス|ボクシング|RIZIN|K-1|格闘技|"
+    # combat sports: keyed to promotions/explicit match words, NOT the bare
+    # nouns (プロレス/ボクシング appear inside real idol/music titles, and
+    # K-1 hid "WORK-1st Anniversary LIVE" as a substring)
+    r"大相撲|(?:新日本|全日本)プロレス|プロレスリング|"
+    r"タイトルマッチ|世界戦|(?<![0-9A-Za-z])RIZIN|(?<![0-9A-Za-z])K-1(?![0-9A-Za-z])|"
     r"卓球|バレーボール|バスケットボール|ハンドボール|"
     r"世界選手権|全日本選手権|"
     r"式典|入学式|卒業式|入社式|株主総会|表彰式|説明会|業界研究|"
@@ -74,8 +78,8 @@ def parse_times(text: str) -> tuple[str | None, str | None]:
 #: a mandatory venue fee that is NOT the ticket price, yet carries a ¥
 #: amount that would otherwise win min-price parsing.
 DRINK_CHARGE_RE = re.compile(
-    r"(?:別途)?\s*(?:ドリンク代?|DRINK|[1１]D(?:RINK)?代?|Ｄ代|D代)\s*"
-    r"(?:別途|代)?\s*[:：]?\s*[¥￥]?\s*[\d,，]{3,}\s*(?:円)?", re.I)
+    r"(?:別途)?\s*(?:[1１]?ドリンク代?|DRINK|[1１]D(?:RINK)?代?|Ｄ代|D代)\s*"
+    r"(?:別途|別|代)?\s*[:：]?\s*[¥￥]?\s*[\d,，]{3,}\s*(?:円)?", re.I)
 
 
 def strip_drink_charges(text: str) -> str:

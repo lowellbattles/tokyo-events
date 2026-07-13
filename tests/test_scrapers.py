@@ -527,3 +527,67 @@ def test_strip_drink_charges_protects_min_price():
     # a genuinely cheap show must not be stripped
     _, pmin, _ = tu.parse_prices(tu.strip_drink_charges("前売 ¥800"))
     assert pmin == 800
+
+
+# ------------------------------------------------- review-pass regressions
+def test_rejected_status_survives_content_changes(tmp_path):
+    store = EventStore(tmp_path / "rej.db")
+    ev = Event(source="x", source_url="https://x/1", title_ja="spam",
+               start_date="2099-01-01")
+    store.upsert(ev)
+    store.set_status(ev.dedupe_key(), ReviewStatus.REJECTED)
+    changed = Event(source="x", source_url="https://x/1", title_ja="spam",
+                    start_date="2099-01-01", is_sold_out=True)
+    assert store.upsert(changed) == "changed"
+    row = store.conn.execute("SELECT status FROM events").fetchone()
+    assert row["status"] == "rejected"      # human curation is sticky
+
+
+def test_fully_failed_detail_pass_is_loud(tmp_path, monkeypatch):
+    from tokyo_events import pipeline
+    from tokyo_events.models import Category
+    from tokyo_events.scrapers.base import BaseScraper
+
+    def _bare(i):
+        return Event(source="dummy", source_url=f"https://d/{i}",
+                     title_ja=f"E{i}", category=Category.MUSIC,
+                     start_date="2099-01-01")
+
+    class BrokenDetail(BaseScraper):
+        source_id = "dummy"
+
+        def scrape(self):
+            yield from (_bare(i) for i in range(3))
+
+        def parse(self, html, **context):
+            return []
+
+        def fetch(self, url, retries=2):
+            raise RuntimeError("403 on every detail page")
+
+    store = EventStore(tmp_path / "loud.db")
+    monkeypatch.setattr(pipeline, "SCRAPERS",
+                        {"dummy": (BrokenDetail, ReviewStatus.PENDING)})
+    report = pipeline.run(store, only=["dummy"])[0]
+    assert report["found"] == 3
+    assert report["details"] == 0
+    assert report["error"] and "detail pass failed" in report["error"]
+
+
+def test_strip_drink_charges_bare_betsu_forms():
+    for text in ("前売 ¥3,000 ドリンク代別 ¥600",
+                 "前売 ¥3,000 ドリンク別 ¥600",
+                 "前売 ¥3,000 1ドリンク代別 ¥600"):
+        _, pmin, _ = tu.parse_prices(tu.strip_drink_charges(text))
+        assert pmin == 3000, text
+
+
+def test_nonmusic_short_tokens_do_not_hide_concerts():
+    # substring traps found in review
+    assert not tu.is_nonmusic("WORK-1st Anniversary LIVE")
+    assert not tu.is_nonmusic("NETWORK-1 TOUR")
+    assert not tu.is_nonmusic("豆腐プロレス THE REAL 2026")   # AKB48 project
+    # real combat-sports events still classify
+    assert tu.is_nonmusic("新日本プロレス 東京大会")
+    assert tu.is_nonmusic("K-1 WORLD GP 2026")
+    assert tu.is_nonmusic("RIZIN LANDMARK 12")

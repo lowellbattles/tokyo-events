@@ -172,6 +172,7 @@ def run(store: EventStore, only: list[str] | None = None,
                     source_id, exclude_urls=seen,
                     limit=DETAIL_CAP - len(to_enrich)))
 
+            detail_failures = 0
             for ev in to_enrich[:DETAIL_CAP]:
                 try:
                     html = scraper.fetch(ev.source_url)
@@ -179,7 +180,14 @@ def run(store: EventStore, only: list[str] | None = None,
                     store.upsert(enriched, default_status)
                     report["details"] += 1
                 except Exception:      # one bad detail page never kills a run
+                    detail_failures += 1
                     continue
+            # One flaky page is noise, but a fully-failed detail pass means
+            # the venue's detail pages broke — that must be loud, not a
+            # green source_health row that quietly stops backfilling.
+            if detail_failures >= 3 and report["details"] == 0:
+                report["error"] = (f"detail pass failed for all "
+                                   f"{detail_failures} attempted pages")
 
             if report["found"] == 0:
                 report["error"] = ("0 events parsed — site structure may "

@@ -211,9 +211,11 @@ class MakuhariMesseScraper(BaseScraper):
             price_divs = detail.select("dl.person div.price")
             ptext = " / ".join(d.get_text(" ", strip=True) for d in price_divs
                                if d.get_text(strip=True))
+            # Drink/fee notes carry ¥ amounts that must not win the min().
+            scan = tu.strip_drink_charges(ptext)
             amounts = [n for n in (
                 _to_int(x) for x in
-                _YEN_PREFIX_RE.findall(ptext) + _YEN_SUFFIX_RE.findall(ptext)
+                _YEN_PREFIX_RE.findall(scan) + _YEN_SUFFIX_RE.findall(scan)
             ) if n is not None]
             if amounts:
                 ev.price_text = re.sub(r"\s+", " ", ptext).strip()[:300]
