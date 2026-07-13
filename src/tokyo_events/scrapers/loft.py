@@ -32,6 +32,14 @@ HALLS = {
         slug="shelter", venue_name="下北沢SHELTER", venue_area="Shimokitazawa",
         address="2-6-10 Kitazawa B1, Setagaya-ku, Tokyo",
         lat=35.662398, lng=139.667800),
+    # Detail links are /schedule/heaven/{id} (no second /schedule/ segment,
+    # like SHELTER) — the shared _href_re already accepts that shape.
+    # lat/lng are an approximate central-Shibuya pin (address geocode not
+    # confirmed from the page; verify before precise mapping).
+    "loft_heaven": dict(
+        slug="heaven", venue_name="LOFT HEAVEN", venue_area="Shibuya",
+        address="2-12-13 Shibuya B1, Shibuya-ku, Tokyo",
+        lat=35.6595, lng=139.701),
 }
 
 QUOTED_TITLE_RE = re.compile(r"[「“『]([^」”』]{2,120})[」”』]")

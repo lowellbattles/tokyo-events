@@ -11,6 +11,7 @@
     --f-liquid:#4c5fd5; --f-ogroup:#00a04b; --f-zepp:#0091d4;
     --f-billboard:#8f2d56; --f-pia:#e4007f; --f-other:#6b7280;
     --f-quattro:#d97706; --f-www:#7c3aed; --f-duo:#0d9488; --f-loft:#b91c1c;
+    --f-indie:#84cc16; --f-jazz:#78350f; --f-hall:#546e7a; --f-arena:#5b21b6;
     --radius:10px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -179,12 +180,50 @@ const VENUE_META = {
   duo:               {fam:"duo",      letter:"D"},
   loft_shinjuku:     {fam:"loft",     letter:"L"},
   shelter:           {fam:"loft",     letter:"S"},
-  yokohama_arena:    {fam:"other",    letter:"Y"},
+  loft_heaven:       {fam:"loft",     letter:"H"},
+  /* live houses / clubs */
+  unit_daikanyama:   {fam:"indie",    letter:"U"},
+  club_citta:        {fam:"indie",    letter:"C"},
+  eggman:            {fam:"indie",    letter:"E"},
+  shibuya_dive:      {fam:"indie",    letter:"D"},
+  reny_shinjuku:     {fam:"indie",    letter:"R"},
+  que_shimokitazawa: {fam:"indie",    letter:"Q"},
+  yokohama_bay_hall: {fam:"indie",    letter:"B"},
+  fever_shindaita:   {fam:"indie",    letter:"F"},
+  veats_shibuya:     {fam:"indie",    letter:"V"},
+  club_seata:        {fam:"indie",    letter:"S"},
+  stellar_ball:      {fam:"indie",    letter:"S"},
+  /* jazz clubs */
+  bluenote_tokyo:    {fam:"jazz",     letter:"B"},
+  cotton_club:       {fam:"jazz",     letter:"C"},
+  /* seated halls / theaters */
+  ex_theater:        {fam:"hall",     letter:"X"},
+  line_cube_shibuya: {fam:"hall",     letter:"L"},
+  hulic_hall:        {fam:"hall",     letter:"H"},
+  kanadevia_hall:    {fam:"hall",     letter:"K"},
+  sgc_hall_ariake:   {fam:"hall",     letter:"S"},
+  tokyo_intl_forum:  {fam:"hall",     letter:"F"},
+  nhk_hall:          {fam:"hall",     letter:"N"},
+  opera_city:        {fam:"hall",     letter:"O"},
+  tachikawa_stage_garden:{fam:"hall", letter:"T"},
+  orchard_hall:      {fam:"hall",     letter:"O"},
+  /* arenas / domes / stadiums */
+  yokohama_arena:    {fam:"arena",    letter:"Y"},
+  tokyo_dome:        {fam:"arena",    letter:"D"},
+  tokyo_garden_theater:{fam:"arena",  letter:"G"},
+  ariake_arena:      {fam:"arena",    letter:"A"},
+  toyota_arena_tokyo:{fam:"arena",    letter:"T"},
+  k_arena_yokohama:  {fam:"arena",    letter:"K"},
+  yoyogi_gym1:       {fam:"arena",    letter:"Y"},
+  kokuritsu_stadium: {fam:"arena",    letter:"S"},
+  makuhari_messe:    {fam:"arena",    letter:"M"},
+  yokohama_buntai:   {fam:"arena",    letter:"B"},
 };
 const FAM_COLOR = {liquid:"var(--f-liquid)",ogroup:"var(--f-ogroup)",
   zepp:"var(--f-zepp)",billboard:"var(--f-billboard)",pia:"var(--f-pia)",
   quattro:"var(--f-quattro)",www:"var(--f-www)",duo:"var(--f-duo)",
-  loft:"var(--f-loft)",other:"var(--f-other)"};
+  loft:"var(--f-loft)",indie:"var(--f-indie)",jazz:"var(--f-jazz)",
+  hall:"var(--f-hall)",arena:"var(--f-arena)",other:"var(--f-other)"};
 const GENRE_KEYS = ["idol","j-rock","international","k-pop","jazz-soul",
                     "classical","hiphop-rnb","electronic","anime-seiyu"];
 

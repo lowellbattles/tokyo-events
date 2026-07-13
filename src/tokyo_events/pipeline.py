@@ -29,6 +29,37 @@ from .scrapers.www import WWWScraper
 from .scrapers.duo import DuoScraper
 from .scrapers.loft import LoftScraper
 from .scrapers.yokohama_arena import YokohamaArenaScraper
+from .scrapers.unit import UnitScraper
+from .scrapers.ex_theater import ExTheaterScraper
+from .scrapers.bluenote import BlueNoteTokyoScraper, CottonClubScraper
+from .scrapers.stellar_ball import StellarBallScraper
+from .scrapers.club_citta import ClubCittaScraper
+from .scrapers.eggman import EggmanScraper
+from .scrapers.shibuya_dive import ShibuyaDiveScraper
+from .scrapers.reny import RenyScraper
+from .scrapers.que import QueScraper
+from .scrapers.bay_hall import BayHallScraper
+from .scrapers.fever import FeverScraper
+from .scrapers.veats import VeatsScraper
+from .scrapers.seata import SeataScraper
+from .scrapers.line_cube import LineCubeShibuyaScraper
+from .scrapers.hulic_hall import HulicHallScraper
+from .scrapers.kanadevia import KanadeviaHallScraper
+from .scrapers.sgc_hall import SgcHallScraper
+from .scrapers.tif import TokyoIntlForumScraper
+from .scrapers.nhk_hall import NHKHallScraper
+from .scrapers.opera_city import OperaCityScraper
+from .scrapers.tachikawa_sg import TachikawaStageGardenScraper
+from .scrapers.orchard_hall import OrchardHallScraper
+from .scrapers.tokyo_dome import TokyoDomeScraper
+from .scrapers.garden_theater import GardenTheaterScraper
+from .scrapers.ariake_arena import AriakeArenaScraper
+from .scrapers.toyota_arena import ToyotaArenaScraper
+from .scrapers.k_arena import KArenaScraper
+from .scrapers.yoyogi import YoyogiScraper
+from .scrapers.kokuritsu_stadium import KokuritsuStadiumScraper
+from .scrapers.makuhari_messe import MakuhariMesseScraper
+from .scrapers.yokohama_buntai import YokohamaBuntaiScraper
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -56,7 +87,47 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "loft_shinjuku":     (lambda: LoftScraper("loft_shinjuku"),
                           ReviewStatus.PENDING),
     "shelter":           (lambda: LoftScraper("shelter"),   ReviewStatus.PENDING),
+    "loft_heaven":       (lambda: LoftScraper("loft_heaven"),
+                          ReviewStatus.PENDING),
     "yokohama_arena":    (YokohamaArenaScraper,             ReviewStatus.PENDING),
+    # --- live houses / clubs (2026-07-13 build-out) ---
+    "unit_daikanyama":   (UnitScraper,                      ReviewStatus.PENDING),
+    "club_citta":        (ClubCittaScraper,                 ReviewStatus.PENDING),
+    "eggman":            (EggmanScraper,                    ReviewStatus.PENDING),
+    "shibuya_dive":      (ShibuyaDiveScraper,               ReviewStatus.PENDING),
+    "reny_shinjuku":     (RenyScraper,                      ReviewStatus.PENDING),
+    "que_shimokitazawa": (QueScraper,                       ReviewStatus.PENDING),
+    "yokohama_bay_hall": (BayHallScraper,                   ReviewStatus.PENDING),
+    "fever_shindaita":   (FeverScraper,                     ReviewStatus.PENDING),
+    "veats_shibuya":     (VeatsScraper,                     ReviewStatus.PENDING),
+    "club_seata":        (SeataScraper,                     ReviewStatus.PENDING),
+    "stellar_ball":      (StellarBallScraper,               ReviewStatus.PENDING),
+    # --- jazz clubs (Blue Note Japan group) ---
+    "bluenote_tokyo":    (BlueNoteTokyoScraper,             ReviewStatus.PENDING),
+    "cotton_club":       (CottonClubScraper,                ReviewStatus.PENDING),
+    # --- seated halls / theaters ---
+    "ex_theater":        (ExTheaterScraper,                 ReviewStatus.PENDING),
+    "line_cube_shibuya": (LineCubeShibuyaScraper,           ReviewStatus.PENDING),
+    "hulic_hall":        (HulicHallScraper,                 ReviewStatus.PENDING),
+    "kanadevia_hall":    (KanadeviaHallScraper,             ReviewStatus.PENDING),
+    "sgc_hall_ariake":   (SgcHallScraper,                   ReviewStatus.PENDING),
+    "tokyo_intl_forum":  (TokyoIntlForumScraper,            ReviewStatus.PENDING),
+    "nhk_hall":          (NHKHallScraper,                   ReviewStatus.PENDING),
+    "opera_city":        (OperaCityScraper,                 ReviewStatus.PENDING),
+    "tachikawa_stage_garden": (TachikawaStageGardenScraper,
+                               ReviewStatus.PENDING),
+    "orchard_hall":      (OrchardHallScraper,               ReviewStatus.PENDING),
+    # --- arenas / domes / stadiums ---
+    "tokyo_dome":        (TokyoDomeScraper,                 ReviewStatus.PENDING),
+    "tokyo_garden_theater": (GardenTheaterScraper,          ReviewStatus.PENDING),
+    "ariake_arena":      (AriakeArenaScraper,               ReviewStatus.PENDING),
+    "toyota_arena_tokyo": (ToyotaArenaScraper,              ReviewStatus.PENDING),
+    "k_arena_yokohama":  (KArenaScraper,                    ReviewStatus.PENDING),
+    "yoyogi_gym1":       (lambda: YoyogiScraper("yoyogi_gym1"),
+                          ReviewStatus.PENDING),
+    "kokuritsu_stadium": (KokuritsuStadiumScraper,          ReviewStatus.PENDING),
+    "makuhari_messe":    (MakuhariMesseScraper,             ReviewStatus.PENDING),
+    "yokohama_buntai":   (YokohamaBuntaiScraper,            ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the

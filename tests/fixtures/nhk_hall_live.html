@@ -1,0 +1,1112 @@
+<html lang="ja">
+<head>
+    <title>NHKホール予定一覧</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Style-Type" content="text/css"/>
+    <meta http-equiv="Content-Script-Type" content="text/javascript"/>
+    <meta name="keywords" content="NHK,東京,渋谷区,公開番組,コンサート,講演会,公演,舞台,ホール,イベント,パイプオルガン"/>
+    <meta name="description" content=""/>
+    <meta name="copyright" content="NHK"/>
+    <link href="css/all.css" type="text/css" rel="stylesheet"/>
+    <style type="text/css">
+        <!--
+        .style1 {
+            color: #FF0000;
+            font-weight: bold;
+        }
+        -->
+    </style>
+    <script src="../common/js/nfdn_tools.js"></script>
+</head>
+<body id="event">
+<!-- head｛ -->
+<div id="head">
+    <div class="container">
+        <div id="pageTop" class="skip">
+            <p>読み飛ばしリンク。</p>
+            <p><a href="#mainCol">本文にジャンプ。</a></p>
+        </div>
+        <div id="logo"><a href="index.html"><img src="img/cmn_logo_nhk.gif" alt="NHKホール"/></a></div>
+        <ul>
+            <li class="item01"><a href="sitemap.html"><img src="img/cmn_head_btn01.gif" alt="サイトマップ" class="mo"/></a>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--｝ head -->
+<hr/>
+<!-- nav｛ -->
+<div id="nav">
+    <div id="navInner">
+        <div class="container">
+            <ul class="wrap">
+                <li class="item01"><a href="index.html"><img src="img/cmn_menu_01.gif" alt="Top" class="fa"/></a></li>
+                <li class="item02"><a href="event.html"><img src="img/cmn_menu_02.gif" alt="公開番組・イベント予定一覧" class="fa"/></a>
+                </li>
+                <li class="item03"><a href="hall.html"><img src="img/cmn_menu_03.gif" alt="館内案内" class="fa"/></a></li>
+                <li class="item04"><a href="seat.html"><img src="img/cmn_menu_04.gif" alt="座席案内" class="fa"/></a></li>
+                <li class="item05"><a href="history.html"><img src="img/cmn_menu_05.gif" alt="NHKホールのあゆみ" class="fa"/></a></li>
+                <li class="item06"><a href="access.html"><img src="img/cmn_menu_06.gif" alt="交通・アクセス" class="fa"/></a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!--｝ nav -->
+<hr/>
+<!-- contents｛ -->
+<div id="contents">
+    <div id="contentsInner">
+        <div class="container">
+            <ul id="pathInfo" class="wrap">
+                <li><a href="../">NHK財団</a></li>
+                <li><a href="index.html">NHKホール</a></li>
+                <li>予定一覧</li>
+            </ul>
+            <!-- mainCol｛ -->
+            <div id="mainCol">
+                <h1><img src="img/event_tit_01.gif" alt="予定一覧" class="sp_change"/></h1>
+                <div id="eventLead">
+                    <p class="lead">
+                        NHKの公開番組をはじめ、各種のコンサートや古典芸能の上演から講演会、国際会議にいたるまで、多種多様な催し物を実施し、放送を通じて広く紹介しています。また、外部の有意義な催し物にも利用され、芸術文化の向上と国際文化の交流に大きな役割をはたしています。</p>
+                    <div id="eventBanner" class="wrap">
+                        <div class="flLeft">
+                            <div class="adobeLink wrap">
+                                <div><a href="http://www.adobe.com/go/JP-H-GET-READER" rel="external"><img
+                                        src="img/get_adobe_reader.gif" alt="Get! Adobe Reader"/></a></div>
+                                <p>予定表はPDF形式になっています。<a href="http://www.adobe.com/go/JP-H-GET-READER" rel="external">アドビリーダー（無料）</a>をお持ちでない方は
+                                    こちらからダウンロードしてください。</p>
+                            </div>
+                        </div>
+                        <span class="flLeft"><a href="pdf/r08-07_yotei.pdf" target="_blank"><img
+                                src="img/event_ban_02.jpg" alt="『月刊催物予定表』と『来月以降の主な催物予定』のPDF版をご用意いたしました。"
+                                class="mo"/></a></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="frameBrown"><!-----frameBrown----->
+                
+                <div class="eventBox"><!-----eventBox 当月----->
+                    <div class="table_block">
+                        <div class="header_month flex_box">
+                            <h3>
+                                <img src="img/month/202607.gif" alt="2026年7月" width="141" height="43"/>
+                            </h3>
+                            <div><img src="img/month/july.gif" alt="7月"/></div>
+                        </div>
+                        <div class="event_top">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th class="celDays">日・曜日</th>
+                                        <th class="celName">催物名</th>
+                                        <th class="celOpen">開場</th>
+                                        <th class="celStart">開演</th>
+                                        <th class="celEnd">終演</th>
+                                        <th class="celAbout">主催・問合せ先</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div><!-----<event_top_Table----->
+						
+						<table class="part top">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/01.gif" alt=""/></p>
+                                    <p><img src="img/week/wed.gif" alt=""/></p>
+                                    <p class="dayText">1日（水）</p></td>
+                                <td class="celName"><p><strong>～結成20周年記念～<br>高嶋ちさ子 12人のヴァイオリニスト コンサートツアー 2026～2027</strong></p></td>
+                                <td class="celOpen">17:30</td>
+                                <td class="celStart">18:30</td>
+                                <td class="celEnd">21:00</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>BS朝日<br>（問）キョードー東京<br>0570-550-799<br>平日<span style="margin-left: 26px;">11:00-18:00</span><br>土日祝　10:00-18:00</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>全席指定　8,000円</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+						
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/02.gif" alt=""/></p>
+                                    <p><img src="img/week/thu.gif" alt="" width="35" height="13"/></p>
+                                    <p class="dayText">2日（木）</p></td>
+                                <td class="celName"><p><strong>青葉市子 文月の衣紋に綴る熱帯魚</strong></p></td>
+                                <td class="celOpen">18:00</td>
+                                <td class="celStart">19:00</td>
+                                <td class="celEnd">20:30</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>ホットスタッフ・プロモーション<br>050-5211-6077<br>平日　12:00-18:00</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                    <dt>備考：</dt>
+                                    <dd>SS席 8,800円／S席 7,800円<br>
+										<span style="margin-left: 6px;">A席 6,800円／B席 4,800円</span></dd>
+                                    </dl>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+	
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/03.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt="" width="35" height="13"/></p>
+                                    <p class="dayText">3日（金）</p></td>
+                                <td class="celName"><p><strong>森山直太朗 Two jobs tour 2025～26　『あの世でね』<br>～「弓弦葉」と「Yeeeehaaaaw！」～「Yeeeehaaaaw！」公演</strong></p></td>
+                                <td class="celOpen">17:30</td>
+                                <td class="celStart">18:30</td>
+                                <td class="celEnd">21:00</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>ホットスタッフ・プロモーション<br>050-5211-6077<br>平日　12:00-18:00</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                    <dt>備考：</dt>
+                                    <dd>全席指定　8,500円</dd>
+                                    </dl>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/04.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">4日（土）</p></td>
+                                <td class="celName"><p><strong>澤野弘之 LIVE  [nZk］009</strong></p></td>
+                                <td class="celOpen">17:30</td>
+                                <td class="celStart">18:30</td>
+                                <td class="celEnd">20:30</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>ディスクガレージ<br /><font size="2px" style="text-decoration: underline"><a href="https://info.diskgarage.com/">お問合せ</a></font></dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>全席指定　9,500円</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/05r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt="" width="35" height="13"/></p>
+                                    <p class="dayText">5日（日）</p></td>
+                                <td class="celName"><p><strong>AiNA THE END HALL TOUR  2026</strong></p></td>
+                                <td class="celOpen">17:00</td>
+                                <td class="celStart">18:00</td>
+                                <td class="celEnd">20:15</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>エイベックス・ライヴ・クリエイティヴ<br>（問）@-information<br /><font size="2px" style="text-decoration: underline"><a href="https://supportform.jp/a-information">お問い合わせフォーム</a></font><br>平日　10:00-17:00</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                    <dt>備考：</dt>
+                                    <dd>全席指定　9,500円</dd>
+                                    </dl>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/06.gif" alt=""/></p>
+                                    <p><img src="img/week/mon.gif" alt=""/></p>
+                                    <p class="dayText">6日（月）</p></td>
+                                <td class="celName"><p><strong>N響 ウェルカム・コンサート</strong></p></td>
+                                <td class="celOpen">18:00</td>
+                                <td class="celStart">19:00</td>
+                                <td class="celEnd">20:15</td>
+                              <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>ＮＨＫ／ＮＨＫ交響楽団<br>(問) N響ガイド<br>0570-02-9502</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                    <dt>備考：</dt>
+                                      <dd>一　般<span style="margin-left: 50px;">2,000円</span><br>
+										  ユースチケット　1,000円<br>
+										  ウェルカム・<br>ペアチケット<span style="margin-left: 21px;">3,200円（2枚1組)</span></dd>
+                                    </dl>
+                              </td>
+                            </tr>
+                            </tbody>
+                        </table>
+						
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/07.gif" alt=""/></p>
+                                    <p><img src="img/week/tue.gif" alt=""/></p>
+                                    <p class="dayText">7日（火）</p></td>
+                                <td class="celName"><p><strong>うたコン</strong></p></td>
+                                <td class="celOpen">18:40</td>
+                                <td class="celStart">19:45</td>
+                                <td class="celEnd">21:00</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>ＮＨＫ<br />（問）ハローダイヤル<br />050-5541-8600</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>整理券</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="part">
+                            <tbody>
+                            <tr class="joinNextLine linHeightL">
+                                <td class="celDays"><p><img src="img/day/10.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt="" width="35" height="13"/></p>
+                                    <p class="dayText">10日（金）</p></td>
+                                <td rowspan="3" class="celName"><p><strong>英国ロイヤル・バレエ団　2026年日本公演　『ジゼル』</strong></p></td>
+                                <td class="celOpen">17:30</td>
+                                <td class="celStart">18:30</td>
+                                <td class="celEnd">20:40</td>
+                                <td rowspan="3" class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>日本舞台芸術振興会<br>（問）NBSチケットセンター<br>03-3791-8888<br>平日　10:00ｰ16:00</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>S席　32,000円<br>
+											A席　26,000円<br>
+											B席　23,000円<br>
+											C席　18,000円<br>
+											D席　14,000円<br>
+											E席　10,000円<br>
+											U39<span style="margin-left: 14px;">9,000円</span><br>
+											U25<span style="margin-left: 14px;">7,000円</span></dd>
+                                    </dl>
+                                </td>
+                            </tr>
+
+                            <tr class="joinNextLine linHeightL">
+                                <td class="celDays"><p><img src="img/day/11.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt="" width="35" height="13"/></p>
+                                    <p class="dayText">11日（土）</p></td>
+                                <td class="celOpen">12:30<br /><p style="padding-left:1px;">17:30</p></td>
+                                <td class="celStart">13:30<br /><p style="padding-left:1px;">18:30</p></td>
+                                <td class="celEnd">15:40<br /><p style="padding-left:1px;">20:40</p></td>
+                            </tr>
+								
+                            <tr class="linHeightL">
+                                <td class="celDays"><p><img src="img/day/12r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt="" width="35" height="13"/></p>
+                                    <p class="dayText">12日（日）</p></td>
+                                <td class="celOpen">11:00<br /><p style="padding-left:1px;">16:00</p></td>
+                                <td class="celStart">12:00<br /><p style="padding-left:1px;">17:00</p></td>
+                                <td class="celEnd">14:10<br /><p style="padding-left:1px;">19:10</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+						
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine linHeightL">
+                                <td class="celDays"><p><img src="img/day/15.gif" alt=""/></p>
+                                    <p><img src="img/week/wed.gif" alt=""/></p>
+                                    <p class="dayText">15日（水）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>SHOGO　HAMADA ON THE ROAD 2025 ｰ2026<br>Under The BLUE SKY</strong></p></td>
+                                <td class="celOpen">17:10</td>
+                                <td class="celStart">18:00</td>
+                                <td class="celEnd">21:00</td>
+                                <td rowspan="2" class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+										<dd>ディスクガレージ<br />（問）インフォメーションセンター<br>050-5855-1364<br>平日　12:00ｰ16:00<br><font size="2px">車椅子席についての問合せ↓</font><br><a style="text-decoration: underline" href="https://info.diskgarage.com/">お問合せ</a></dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                    <dt>備考：</dt>
+                                    <dd>S席　13,200円<br>A席　11,000円</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            <tr class="linHeightL">
+                                <td class="celDays"><p><img src="img/day/16.gif" alt=""/></p>
+                                    <p><img src="img/week/thu.gif" alt=""/></p>
+                                    <p class="dayText">16日（木）</p></td>
+                                <td class="celOpen">17:10</td>
+                                <td class="celStart">18:00</td>
+                                <td class="celEnd">21:00</td>
+                            </tr>
+                            </tbody>
+                        </table>
+						
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/17.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt=""/></p>
+                                    <p class="dayText">17日（金）</p></td>
+                                <td class="celName"><p><strong>N響 「夏」 2026</strong></p></td>
+                                <td class="celOpen">18:00</td>
+                                <td class="celStart">19:00</td>
+                                <td class="celEnd">21:00</td>
+                              <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>ＮＨＫ／ＮＨＫ交響楽団<br>(問) N響ガイド<br>0570-02-9502</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                    <dt>備考：</dt>
+                                      <dd>S　7,300円（3,600円）<br>
+                                          A<span style="margin-left: 15px;">5,300円（2,600円）</span><br>
+                                          B<span style="margin-left: 15px;">3,300円（1,600円）</span><br>
+                                          C<span style="margin-left: 15px;">2,100円（1,000円）</span><br>
+                                          （  ）はユースチケット（29歳以下）</dd>
+                                    </dl>
+                              </td>
+                            </tr>
+                            </tbody>
+                        </table>
+						
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/18.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">18日（土）</p></td>
+                                <td class="celName"><p><strong>T.M.R. LIVE REVOLUTION '26-'27 REWIND OF CLOUD NINE</strong></p></td>
+                                <td class="celOpen">17:00</td>
+                                <td class="celStart">18:00</td>
+                                <td class="celEnd">20:00</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>キョードー東京<br>0570-550-799<br>平日<span style="margin-left: 26px;">11:00-18:00</span><br>土日祝　10:00-18:00</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>全席指定　11,000円</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/19r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">19日（日）</p></td>
+                                <td class="celName"><p><strong>T.M.R. LIVE REVOLUTION '26-'27 REWIND OF Joker Type2</strong></p></td>
+                                <td class="celOpen">16:00</td>
+                                <td class="celStart">17:00</td>
+                                <td class="celEnd">19:00</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>キョードー東京<br>0570-550-799<br>平日<span style="margin-left: 26px;">11:00-18:00</span><br>土日祝　10:00-18:00</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>全席指定　11,000円</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                        <table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/23.gif" alt=""/></p>
+                                    <p><img src="img/week/thu.gif" alt=""/></p>
+                                    <p class="dayText">23日（木）</p></td>
+                                <td class="celName"><p><strong>第73回 NHK杯 全国高校放送コンテスト 決勝</strong></p></td>
+                                <td class="celOpen">8:00</td>
+                                <td class="celStart">8:50</td>
+                                <td class="celEnd">16:00</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>全国放送教育研究会連盟／<br />ＮＨＫ<br />（問）コンテスト事務局<br />03-5797-6707</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>全国大会参加校向けに入場券配付<br>（一般非公開）</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+						
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/24.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt=""/></p>
+                                    <p class="dayText">24日（金）</p></td>
+                                <td class="celName"><p><strong>ｗ-inds. 25th  Anniversary<br>Best Single LIVE TOUR 2026　”GOLDEN SINGLES”</strong></p></td>
+                                <td class="celOpen">17:30</td>
+                                <td class="celStart">18:30</td>
+                                <td class="celEnd">21:00</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>テレビ朝日／ソーゴー東京<br>（問）ソーゴー東京<br>03-3405-9999<br>月-土　12:00-13:00/<br><span style="margin-left: 50px;">16:00-19:00</span></dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>指定席　9,500円</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+						
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine linHeightL">
+                                <td class="celDays"><p><img src="img/day/25.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">25日（土）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>Angela Aki Tour 2026 SHADOW WORK</strong></p></td>
+                                <td class="celOpen">16:00</td>
+                                <td class="celStart">17:00</td>
+                                <td class="celEnd">19:20</td>
+                                <td rowspan="2" class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+										<dd>ソーゴー東京／J-WAVE<br>（問）ソーゴー東京<br>03-3405-9999<br>月-土　12:00-13:00/<br><span style="margin-left: 50px;">16:00-19:00</span></dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                    <dt>備考：</dt>
+                                    <dd>全席指定　9,900円</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            <tr class="linHeightL">
+                                <td class="celDays"><p><img src="img/day/26r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">26日（日）</p></td>
+                                <td class="celOpen">16:00</td>
+                                <td class="celStart">17:00</td>
+                                <td class="celEnd">19:20</td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/28.gif" alt=""/></p>
+                                    <p><img src="img/week/tue.gif" alt=""/></p>
+                                    <p class="dayText">28日（火）</p></td>
+                                <td class="celName"><p><strong>うたコン</strong></p></td>
+                                <td class="celOpen">18:40</td>
+                                <td class="celStart">19:45</td>
+                                <td class="celEnd">21:00</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>ＮＨＫ<br />（問）ハローダイヤル<br />050-5541-8600</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>整理券</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine linHeightL">
+                                <td class="celDays"><p><img src="img/day/29.gif" alt=""/></p>
+                                    <p><img src="img/week/wed.gif" alt=""/></p>
+                                    <p class="dayText">29日（水）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>JUJU　HALL TOUR 2026 純喫茶JUJU 「時間旅行」<br>演出：松任谷正隆</strong></p></td>
+                                <td class="celOpen">17:30</td>
+                                <td class="celStart">18:30</td>
+                                <td class="celEnd">21:00</td>
+                                <td rowspan="2" class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+										<dd>ソニー・ミュージックレーベルズ<br>（問）ソーゴー東京<br>03-3405-9999<br>月-土　12:00-13:00/<br><span style="margin-left: 50px;">16:00-19:00</span></dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                    <dt>備考：</dt>
+                                    <dd>全席指定　9,500円</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            <tr class="linHeightL">
+                                <td class="celDays"><p><img src="img/day/30.gif" alt=""/></p>
+                                    <p><img src="img/week/thu.gif" alt=""/></p>
+                                    <p class="dayText">30日（木）</p></td>
+                                <td class="celOpen">17:30</td>
+                                <td class="celStart">18:30</td>
+                                <td class="celEnd">21:00</td>
+                            </tr>
+                            </tbody>
+                        </table>
+						
+						<table class="part">
+                            <tbody>
+                            <tr class="endLine">
+                                <td class="celDays"><p><img src="img/day/31.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt="" width="35" height="13"/></p>
+                                    <p class="dayText">31日（金）</p></td>
+                                <td class="celName"><p><strong>ohashiTrio HALL TOUR 2026 -A BAND-</strong></p></td>
+                                <td class="celOpen">18:00</td>
+                                <td class="celStart">19:00</td>
+                                <td class="celEnd">21:15</td>
+                                <td class="celAbout">
+                                    <dl class="wrap sponsorName">
+                                        <dt>主催：</dt>
+                                        <dd>J-WAVE／<br>ホットスタッフ・プロモーション<br>（問）ホットスタッフ・プロモーション<br>050-5211-6077<br>平日　12:00-18:00</dd>
+                                    </dl>
+                                    <dl class="wrap">
+                                        <dt>備考：</dt>
+                                        <dd>全席指定　8,800円</dd>
+                                    </dl>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+
+                    </div><!-----<table_block_close----->
+
+                    <!--div>
+
+                        <ul style="margin-bottom:10px; padding-left:12px; list-style:disc inside;">
+
+                            <li>ＮＨＫホールのホームページは、<a href="index.html">https://www.nhk-fdn.or.jp/nhk_hall/</a>
+
+                            </li>
+
+                            <li>ＮＨＫ主催公開番組（＊）のお問い合せ先は下記の通りです。<br/>
+
+                                　 [電話番号］０３-３４６４-０２００(ＮＨＫサービスセンター・自動音声) /<br><span style="margin-left:10px">「ザ少年倶楽部」のみ０３-５７７７-８６００(ハローダイヤル)</span><br/>
+
+                                　<a href="http://pid.nhk.or.jp/event/" target="_blank">ホームページ
+
+                                    http://pid.nhk.or.jp/event/</a></li>
+
+                            <li>なお、上記スケジュールは変更になる場合もありますのでご了承ください。</li>
+
+                        </ul>
+
+                    </div-->
+
+                </div><!-----eventBox 当月----->
+
+            </div><!-----frameBrown----->
+        
+            <div class="goToTop textRight">
+                <a href="#pageTop"><img src="img/cmn_btn_totop.gif" alt="ページのTOPへ戻る" class="mo"/></a>
+            </div>
+            <div class="frameBrown next_month"><!-----frameBrown次月以降----->
+                <div class="caption wrap flex_box">
+                    <img src="img/event_cap_01.gif" alt="以降の主な催し物予定"/>
+                    <p><a href="http://pid.nhk.or.jp/event/" target="_blank">（NHK公開番組の詳細はこちら）</a></p>
+                </div>
+                <!-- ■その他6■ ｛ -->
+                <div class="eventBox"><!-----eventBox　次月----->
+                    <div class="table_block">
+                        <div class="header_month flex_box">
+                            <h3>
+                                <img src="img/month/202608.gif" alt="2026年8月" width="141" height="43"/>
+                            </h3>
+                            <div><img src="img/month/august.gif" alt="8月"/></div>
+                        </div>
+                        <div class="event_top">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="celDays">日・曜日</th>
+                                    <th class="celName">催物名</th>
+                                    <th class="celStart">開演<br/>(予定)</th>
+                                    <th class="celTicket">入場券等　お問合せ先</th>
+                                    <th class="celTell">電話</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div><!-----<event_top_Table----->
+						<table class="part top">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/02r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">2日（日）</p></td>
+                                <td class="celName"><p><strong>夏だ!　祭りだ‼　N響ほっとコンサート</strong></p></td>
+                                <td class="celStart"><p>15:30</p></td>
+                                <td class="celTicket"><p>N響ガイド</p></td>
+                                <td class="celTell">0570-02-9502</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div><!-----table_block　次月----->
+                </div><!-----eventBox　次月----->
+                <!-- ■その他6■ ｛ -->
+                <!-- ■その他7■ ｛ -->
+                <div class="eventBox"><!-----eventBox　次月----->
+                    <div class="table_block">
+                        <div class="header_month flex_box">
+                            <h3>
+                                <img src="img/month/202609.gif" alt="2026年9月" width="141" height="43"/>
+                            </h3>
+                            <div><img src="img/month/september.gif" alt="9月"/></div>
+                        </div>
+                        <div class="event_top">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="celDays">日・曜日</th>
+                                    <th class="celName">催物名</th>
+                                    <th class="celStart">開演<br/>(予定)</th>
+                                    <th class="celTicket">入場券等　お問合せ先</th>
+                                    <th class="celTell">電話</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div><!-----<event_top_Table----->
+						<table class="part top">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/04.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt=""/></p>
+                                    <p class="dayText">4日（金）</p></td>
+                                <td class="celName"><p><strong>Char 50th Anniversary Tour</strong></p></td>
+                                <td class="celStart"><p>18:30</p></td>
+                                <td class="celTicket"><p>ホットスタッフ・プロモーション</p></td>
+                                <td class="celTell">050-5211-6077</td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/06r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">6日（日）</p></td>
+                                <td class="celName"><p><strong>～結成20周年記念～　高嶋ちさ子<br>12人のヴァイオリニスト コンサートツアー 2026～2027</strong></p></td>
+                                <td class="celStart"><p>18:30</p></td>
+                                <td class="celTicket"><p>キョードー東京</p></td>
+                                <td class="celTell">0570-550-799</td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine">
+                                <td class="celDays"><p><img src="img/day/12.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">12日（土）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>ＮＨＫ交響楽団 第2069回 定期公演Ａプログラム</strong></p></td>
+                                <td class="celStart"><p>18:00</p></td>
+                                <td rowspan="2" class="celTicket"><p>Ｎ響ガイド</p></td>
+                                <td rowspan="2" class="celTell">0570-02-9502</td>
+                            </tr>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/13r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">13日（日）</p></td>
+                                <td class="celStart"><p>14:00</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/23r.gif" alt=""/></p>
+                                    <p><img src="img/week/wed.gif" alt=""/></p>
+                                    <p class="dayText">23日<br />（水・<span style="color:rgba(255,0,4,1.00);">祝</span>）</p></td>
+                                <td class="celName"><p><strong>田原俊彦 Dance with KING of IDOL 2026<br>～ パーティーはこれからだ！～</strong></p></td>
+                                <td class="celStart"><p>17:30</p></td>
+                                <td class="celTicket"><p>ソーゴー東京</p></td>
+                                <td class="celTell">03-3405-9999</td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine">
+                                <td class="celDays"><p><img src="img/day/25.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt=""/></p>
+                                    <p class="dayText">25日（金）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>ＮＨＫ交響楽団 第2071回 定期公演Ａプログラム</strong></p></td>
+                                <td class="celStart"><p>19:00</p></td>
+                                <td rowspan="2" class="celTicket"><p>Ｎ響ガイド</p></td>
+                                <td rowspan="2" class="celTell">0570-02-9502</td>
+                            </tr>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/26.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">26日（土）</p></td>
+                                <td class="celStart"><p>14:00</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/27r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">27日（日）</p></td>
+                                <td class="celName"><p><strong>ＮＨＫ音楽祭2026「ロンドン交響楽団」</strong></p></td>
+                                <td class="celStart"><p>15:00</p></td>
+                                <td class="celTicket"><p>ハローダイヤル</p></td>
+                                <td class="celTell">050-5541-8600</td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div><!-----table_block　次月----->
+                </div><!-----eventBox　次月----->
+                <!-- ■その他7■ ｛ -->
+                <!-- ■その他8■ ｛ -->
+                <div class="eventBox"><!-----eventBox　次月----->
+                    <div class="table_block">
+                        <div class="header_month flex_box">
+                            <h3>
+                                <img src="img/month/202610.gif" alt="2026年10月" width="141" height="43"/>
+                            </h3>
+                            <div><img src="img/month/october.gif" alt="10月"/></div>
+                        </div>
+                        <div class="event_top">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="celDays">日・曜日</th>
+                                    <th class="celName">催物名</th>
+                                    <th class="celStart">開演<br/>(予定)</th>
+                                    <th class="celTicket">入場券等　お問合せ先</th>
+                                    <th class="celTell">電話</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div><!-----<event_top_Table----->
+						<table class="part top">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/14.gif" alt=""/></p>
+                                    <p><img src="img/week/wed.gif" alt=""/></p>
+                                    <p class="dayText">14日（水）</p></td>
+                                <td class="celName"><p><strong>Erika Ikuta Tour 2026『I.K.T』～I Know Tomorrow～</strong></p></td>
+                                <td class="celStart"><p>18:30</p></td>
+                                <td class="celTicket"><p>キョードー東京</p></td>
+                                <td class="celTell">0570-550-799</td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine">
+                                <td class="celDays"><p><img src="img/day/17.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">17日（土）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>ＮＨＫ交響楽団 第2072回 定期公演Ａプログラム</strong></p></td>
+                                <td class="celStart"><p>18:00</p></td>
+                                <td rowspan="2" class="celTicket"><p>Ｎ響ガイド</p></td>
+                                <td rowspan="2" class="celTell">0570-02-9502</td>
+                            </tr>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/18r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">18日（日）</p></td>
+                                <td class="celStart"><p>14:00</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine">
+                                <td class="celDays"><p><img src="img/day/23.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt=""/></p>
+                                    <p class="dayText">23日（金）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>ＮＨＫ交響楽団 第2073回 定期公演Cプログラム</strong></p></td>
+                                <td class="celStart"><p>19:00</p></td>
+                                <td rowspan="2" class="celTicket"><p>Ｎ響ガイド</p></td>
+                                <td rowspan="2" class="celTell">0570-02-9502</td>
+                            </tr>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/24.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">24日（土）</p></td>
+                                <td class="celStart"><p>14:00</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div><!-----table_block　次月----->
+                </div><!-----eventBox　次月----->
+                <!-- ■その他8■ ｛ -->
+                <!-- ■その他9■ ｛ -->
+                <div class="eventBox"><!-----eventBox　次月----->
+                    <div class="table_block">
+                        <div class="header_month flex_box">
+                            <h3>
+                                <img src="img/month/202611.gif" alt="2026年11月" width="141" height="43"/>
+                            </h3>
+                            <div><img src="img/month/november.gif" alt="11月"/></div>
+                        </div>
+                        <div class="event_top">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="celDays">日・曜日</th>
+                                    <th class="celName">催物名</th>
+                                    <th class="celStart">開演<br/>(予定)</th>
+                                    <th class="celTicket">入場券等　お問合せ先</th>
+                                    <th class="celTell">電話</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div><!-----<event_top_Table----->
+						<table class="part top">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/05.gif" alt=""/></p>
+                                    <p><img src="img/week/thu.gif" alt=""/></p>
+                                    <p class="dayText">5日（木）</p></td>
+                                <td class="celName"><p><strong>milet live tour 2026(仮)</strong></p></td>
+                                <td class="celStart"><p>18:30</p></td>
+                                <td class="celTicket"><p>キョードー東京</p></td>
+                                <td class="celTell">0570-550-799</td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine">
+                                <td class="celDays"><p><img src="img/day/07.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">7日（土）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>ＮＨＫ交響楽団 第2074回 定期公演Ａプログラム</strong></p></td>
+                                <td class="celStart"><p>18:00</p></td>
+                                <td rowspan="2" class="celTicket"><p>Ｎ響ガイド</p></td>
+                                <td rowspan="2" class="celTell">0570-02-9502</td>
+                            </tr>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/08r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">8日（日）</p></td>
+                                <td class="celStart"><p>14:00</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine">
+                                <td class="celDays"><p><img src="img/day/13.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt=""/></p>
+                                    <p class="dayText">13日（金）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>ＮＨＫ交響楽団 第2075回 定期公演Cプログラム</strong></p></td>
+                                <td class="celStart"><p>19:00</p></td>
+                                <td rowspan="2" class="celTicket"><p>Ｎ響ガイド</p></td>
+                                <td rowspan="2" class="celTell">0570-02-9502</td>
+                            </tr>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/14.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">14日（土）</p></td>
+                                <td class="celStart"><p>14:00</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/15r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">15日（日）</p></td>
+                                <td class="celName"><p><strong>ＮＨＫ音楽祭関連イベント　いないいないばあっ！<br>30周年記念ジャズライブ  ワンワン大感謝祭</strong></p></td>
+                                <td class="celStart">14:00<br /><p style="padding-left:1px;">18:00</p></td>
+                                <td class="celTicket"><p>ハローダイヤル</p></td>
+                                <td class="celTell">050-5541-8600</td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/22r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">22日（日）</p></td>
+                                <td class="celName"><p><strong>ＮＨＫ音楽祭2026「ＮＨＫ交響楽団」</strong></p></td>
+                                <td class="celStart"><p>15:00</p></td>
+                                <td class="celTicket"><p>ハローダイヤル</p></td>
+                                <td class="celTell">050-5541-8600</td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine">
+                                <td class="celDays"><p><img src="img/day/28.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">28日（土）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>ＮＨＫ交響楽団 第2077回 定期公演Ａプログラム</strong></p></td>
+                                <td class="celStart"><p>18:00</p></td>
+                                <td rowspan="2" class="celTicket"><p>Ｎ響ガイド</p></td>
+                                <td rowspan="2" class="celTell">0570-02-9502</td>
+                            </tr>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/29r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">29日（日）</p></td>
+                                <td class="celStart"><p>14:00</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div><!-----table_block　次月----->
+                </div><!-----eventBox　次月----->
+                <!-- ■その他9■ ｛ -->
+                <!-- ■その他10■ ｛ -->
+                <div class="eventBox"><!-----eventBox　次月----->
+                    <div class="table_block">
+                        <div class="header_month flex_box">
+                            <h3>
+                                <img src="img/month/202612.gif" alt="2026年12月" width="141" height="43"/>
+                            </h3>
+                            <div><img src="img/month/december.gif" alt="12月"/></div>
+                        </div>
+                        <div class="event_top">
+                            <table>
+                                <thead>
+                                <tr>
+                                    <th class="celDays">日・曜日</th>
+                                    <th class="celName">催物名</th>
+                                    <th class="celStart">開演<br/>(予定)</th>
+                                    <th class="celTicket">入場券等　お問合せ先</th>
+                                    <th class="celTell">電話</th>
+                                </tr>
+                                </thead>
+                            </table>
+                        </div><!-----<event_top_Table----->
+						<table class="part top">
+                            <tbody>
+                            <tr class="joinNextLine">
+                                <td class="celDays"><p><img src="img/day/04.gif" alt=""/></p>
+                                    <p><img src="img/week/fri.gif" alt=""/></p>
+                                    <p class="dayText">4日（金）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>ＮＨＫ交響楽団 第2078回 定期公演Cプログラム</strong></p></td>
+                                <td class="celStart"><p>19:00</p></td>
+                                <td rowspan="2" class="celTicket"><p>Ｎ響ガイド</p></td>
+                                <td rowspan="2" class="celTell">0570-02-9502</td>
+                            </tr>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/05.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">5日（土）</p></td>
+                                <td class="celStart"><p>14:00</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+						<table class="part">
+                            <tbody>
+                            <tr class="joinNextLine">
+                                <td class="celDays"><p><img src="img/day/12.gif" alt=""/></p>
+                                    <p><img src="img/week/sat.gif" alt=""/></p>
+                                    <p class="dayText">12日（土）</p></td>
+                                <td rowspan="2" class="celName"><p><strong>葉加瀬太郎 コンサートツアー 2026</strong></p></td>
+                                <td class="celStart"><p>16:00</p></td>
+                                <td rowspan="2" class="celTicket"><p>キョードー東京</p></td>
+                                <td rowspan="2" class="celTell">0570-550-799</td>
+                            </tr>
+                            <tr>
+                                <td class="celDays"><p><img src="img/day/13r.gif" alt=""/></p>
+                                    <p><img src="img/week/sun.gif" alt=""/></p>
+                                    <p class="dayText">13日（日）</p></td>
+                                <td class="celStart"><p>14:00</p></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div><!-----table_block　次月----->
+                </div><!-----eventBox　次月----->
+                <!-- ■その他10■ ｛ -->
+                <div>
+                    <ul style="margin-bottom:10px; padding-left:12px; list-style:disc inside;">
+                        <li>上記スケジュールが変更になる場合もありますのでご了承下さい。</li>
+                    </ul>
+                </div>
+            </div><!-----frameBrown----->
+            <div class="goToTop textRight"><a href="#pageTop"><img src="img/cmn_btn_totop.gif" alt="ページのTOPへ戻る"
+                                                                   class="mo"/></a></div>
+        </div>
+        <!--｝ mainCol -->
+    </div>
+</div>
+<!--｝ contents -->
+<hr/>
+<!-- foot｛ -->
+<div id="foot">
+    <div class="container">
+        <div id="footNav">
+            <p><a href="event.html">公開番組イベント予定一覧</a>｜<a href="hall.html">館内案内</a>｜<a href="seat.html">座席案内</a><span class="pc-only">｜</span><br class="sp-only"><a href="history.html">NHKホールの歩み</a>｜<a href="access.html">アクセス</a>｜<a href="sitemap.html">サイトマップ</a></p>
+        </div>
+        <div id="copy">
+            <p>copyright NHK Foundation All rights reserved.</p>
+            <p>※本サイトに掲載されている画像、イラスト及び記事の無断転載・使用はお断りいたします。</p>
+        </div>
+        <div class="skip">
+            <p><a href="#pageTop">ページの先頭に戻る</a></p>
+        </div>
+    </div>
+</div>
+<!--｝ foot -->
+<div class="return_top">
+    <img src="./img/return_top.png" alt="">
+</div>
+</body>
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/prototype.js" type="text/javascript"></script>
+<script src="js/custom.js" type="text/javascript"></script>
+<script type="text/javascript" src="js/swfobject.js"></script>
+<script src="js/sp.js" type="text/javascript"></script>
+<script src="js/script.js" type="text/javascript"></script>
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r;
+        i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date();
+        a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0];
+        a.async = 1;
+        a.src = g;
+        m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+    ga('create', 'UA-39249657-13', 'auto');
+    ga('send', 'pageview');
+
+</script>
+</html>
+

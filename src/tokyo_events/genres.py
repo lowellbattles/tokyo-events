@@ -52,12 +52,25 @@ _RULES: list[tuple[str, re.Pattern]] = [
 _ALLNIGHT_RE = re.compile(r"オールナイト|ALL ?NIGHT", re.I)
 _DJ_RE = re.compile(r"\bDJ\b|ＤＪ", re.I)
 
-#: sources where an untagged music event is, by strong prior, a band show
-_JROCK_DEFAULT_SOURCES = {
-    "liquidroom", "oeast", "owest", "ocrest", "onest",
-    "zepp_divercity", "zepp_haneda", "zepp_shinjuku", "zepp_yokohama",
-    "quattro_shibuya", "www", "www_x", "duo", "loft_shinjuku", "shelter",
-    "toyosu_pit",
+#: venue prior: what an untagged music event at this source most likely is.
+#: Only sources with a genuine lean get an entry — mixed venues stay out and
+#: rely on rules/LLM. Priors are NOT confident (they mark LLM candidates).
+_VENUE_PRIOR = {
+    # band-focused live houses
+    **{s: "j-rock" for s in (
+        "liquidroom", "oeast", "owest", "ocrest", "onest",
+        "zepp_divercity", "zepp_haneda", "zepp_shinjuku", "zepp_yokohama",
+        "quattro_shibuya", "www", "www_x", "duo", "loft_shinjuku", "shelter",
+        "loft_heaven", "toyosu_pit", "fever_shindaita", "que_shimokitazawa",
+    )},
+    # jazz clubs (Blue Note Japan group)
+    "bluenote_tokyo": "jazz-soul",
+    "cotton_club": "jazz-soul",
+    # classical halls
+    "opera_city": "classical",
+    "orchard_hall": "classical",
+    # idol-leaning small venues
+    "shibuya_dive": "idol",
 }
 
 
@@ -80,8 +93,9 @@ def rule_genres(d: dict) -> tuple[list[str], bool]:
     hits = hits[:2]
     if hits:
         return hits, True
-    if d.get("source") in _JROCK_DEFAULT_SOURCES:
-        return ["j-rock"], False
+    prior = _VENUE_PRIOR.get(d.get("source"))
+    if prior:
+        return [prior], False
     return [], False
 
 

@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="utf-8">
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-MVSDGF8');</script>
+  <!-- End Google Tag Manager -->
+  
+  <!-- blade:section meta -->
+  <title>公演スケジュール｜CLUB CITTA&#039;（クラブチッタ）</title>
+  <meta name="description" content="クラブチッタの最新公演スケジュールをご覧いただけます。" />
+  <meta property="og:title" content="公演スケジュール｜CLUB CITTA&#039;（クラブチッタ）" />
+  <meta property="og:description" content="クラブチッタの最新公演スケジュールをご覧いただけます。" />
+  <!-- blade:endsection -->
+
+  <script src="https://clubcitta.co.jp/front/common/js/jquery.js"></script>
+
+    <!-- ▼▼ OGPタグ・canonical ▼▼ -->
+  <meta property="og:site_name" content="CLUB CITTA'（クラブチッタ）" /><!-- サイトごとに変更 -->
+  <meta property="og:type" content="article" /><!-- サイトTOPはwebsite その他はarticleに変更！！ -->
+  <meta property="og:url" content="https://clubcitta.co.jp/schedule" /><!-- @ogurl() -->
+  <meta property="og:image" content="https://clubcitta.co.jp/front/common/img/ogp_club.jpg" /><!-- 画像サイズ 1200×630 -->
+  <meta property="og:locale" content="ja_jp" />
+  <!-- ツイッター用記述 -->
+  <meta name="twitter:card" content="summary_large_image" /><!-- カードの種類 -->
+  <meta name="twitter:site" content="" /><!-- Twitterのユーザー名 @~~~ -->
+  <!-- ▲▲ OGPタグ・canonical ▲▲ -->
+
+  <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1,11"><![endif]-->
+  <meta name="format-detection" content="telephone=no,address=no,email=no">
+  <!-- ▼iPad対応 -->
+  <script type="text/javascript" async>
+    if ((navigator.userAgent.indexOf('iPhone') > 0) || navigator.userAgent.indexOf('iPod') > 0 || navigator.userAgent
+      .indexOf('Android') > 0) {
+      document.head.insertAdjacentHTML('beforeend',
+        '<meta name="viewport" content="width=device-width, minimum-scale=0.1" />');
+    } else {
+      document.head.insertAdjacentHTML('beforeend', '<meta name="viewport" content="width=1000">');
+    }
+  </script>
+
+  <!-- favicon -->
+  <link rel="shortcut icon" href="https://clubcitta.co.jp/front/favicon.ico" />
+  <!-- <link rel="apple-touch-icon" href="https://clubcitta.co.jp/front/apple-touch-icon.png" />
+  <link rel="icon" type="image/png" href="https://clubcitta.co.jp/front/android-chrome-192x192.png" /> -->
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&family=Prompt:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap"
+    rel="stylesheet">
+
+  <!-- css -->
+  <link href="https://clubcitta.co.jp/front/common/css/reset.css" rel="stylesheet" media="all" type="text/css" />
+  <link href="https://clubcitta.co.jp/front/common/css/base.css" rel="stylesheet" media="all" type="text/css" />
+
+  <!-- blade:section style -->
+  <link href="https://clubcitta.co.jp/front/common/css/slick-theme.css" rel="stylesheet" media="all" type="text/css" />
+  <link href="https://clubcitta.co.jp/front/common/css/slick.css" rel="stylesheet" media="all" type="text/css" />
+  <!-- blade:endsection -->
+  <link href="https://clubcitta.co.jp/front/common/css/schedule.css" rel="stylesheet" media="all" type="text/css" />
+
+  
+  <!-- blade:section script_preload -->
+  <!-- blade:endsection -->
+</head>
+
+<!-- blade:section body -->
+
+<body id="schedule">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MVSDGF8"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <!-- blade:endsection -->
+
+  <div id="wrapper">
+    <div id="screen"></div>
+
+    <div class="sp_menu">
+      <div><a href="https://clubcitta.co.jp/schedule">ライブ<br>スケジュール</a></div>
+      <div><a href="https://clubcitta.co.jp/institution">施設案内</a></div>
+      <div><a href="https://clubcitta.co.jp/access">アクセス</a></div>
+    </div>
+    
+    <header>
+      <div id="site_menu" class="menu">
+        <p class="icon"><span></span></p>
+      </div>
+      <div class="header_inner">
+        <h1 id="site_title"><a href="https://clubcitta.co.jp"><img src="https://clubcitta.co.jp/front/common/img/logo.svg"
+              alt="クラブチッタ"></a></h1>
+        <ul class="pc_nav">
+          <li><a href="https://clubcitta.co.jp/schedule">ライブスケジュール</a></li>
+          <li class="calendar">カレンダー</li>
+          <li><a href="https://clubcitta.co.jp/institution">施設案内</a></li>
+          <li><a href="https://clubcitta.co.jp/access">アクセス</a></li>
+        </ul>
+        <!-- /.pc_nav -->
+      </div>
+      <nav id="gnav" role="navigation">
+        <div class="gnav_bg">
+          <ul class="h_nav">
+            <li><a href="https://clubcitta.co.jp">TOP<span>トップページ</span></a></li>
+            <li><a href="https://clubcitta.co.jp/schedule">LIVE SCHEDULE<span>ライブスケジュール</span></a></li>
+            <li><a href="https://clubcitta.co.jp/institution">FACILITY<span>施設案内</span></a></li>
+            <li><a
+                href="https://clubcitta.co.jp/institution/food_drink">FOOD<small>・</small>DRINK<span>フード・ドリンク</span></a>
+            </li>
+            <li><a href="https://clubcitta.co.jp/information">NEWS<span>新着情報</span></a></li>
+            <li><a href="https://clubcitta.co.jp/access">ACCESS<span>アクセス</span></a></li>
+          </ul>
+          <ul class="h_nav2">
+            <li><a href="https://clubcitta.co.jp/faq">よくある質問</a></li>
+            <li><a href="https://clubcitta.co.jp/hall">ホールレンタル</a></li>
+            <li><a href="https://clubcitta.co.jp/contact">お問い合わせ</a></li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <div id="calendar">
+
+    </div>
+
+
+
+    <!-- blade:section main -->
+<div id="main" role="main">
+	<div class="page_ttl">
+		<h1 class="ttl">SCHEDULE<span>スケジュール</span></h1>
+	</div>
+
+	<div class="container wide">
+		<div class="calendar_nav top">
+
+						<div class="select_flex">
+				<div class="custom_select_wrap year_wrap">
+					<select name="year_select" class="custom_select sources year_select">
+												<option value="2028" >2028</option>
+												<option value="2027" >2027</option>
+												<option value="2026" selected>2026</option>
+												<option value="2025" >2025</option>
+												<option value="2024" >2024</option>
+												<option value="2023" >2023</option>
+											</select>
+				</div>
+
+				<div class="custom_select_wrap month_wrap">
+					<select name="month_select" class="custom_select month_data sources month_select">
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Jan" >1</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Feb" >2</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Mar" >3</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Apr" >4</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="May" >5</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Jun" >6</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Jul" selected>7</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Aug" >8</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Sep" >9</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Oct" >10</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Nov" >11</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Dec" >12</option>
+											</select>
+				</div>
+			</div>
+					</div>
+		<!-- /.calendar_nav -->
+		<div class="calendar icon"><span>カレンダーから探す</span></div>
+		<!-- /.calendar -->
+		<div class="schedule_list">
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1686">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>13<span>Mon</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/5Ag7rw7cLjSk4C3ineM3PT0dk9ClomIKTmUjW3pY.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>音楽劇場-SP Vol.3-</h3>
+							<p>OPEN 15:30 / START 16:00<br><br>【出演】Bestted / Crimson Crat Clan / OHL / プラチナボーイズ / NEWTREND / DEA / KOSHIN / 100STARS / CRUSH / Last Prince / VYBE / The Right Light<br>【O.A】Find=i / ジャンクロップ<br>【MC】PA-CHIKU</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1655">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>14<span>Tue</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/s0O91vZL3mrKWuftDtw80sFNXeqrF2VbsjKJwBwA.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>CLUB CITTA&#039; Presents &quot;いいこと&quot; betcover!! × Hedigan&#039;s</h3>
+							OPEN 18:00 / START 19:00<br><br>【出演】betcover!! / Hedigan's
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1731">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>15<span>Wed</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/rV2NnrF1EP4nO9zaBscPchNmoksZe8FXPJvGHKo1.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>SOMECITY 2026-2027 TOKYO 第2戦</h3>
+							OPEN 18:30 / START 19:00<br><br>【TOP LEAGUE 6 TEAMS】44STREET / FAKE street / F'AQUAD / BRM / LIVE SDY / KIDROC<br>【MC】MOJA / 卍丸 / MAMUSHI<br>【DJ】KENKEN / UE
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1665">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>16<span>Thu</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/nMUc2SJuo8sjW0tElM80C2STby2vEm731XYuION3.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>SUPER★DRAGON Major 6th Single「Call Me Asap / NUMBER」スペシャルライブ＆特典会</h3>
+							<p>START 18:00<br><br>SUPER★DRAGON<br></p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1642">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>17<span>Fri</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/wZ7gQSR8ovJgyPU2e8rZBxDqzpxALyehqJ6cOScT.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>浅香唯LIVE2026 ～40周年NEXT～写真集発売記念公演</h3>
+							<p>OPEN 18:15 / START 19:00<br><br>【出演】浅香唯<br></p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1649">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>18<span>Sat</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/0CQhPWNJcNC2YxXVu8WRHBuMYebXUDjU4HLVgvdG.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>AARFesバンドコンテスト決勝！</h3>
+							<p>OPEN 14:45 / START 15:30<br><br>【出演】アイジョーオールスターズ&nbsp; / チェルシーチェルシー&nbsp; / iDOG&nbsp; / Buuuu'z&nbsp; / asobigokoro&nbsp; / Reg Warmers<br>【Guest】Mountainman</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1547">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>19<span>Sun</span></p>
+							<div class="img_contain"><img src="https://clubcitta.co.jp/front/common/img/schedule/default.jpg" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>Tokyo 7th シスターズ 2053 3rd Live CrossNova</h3>
+							<p>【1部】OPEN 13:00 / START 14:00<br style="margin: 0px; padding: 0px;">【2部】OPEN 17:00 / START18:00<br>※開場・開演時間は予告なく変更となる場合がございます<br><br>【出演】天希かのん / 星ノ谷しずく / 山田麻莉奈 / 天野聡美 / 橘一花 / 長谷川玲奈 / 七海こころ / 小茅楓<br style="margin: 0px; padding: 0px;"><span style="margin: 0px; padding: 0px;">※出演キャストは都合により予告なく変更される場合がございます</span></p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1656">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>20<span>Mon</span></p>
+							<div class="img_contain"><img src="https://clubcitta.co.jp/front/common/img/schedule/default.jpg" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>きんとき1stワンマンライブ「MIC LOUD」追加公演</h3>
+							<p>OPEN 16:00 / START 17:00<br><br>きんとき<br><br><span style="font-weight: bolder;"><span style="font-size: 18px;">THANK YOU SOLD OUT！</span></span></p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1693">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>21<span>Tue</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/wod5QXFKafmWgVAUKjhgruXwhIyNKIAkqq6KuodP.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>GKKJ PRESENTS CHALLENGER</h3>
+							OPEN 17:00 / START 17:30<br>
+<br>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1739">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>22<span>Wed</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/WeMPlBbsTTQSWFyRGxlbR2aJiXX6avTNahpxEqUq.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>FUJI ROCK SPECIAL</h3>
+							OPEN 18:00 / START 18:40<br><br>TURNSTILE<br>
+SUPPORT ACT：未定<br><br><b><span style="font-size: 18px;">THANK YOU SOLD OUT！</span></b>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1720">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>24<span>Fri</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/Mkpch4i82OcaDRvz6CZh4o1ncxQHOGwtq0obvfHf.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>PRIVATE</h3>
+							<p>貸し切り利用日となります。</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1698">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>25<span>Sat</span></p>
+							<div class="img_contain"><img src="https://clubcitta.co.jp/front/common/img/schedule/default.jpg" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>DANCE STORY presents TOKYO BEAT THE LIVE11 ～super summer time～</h3>
+							[1st昼] OPEN11:30 / START12:00<br>
+[2nd夜] OPEN16:30 / START17:00<br><br>
+
+【HEADZ TEAM】<br>
+anju / AYANO / chibisaku / DAIKI / FiL / Hinoken / HiRo-C / KINNOSUKE / moe / saki / SALLY / SHIGERU / SHINJI / YOSHIO / yachin / 3 BE ME / 8 North Gate / 優花<br>
+and more...(A-Z)<br>
+■SPECIAL BEATS &amp; THE Friend OPS<br>
+OPENING HEADZ SPECIAL UNIT<br>
+BTL SPECIAL LOCK UNIT<br>
+Chikara from 北九州<br>
+Te2 from 福岡<br>
+『V.I Based』/『Side B』 from Valuence INFINITIES Youth<br>
+【DAY】<br>
+Back to The 90s<br>
+Futures waack story<br>
+G-LOCKERS<br>
+【NIGHT】<br>
+S.A.S 20th.SPECIAL<br>
+MAYU(M-Squad)<br>
+SAYO Jr<br>
+Studio LILD<br>
+■MC KENSAKU<br>
+■VJ Shige-KiXxx<br>
+■DJ YASUSHI/KUNI and more...<br>
+						</div>
+					</div>
+				</a></div>
+						<div class="item"><a href="https://clubcitta.co.jp/schedule/1648">
+					<div class="inner ">
+						<div class="item_detail ">
+							<p>30<span>Thu</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/EOiaX7YOxL29A58YRWaq4ODbWBNEAgrpVDoHdPK2.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>DANCE ATTACK!! 東日本大会</h3>
+							<p>OPEN 12:00 / START 12:30</p>
+						</div>
+					</div>
+				</a></div>
+									<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1587">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>1<span>Wed</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/wqNsuAHyJoHeRs0ughr29hKQpNo0x6TM3GpdeiDL.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>Singer&#039;s High pre. &quot;Battle Frontier tour 2026&quot;</h3>
+							OPEN 18:00 / START 19:00<br><br>シンガーズハイ<br>GUEST：9mm Parabellum Bullet
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1705">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>2<span>Thu</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/yz2y5Xq2uq5S9pw0r3bubIasVNKVNfanB0UJ8uBc.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>JADE DANCE PARTY 2026</h3>
+							<p>OPEN 17:30 / START 18:00</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1666">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>3<span>Fri</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/BmO1Sg6IaObRXG1efdXaa0hoiIfyGhvhG5iHsVwi.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>PRIVATE</h3>
+							<p>貸し切り利用日となります。</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1641">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>4<span>Sat</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/FRwmWrooWMAe0nd7kwCuQ07YcCX3HRtuPAHwBylQ.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>ダウト×RAZOR×SCREW presents「全身全霊紫色に剃刀斬鉄FES」</h3>
+							<p>OPEN 12:00 / START 12:45<br><br>【出演】<b>ダウト / RAZOR / SCREW</b> / SLAPSLY / HIROTO(AliceNine.) / MizinkoFacT / レイヴ / BANDMENZ<br><br>《混沌STAGE》哀と凛人の無所属 / KAKUMAY / 鮮血A子ちゃん / DAMNED / BLAZE / MAMA. / まみれた<br>《O.A》ルルノネ<br></p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1692">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>5<span>Sun</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/jiUyOjNHvuFQR4uDKbQlPAacMgDWPGSHwCVZ7Mel.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>MAVERICK</h3>
+							<p>OPEN 11:30 / START 12:00<br><br>【出演】Ringwanderung / THE ORCHESTRA TOKYO / CYNHN / SITUASION / Mirror,Mirror / カラフルスクリーム / HIBANA / NUANCE / 美味しい曖昧 / さとりモンスター / Payrin's / Axelight / FOKALITE / RAY / airattic / selfish / Malcolm Mask McLaren / AFTERS</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1718">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>6<span>Mon</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/9S18lgr66zg5XTmO5j2Aqcp5gyx8w7xmbAgsMEUE.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>PRIVATE</h3>
+							<p>貸し切り利用日となります。</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1676">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>7<span>Tue</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/AC1QXgQvT2HmkdOgNrS8JR8wIikeY4sD7gF2KqJi.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>CLUB CITTA&#039;に立っちったvol.0</h3>
+							<p>OPEN 17:30 / START 18:30<br><br>【ゲストMC】楽しんご / 月明ゆかり<br>【出演】曖ノ音 / 内山美幸 / 絶対🦋零度 /&nbsp;チコリー亭まめちー / 月明ゆかり</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1719">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>8<span>Wed</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/lpFHvWKPhIS1ENVS7CRqGu1JofqYyjDSUqTwWLOy.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>PRIVATE</h3>
+							<p>貸し切り利用日となります。</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1488">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>10<span>Fri</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/oHGzvssaxucrIL9om21CaHvxmncUPthX37NeqFfR.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>Plastic Tree Phylogenetic Tree Tour Act.3 -a piece of “Curtain Call”-</h3>
+							<p>OPEN 17:30 / START 18:30<br><br>Plastic Tree<br><b>※FC限定</b></p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1672">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>11<span>Sat</span></p>
+							<div class="img_contain"><img src="https://clubcitta.co.jp/front/common/img/schedule/default.jpg" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>NouerA ‘CATCH THE WAVE’ WORLD TOUR in JAPAN</h3>
+							<p>【1部】OPEN 15:00 / START 16:00<br>【2部】OPEN 18:00 / START 19:00<br><br>NouerA</p>
+						</div>
+					</div>
+				</a></div>
+						<div class="item fix"><a href="https://clubcitta.co.jp/schedule/1627">
+					<div class="inner  fix ">
+						<div class="item_detail "">
+							<p>12<span>Sun</span></p>
+							<div class="img_contain"><img src="https://s3-citta-contents.s3.ap-northeast-1.amazonaws.com/laravel/clubcitta.co.jp/events/image/4S8j51E1GO9ohIhLb49mSAGJuFsfyCmY5P1MQg4N.webp" alt=""></div>
+						</div>
+						<div class="txt_wrap">
+							<h3>IKE THE LIVE 2</h3>
+							<p>OPEN 16:00 / START 17:00<br><br>IKE</p>
+						</div>
+					</div>
+				</a></div>
+					</div>
+
+				<div class="calendar_nav">
+			<div class="select_flex">
+				<div class="custom_select_wrap year_wrap">
+					<select name="year_select" class="custom_select sources year_select">
+												<option value="2028" >2028</option>
+												<option value="2027" >2027</option>
+												<option value="2026" selected>2026</option>
+												<option value="2025" >2025</option>
+												<option value="2024" >2024</option>
+												<option value="2023" >2023</option>
+											</select>
+				</div>
+
+				<div class="custom_select_wrap month_wrap">
+					<select name="month_select" class="custom_select month_data sources month_select">
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Jan" >1</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Feb" >2</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Mar" >3</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Apr" >4</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="May" >5</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Jun" >6</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Jul" selected>7</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Aug" >8</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Sep" >9</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Oct" >10</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Nov" >11</option>
+						 <!-- 修正: 1月～12月をループ -->
+							<option value="Dec" >12</option>
+											</select>
+				</div>
+			</div>
+		</div>
+		<!-- /.calendar_nav -->
+		
+		<ul class="bnr_list">
+			<li class="food"><a href="https://clubcitta.co.jp/institution/food_drink">FOOD&DRINK<span class="arrow"></span></a></li>
+			<li><a href="https://lacittadella.co.jp/shopguide/gourmet" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/bnr01.jpg" alt=""></a></li>
+		</ul>
+
+		<!--パンくず -->
+		<nav id="path">
+			<ol itemscope itemtype="http://schema.org/BreadcrumbList">
+				<li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name"><a itemscope itemtype="https://schema.org/webpage" itemprop="item" itemid="https://clubcitta.co.jp" href="https://clubcitta.co.jp">HOME</a></span><meta itemprop="position" content="1" /></li>
+				<li class="now" itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem"><span itemprop="name">スケジュール</span><meta itemprop="position" content="2" /></li>
+			</ol>
+		</nav>
+	</div>
+</div><!--/#main -->
+<!-- blade:endsection -->
+
+
+
+
+    <footer>
+      <!-- <p class="pagetop"></p> -->
+      <div class="footer_container">
+        <div class="bnr_wrap">
+          <div><a href="https://lacittadella.co.jp/shopguide/gourmet" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/bnr01.jpg" alt=""></a></div>
+          <div class="grid_box">
+            <div><a href="https://clubcitta.official.ec/" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/bnr02.jpg"alt=""></a></div>
+            <div><a href="http://clubcitta-attic.com/" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/bnr03.jpg" alt=""></a></div>
+            <div><a href="https://www.cittaworks.com/" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/bnr04.jpg" alt=""></a></div>
+            <div><a href="https://lacittadella.co.jp/recruit?facility=3&category=#result" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/bnr05.jpg" alt=""></a></div>
+            <div><a href="/schedule/1655" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/bnr10.jpg" alt="いいこと"></a></div>
+            <div><a href="https://www.instagram.com/millington_japantour2026" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/bnr13.jpg" alt=""></a></div>
+            <div><a href="/schedule/1650" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/bnr14.jpg" alt=error!!!"></a></div>
+          </div>
+        </div>
+        <!-- /.bnr_wrap -->
+      </div>
+      <div class="bnr_wrap02">
+        <div class="attention"><a href="https://clubcitta.co.jp/id_check">深夜公演の年齢確認について</a></div>
+        <div class="sns">
+          <p>SNS</p>
+          <ul>
+            <li><a href="https://x.com/CLUBCITTA_1988" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/icon_x.png"
+                  alt="X"></a></li>
+            <li><a href="https://www.facebook.com/clubcitta.official/" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/icon_fb.png"
+                  alt="Facebook"></a></li>
+            <li><a href="https://www.instagram.com/clubcitta_official/" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/icon_ig.png"
+                  alt="Instagram"></a></li>
+            <li><a href="https://www.youtube.com/channel/UC56GrMrTedY-IYyZQKcP_lA" target="_blank"><img src="https://clubcitta.co.jp/front/common/img/icon_yt.png"
+                  alt="YouTube"></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- /.bnr_wrap02 -->
+      <div class="footer_container">
+        <div class="f_nav_warp">
+          <p class="f_logo"><a href="https://clubcitta.co.jp"><img src="https://clubcitta.co.jp/front/common/img/logo_wht.svg"
+                alt="クラブチッタ"></a></p>
+          <div>
+            <ul class="f_nav f_nav01">
+              <li><a href="https://citta-ent.com" target="_blank">チッタグループ</a></li>
+              <li class="sp_change01"><a href="https://www.rexinn.co.jp/kawasaki/" target="_blank">チッタグループのカプセルホテル（川崎・蒲田）</a></li>
+            </ul>
+            <ul class="f_nav f_nav02">
+              <li><a href="https://citta-ent.com/topics" target="_blank">リリース情報</a></li>
+              <li><a href="https://citta-ent.com/topics" target="_blank">メディア掲載</a></li>
+              <li><a href="https://lacittadella.co.jp/location" target="_blank">取材受付</a></li>
+              <li><a href="https://ws.formzu.net/fgen/S64231761/" target="_blank">テナント募集</a></li>
+              <li><a href="https://lacittadella.co.jp/recruit" target="_blank">求人情報</a></li>
+              <li><a href="https://citta-ent.com/sitepolicy" target="_blank">サイトご利用に関して</a></li>
+              <li><a href="https://citta-ent.com/sitepolicy/privacy" target="_blank">個人情報保護</a></li>
+              <li><a href="https://ws.formzu.net/fgen/S774769876/" target="_blank">お問い合わせ</a></li>
+            </ul>
+          </div>
+        </div>
+        <!-- /.f_nav_warp -->
+        <ul class="group_bnr_list">
+          <li><a href="https://lacittadella.co.jp/" target="_blank"><img
+                src="https://clubcitta.co.jp/front/common/img/group01.jpg" alt="LA CITTADELLA"></a></li>
+          <li><a href="https://cinecitta.co.jp/" target="_blank"><img
+                src="https://clubcitta.co.jp/front/common/img/group02.jpg" alt="CINECITTA'"></a></li>
+          <li><a href="https://clubcitta.co.jp/" target="_blank"><img
+                src="https://clubcitta.co.jp/front/common/img/group03.jpg" alt="CLUB CITTA’"></a></li>
+          <li><a href="https://nus-saunahouse.com/" target="_blank"><img
+                src="https://clubcitta.co.jp/front/common/img/group05.jpg" alt="saunahouse"></a></li>
+          <li><a href="https://cittawedding.jp/" target="_blank"><img
+                src="https://clubcitta.co.jp/front/common/img/group06.jpg" alt="CITTA' WEDDING"></a></li>
+          <li><a href="https://www.rexinn.co.jp/about/" target="_blank"><img
+                src="https://clubcitta.co.jp/front/common/img/group04.jpg" alt="REX INN KAWASAKI"></a></li>
+        </ul>
+      </div>
+      <p id="copyright">Copyright © CLUB CITTA’ All Rights Reserved.</p>
+    </footer>
+
+  </div><!--/#wrapper -->
+
+  <script src="https://clubcitta.co.jp/front/common/js/base.js"></script>
+  <script src="https://clubcitta.co.jp/front/common/js/select.js"></script>
+<script>
+	$(document).ready(function() {
+	    // Laravelからルート情報をJavaScript変数に事前に代入
+    	const baseUrl = "https://clubcitta.co.jp/schedule";
+		// 年と月の初期値を取得
+		let year = $('.year_select option:selected').val();
+		let month = $('.month_select option:selected').val();
+
+		// 年セレクトボックスのイベント
+		$('.year_select').on("click", function() {
+            year = $(this).parent().find('.selected-option').data('value');
+			location.href = `${baseUrl}?year=${year}&month=${month}`;
+		});
+
+		// 月セレクトボックスのイベント
+		$('.month_select').on("click", function() {
+            month = $(this).parent().find('.selected-option').data('value');
+			location.href = `${baseUrl}?year=${year}&month=${month}`;
+		});
+	});
+</script>
+  <script>
+    // Laravelのルートを事前にJavaScript変数に詰め替え
+    const routes = {
+      eventsIndex: "https://clubcitta.co.jp/schedule"
+    };
+    $(document).ready(function() {
+
+      function calendar(date) {
+        const weeks = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+        const month_name = {
+          1: 'Jan',
+          2: 'Feb',
+          3: 'Mar',
+          4: 'Apr',
+          5: 'May',
+          6: 'Jun',
+          7: 'Jul',
+          8: 'Aug',
+          9: 'Sep',
+          10: 'Oct',
+          11: 'Nov',
+          12: 'Dec'
+        };
+        const year = date.getFullYear();
+        const month = date.getMonth() + 1;
+
+        const today = date.getDate();
+        const startDate = new Date(year, month - 1, 1);
+
+
+        const endDate = new Date(year, month, 0);
+        const endDayCount = endDate.getDate();
+        const startDay = startDate.getDay();
+        let dayCount = 1;
+        let calendarHtml = '<div class="calendar_inner">' +
+          '<div class="inner">' +
+          '<div class="date_box">' +
+          '<a class="item_arrow prev"></a>' +
+          '<div><a class="year" href="' + routes.eventsIndex + '?year=' + year + '&month=Jan' + '">' + year +
+          '</a><a class="day" href="' + routes.eventsIndex + '?year=' + year + '&month=' + month_name[month] + '">' +
+          month + '</a></div>' +
+          '<a class="item_arrow next"></a>' +
+          '</div>' +
+          '<table>' +
+          '<tr>';
+
+        for (let i = 0; i < weeks.length; i++) {
+          if (i == 0) {
+            calendarHtml += '<th class="sun">';
+          } else if (i == 6) {
+            calendarHtml += '<th class="sat">';
+          } else {
+            calendarHtml += '<th>';
+          }
+          calendarHtml += weeks[i] + '</th>';
+        }
+        calendarHtml += '</tr>';
+
+        for (let w = 0; w < 6; w++) {
+          calendarHtml += '<tr>';
+          for (let d = 0; d < 7; d++) {
+            let disableClass = '';
+            if (w == 0 && d < startDay) {
+              calendarHtml += '<td></td>';
+            } else if (dayCount > endDayCount) {
+              calendarHtml += '<td></td>';
+            } else {
+              if ((new Date(year, month - 1, dayCount).setHours(0, 0, 0, 0)) < (new Date().setHours(0, 0, 0, 0))) {
+                calendarHtml += '<td class="disable">' + dayCount + '</td>';
+              } else {
+                calendarHtml += '<td><a href="' + routes.eventsIndex + '?date=' + year + '-' + month + '-' +
+                  dayCount + '">' + dayCount + '</a></td>';
+              }
+              dayCount++;
+            }
+          }
+          calendarHtml += '</tr>';
+        }
+        calendarHtml += '</table>' +
+          '<div class="calendar_close more"><span>閉じる</span></div><div class="calendar_close fix_btn"><span></span></div>' +
+          '</div></div>';
+
+        $('#calendar').html(calendarHtml);
+      }
+
+      var currentDate = new Date();
+      calendar(currentDate);
+      $(document).on("click", "a.prev", function() {
+        currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() - 1, 1);
+        calendar(currentDate);
+      });
+
+      $(document).on("click", "a.next", function() {
+        currentDate = new Date(currentDate.getFullYear(), currentDate.getMonth() + 1, 1);
+        calendar(currentDate);
+      });
+
+      $(document).on("click", ".calendar_close", function() {
+        $('#calendar').fadeOut();
+      });
+    });
+  </script>
+</body>
+
+</html>

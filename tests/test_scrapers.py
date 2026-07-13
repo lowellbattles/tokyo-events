@@ -500,3 +500,14 @@ def test_zepp_live_month_page_parses():
     assert sweet.source_url.startswith(
         "https://www.zepp.co.jp/hall/divercity/schedule/single/?rid=")
     assert sweet.start_time is not None
+
+
+# ----------------------------------------------------- registry invariants
+def test_registry_every_factory_constructs_and_is_polite():
+    from tokyo_events import pipeline
+    assert len(pipeline.SCRAPERS) >= 53
+    for sid, (factory, status) in pipeline.SCRAPERS.items():
+        s = factory()
+        assert s.source_id == sid, f"{sid}: source_id mismatch ({s.source_id})"
+        assert s.rate_limit_s >= 2, f"{sid}: rate limit below politeness floor"
+        assert callable(s.scrape) and callable(s.parse)
