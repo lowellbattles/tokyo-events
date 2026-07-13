@@ -70,6 +70,20 @@ def parse_times(text: str) -> tuple[str | None, str | None]:
     return first(OPEN_RE, text), first(START_RE, text)
 
 
+#: "drink charge" notes (ドリンク代別途￥600, +1DRINK ¥600, D代600円 …) —
+#: a mandatory venue fee that is NOT the ticket price, yet carries a ¥
+#: amount that would otherwise win min-price parsing.
+DRINK_CHARGE_RE = re.compile(
+    r"(?:別途)?\s*(?:ドリンク代?|DRINK|[1１]D(?:RINK)?代?|Ｄ代|D代)\s*"
+    r"(?:別途|代)?\s*[:：]?\s*[¥￥]?\s*[\d,，]{3,}\s*(?:円)?", re.I)
+
+
+def strip_drink_charges(text: str) -> str:
+    """Remove drink-charge amounts so they can't undercut the real ticket
+    floor when taking min() over ¥ amounts."""
+    return DRINK_CHARGE_RE.sub(" ", text)
+
+
 def parse_prices(text: str) -> tuple[str | None, int | None, bool | None]:
     """Return (price_text, price_min, is_free) from a block of price tiers."""
     yen = [int(x.replace(",", "").replace("，", "")) for x in YEN_RE.findall(text)]

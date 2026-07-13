@@ -511,3 +511,19 @@ def test_registry_every_factory_constructs_and_is_polite():
         assert s.source_id == sid, f"{sid}: source_id mismatch ({s.source_id})"
         assert s.rate_limit_s >= 2, f"{sid}: rate limit below politeness floor"
         assert callable(s.scrape) and callable(s.parse)
+
+
+# ------------------------------------------------------ drink-charge strip
+def test_strip_drink_charges_protects_min_price():
+    cases = [
+        "ADV ¥5,500（税込・ドリンク代別途￥600）",
+        "前売 ¥5,500 ※別途ドリンク￥600",
+        "ADV ¥5,500 +1DRINK ¥600",
+        "¥5,500 (D代600円)",
+    ]
+    for text in cases:
+        _, pmin, _ = tu.parse_prices(tu.strip_drink_charges(text))
+        assert pmin == 5500, text
+    # a genuinely cheap show must not be stripped
+    _, pmin, _ = tu.parse_prices(tu.strip_drink_charges("前売 ¥800"))
+    assert pmin == 800

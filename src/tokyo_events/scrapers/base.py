@@ -126,7 +126,8 @@ class BaseScraper(ABC):
             cut = re.search(r"GOODS|グッズ|物販|INFO|お問い合わせ", zone, re.I)
             if cut:
                 zone = zone[:cut.start()]
-            ev.price_text, ev.price_min, ev.is_free = tu.parse_prices(zone)
+            ev.price_text, ev.price_min, ev.is_free = tu.parse_prices(
+                tu.strip_drink_charges(zone))
         if not ev.ticket_links:
             ev.ticket_links = tu.extract_ticket_links(soup, text)
         if not ev.is_sold_out and tu.SOLD_OUT_RE.search(text):

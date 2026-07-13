@@ -175,7 +175,8 @@ class UnitScraper(BaseScraper):
                 price_blobs = [t.get_text(" ", strip=True)
                                for t in soup.select("table.price")]
             if price_blobs:
-                ptext, pmin, is_free = tu.parse_prices(" ".join(price_blobs))
+                ptext, pmin, is_free = tu.parse_prices(
+                    tu.strip_drink_charges(" ".join(price_blobs)))
                 if pmin is not None:
                     ev.price_text, ev.price_min, ev.is_free = ptext, pmin, is_free
 
