@@ -101,6 +101,15 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "omiya_sonic_city": ("大宮ソニックシティ", "hall"),
     "ichikawa_bunkakaikan": ("市川市文化会館", "hall"),
     "shibuya_lovez": ("Shibuya LOVEZ", "livehouse"),
+    # surfaced by the Sogo Tokyo live run 2026-07-14 — venues whose own
+    # sites we can't scrape (empty calendar / robots.txt) but whose
+    # bookings the promoter legitimately publishes on its own calendar
+    "kinema_club": ("東京キネマ倶楽部", "livehouse"),
+    "tokyo_taiikukan": ("東京体育館", "arena"),
+    "kanda_myojin_hall": ("神田明神ホール", "hall"),
+    "shinjuku_head_power": ("新宿HEAD POWER", "livehouse"),
+    "yokosuka_arts_theatre": ("よこすか芸術劇場", "hall"),
+    "zozo_marine_stadium": ("ZOZOマリンスタジアム", "arena"),
 }
 
 #: extra spellings seen in the wild -> venue_key (normalized at build time)
@@ -142,8 +151,11 @@ _EXTRA_ALIASES: dict[str, str] = {
 def norm_venue(name: str) -> str:
     """Whitespace-, width- and annotation-insensitive venue key.
     Parenthesized segments are dropped entirely — they carry annotations
-    ((TOKYO), （旧 TSUTAYA O-WEST）, （渋谷公会堂）), never identity."""
+    ((TOKYO), （旧 TSUTAYA O-WEST）, （渋谷公会堂）), never identity.
+    Curly quotes fold to straight (NFKC leaves them alone; Sogo writes
+    I’M A SHOW with U+2019)."""
     s = unicodedata.normalize("NFKC", str(name or ""))
+    s = s.translate(str.maketrans("’‘“”", "''\"\""))
     s = _PAREN_RE.sub("", s)
     s = _WS_RE.sub("", s)
     return s.casefold()

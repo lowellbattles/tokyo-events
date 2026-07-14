@@ -29,6 +29,14 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
 - `src/tokyo_events/artists.py` — artist index rebuilt at export from
   lineups + guarded title matching; fills artists/artist_aliases/
   event_artists and each exported event's `artists[]`.
+- `src/tokyo_events/venues.py` — canonical venue registry (normalized
+  aliases; scraped source_ids + promoter-only gap venues like Budokan,
+  each with a vclass: livehouse/jazz/hall/arena the frontend filters by).
+- `src/tokyo_events/promoters.py` — export-time merge for promoter
+  sources: duplicate rows fold into venue records (sold-out OR,
+  ticket-link union, gap-fill); gap-venue events export standalone under
+  `venue_key`, which the frontend uses as venue identity
+  (`venue_key || source`).
 - `src/tokyo_events/genres.py` — export-time tagging: rules → cached LLM
   (optional) → `_VENUE_PRIOR` venue defaults.
 - `src/tokyo_events/scrapers/` — one module per family. `base.py` has
@@ -41,7 +49,7 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
   stored missing-details backlog, capped at DETAIL_CAP=40/source/run).
 - `cli.py` — scrape / list / approve / reject / export, `--auto`, `--report`.
 
-## Registered sources (53, all live-validated with fixture tests)
+## Registered sources (55, all live-validated with fixture tests)
 
 | Family / class | source_ids | Notes |
 |---|---|---|
@@ -56,6 +64,7 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
 | Jazz (Blue Note Japan) | bluenote_tokyo cotton_club | jazz-soul prior |
 | Halls / theaters | ex_theater line_cube_shibuya hulic_hall kanadevia_hall sgc_hall_ariake tokyo_intl_forum nhk_hall opera_city tachikawa_stage_garden orchard_hall | ex_theater + sgc_hall = TV-Asahi TDP JSON feeds; tokyo_intl_forum funnels the 8-hall complex to Hall A concerts via the detail pass; hulic = hulic-theater.com |
 | Arenas / domes / stadiums | yokohama_arena tokyo_dome tokyo_garden_theater ariake_arena toyota_arena_tokyo k_arena_yokohama yoyogi_gym1 kokuritsu_stadium makuhari_messe yokohama_buntai | tokyo_dome = one static full-year page, concert rows only; makuhari uses the site's own music-category filter (?c=2); kokuritsu = jns-e.com (MUFG naming) |
+| Promoters (2026-07-14) | sogo_tokyo creativeman | promoters' own calendars — a PRIMARY source for their productions; covers gap venues (Budokan, Kinema Club, 東京体育館, ZOZO Marine...) and carries sold-out badges; venue strings stored RAW, resolved + deduped against venue sources at export (venues.py + promoters.py); unresolved venue strings are skipped — extend venues.CANONICAL to admit new halls |
 
 Checked and NOT scrapeable (2026-07-13): Budokan (official site
 publishes no concert listings), Hibiya Yaon (closed for reconstruction),

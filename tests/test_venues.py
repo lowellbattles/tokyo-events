@@ -60,3 +60,10 @@ def test_gap_venues_have_classes():
     assert vclass_of("budokan") == "arena"
     assert vclass_of("blues_alley_japan") == "jazz"
     assert vclass_of("pleasure_pleasure") == "hall"
+
+
+def test_curly_apostrophe_and_promoter_recovered_venues():
+    assert resolve_venue("I’M A SHOW") == "im_a_show"       # U+2019
+    assert resolve_venue("東京キネマ倶楽部") == "kinema_club"
+    assert resolve_venue("東京体育館 メインアリーナ") == "tokyo_taiikukan"
+    assert resolve_venue("ZOZOマリンスタジアム") == "zozo_marine_stadium"

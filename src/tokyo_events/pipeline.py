@@ -60,6 +60,8 @@ from .scrapers.yoyogi import YoyogiScraper
 from .scrapers.kokuritsu_stadium import KokuritsuStadiumScraper
 from .scrapers.makuhari_messe import MakuhariMesseScraper
 from .scrapers.yokohama_buntai import YokohamaBuntaiScraper
+from .scrapers.sogo_tokyo import SogoTokyoScraper
+from .scrapers.creativeman import CreativemanScraper
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -128,6 +130,10 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "kokuritsu_stadium": (KokuritsuStadiumScraper,          ReviewStatus.PENDING),
     "makuhari_messe":    (MakuhariMesseScraper,             ReviewStatus.PENDING),
     "yokohama_buntai":   (YokohamaBuntaiScraper,            ReviewStatus.PENDING),
+    # --- promoters (their own productions; overlap with venue sources is
+    #     folded at export by promoters.apply_promoter_merge) ---
+    "sogo_tokyo":        (SogoTokyoScraper,                  ReviewStatus.PENDING),
+    "creativeman":       (CreativemanScraper,                ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the

@@ -129,6 +129,24 @@ parameter — likely the easiest multi-venue win. Strong genre prior
 | Saitama Super Arena | Saitama | ⏸ | under renovation (per user) — add on reopening |
 | 幕張メッセ | Chiba | ✅ | makuhari_messe; site's own music filter ?c=2 |
 
+## Promoters (source class added 2026-07-14) ✅ built
+Promoters publish their own productions — a legitimate primary source
+that reaches venues we can't scrape directly (Budokan publishes nothing;
+Koenji HIGH / 東京体育館 block robots on their OWN sites, but a
+promoter's calendar is the promoter's content).
+
+| Promoter | source_id | Notes |
+|---|---|---|
+| SOGO TOKYO | sogo_tokyo | sogotokyo.com/live_information/calendar/ — month pages, dl/dt detail pages; recovers Budokan, Kinema Club, 東京体育館, 神田明神ホール, ZOZOマリンスタジアム bookings |
+| Creativeman | creativeman | /event/?cmy=&cmm= — per-tour pages with multi-leg ticket tables + per-leg SOLD OUT; strong international bookings; prefecture labels give a free Kanto filter |
+
+Overlap policy: export-time merge (promoters.py) — venue-source records
+stay authoritative; duplicate promoter rows fold in (sold-out OR,
+ticket-link union, gap-fill); gap-venue events stand alone under
+venue_key. Candidates for later: Hayashi International (ハヤシ),
+Kyodo Tokyo, H.I.P., Live Nation Japan, Smash (Fuji Rock operator —
+doubles as the festival lead).
+
 ## Festivals (new source class — annual, lineup-wave updates)
 Fuji Rock (Naeba) · Summer Sonic (Chiba/Osaka) · Rock in Japan ·
 Japan Jam (Chiba) · Countdown Japan (Makuhari) · Sweet Love Shower (Yamanakako) ·

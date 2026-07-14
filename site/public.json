@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-14T11:41:08.923218",
+  "generated_at": "2026-07-14T11:59:50.426874",
   "sources": [
     {
       "source": "ariake_arena",
@@ -54,6 +54,14 @@
       "started_at": "2026-07-13T10:05:35",
       "found": 49,
       "new": 49,
+      "changed": 0,
+      "error": null
+    },
+    {
+      "source": "creativeman",
+      "started_at": "2026-07-14T11:58:11",
+      "found": 36,
+      "new": 36,
       "changed": 0,
       "error": null
     },
@@ -270,6 +278,14 @@
       "started_at": "2026-07-13T09:53:49",
       "found": 22,
       "new": 22,
+      "changed": 0,
+      "error": null
+    },
+    {
+      "source": "sogo_tokyo",
+      "started_at": "2026-07-14T11:56:41",
+      "found": 173,
+      "new": 173,
       "changed": 0,
       "error": null
     },
@@ -1440,7 +1456,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/and2ble/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/and2ble/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/and2ble2026/",
+          "code": null
+        }
+      ],
       "lineup": [
         "AND2BLE"
       ],
@@ -1674,7 +1706,9 @@
       "id": "5df87c475237e860",
       "status": "auto",
       "venue_key": "pia_arena_mm",
-      "artists": []
+      "artists": [
+        "スターダスト☆レビュー"
+      ]
     },
     {
       "source": "quattro_shibuya",
@@ -2569,7 +2603,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/and2ble/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/and2ble/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/and2ble2026/",
+          "code": null
+        }
+      ],
       "lineup": [
         "AND2BLE"
       ],
@@ -3055,7 +3105,7 @@
       "price_text": "1Fスタンディング/ ¥7,500 2F指定席/ ¥8,500 [お問合せ] クリエイティブマン 03-3499-6669 月・水・金 12:00〜16:00 READ MORE",
       "price_min": 7500,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [
         {
@@ -3071,6 +3121,21 @@
         {
           "provider": "pia",
           "url": "http://t.pia.jp/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/iri/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/iri/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/iri-10th-dot/",
           "code": null
         }
       ],
@@ -3472,9 +3537,15 @@
       "price_text": "VIP席 25,300円 指定席 14,300円 (全席指定・税込)",
       "price_min": 14300,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/kimjunsu/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "2951e82d6d8f2986",
@@ -5047,9 +5118,15 @@
       "price_text": "◆指定席：10,000円(税込) ◆2日間通し券：20,000円(税込) ※スペシャル特典付き ▼2日間通し券についての注意事項 ※全席指定 ※スペシャル特典:大決戦応援ハチマキ(リバーシブル)付 ・紙チケットとなりますので、必ずチケットを発券してからご来場ください。 公演日ごとに発券番号が異なります。 チケットぴあ「Myチケット」より発券番号をご確認いただき、1日目・2日目の計2回、それぞ れ発券のお手続きをお願いいたします。 【1日目の発券番号】1日目の入場券+特典引換券=計2枚発券 【2日目の発券番号】2日目の入場券=計1枚発券 ※発券時、受け取り枚数をよくお確かめください。 ・特典は当",
       "price_min": 10000,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/nikuchomo-k/",
+          "code": null
+        }
+      ],
       "lineup": [
         "肉チョモランマ"
       ],
@@ -5078,10 +5155,10 @@
       "address": "10-1 Kasumigaokamachi, Shinjuku-ku, Tokyo",
       "lat": 35.6779,
       "lng": 139.7147,
-      "price_text": null,
+      "price_text": "・フロントエリア \\20,000-(税込) ※アリーナ前方のエリアとなります。 ※本公演はフロントエリアのお座席のみ「顔写真登録【あり】のチケット」での入場となり、入場される皆さま(申込者、同行者の方ともに)は事前の顔写真登録が必要になります。 ※ご当選された方は、申込者・同行者を含め、必ず期日までに顔写真の登録を行ってください。 ※チケット券面にお名前と顔写真が表示されますので、ご入場の際にご提示ください。ご本人確認をさせていただきます。ご本人確認ができない場合には、理由の如何を問わず入場をお断りいたします。 ※顔写真のご登録がない場合は、入場をお断りいたします。また、顔写真が登録済みでも、",
       "price_min": null,
       "is_free": null,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [
@@ -5124,6 +5201,46 @@
       "status": "approved",
       "venue_key": "yokohama_buntai",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2892#2026-07-04",
+      "title_ja": "2026 XIA 6TH ASIA TOUR CONCERT 'GRAVITY' IN TOKYO",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-04",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "・VIP席 ￥25,300(税込) ＜VIP特典＞サウンドチェック観覧(開場前)、サイン入りフォトカード(抽選100名様)、サイン入りポスター(抽選100名様)、サイン入りポラロイド(抽選20名様) ・指定席 ￥14,300(税込) ・注釈付き指定席 ￥14,300(税込) ※座席の位置によりステージやメンバーの全体・一部が見えない、または見えづらい可能性がございます。 視界不良によるチケットの払い戻しはできませんので、ご了承いただいた上で、ご購入をお願いいたします。",
+      "price_min": 14300,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/kimjunsu/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "KIM JUNSU"
+      ],
+      "tags": [],
+      "id": "5b2f1b05f3fc3396",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "KIM JUNSU"
+      ]
     },
     {
       "source": "oeast",
@@ -6184,7 +6301,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/shiyui/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/shiyui/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/shiyui/",
+          "code": null
+        }
+      ],
       "lineup": [
         "シユイ"
       ],
@@ -6770,9 +6903,15 @@
       "price_text": "◆指定席：10,000円(税込) ◆2日間通し券：20,000円(税込) ※スペシャル特典付き ▼2日間通し券についての注意事項 ※全席指定 ※スペシャル特典:大決戦応援ハチマキ(リバーシブル)付 ・紙チケットとなりますので、必ずチケットを発券してからご来場ください。 公演日ごとに発券番号が異なります。 チケットぴあ「Myチケット」より発券番号をご確認いただき、1日目・2日目の計2回、それぞ れ発券のお手続きをお願いいたします。 【1日目の発券番号】1日目の入場券+特典引換券=計2枚発券 【2日目の発券番号】2日目の入場券=計1枚発券 ※発券時、受け取り枚数をよくお確かめください。 ・特典は当",
       "price_min": 10000,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/nikuchomo-k/",
+          "code": null
+        }
+      ],
       "lineup": [
         "肉チョモランマ",
         "天月",
@@ -6796,6 +6935,40 @@
         "志麻",
         "肉チョモランマ",
         "超学生"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2677#2026-07-05",
+      "title_ja": "【FC会員限定公演】ゼンジン未到とイ/ミュータブル〜間奏編〜",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-05",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:30",
+      "venue_name": "MUFGスタジアム（国立競技場）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "・フロントエリア \\20,000-(税込) ※アリーナ前方のエリアとなります。 ※本公演はフロントエリアのお座席のみ「顔写真登録【あり】のチケット」での入場となり、入場される皆さま(申込者、同行者の方ともに)は事前の顔写真登録が必要になります。 ※ご当選された方は、申込者・同行者を含め、必ず期日までに顔写真の登録を行ってください。 ※チケット券面にお名前と顔写真が表示されますので、ご入場の際にご提示ください。ご本人確認をさせていただきます。ご本人確認ができない場合には、理由の如何を問わず入場をお断りいたします。 ※顔写真のご登録がない場合は、入場をお断りいたします。また、顔写真が登録済みでも、",
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Mrs. GREEN APPLE"
+      ],
+      "tags": [],
+      "id": "2382eabd52f6b828",
+      "status": "approved",
+      "venue_key": "kokuritsu_stadium",
+      "artists": [
+        "Mrs. GREEN APPLE"
       ]
     },
     {
@@ -7457,7 +7630,7 @@
       "price_text": "1階スタンディング/ ¥9,800 2階指定席/ ¥9,800 [お問合せ] SOGO TOKYO 03-3405-9999 （月〜土 12:00〜13:00/16:00〜19:00※日曜・祝日を除く） READ MORE",
       "price_min": 9800,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [],
@@ -9569,7 +9742,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "0a01606ef0c32bd3",
@@ -9927,6 +10116,74 @@
       "status": "approved",
       "venue_key": "opera_city",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2706",
+      "title_ja": "CiON 2026 Anniversary Live 〜SHiON's BiRTHDAY LiVE〜",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-08",
+      "end_date": null,
+      "open_time": "18:30",
+      "start_time": "19:00",
+      "venue_name": "SHIBUYA PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "全席指定5,000円(税込) ※入場時ドリンク代必要",
+      "price_min": 5000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "CiON"
+      ],
+      "tags": [],
+      "id": "175a474ad746849c",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "CiON"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/somosomo/#2026-07-08",
+      "title_ja": "SOMOSOMO 7th ANNIVERSARY ONE MAN LIVE「ROPPONGI PARTY NIGHT」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-08",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:30",
+      "venue_name": "EX THEATER ROPPONGI",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "みんな大好き7周年チケット ￥70,000（税込/整理番号付/別途D代）※15枚限定 【チケット特典】 ①最優先入場 / ②開演前楽屋訪問 / ③集合ワイドチェキ / ④オリジナル紙チケット / ⑤限定集合アクスタ（メインビジュアル） ⑥OMOSOMO箱推し認定盾（7周年ver.）/ ⑦7/12開催「SOMOSOMO真夏のおもいでだいさくせんっ！」参加権 特① 17:45 会場前集合～18:00 入場開始 ※18:00以降のご案内締切となっております。 特② 楽屋訪問時に全メンバーとワイドチェキ撮影をさせていただきます。 メンバー別VIPチケット ￥30,000（税込/整理番号付/別途D代）※",
+      "price_min": 1500,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SOMOSOMO"
+      ],
+      "tags": [],
+      "id": "556836808d574a94",
+      "status": "approved",
+      "venue_key": "ex_theater",
+      "artists": [
+        "SOMOSOMO"
+      ]
     },
     {
       "source": "oeast",
@@ -10309,7 +10566,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "51e093e131e4faf3",
@@ -10974,6 +11247,46 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2937",
+      "title_ja": "FOUNDUE : The First Foundation",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-09",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "SGC HALL ARIAKE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "■ BASIC SET: ￥19,800(税込) <商品内容> ・プレミアム培養ミスト ・プレミアム培養セラム ・プレミアム培養クリーム <特典> ・ショーケース参加権(後方) ・フォトカード（ランダム2種） ・キーリング（ランダム1種） ・サイン会応募券1回分 ・フォトタイム応募券1回分 ・ステージ上での1:1ポラロイド撮影応募券2回分 ・等身大パネル応募券1回分 ■ PREMIUM SET: ￥22,000(税込) <商品内容> ・プレミアム培養ミスト ・プレミアム培養セラム ・プレミアム培養クリーム <限定商品> ソ・イングクサイン＆メッセージ入りFACIAL TREATMENT MAS",
+      "price_min": 19800,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/seoinguk-t/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "ソ・イングク"
+      ],
+      "tags": [],
+      "id": "ea3221ade1de93ab",
+      "status": "approved",
+      "venue_key": "sgc_hall_ariake",
+      "artists": [
+        "ソ・イングク"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/mic-loud/",
       "title_ja": "Mic Loud",
@@ -11442,7 +11755,18 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/event/event.do?eventCd=2541549",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/laughinghick/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "483a0d5e10246540",
@@ -12247,7 +12571,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/beatax/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/beatax/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/beatax-summer/",
+          "code": null
+        }
+      ],
       "lineup": [
         "BUDDiiS",
         "BMSG TRAINEE",
@@ -12894,6 +13234,21 @@
           "provider": "pia",
           "url": "http://t.pia.jp/",
           "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/tetsuya-t/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/tetsuya/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/tetsuya/",
+          "code": null
         }
       ],
       "lineup": [],
@@ -13308,6 +13663,11 @@
         {
           "provider": "eplus",
           "url": "https://eplus.jp/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/zilqy/",
           "code": null
         }
       ],
@@ -13870,7 +14230,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/nearly-equal-joy-beatax/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/nearly-equal-joy-beatax/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/nearly-equal-joy2026/",
+          "code": null
+        }
+      ],
       "lineup": [
         "≒JOY"
       ],
@@ -13956,6 +14332,106 @@
         "岩崎 諒太（小鹿 ジュイス 役）",
         "服部 想之介（甘楽 チトセ 役）",
         "辻 史人（久遠 舞珠 役）"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2783",
+      "title_ja": "SALT＆SUGAR「３０年ってあなた！」ホールツアー",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-11",
+      "end_date": null,
+      "open_time": "15:00",
+      "start_time": "16:00",
+      "venue_name": "めぐろパーシモンホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "全席指定 ￥8,800-（税込）",
+      "price_min": 8800,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/event/event.do?eventCd=2608692",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/order/?gLcode=73176",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/salt-sugar/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "SALT＆SUGAR"
+      ],
+      "tags": [],
+      "id": "ef277934cf03b829",
+      "status": "approved",
+      "venue_key": "meguro_persimmon",
+      "artists": [
+        "SALT＆SUGAR"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2426#2026-07-11",
+      "title_ja": "HANA 1st TOUR 2026 “Born to Bloom”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-11",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京ガーデンシアター",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "指定席 ￥10,890(税込) 注釈付指定席 ￥10,890(税込)",
+      "price_min": 10890,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/hana-1sttour/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/hana/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/hana/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "HANA"
+      ],
+      "tags": [],
+      "id": "4cf48fd6a59e9902",
+      "status": "approved",
+      "venue_key": "tokyo_garden_theater",
+      "artists": [
+        "HANA"
       ]
     },
     {
@@ -15027,6 +15503,21 @@
           "provider": "eplus",
           "url": "https://eplus.jp/sf/venue/1560020/events",
           "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/event/event.do?eventCd=2609507",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/order/?gLcode=70021",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/detail/0038920001-P0030638?P1=0175",
+          "code": null
         }
       ],
       "lineup": [
@@ -15543,7 +16034,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/beatax/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/beatax/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/beatax-summer/",
+          "code": null
+        }
+      ],
       "lineup": [
         "Ave Mujica",
         "=LOVE",
@@ -15557,6 +16064,124 @@
         "=LOVE",
         "Ave Mujica",
         "RAISE A SUILEN"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2426#2026-07-12",
+      "title_ja": "HANA 1st TOUR 2026 “Born to Bloom”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-12",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京ガーデンシアター",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "指定席 ￥10,890(税込) 注釈付指定席 ￥10,890(税込)",
+      "price_min": 10890,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/hana-1sttour/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/hana/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/hana/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "HANA"
+      ],
+      "tags": [],
+      "id": "41a8e7501106589e",
+      "status": "approved",
+      "venue_key": "tokyo_garden_theater",
+      "artists": [
+        "HANA"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2880",
+      "title_ja": "Junna Rock You Tour 2026 〜ハローグッバイ〜",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-12",
+      "end_date": null,
+      "open_time": "15:30",
+      "start_time": "16:00",
+      "venue_name": "HEAVEN'S ROCKさいたま新都心VJ-3",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "FC先行申込者限定“プレミアムビジュアル紙チケット”通し券（本編＋かえりの会）：11,000円（税込） 本編：8,800円(税込) ※ドリンク代別途必要",
+      "price_min": 8800,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Junna"
+      ],
+      "tags": [],
+      "id": "98f5653f7d08c6e0",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "Junna"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2789",
+      "title_ja": "竹渕慶 TOUR 2026 〜この歌をあなたに〜 BAND with 齊藤ジョニー",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-12",
+      "end_date": null,
+      "open_time": "14:30",
+      "start_time": "15:00",
+      "venue_name": "Yokohama mint hall",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "全自由（整理番号付）6,000円※ドリンク代別途必要",
+      "price_min": 6000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "竹渕慶"
+      ],
+      "tags": [],
+      "id": "f341852b6281631a",
+      "status": "approved",
+      "venue_key": "yokohama_mint_hall",
+      "artists": [
+        "竹渕慶"
       ]
     },
     {
@@ -17776,6 +18401,56 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2577",
+      "title_ja": "山本彩 LIVE at 武道館",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-14",
+      "end_date": null,
+      "open_time": "17:30",
+      "start_time": "18:30",
+      "venue_name": "日本武道館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "指定席8,800円（税込）",
+      "price_min": 8800,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/yamamotosayaka-2526/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/yamamoto-sayaka/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/yamamotos/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "山本彩"
+      ],
+      "tags": [],
+      "id": "2253ade50d0cc331",
+      "status": "approved",
+      "venue_key": "budokan",
+      "artists": [
+        "山本彩"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/nightmare-birthday-live-2026%e3%80%9cyomi-bd%e3%80%9c/",
       "title_ja": "NIGHTMARE BIRTHDAY LIVE 2026〜YOMI BD〜",
@@ -18329,9 +19004,25 @@
       "price_text": "スタンディング(整理番号付き)/ ¥5,800 [お問合せ] CREATIVEMAN PRODUCTIONS CO.,LTD. 03-3499-6669 （月・水・金12:00〜16:00） READ MORE",
       "price_min": 5800,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/whokilledpaledusktour/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/paledusk/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/paledusk/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "e08569954e255bff",
@@ -18972,6 +19663,74 @@
       "status": "approved",
       "venue_key": "makuhari_messe",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2707",
+      "title_ja": "CiON 2026 Anniversary Live 〜あみまんじゅうのBirthday Live〜",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-15",
+      "end_date": null,
+      "open_time": "18:30",
+      "start_time": "19:00",
+      "venue_name": "SHIBUYA PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "全席指定5,000円(税込) ※入場時ドリンク代必要",
+      "price_min": 5000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "CiON"
+      ],
+      "tags": [],
+      "id": "9df8fa22657655ce",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "CiON"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2763",
+      "title_ja": "さかいゆう自身初の日本全国47都道府県ツアー \"mYUsic”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-15",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "千葉ANGA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "全自由席 ¥6,600（税込）※ドリンク代別 ※整理番号付き",
+      "price_min": 6600,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "さかいゆう"
+      ],
+      "tags": [],
+      "id": "902c24bb42531c23",
+      "status": "approved",
+      "venue_key": "chiba_anga",
+      "artists": [
+        "さかいゆう"
+      ]
     },
     {
       "source": "oeast",
@@ -20430,6 +21189,40 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2764",
+      "title_ja": "さかいゆう自身初の日本全国47都道府県ツアー \"mYUsic”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Yokohama mint hall",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "全自由席 ¥6,600（税込）※ドリンク代別 ※整理番号付き",
+      "price_min": 6600,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "さかいゆう"
+      ],
+      "tags": [],
+      "id": "5cfbf415344fc733",
+      "status": "approved",
+      "venue_key": "yokohama_mint_hall",
+      "artists": [
+        "さかいゆう"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/one-and-only-2nd-anniversary-day2/",
       "title_ja": "ONE AND ONLY 2nd Anniversary day2",
@@ -21632,7 +22425,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/",
+          "code": null
+        }
+      ],
       "lineup": [
         "TRUE"
       ],
@@ -22032,8 +22841,8 @@
       ],
       "start_date": "2026-07-17",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
       "venue_name": "Toyosu PIT",
       "venue_area": "Toyosu",
       "address": "6-1-23 Toyosu, Koto-ku, Tokyo",
@@ -22048,6 +22857,21 @@
         {
           "provider": "pia",
           "url": "https://t.pia.jp/info/privacy.jsp",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/reiko/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/reiko-t/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/reiko/",
           "code": null
         }
       ],
@@ -22227,9 +23051,9 @@
       "address": "3-10 Shinyokohama, Kohoku-ku, Yokohama",
       "lat": 35.510155,
       "lng": 139.620798,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "プレミアムチケット：一般席：24,800円(税込) 通常チケット ・2公演通し券(一般席)：19,800円(税込) ・一般席：9,900円(税込) ・女性エリア席：9,900円(税込) ・カメコエリア席：9,900円(税込) ・着席観覧席：9,900円(税込)",
+      "price_min": 9900,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://not-equal-me.jp/",
       "ticket_links": [],
@@ -22266,7 +23090,7 @@
       "price_text": "1Fスタンディング/ ¥8,800 2F指定席/ ¥8,800 2F後方立見/ ¥8,800 [お問合せ] SOGO TOKYO 03-3405-9999 月〜土 12:00〜13:00/16:00〜19:00※日曜・ 祝日を除く READ MORE",
       "price_min": 8800,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [],
@@ -23274,6 +24098,105 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2732#2026-07-18",
+      "title_ja": "Evermore TOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-18",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "HEAVEN'S ROCKさいたま新都心VJ-3",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "オールスタンディング ￥9,000（税込） ※ドリンク代別",
+      "price_min": 9000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/derlanger/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/derlanger-t/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/derlanger/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "D'ERLANGER"
+      ],
+      "tags": [],
+      "id": "5c76c2c1c4bd7c37",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "D'ERLANGER"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2890",
+      "title_ja": "スペシャルイベント「狂宴」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-18",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "原宿RUIDO",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "前売り：￥0 / 当日：￥0 Drink：￥0",
+      "price_min": 0,
+      "is_free": true,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "TRUE"
+      ],
+      "tags": [],
+      "id": "a112a0465238ac40",
+      "status": "approved",
+      "venue_key": "harajuku_ruido",
+      "artists": [
+        "TRUE"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/chiaki-mayumura-tour-ampland-plan/",
       "title_ja": "Chiaki Mayumura Tour “AMPLAND PLAN”",
@@ -23887,9 +24810,9 @@
       "address": "3-10 Shinyokohama, Kohoku-ku, Yokohama",
       "lat": 35.510155,
       "lng": 139.620798,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "プレミアムチケット：一般席：24,800円(税込) 通常チケット ・2公演通し券(一般席)：19,800円(税込) ・一般席：9,900円(税込) ・女性エリア席：9,900円(税込) ・カメコエリア席：9,900円(税込) ・着席観覧席：9,900円(税込)",
+      "price_min": 9900,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://not-equal-me.jp/",
       "ticket_links": [],
@@ -25280,6 +26203,211 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2732#2026-07-19",
+      "title_ja": "Evermore TOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "HEAVEN'S ROCKさいたま新都心VJ-3",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "オールスタンディング ￥9,000（税込） ※ドリンク代別",
+      "price_min": 9000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/derlanger/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/derlanger-t/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/derlanger/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "D'ERLANGER"
+      ],
+      "tags": [],
+      "id": "9be063cf2fc772e5",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "D'ERLANGER"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2790",
+      "title_ja": "竹渕慶 TOUR 2026 〜この歌をあなたに〜 BAND with 齊藤ジョニー",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "14:30",
+      "start_time": "15:00",
+      "venue_name": "千葉ANGA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "全自由（整理番号付）6,000円※ドリンク代別途必要",
+      "price_min": 6000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "竹渕慶"
+      ],
+      "tags": [],
+      "id": "b358026ce647bb99",
+      "status": "approved",
+      "venue_key": "chiba_anga",
+      "artists": [
+        "竹渕慶"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2721",
+      "title_ja": "Live Dimensional-2026 ～35th Anniversary Special Live～",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "大手町三井ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "全席指定 8,000円（税込） ※ドリンク代別",
+      "price_min": 8000,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/dimension/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/dimension-35th/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/dimension/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "DIMENSION"
+      ],
+      "tags": [],
+      "id": "033a977494b1f034",
+      "status": "approved",
+      "venue_key": "otemachi_mitsui_hall",
+      "artists": [
+        "DIMENSION"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2572",
+      "title_ja": "大橋ちっぽけワンマンツアー2026「aritei」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "17:15",
+      "start_time": "18:00",
+      "venue_name": "SHIBUYA PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "指定席￥6,000-(税込) ※ドリンク代、別途必要",
+      "price_min": 6000,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/ohashichippoke2026/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "大橋ちっぽけ"
+      ],
+      "tags": [],
+      "id": "fddafbc0602dbc96",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "大橋ちっぽけ"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/this-is-last-one-man-live-tour-2026/",
       "title_ja": "This is LAST one man live tour 2026",
@@ -25843,12 +26971,23 @@
       "address": "3-10 Shinyokohama, Kohoku-ku, Yokohama",
       "lat": 35.510155,
       "lng": 139.620798,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全席指定 13,200円(税込) センター確約席 17,600円(税込) ≪アップグレード抽選受付(センター確約席受付)＞ ●席種：センター確約席 ●料金：+4,400円(税込) ●特典内容：センター席確約・バックステージパス風ステッカー付 ※横浜アリーナのセンター席は、他会場で通常アリーナ席と表記される位置となります。 詳しくは 横浜アリーナの座席情報ページ にてご確認ください。 【注意事項】 ※アップグレード抽選受付(センター確約席受付)へのお申込みは全席指定チケットをご当選・ご入金された同一公演、枚数でのみ有効になります。 ※ご当選・ご入金された枚数のうち一部の枚数のみをアップグレード(",
+      "price_min": 4400,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://roirom.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/roirom/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://faq.l-tike.com/",
+          "code": null
+        }
+      ],
       "lineup": [
         "ROIROM"
       ],
@@ -27204,7 +28343,7 @@
       "price_text": null,
       "price_min": null,
       "is_free": null,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [
         {
@@ -27468,12 +28607,23 @@
       "address": "3-10 Shinyokohama, Kohoku-ku, Yokohama",
       "lat": 35.510155,
       "lng": 139.620798,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全席指定 13,200円(税込) センター確約席 17,600円(税込) ≪アップグレード抽選受付(センター確約席受付)＞ ●席種：センター確約席 ●料金：+4,400円(税込) ●特典内容：センター席確約・バックステージパス風ステッカー付 ※横浜アリーナのセンター席は、他会場で通常アリーナ席と表記される位置となります。 詳しくは 横浜アリーナの座席情報ページ にてご確認ください。 【注意事項】 ※アップグレード抽選受付(センター確約席受付)へのお申込みは全席指定チケットをご当選・ご入金された同一公演、枚数でのみ有効になります。 ※ご当選・ご入金された枚数のうち一部の枚数のみをアップグレード(",
+      "price_min": 4400,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://roirom.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/roirom/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://faq.l-tike.com/",
+          "code": null
+        }
+      ],
       "lineup": [
         "ROIROM"
       ],
@@ -28792,19 +29942,35 @@
       "genres": [],
       "start_date": "2026-07-22",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
       "venue_name": "SGCホール有明",
       "venue_area": "Ariake",
       "address": "東京都江東区有明1丁目3番33号",
       "lat": 35.636,
       "lng": 139.793,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "S指定席 ￥12,000-(税込) A指定席 ￥11,000-(税込)",
+      "price_min": 11000,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/honne/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/honne-t/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/honne/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "8122bd5a1030aed6",
@@ -28852,6 +30018,42 @@
       "venue_key": "tokyo_garden_theater",
       "artists": [
         "THE ORAL CIGARETTES"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2922",
+      "title_ja": "はるな愛 LIVE This is 愛〜大西賢治生誕祭〜",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "idol"
+      ],
+      "start_date": "2026-07-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "I’M A SHOW",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "はるな愛"
+      ],
+      "tags": [],
+      "id": "fa624bd05285c681",
+      "status": "approved",
+      "venue_key": "im_a_show",
+      "artists": [
+        "はるな愛"
       ]
     },
     {
@@ -29733,7 +30935,7 @@
       "price_text": null,
       "price_min": null,
       "is_free": null,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [
@@ -29747,6 +30949,42 @@
       "venue_key": "toyota_arena_tokyo",
       "artists": [
         "ILLIT"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2980#2026-07-23",
+      "title_ja": "『ヒプノシスマイク -Division Rap Battle-』Rule the Stage《Division Jam Tour》vol.3",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "hiphop-rnb"
+      ],
+      "start_date": "2026-07-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Zepp DiverCity(TOKYO)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ヒプノシスマイク"
+      ],
+      "tags": [],
+      "id": "0f79cd7b44673eb8",
+      "status": "approved",
+      "venue_key": "zepp_divercity",
+      "artists": [
+        "ヒプノシスマイク"
       ]
     },
     {
@@ -30875,6 +32113,42 @@
       "status": "approved",
       "venue_key": "yoyogi_gym1",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2980#2026-07-24",
+      "title_ja": "『ヒプノシスマイク -Division Rap Battle-』Rule the Stage《Division Jam Tour》vol.3",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "hiphop-rnb"
+      ],
+      "start_date": "2026-07-24",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Zepp DiverCity(TOKYO)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ヒプノシスマイク"
+      ],
+      "tags": [],
+      "id": "215782454c528b5c",
+      "status": "approved",
+      "venue_key": "zepp_divercity",
+      "artists": [
+        "ヒプノシスマイク"
+      ]
     },
     {
       "source": "oeast",
@@ -32136,7 +33410,7 @@
       "price_text": null,
       "price_min": null,
       "is_free": null,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [
@@ -32248,6 +33522,40 @@
       "venue_key": "yokohama_buntai",
       "artists": [
         "スガシカオ"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2907",
+      "title_ja": "【1st Stage】「納涼アコースティックFunk-a-lismo!」【2nd Stage】「納涼アンプラグドFunk-a-lismo!」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "三軒茶屋GRAPEFRUIT MOON",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SCOOBIE DO"
+      ],
+      "tags": [],
+      "id": "e2df19a8baf9585a",
+      "status": "approved",
+      "venue_key": "grapefruit_moon",
+      "artists": [
+        "SCOOBIE DO"
       ]
     },
     {
@@ -32517,7 +33825,9 @@
       "id": "ef406a1a90db4213",
       "status": "auto",
       "venue_key": "www_x",
-      "artists": []
+      "artists": [
+        "SOMOSOMO"
+      ]
     },
     {
       "source": "duo",
@@ -33556,7 +34866,7 @@
       "price_text": null,
       "price_min": null,
       "is_free": null,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [
@@ -33670,6 +34980,40 @@
       "artists": [
         "ORANGE RANGE",
         "［Alexandros］ / かりゆし58"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2676#2026-07-26",
+      "title_ja": "Angela Aki Tour 2026 SHADOW WORK",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "NHKホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "アンジェラ・アキ"
+      ],
+      "tags": [],
+      "id": "0befadb5e0d012a8",
+      "status": "approved",
+      "venue_key": "nhk_hall",
+      "artists": [
+        "アンジェラ・アキ"
       ]
     },
     {
@@ -35521,7 +36865,7 @@
       "price_text": "一般指定席 11,000円（税込）",
       "price_min": 11000,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [
@@ -35983,7 +37327,9 @@
       "id": "ff9a58041f8e8948",
       "status": "auto",
       "venue_key": "www",
-      "artists": []
+      "artists": [
+        "HANA"
+      ]
     },
     {
       "source": "www_x",
@@ -36480,7 +37826,7 @@
       "price_text": "一般指定席 11,000円（税込）",
       "price_min": 11000,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [
@@ -36544,7 +37890,7 @@
       "price_text": "全席指定 9,500円",
       "price_min": 9500,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [],
@@ -37015,7 +38361,9 @@
       "id": "730926dc8b0dc61a",
       "status": "approved",
       "venue_key": "zepp_yokohama",
-      "artists": []
+      "artists": [
+        "龍宮城"
+      ]
     },
     {
       "source": "club_citta",
@@ -37575,6 +38923,40 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2589#2026-07-30",
+      "title_ja": "JUJU HALL TOUR 2026 純喫茶JUJU「時間旅⾏」演出:松任⾕正隆",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "NHKホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "JUJU"
+      ],
+      "tags": [],
+      "id": "c7e307e37da946a4",
+      "status": "approved",
+      "venue_key": "nhk_hall",
+      "artists": [
+        "JUJU"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/%e3%82%a2%e3%83%ab%e3%83%ab%e3%82%ab%e3%83%b3-presents%e3%80%8cfriend-fiend-2026%e3%80%8d/",
       "title_ja": "アルルカン Presents「friend & fiend 2026」",
@@ -37984,7 +39366,9 @@
       "id": "006c79725a9ea4ff",
       "status": "approved",
       "venue_key": "zepp_yokohama",
-      "artists": []
+      "artists": [
+        "龍宮城"
+      ]
     },
     {
       "source": "billboard_tokyo",
@@ -39906,6 +41290,76 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2695#2026-08-01",
+      "title_ja": "ラブライブ！スーパースター!! Liella!のちゅーとりえらいぶ!! 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "anime-seiyu"
+      ],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "LaLa arena TOKYO-BAY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ラブライブ！スーパースター!! Liella!のちゅーとりえらいぶ!!"
+      ],
+      "tags": [],
+      "id": "17ce8fc2f87c7b1f",
+      "status": "approved",
+      "venue_key": "lala_arena_tokyo_bay",
+      "artists": [
+        "ラブライブ！スーパースター!! Liella!のちゅーとりえらいぶ!!"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2792",
+      "title_ja": "竹渕慶 TOUR 2026 〜この歌をあなたに〜 BAND with 齊藤ジョニー",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "西川口Hearts",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "竹渕慶"
+      ],
+      "tags": [],
+      "id": "c869ce2004f1efe8",
+      "status": "approved",
+      "venue_key": "nishikawaguchi_hearts",
+      "artists": [
+        "竹渕慶"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6627.html",
       "title_ja": "BABYMONSTER 2026-27 BABYMONSTER WORLD TOUR [춤(CHOOM)] IN JAPAN",
@@ -40148,7 +41602,7 @@
       "price_text": "¥4,900(税込・ドリンクチャージ別)",
       "price_min": 4900,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [],
@@ -40772,6 +42226,110 @@
       "venue_key": "k_arena_yokohama",
       "artists": [
         "LE SSERAFIM"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2695#2026-08-02",
+      "title_ja": "ラブライブ！スーパースター!! Liella!のちゅーとりえらいぶ!! 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "anime-seiyu"
+      ],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "LaLa arena TOKYO-BAY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ラブライブ！スーパースター!! Liella!のちゅーとりえらいぶ!!"
+      ],
+      "tags": [],
+      "id": "110cac4a7582d13c",
+      "status": "approved",
+      "venue_key": "lala_arena_tokyo_bay",
+      "artists": [
+        "ラブライブ！スーパースター!! Liella!のちゅーとりえらいぶ!!"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2947",
+      "title_ja": "Cocoro Kato Fan Meeting 2026 \"Cocore Lounge\"",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "TOKYO FM HALL",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "加藤 心"
+      ],
+      "tags": [],
+      "id": "56e020d6b88e9a29",
+      "status": "approved",
+      "venue_key": "tokyo_fm_hall",
+      "artists": [
+        "加藤 心"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2869",
+      "title_ja": "超ときめき♡宣伝部のきみのハートにロックオンTOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "J:COMホール八王子(八王子市民会館)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "超ときめき♡宣伝部"
+      ],
+      "tags": [],
+      "id": "a54c4e30f1629e17",
+      "status": "approved",
+      "venue_key": "jcom_hall_hachioji",
+      "artists": [
+        "超ときめき♡宣伝部"
       ]
     },
     {
@@ -41466,6 +43024,40 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2767",
+      "title_ja": "さかいゆう自身初の日本全国47都道府県ツアー \"mYUsic”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-03",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "BLUES ALLEY JAPAN",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "さかいゆう"
+      ],
+      "tags": [],
+      "id": "31f31fffd248cd89",
+      "status": "approved",
+      "venue_key": "blues_alley_japan",
+      "artists": [
+        "さかいゆう"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018162",
       "title_ja": "『全-zen-』",
@@ -42148,6 +43740,74 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2576#2026-08-04",
+      "title_ja": "LANA LIVE TOUR 2026 “DIAMONDS IN THE SKY”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-04",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "国立代々木競技場 第一体育館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "LANA"
+      ],
+      "tags": [],
+      "id": "ad9dab14ef496a79",
+      "status": "approved",
+      "venue_key": "yoyogi_gym1",
+      "artists": [
+        "LANA"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2802",
+      "title_ja": "全国ツアー2026 \"FIRST CRY!!\"バンド編&弾き語り編",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-04",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "HEAVEN'S ROCKさいたま新都心VJ-3",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "竹原ピストル"
+      ],
+      "tags": [],
+      "id": "afa539a6b789e46f",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "竹原ピストル"
+      ]
+    },
+    {
       "source": "www",
       "source_url": "https://www-shibuya.jp/schedule/019776.php",
       "title_ja": "POLYPLUS / H ZETTRIO with YUCCO MILLER",
@@ -42785,6 +44445,40 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2576#2026-08-05",
+      "title_ja": "LANA LIVE TOUR 2026 “DIAMONDS IN THE SKY”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-05",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "国立代々木競技場 第一体育館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "LANA"
+      ],
+      "tags": [],
+      "id": "91d89a62fffee50f",
+      "status": "approved",
+      "venue_key": "yoyogi_gym1",
+      "artists": [
+        "LANA"
+      ]
+    },
+    {
       "source": "www",
       "source_url": "https://www-shibuya.jp/schedule/019839.php",
       "title_ja": "rkemishi feat. BES / EVO ALTERNA / Montana Joe Carter / 漢 a.k.a. GAMI / Jin Dogg / JNKMN / NF Zessho / PAX / SILENT KILLA JOINT / 018 / 鬼 / Opening act：GRADIS NICE × DJ SCRATCH NICE × 竹細工",
@@ -42846,7 +44540,9 @@
       "id": "6810357dc188892a",
       "status": "auto",
       "venue_key": "www_x",
-      "artists": []
+      "artists": [
+        "竹原ピストル"
+      ]
     },
     {
       "source": "duo",
@@ -43542,6 +45238,40 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2719",
+      "title_ja": "ONE LOVE ONE HEART Oneman Live 2026 “告白”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-06",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Shibuya LOVEZ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ONE LOVE ONE HEART"
+      ],
+      "tags": [],
+      "id": "dfd8a3ddda7c1d11",
+      "status": "approved",
+      "venue_key": "shibuya_lovez",
+      "artists": [
+        "ONE LOVE ONE HEART"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018421",
       "title_ja": "yonige one man tour 2026「夏の魔法にかかって壊れていくだけのふたり」",
@@ -44119,6 +45849,104 @@
       "status": "approved",
       "venue_key": "kokuritsu_stadium",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2943",
+      "title_ja": "Live Cipher vol.6",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-07",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "ec31142a0a084b42",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2803",
+      "title_ja": "全国ツアー2026 \"FIRST CRY!!\"バンド編&弾き語り編",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-07",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Yokohama mint hall",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "竹原ピストル"
+      ],
+      "tags": [],
+      "id": "5ccb319f4a678bdf",
+      "status": "approved",
+      "venue_key": "yokohama_mint_hall",
+      "artists": [
+        "竹原ピストル"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/novelbright_26/#2026-08-07",
+      "title_ja": "Novelbright HALL & ARENA TOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-07",
+      "end_date": null,
+      "open_time": "17:30",
+      "start_time": "18:30",
+      "venue_name": "市川市文化会館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "ジャスティンアイランド ¥12,500-(税込) ※ 前方エリア／特典付 指定席 ¥9,000-(税込) 着席指定席 ¥9,000-(税込)",
+      "price_min": 9000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Novelbright"
+      ],
+      "tags": [],
+      "id": "41df5cbb7bc09927",
+      "status": "approved",
+      "venue_key": "ichikawa_bunkakaikan",
+      "artists": [
+        "Novelbright"
+      ]
     },
     {
       "source": "pia_arena_mm",
@@ -46955,6 +48783,40 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2805",
+      "title_ja": "全国ツアー2026 \"FIRST CRY!!\"バンド編&弾き語り編",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-10",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "千葉ANGA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "竹原ピストル"
+      ],
+      "tags": [],
+      "id": "b4defb9aedaa831d",
+      "status": "approved",
+      "venue_key": "chiba_anga",
+      "artists": [
+        "竹原ピストル"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018461",
       "title_ja": "笹川真生「脈拍」Vol.6",
@@ -48121,6 +49983,140 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2751",
+      "title_ja": "45周年ツアー2025～27「星屑冒険王」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-11",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "J:COMホール八王子",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "スターダスト☆レビュー"
+      ],
+      "tags": [],
+      "id": "f457490862d58019",
+      "status": "approved",
+      "venue_key": "jcom_hall_hachioji",
+      "artists": [
+        "スターダスト☆レビュー"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2793",
+      "title_ja": "竹渕慶 TOUR 2026 〜この歌をあなたに〜 BAND with 齊藤ジョニー",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-11",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "SHIBUYA PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "竹渕慶"
+      ],
+      "tags": [],
+      "id": "4754bfcd1a3b6b64",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "竹渕慶"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2831",
+      "title_ja": "J BIRTHDAY 2026 - Let's roll -",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-11",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "J"
+      ],
+      "tags": [],
+      "id": "d57a154cd3057588",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2870",
+      "title_ja": "超ときめき♡宣伝部のきみのハートにロックオンTOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-11",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "市川市文化会館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "超ときめき♡宣伝部"
+      ],
+      "tags": [],
+      "id": "dddfba81e7f590e0",
+      "status": "approved",
+      "venue_key": "ichikawa_bunkakaikan",
+      "artists": [
+        "超ときめき♡宣伝部"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6940.html",
       "title_ja": "NAKAMA to MEETING Vol.5",
@@ -48924,6 +50920,40 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2871",
+      "title_ja": "超ときめき♡宣伝部のきみのハートにロックオンTOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-12",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "大宮ソニックシティ 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "超ときめき♡宣伝部"
+      ],
+      "tags": [],
+      "id": "fc74ab39bb4803bd",
+      "status": "approved",
+      "venue_key": "omiya_sonic_city",
+      "artists": [
+        "超ときめき♡宣伝部"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6942.html",
       "title_ja": "NAKAMA to MEETING Vol.5",
@@ -49479,7 +51509,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/davidbyrne/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/davidbyrne/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/david-byrne-t/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "8ecd3b7e91d472a8",
@@ -49682,6 +51728,40 @@
       "status": "approved",
       "venue_key": "ariake_arena",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2940",
+      "title_ja": "いぎなり東北産 11周年イベント《11回目の真夏のヒロイン》",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-13",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "大宮ソニックシティ 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "いぎなり東北産"
+      ],
+      "tags": [],
+      "id": "3c46078137d71cc3",
+      "status": "approved",
+      "venue_key": "omiya_sonic_city",
+      "artists": [
+        "いぎなり東北産"
+      ]
     },
     {
       "source": "quattro_shibuya",
@@ -52740,6 +54820,56 @@
       ]
     },
     {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/kodaline-ssextra/#2026-08-17",
+      "title_ja": "KODALINE SUMMER SONIC EXTRA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-17",
+      "end_date": null,
+      "open_time": "18:30",
+      "start_time": "19:30",
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "￥11,000（税込/All Standing/1Drink別）",
+      "price_min": 11000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/kodaline/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/kodaline/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/kodaline-t/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "KODALINE"
+      ],
+      "tags": [],
+      "id": "8ed56c4b90af3212",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": [
+        "KODALINE"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018538",
       "title_ja": "SILENT SIREN 八月の夜 LIVE Supported by TikTok LIVE",
@@ -53181,6 +55311,56 @@
         "きゃりーぱみゅぱみゅ",
         "新しい学校のリーダーズ",
         "櫻井優衣 他"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/december-10-ssextra/#2026-08-18",
+      "title_ja": "DECEMBER 10 SUMMER SONIC EXTRA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-18",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "￥8,800（税込/All Standing/1Drink別）",
+      "price_min": 8800,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/december10/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/december10/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/december10-t/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "DECEMBER 10"
+      ],
+      "tags": [],
+      "id": "6b1d341afdd3f5dd",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": [
+        "DECEMBER 10"
       ]
     },
     {
@@ -53677,6 +55857,108 @@
       "status": "approved",
       "venue_key": "zepp_shinjuku",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2722#2026-08-19",
+      "title_ja": "club SOS 2026 Rise’n’Ride",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "SHIBUYA PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Skoop On Somebody"
+      ],
+      "tags": [],
+      "id": "49341c1ebac5e5e6",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "Skoop On Somebody"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2647",
+      "title_ja": "Yagami Toll ～64th Birthday Live～ IT'S A NOW！2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "下北沢Shangri-La（シャングリラ）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Yagami Toll"
+      ],
+      "tags": [],
+      "id": "cd9d6adaeec21451",
+      "status": "approved",
+      "venue_key": "shimokita_shangrila",
+      "artists": [
+        "Yagami Toll"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2558",
+      "title_ja": "スキマスイッチ TOUR2026 “POPMAN’S CARNIVAL vol.3”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "カルッツかわさき(川崎市スポーツ・文化センター)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "スキマスイッチ"
+      ],
+      "tags": [],
+      "id": "afa98d4215791ad7",
+      "status": "approved",
+      "venue_key": "carats_kawasaki",
+      "artists": [
+        "スキマスイッチ"
+      ]
     },
     {
       "source": "quattro_shibuya",
@@ -54274,6 +56556,40 @@
       "status": "approved",
       "venue_key": "ariake_arena",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2722#2026-08-20",
+      "title_ja": "club SOS 2026 Rise’n’Ride",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "SHIBUYA PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Skoop On Somebody"
+      ],
+      "tags": [],
+      "id": "52bdca047f692ecc",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "Skoop On Somebody"
+      ]
     },
     {
       "source": "quattro_shibuya",
@@ -55082,6 +57398,74 @@
       "status": "approved",
       "venue_key": "kokuritsu_stadium",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2934",
+      "title_ja": "EPEX 4th CONCERT in TOKYO",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-21",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "ヒューリックホール東京",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "EPEX"
+      ],
+      "tags": [],
+      "id": "b055ec1f5d4e4f98",
+      "status": "approved",
+      "venue_key": "hulic_hall",
+      "artists": [
+        "EPEX"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2905",
+      "title_ja": "須田景凪 yawn LIVE TOUR \"knot\"",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-21",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "HEAVEN'S ROCKさいたま新都心VJ-3",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "須田景凪"
+      ],
+      "tags": [],
+      "id": "092c113034d319d8",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "須田景凪"
+      ]
     },
     {
       "source": "toyosu_pit",
@@ -55985,7 +58369,7 @@
       "price_text": "指定席 ￥8,800(税込) 着席指定席 ￥8,800(税込) ※3歳以上のお子様はお座席が必要となります。 ※満1歳以上3歳未満のお子様は保護者様の膝上に限り、チケットが無くてもご入場いただけます。(※新生児・乳児のご入場はお断りいたします。)",
       "price_min": 8800,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [],
@@ -55993,7 +58377,9 @@
       "id": "75a17c0d63b65df2",
       "status": "approved",
       "venue_key": "sgc_hall_ariake",
-      "artists": []
+      "artists": [
+        "超ときめき♡宣伝部"
+      ]
     },
     {
       "source": "opera_city",
@@ -56393,6 +58779,90 @@
       "venue_key": "yokohama_buntai",
       "artists": [
         "3SKM(北見遊征、魁星、榊ネス)"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2967",
+      "title_ja": "On The Playlist WEZAG Fan Concert",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "SHIBUYA PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "WEZAG"
+      ],
+      "tags": [],
+      "id": "afd212b4d6add121",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "WEZAG"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/ako-juno/#2026-08-22",
+      "title_ja": "a子 a子 Live Tour 2026 “JUNO”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": "17:00",
+      "start_time": "18:00",
+      "venue_name": "LINE CUBE SHIBUYA (渋谷公会堂)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "全席指定 ￥7,500(税込)",
+      "price_min": 7500,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/ako2026/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/ako-26/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/akolondog/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "a子"
+      ],
+      "tags": [],
+      "id": "3663ba907719419d",
+      "status": "approved",
+      "venue_key": "line_cube_shibuya",
+      "artists": [
+        "a子"
       ]
     },
     {
@@ -57453,6 +59923,104 @@
       "artists": [
         "3SKM(北見遊征、魁星、榊ネス)"
       ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2872#2026-08-23",
+      "title_ja": "超ときめき♡宣伝部のきみのハートにロックオンTOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "SGC HALL ARIAKE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "超ときめき♡宣伝部"
+      ],
+      "tags": [],
+      "id": "b6a3efa88dadd1c9",
+      "status": "approved",
+      "venue_key": "sgc_hall_ariake",
+      "artists": [
+        "超ときめき♡宣伝部"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2811",
+      "title_ja": "遊助 LIVE TOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "市川市文化会館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "遊助"
+      ],
+      "tags": [],
+      "id": "6a53a348c8a1241d",
+      "status": "approved",
+      "venue_key": "ichikawa_bunkakaikan",
+      "artists": [
+        "遊助"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/falilv-standby/#2026-08-23",
+      "title_ja": "Fear, and Loathing in Las Vegas",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "eebede6f1d029872",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": []
     },
     {
       "source": "pia_arena_mm",
@@ -60067,6 +62635,72 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2559",
+      "title_ja": "スキマスイッチ TOUR2026 “POPMAN’S CARNIVAL vol.3”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-27",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "J:COMホール八王子(八王子市民会館)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "スキマスイッチ"
+      ],
+      "tags": [],
+      "id": "750f1e26fc60e93c",
+      "status": "approved",
+      "venue_key": "jcom_hall_hachioji",
+      "artists": [
+        "スキマスイッチ"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/kvibaba_2026/#2026-08-27",
+      "title_ja": "Kvi Baba",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-27",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "51c59f186aed8f51",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": [
+        "Kvi Baba"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018059",
       "title_ja": "五十嵐ハル LIVE TOUR「Mr. Sentimental Vol.2」",
@@ -60290,7 +62924,7 @@
       "price_text": "1階スタンディング/ ¥6,000 2階指定席/ ¥7,000 [お問合せ] SOGO TOKYO 03-3405-9999 月〜土 12:00〜13:00/16:00〜19:00※日曜・祝日を除く READ MORE",
       "price_min": 6000,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [],
@@ -60660,6 +63294,74 @@
       "status": "approved",
       "venue_key": "zepp_haneda",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2788#2026-08-28",
+      "title_ja": "初音ミク「マジカルミライ 2026」in TOKYO ＜ライブ＞",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-28",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "幕張メッセ 国際展示場9ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "初音ミク"
+      ],
+      "tags": [],
+      "id": "bda79e12d46dd24d",
+      "status": "approved",
+      "venue_key": "makuhari_messe",
+      "artists": [
+        "初音ミク"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2787#2026-08-28",
+      "title_ja": "初音ミク「マジカルミライ 2026」in TOKYO ＜企画展＞",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-28",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "幕張メッセ 国際展示場1・2・3ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "初音ミク"
+      ],
+      "tags": [],
+      "id": "e5c4e2bc1accf7e3",
+      "status": "approved",
+      "venue_key": "makuhari_messe",
+      "artists": [
+        "初音ミク"
+      ]
     },
     {
       "source": "quattro_shibuya",
@@ -61534,6 +64236,138 @@
       "artists": [
         "ジェーン・スー／堀井美香／他"
       ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2788#2026-08-29",
+      "title_ja": "初音ミク「マジカルミライ 2026」in TOKYO ＜ライブ＞",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "幕張メッセ 国際展示場9ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "初音ミク"
+      ],
+      "tags": [],
+      "id": "616e96ef1fbb535e",
+      "status": "approved",
+      "venue_key": "makuhari_messe",
+      "artists": [
+        "初音ミク"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2787#2026-08-29",
+      "title_ja": "初音ミク「マジカルミライ 2026」in TOKYO ＜企画展＞",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "幕張メッセ 国際展示場1・2・3ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "初音ミク"
+      ],
+      "tags": [],
+      "id": "a78ee9fab627850d",
+      "status": "approved",
+      "venue_key": "makuhari_messe",
+      "artists": [
+        "初音ミク"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2920",
+      "title_ja": "ロッケンロー★サミット2026 ～六弦仁義、世代抗争～",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Spotify O-WEST (旧 TSUTAYA O-WEST)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ロッケンロー★サミット2026"
+      ],
+      "tags": [],
+      "id": "caf6b7cc39b326fe",
+      "status": "approved",
+      "venue_key": "owest",
+      "artists": [
+        "ロッケンロー★サミット2026"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/skryu-the-light/#2026-08-29",
+      "title_ja": "SKRYU",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "3681b8578e41e305",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": []
     },
     {
       "source": "pia_arena_mm",
@@ -62542,6 +65376,140 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2788#2026-08-30",
+      "title_ja": "初音ミク「マジカルミライ 2026」in TOKYO ＜ライブ＞",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "幕張メッセ 国際展示場9ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "初音ミク"
+      ],
+      "tags": [],
+      "id": "903c55bd6c6c17bf",
+      "status": "approved",
+      "venue_key": "makuhari_messe",
+      "artists": [
+        "初音ミク"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2787#2026-08-30",
+      "title_ja": "初音ミク「マジカルミライ 2026」in TOKYO ＜企画展＞",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "幕張メッセ 国際展示場1・2・3ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "初音ミク"
+      ],
+      "tags": [],
+      "id": "913be870d2998fa3",
+      "status": "approved",
+      "venue_key": "makuhari_messe",
+      "artists": [
+        "初音ミク"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/3000#2026-08-30",
+      "title_ja": "Stray Kids World Tour",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "international"
+      ],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "MUFGスタジアム（国立競技場）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Stray Kids"
+      ],
+      "tags": [],
+      "id": "b46663b6bc449fc8",
+      "status": "approved",
+      "venue_key": "kokuritsu_stadium",
+      "artists": [
+        "Stray Kids"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/skryu-the-light/#2026-08-30",
+      "title_ja": "SKRYU",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "40f09b1739eafdc6",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": []
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6724.html",
       "title_ja": "SKRYU",
@@ -63031,6 +65999,102 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2560",
+      "title_ja": "スキマスイッチ TOUR2026 “POPMAN’S CARNIVAL vol.3”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-31",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "大宮ソニックシティ 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "スキマスイッチ"
+      ],
+      "tags": [],
+      "id": "fd11671a015a591a",
+      "status": "approved",
+      "venue_key": "omiya_sonic_city",
+      "artists": [
+        "スキマスイッチ"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/flo26/#2026-08-31",
+      "title_ja": "FLO",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-31",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "ef8d4f1664054440",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/artist/2026/08ecb/#2026-08-31",
+      "title_ja": "ELECTRIC CALLBOY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-31",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "55b5f47eb9f9e959",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": [
+        "ELECTRIC CALLBOY"
+      ]
+    },
+    {
       "source": "toyosu_pit",
       "source_url": "https://toyosu.pia-pit.jp/schedule/202606/8585.html",
       "title_ja": "FLO - Therapy At The Club Tour 2026 JAPAN",
@@ -63389,6 +66453,40 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2986#2026-09-01",
+      "title_ja": "OMUSUBI Special TOUR メジャーデビュー5周年(^^)v",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "新宿HEAD POWER",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "NEE"
+      ],
+      "tags": [],
+      "id": "013a45d2df0034ae",
+      "status": "approved",
+      "venue_key": "shinjuku_head_power",
+      "artists": [
+        "NEE"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018537",
       "title_ja": "「GRIOTTO」",
@@ -63740,6 +66838,72 @@
       "venue_key": "k_arena_yokohama",
       "artists": [
         "桑田佳祐"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2986#2026-09-02",
+      "title_ja": "OMUSUBI Special TOUR メジャーデビュー5周年(^^)v",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "新宿HEAD POWER",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "NEE"
+      ],
+      "tags": [],
+      "id": "ced6a1945557a561",
+      "status": "approved",
+      "venue_key": "shinjuku_head_power",
+      "artists": [
+        "NEE"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/rmp26/#2026-09-02",
+      "title_ja": "RACING MOUNT PLEASANT",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "79b8e0fb72171933",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": [
+        "Racing Mount Pleasant"
       ]
     },
     {
@@ -64234,6 +67398,40 @@
       "venue_key": "k_arena_yokohama",
       "artists": [
         "桑田佳祐"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2988",
+      "title_ja": "SHEN Solo Live2026『Choose To Be Happy』",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-03",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "SHIBUYA PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SHEN"
+      ],
+      "tags": [],
+      "id": "658e61efd1489e45",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "SHEN"
       ]
     },
     {
@@ -64795,6 +67993,70 @@
       "artists": [
         "ano"
       ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2812",
+      "title_ja": "遊助 LIVE TOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-04",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "よこすか芸術劇場",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "遊助"
+      ],
+      "tags": [],
+      "id": "c577c63fd63cca2e",
+      "status": "approved",
+      "venue_key": "yokosuka_arts_theatre",
+      "artists": [
+        "遊助"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/abemao-abemania/#2026-09-04",
+      "title_ja": "阿部真央",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-04",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "b2c0d2c29007f687",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": []
     },
     {
       "source": "pia_arena_mm",
@@ -65615,7 +68877,9 @@
       "id": "9612b08fd0bf3582",
       "status": "approved",
       "venue_key": "makuhari_messe",
-      "artists": []
+      "artists": [
+        "Vaundy"
+      ]
     },
     {
       "source": "yokohama_buntai",
@@ -65645,6 +68909,107 @@
       "id": "a0740e24c3598998",
       "status": "approved",
       "venue_key": "yokohama_buntai",
+      "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2740",
+      "title_ja": "Kiramune Presents Hiroshi Kamiya Live Tour 2026「Share Live」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-05",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "神谷浩史"
+      ],
+      "tags": [],
+      "id": "76915c0a1964fe13",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "HIROSHI",
+        "神谷浩史"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2895#2026-09-05",
+      "title_ja": "ONE OK ROCK DETOX JAPAN TOUR FINAL 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "international"
+      ],
+      "start_date": "2026-09-05",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "ZOZOマリンスタジアム",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ONE OK ROCK"
+      ],
+      "tags": [],
+      "id": "0a4f3072e8f29a75",
+      "status": "approved",
+      "venue_key": "zozo_marine_stadium",
+      "artists": [
+        "ONE OK ROCK"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/galneryus_2026/#2026-09-05",
+      "title_ja": "GALNERYUS",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-05",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "00c1629ab7f6bf83",
+      "status": "approved",
+      "venue_key": "creativeman",
       "artists": []
     },
     {
@@ -66461,6 +69826,76 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2775#2026-09-06",
+      "title_ja": "Vaundy ASIA ARENA TOUR 2026 \"HORO\"",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-06",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "幕張メッセ 国際展示場9・11ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Vaundy"
+      ],
+      "tags": [],
+      "id": "430aa9f5816fca3d",
+      "status": "approved",
+      "venue_key": "makuhari_messe",
+      "artists": [
+        "Vaundy"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2895#2026-09-06",
+      "title_ja": "ONE OK ROCK DETOX JAPAN TOUR FINAL 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "international"
+      ],
+      "start_date": "2026-09-06",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "ZOZOマリンスタジアム",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ONE OK ROCK"
+      ],
+      "tags": [],
+      "id": "914edd0a10b2d7cb",
+      "status": "approved",
+      "venue_key": "zozo_marine_stadium",
+      "artists": [
+        "ONE OK ROCK"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6960.html",
       "title_ja": "CORTIS 2026 CORTIS TOUR <PUT YOUR PHONE DOWN> IN JAPAN",
@@ -66948,6 +70383,40 @@
       "venue_key": "k_arena_yokohama",
       "artists": [
         "星街すいせい"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2786#2026-09-08",
+      "title_ja": "龍宮城 LIVE TOUR 2026 -MOTTO-",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-08",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Shibuya LOVEZ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "龍宮城"
+      ],
+      "tags": [],
+      "id": "a043202bc1a87c1d",
+      "status": "approved",
+      "venue_key": "shibuya_lovez",
+      "artists": [
+        "龍宮城"
       ]
     },
     {
@@ -67469,6 +70938,74 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2786#2026-09-09",
+      "title_ja": "龍宮城 LIVE TOUR 2026 -MOTTO-",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-09",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Shibuya LOVEZ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "龍宮城"
+      ],
+      "tags": [],
+      "id": "208d7f265505db2f",
+      "status": "approved",
+      "venue_key": "shibuya_lovez",
+      "artists": [
+        "龍宮城"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2952",
+      "title_ja": "GENKI IWAHASHI TOUR 2026 \"LAzarus\"",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-09",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "LINE CUBE SHIBUYA（渋谷公会堂）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "岩橋玄樹"
+      ],
+      "tags": [],
+      "id": "c55f0964923104ac",
+      "status": "approved",
+      "venue_key": "line_cube_shibuya",
+      "artists": [
+        "岩橋玄樹"
+      ]
+    },
+    {
       "source": "www_x",
       "source_url": "https://www-shibuya.jp/schedule/019807.php",
       "title_ja": "【LIVE】THEE MARLOES / Tiny Step \"Southside\" Trio【DJ】松永良平 / 遠井りな【Shop】BARRIO GOLD RECORDS & THEE MARLOES 【Food】晴れ豆キッチン",
@@ -67830,6 +71367,66 @@
       "id": "0a609bf468345f98",
       "status": "approved",
       "venue_key": "zepp_shinjuku",
+      "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/3015",
+      "title_ja": "ライブナタリー “真心ブラザーズ × ハンバート ハンバート”",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-10",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "LINE CUBE SHIBUYA（渋谷公会堂）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "af215ad3897f9a0c",
+      "status": "approved",
+      "venue_key": "line_cube_shibuya",
+      "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/nia-archives26/#2026-09-10",
+      "title_ja": "NIA ARCHIVES",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-10",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "3735058052f77d0c",
+      "status": "approved",
+      "venue_key": "creativeman",
       "artists": []
     },
     {
@@ -68936,6 +72533,40 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2995",
+      "title_ja": "熊木杏里 クマキナリスペシャル 「私は私をあとにして × Single Selection」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-12",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "神田明神ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "熊木杏里"
+      ],
+      "tags": [],
+      "id": "802f533bd92011d5",
+      "status": "approved",
+      "venue_key": "kanda_myojin_hall",
+      "artists": [
+        "熊木杏里"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6944.html",
       "title_ja": "シャインポスト",
@@ -69732,7 +73363,7 @@
       "price_text": null,
       "price_min": null,
       "is_free": null,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": "https://sogotokyo.com/",
       "ticket_links": [],
       "lineup": [
@@ -70033,6 +73664,38 @@
       "artists": []
     },
     {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/amorphis26/#2026-09-15",
+      "title_ja": "AMORPHIS",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-15",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "8b7d4fc113223352",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": [
+        "AMORPHIS"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018138",
       "title_ja": "BORDERLAND JAPAN TOUR 2026",
@@ -70284,6 +73947,68 @@
       "id": "db91e7126bae29a1",
       "status": "approved",
       "venue_key": "tokyo_dome",
+      "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/amorphis26/#2026-09-16",
+      "title_ja": "AMORPHIS",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "9cb15b24fe43e058",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": [
+        "AMORPHIS"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/fishbone26/#2026-09-16",
+      "title_ja": "Fishbone",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "32fe5c9bb6d98af0",
+      "status": "approved",
+      "venue_key": "creativeman",
       "artists": []
     },
     {
@@ -70714,6 +74439,36 @@
       "id": "b718d88bb69d3f52",
       "status": "approved",
       "venue_key": "tokyo_dome",
+      "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/carcass_2026/#2026-09-17",
+      "title_ja": "CARCASS",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-17",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "66bf5ea69917dd07",
+      "status": "approved",
+      "venue_key": "creativeman",
       "artists": []
     },
     {
@@ -71504,7 +75259,9 @@
       "id": "d34b51831fd9d3fa",
       "status": "approved",
       "venue_key": "sgc_hall_ariake",
-      "artists": []
+      "artists": [
+        "須田景凪"
+      ]
     },
     {
       "source": "tokyo_intl_forum",
@@ -71733,6 +75490,169 @@
       "status": "approved",
       "venue_key": "kokuritsu_stadium",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2699#2026-09-19",
+      "title_ja": "Hiromi Go Concert Tour 2026 〜ALL MY LOVE〜",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "大宮ソニックシティ 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "郷ひろみ"
+      ],
+      "tags": [],
+      "id": "92d8b2ed4e6c78d6",
+      "status": "approved",
+      "venue_key": "omiya_sonic_city",
+      "artists": [
+        "郷ひろみ"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2690",
+      "title_ja": "Kaede「view」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京キネマ倶楽部",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Kaede"
+      ],
+      "tags": [],
+      "id": "167015a892dfdedf",
+      "status": "approved",
+      "venue_key": "kinema_club",
+      "artists": [
+        "Kaede"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/3012#2026-09-19",
+      "title_ja": "BACK TO THE MEMORIES 祭",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Kアリーナ横浜",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "ceb90651611b47cd",
+      "status": "approved",
+      "venue_key": "k_arena_yokohama",
+      "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/hanabie26/#2026-09-19",
+      "title_ja": "花冷え。",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "eb2feeab2452024f",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": [
+        "花冷え。"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/the-damned26/#2026-09-19",
+      "title_ja": "THE DAMNED",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "09f460446714c2d9",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": [
+        "DAMNED",
+        "The Damned"
+      ]
     },
     {
       "source": "www_x",
@@ -72066,7 +75986,9 @@
       "id": "fd1a17a08d0c4794",
       "status": "approved",
       "venue_key": "sgc_hall_ariake",
-      "artists": []
+      "artists": [
+        "スキマスイッチ"
+      ]
     },
     {
       "source": "tokyo_intl_forum",
@@ -72317,6 +76239,100 @@
       "id": "588f52d85b2e4f91",
       "status": "approved",
       "venue_key": "yokohama_buntai",
+      "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2699#2026-09-20",
+      "title_ja": "Hiromi Go Concert Tour 2026 〜ALL MY LOVE〜",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "大宮ソニックシティ 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "郷ひろみ"
+      ],
+      "tags": [],
+      "id": "ae4e6781a9d8a23a",
+      "status": "approved",
+      "venue_key": "omiya_sonic_city",
+      "artists": [
+        "郷ひろみ"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/3012#2026-09-20",
+      "title_ja": "BACK TO THE MEMORIES 祭",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Kアリーナ横浜",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "b0623f0493e6bb0c",
+      "status": "approved",
+      "venue_key": "k_arena_yokohama",
+      "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/mfs-bandset/#2026-09-20",
+      "title_ja": "MFS",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "982388c810f232e3",
+      "status": "approved",
+      "venue_key": "creativeman",
       "artists": []
     },
     {
@@ -73401,6 +77417,74 @@
       ]
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2973",
+      "title_ja": "SunSet Swish Live Tour 2026 in Tokyo",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "SHIBUYA PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SunSet Swish"
+      ],
+      "tags": [],
+      "id": "4be507b886b2f061",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "SunSet Swish"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2654",
+      "title_ja": "masayuki suzuki taste of martini tour 2026 Step123 season2 ”70 / 40th anniversary” 協賛：セイコーグループ株式会社",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "鈴木雅之"
+      ],
+      "tags": [],
+      "id": "2635134b30ed5553",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "鈴木雅之"
+      ]
+    },
+    {
       "source": "www_x",
       "source_url": "https://www-shibuya.jp/schedule/019835.php",
       "title_ja": "Soulflex",
@@ -74010,6 +78094,40 @@
       "artists": []
     },
     {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2998",
+      "title_ja": "syudou presents「呵呵大笑」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Kanadevia Hall（旧 TOKYO DOME CITY HALL）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "syudou"
+      ],
+      "tags": [],
+      "id": "c6c03b827dfedad5",
+      "status": "approved",
+      "venue_key": "kanadevia_hall",
+      "artists": [
+        "syudou"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018488",
       "title_ja": "Homecomings presents 「many shapes, many echoes」",
@@ -74470,6 +78588,66 @@
       "artists": []
     },
     {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/pubchoir26/#2026-09-24",
+      "title_ja": "PUB CHOIR",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-24",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "5da795a998a26405",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/belle-sebastian_2026/#2026-09-24",
+      "title_ja": "BELLE & SEBASTIAN",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-24",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "5d261ad6d4b9f872",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": []
+    },
+    {
       "source": "www_x",
       "source_url": "https://www-shibuya.jp/schedule/019903.php",
       "title_ja": "PUB CHOIR",
@@ -74873,6 +79051,36 @@
       "artists": [
         "kanekoayano"
       ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/belle-sebastian_2026/#2026-09-25",
+      "title_ja": "BELLE & SEBASTIAN",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "6b60984d07b2a59d",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": []
     },
     {
       "source": "liquidroom",
@@ -75383,6 +79591,41 @@
       "venue_key": "k_arena_yokohama",
       "artists": [
         "AKB48"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2985#2026-09-26",
+      "title_ja": "SUPER JUNIOR-D&E 2026 JAPAN FAN PARTY [ArcaDE]",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京体育館 メインアリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SUPER JUNIOR-D&E"
+      ],
+      "tags": [],
+      "id": "23d5d66c06dc0107",
+      "status": "approved",
+      "venue_key": "tokyo_taiikukan",
+      "artists": [
+        "JUNIOR",
+        "SUPER JUNIOR-D&E"
       ]
     },
     {
@@ -75966,6 +80209,41 @@
       "venue_key": "k_arena_yokohama",
       "artists": [
         "AKB48"
+      ]
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/2985#2026-09-27",
+      "title_ja": "SUPER JUNIOR-D&E 2026 JAPAN FAN PARTY [ArcaDE]",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-27",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京体育館 メインアリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SUPER JUNIOR-D&E"
+      ],
+      "tags": [],
+      "id": "b60c270a14dc833b",
+      "status": "approved",
+      "venue_key": "tokyo_taiikukan",
+      "artists": [
+        "JUNIOR",
+        "SUPER JUNIOR-D&E"
       ]
     },
     {
@@ -76893,6 +81171,68 @@
       "status": "approved",
       "venue_key": "zepp_yokohama",
       "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/artist/2026/11a7x/#2026-09-30",
+      "title_ja": "Avenged Sevenfold",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "bcbd59ad9dd4f998",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/juju-hall-tour26/#2026-09-30",
+      "title_ja": "JUJU",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": null,
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "ad69bc32f3219805",
+      "status": "approved",
+      "venue_key": "creativeman",
+      "artists": [
+        "JUJU"
+      ]
     },
     {
       "source": "quattro_shibuya",
