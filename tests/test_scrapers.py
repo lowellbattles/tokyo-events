@@ -591,3 +591,58 @@ def test_nonmusic_short_tokens_do_not_hide_concerts():
     assert tu.is_nonmusic("新日本プロレス 東京大会")
     assert tu.is_nonmusic("K-1 WORLD GP 2026")
     assert tu.is_nonmusic("RIZIN LANDMARK 12")
+
+
+# ------------------------------------------------------- sold-out sweep
+def test_sold_out_marker_vocabulary():
+    assert tu.SOLD_OUT_RE.search("チケットは予定枚数終了しました")
+    assert tu.SOLD_OUT_RE.search("満員御礼！")
+    assert tu.SOLD_OUT_RE.search("SOLD-OUT")
+    assert tu.SOLD_OUT_RE.search("完売御礼")
+    # advance-sales-closed is NOT sold out
+    assert not tu.SOLD_OUT_RE.search("先行受付終了、一般発売は7/20から")
+    # availability legends and conditional boilerplate are NOT sold out
+    assert not tu.SOLD_OUT_RE.search("空席状況 ×：予定枚数終了 －：取扱い無し")
+    assert not tu.SOLD_OUT_RE.search("予定枚数終了次第、販売を終了します")
+
+
+def test_pipeline_soldout_sweep_flips_near_term_event(tmp_path, monkeypatch):
+    import datetime as _dt
+    from tokyo_events import pipeline
+    from tokyo_events.models import Category
+    from tokyo_events.scrapers.base import BaseScraper
+
+    soon = (_dt.date.today() + _dt.timedelta(days=3)).isoformat()
+
+    def _ev():
+        # fully enriched already -> not in the missing-details backlog
+        return Event(source="dummy", source_url="https://d/1", title_ja="A",
+                     category=Category.MUSIC, start_date=soon,
+                     open_time="18:00", start_time="19:00", price_min=5000,
+                     price_text="¥5,000",
+                     ticket_links=[{"provider": "eplus", "url": "https://eplus.jp/x",
+                                    "code": None}])
+
+    class SweepScraper(BaseScraper):
+        source_id = "dummy"
+
+        def scrape(self):
+            yield _ev()
+
+        def parse(self, html, **context):
+            return [_ev()]
+
+        def fetch(self, url, retries=2):
+            return "<html><body>本公演は完売しました</body></html>"
+
+    store = EventStore(tmp_path / "sweep.db")
+    assert store.upsert(_ev()) == "new"
+
+    monkeypatch.setattr(pipeline, "SCRAPERS",
+                        {"dummy": (SweepScraper, ReviewStatus.PENDING)})
+    report = pipeline.run(store, only=["dummy"])[0]
+    assert report["error"] is None
+    assert report["details"] == 1          # the sweep re-fetch
+    stored = store.list_events()[0]
+    assert stored["is_sold_out"] is True
+    assert stored["price_min"] == 5000     # enrichment untouched

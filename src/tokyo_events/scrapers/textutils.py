@@ -20,7 +20,14 @@ MONTH_DAY_RE = re.compile(
     r"(\d{1,2})\s*[./]\s*(\d{1,2})\s*[(（]?(sun|mon|tue|wed|thu|fri|sat|日|月|火|水|木|金|土)",
     re.I,
 )
-SOLD_OUT_RE = re.compile(r"SOLD\s*OUT|ソールドアウト|完売", re.I)
+# 完売 also covers 完売御礼/チケット完売. 予定枚数終了 must be in its
+# announcement form (…終了しました) — the bare phrase appears in seat-
+# availability LEGENDS (×：予定枚数終了) and conditional boilerplate
+# (予定枚数終了次第). 受付終了 is deliberately NOT here — it often means
+# "advance sales closed", not sold out.
+SOLD_OUT_RE = re.compile(
+    r"SOLD[\s-]*OUT|ソールドアウト|完売|"
+    r"予定枚数[がはに]?終了(?:しました|いたしました|致しました)|満員御礼", re.I)
 
 # Arena/hall calendars mix in sports, ice shows, ceremonies, fashion shows
 # and trade events. Deliberately precision-first: better to let an odd one

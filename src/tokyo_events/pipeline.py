@@ -171,6 +171,14 @@ def run(store: EventStore, only: list[str] | None = None,
                 to_enrich.extend(store.events_needing_detail(
                     source_id, exclude_urls=seen,
                     limit=DETAIL_CAP - len(to_enrich)))
+                # Sold-out sweep: leftover budget re-checks the detail pages
+                # of soon-upcoming shows — venues add 完売/SOLD OUT there
+                # long after our one-time enrichment (parse_detail only
+                # fills gaps / flips is_sold_out, so re-runs are safe).
+                seen = {e.source_url for e in to_enrich}
+                to_enrich.extend(store.events_for_soldout_sweep(
+                    source_id, exclude_urls=seen,
+                    limit=DETAIL_CAP - len(to_enrich)))
 
             detail_failures = 0
             for ev in to_enrich[:DETAIL_CAP]:

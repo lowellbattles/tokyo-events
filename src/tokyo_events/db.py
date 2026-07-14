@@ -200,6 +200,30 @@ class EventStore:
                     break
         return out
 
+    def events_for_soldout_sweep(self, source: str, exclude_urls: set[str],
+                                 limit: int, window_days: int = 10
+                                 ) -> list[Event]:
+        """Soon-upcoming events not yet marked sold out — candidates for a
+        detail-page re-check. Sold-out marks usually appear on the venue's
+        event page well after our one-time enrichment, so near-term shows
+        get re-visited with whatever detail budget is left over."""
+        if limit <= 0:
+            return []
+        out: list[Event] = []
+        rows = self.conn.execute(
+            "SELECT data FROM events WHERE source=? AND status!='rejected' "
+            "AND category='music' AND start_date>=date('now') "
+            "AND start_date<=date('now', ?) ORDER BY start_date",
+            (source, f"+{window_days} days"))
+        for row in rows:
+            d = json.loads(row["data"])
+            if d.get("is_sold_out") or d.get("source_url") in exclude_urls:
+                continue
+            out.append(Event.from_json(d))
+            if len(out) >= limit:
+                break
+        return out
+
     def source_health(self) -> list[dict]:
         """Latest scrape_runs row per source, for status display."""
         rows = self.conn.execute(
@@ -213,7 +237,9 @@ class EventStore:
         """Dump approved events + source health as the frontend feed."""
         from .genres import apply_genres
         from .artists import apply_artists
+        from .promoters import apply_promoter_merge
         events = self.list_events(public_only=True)
+        events = apply_promoter_merge(events)   # before genre/artist passes
         apply_genres(self.conn, events)
         apply_artists(self.conn, events)
         Path(path).write_text(

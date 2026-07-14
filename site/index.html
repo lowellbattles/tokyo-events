@@ -137,6 +137,7 @@
     <button class="chip" data-when="weekend"></button>
     <button class="chip" data-when="all"></button>
   </div>
+  <div class="f-row" id="vclass-row"><span class="f-label" data-i18n="l_vclass"></span></div>
   <div class="f-row" id="genre-row"><span class="f-label" data-i18n="l_genre"></span></div>
   <div class="f-row" style="align-items:flex-start">
     <span class="f-label" style="padding-top:6px" data-i18n="l_venue"></span>
@@ -218,19 +219,54 @@ const VENUE_META = {
   kokuritsu_stadium: {fam:"arena",    letter:"S"},
   makuhari_messe:    {fam:"arena",    letter:"M"},
   yokohama_buntai:   {fam:"arena",    letter:"B"},
+  /* gap venues reached via promoter sources (venue_key identities) */
+  budokan:           {fam:"arena",    letter:"B"},
+  lala_arena_tokyo_bay:{fam:"arena",  letter:"L"},
+  pleasure_pleasure: {fam:"hall",     letter:"P"},
+  meguro_persimmon:  {fam:"hall",     letter:"M"},
+  otemachi_mitsui_hall:{fam:"hall",   letter:"O"},
+  im_a_show:         {fam:"hall",     letter:"I"},
+  tokyo_fm_hall:     {fam:"hall",     letter:"F"},
+  jcom_hall_hachioji:{fam:"hall",     letter:"J"},
+  carats_kawasaki:   {fam:"hall",     letter:"K"},
+  omiya_sonic_city:  {fam:"hall",     letter:"S"},
+  ichikawa_bunkakaikan:{fam:"hall",   letter:"I"},
+  blues_alley_japan: {fam:"jazz",     letter:"B"},
+  yokohama_mint_hall:{fam:"indie",    letter:"M"},
+  heavens_rock_saitama:{fam:"indie",  letter:"H"},
+  chiba_anga:        {fam:"indie",    letter:"A"},
+  harajuku_ruido:    {fam:"indie",    letter:"R"},
+  grapefruit_moon:   {fam:"indie",    letter:"G"},
+  nishikawaguchi_hearts:{fam:"indie", letter:"H"},
+  shimokita_shangrila:{fam:"indie",   letter:"S"},
+  shibuya_lovez:     {fam:"indie",    letter:"L"},
 };
+/* promoter events carry venue_key (canonical venue id from the export
+   merge); venue-scraped events keep their source id as identity */
+const venueIdOf=ev=>ev.venue_key||ev.source;
 const FAM_COLOR = {liquid:"var(--f-liquid)",ogroup:"var(--f-ogroup)",
   zepp:"var(--f-zepp)",billboard:"var(--f-billboard)",pia:"var(--f-pia)",
   quattro:"var(--f-quattro)",www:"var(--f-www)",duo:"var(--f-duo)",
   loft:"var(--f-loft)",indie:"var(--f-indie)",jazz:"var(--f-jazz)",
   hall:"var(--f-hall)",arena:"var(--f-arena)",other:"var(--f-other)"};
+/* venue class (会場タイプ): derived from the scraper family, with the two
+   Pia venues split (a live house and an arena share that family). */
+const VCLASS_KEYS=["livehouse","jazz","hall","arena"];
+const FAM_CLASS={liquid:"livehouse",ogroup:"livehouse",zepp:"livehouse",
+  quattro:"livehouse",www:"livehouse",duo:"livehouse",loft:"livehouse",
+  indie:"livehouse",billboard:"jazz",jazz:"jazz",hall:"hall",arena:"arena"};
+const VCLASS_OVERRIDE={toyosu_pit:"livehouse",pia_arena_mm:"arena"};
+const vclassOf=id=>VCLASS_OVERRIDE[id]||
+  FAM_CLASS[(VENUE_META[id]||{}).fam]||"livehouse";
 const GENRE_KEYS = ["idol","j-rock","international","k-pop","jazz-soul",
                     "classical","hiphop-rnb","electronic","anime-seiyu"];
 
 const I18N = {
   ja:{
     tagline:"都内ライブハウスからアリーナまで、ひとつに。",
-    l_when:"日付",l_genre:"ジャンル",l_venue:"会場",
+    l_when:"日付",l_genre:"ジャンル",l_venue:"会場",l_vclass:"会場タイプ",
+    vclasses:{all:"すべて",livehouse:"ライブハウス・クラブ",jazz:"ジャズクラブ",
+      hall:"ホール・劇場",arena:"アリーナ・スタジアム"},
     today:"今日",week:"今週",weekend:"今週末",all:"すべて",
     genres:{all:"すべて",idol:"アイドル","j-rock":"ロック・バンド",
       international:"来日・海外","k-pop":"K-POP","jazz-soul":"ジャズ・ソウル",
@@ -257,7 +293,9 @@ const I18N = {
   },
   en:{
     tagline:"Every live house to every arena. One schedule.",
-    l_when:"When",l_genre:"Genre",l_venue:"Venue",
+    l_when:"When",l_genre:"Genre",l_venue:"Venue",l_vclass:"Venue type",
+    vclasses:{all:"All",livehouse:"Live houses / clubs",jazz:"Jazz clubs",
+      hall:"Halls / theaters",arena:"Arenas / stadiums"},
     today:"Today",week:"This week",weekend:"Weekend",all:"All dates",
     genres:{all:"All",idol:"Idol","j-rock":"Rock / Band",
       international:"Int'l artists","k-pop":"K-pop","jazz-soul":"Jazz / Soul",
@@ -287,6 +325,7 @@ const I18N = {
 
 /* ============================================================ state */
 let DATA=null, VENUES={}, lang="ja", when="week", genre="all", query="";
+let vclass="all";
 let activeVenues=new Set();
 let collapsedDays=new Set();
 /* route: null = main list; {artist:name} or {venue:sourceId} = detail page */
@@ -311,11 +350,12 @@ async function load(){
   }
   // Build the venue registry from events (name/area come from the data).
   for(const ev of DATA.events){
-    if(!VENUES[ev.source]){
-      const meta=VENUE_META[ev.source]||
+    const vid=venueIdOf(ev);
+    if(!VENUES[vid]){
+      const meta=VENUE_META[vid]||
         {fam:"other",letter:(ev.venue_name||"?")[0].toUpperCase()};
-      VENUES[ev.source]={...meta,
-        name:ev.venue_name||ev.source, area:ev.venue_area||""};
+      VENUES[vid]={...meta,
+        name:ev.venue_name||vid, area:ev.venue_area||""};
     }
   }
   activeVenues=new Set(Object.keys(VENUES));
@@ -328,8 +368,10 @@ const P=s=>new Date(s+"T00:00:00+09:00");
 const sameDay=(a,b)=>a.getTime()===b.getTime();
 function inWindow(ev){
   const s=P(ev.start_date), e=P(ev.end_date||ev.start_date);
-  if(when==="all") return true;
+  /* every window — including "all dates" — starts at today; the feed
+     keeps a little history but the list is forward-looking */
   if(e<TODAY) return false;
+  if(when==="all") return true;
   if(when==="today") return s<=TODAY&&TODAY<=e;
   if(when==="week"){const end=new Date(TODAY);end.setDate(end.getDate()+6);return s<=end&&e>=TODAY;}
   if(when==="weekend"){
@@ -345,7 +387,8 @@ const isMusic=ev=>(ev.category||"music")==="music";
 function matches(ev){
   if(!ev.start_date) return false;
   if(!isMusic(ev)) return false;
-  if(!activeVenues.has(ev.source)) return false;
+  if(vclass!=="all"&&vclassOf(venueIdOf(ev))!==vclass) return false;
+  if(!activeVenues.has(venueIdOf(ev))) return false;
   if(genre!=="all"&&!(ev.genres||[]).includes(genre)) return false;
   if(!inWindow(ev)) return false;
   if(query){
@@ -390,9 +433,37 @@ function renderGenreChips(){
     row.appendChild(b);
   }
 }
+function renderVclassChips(){
+  const row=document.getElementById("vclass-row");
+  row.querySelectorAll(".chip").forEach(n=>n.remove());
+  const L=I18N[lang];
+  const present=new Set(Object.keys(VENUES).map(vclassOf));
+  for(const c of ["all",...VCLASS_KEYS.filter(c=>present.has(c))]){
+    const b=document.createElement("button");
+    b.className="chip";b.textContent=L.vclasses[c]||c;
+    b.setAttribute("aria-pressed",vclass===c);
+    b.onclick=()=>{
+      vclass=c;
+      /* a class pick resets any single-venue selection so the list
+         reflects the whole class, not a stale venue intersection */
+      activeVenues=new Set(Object.keys(VENUES));
+      render();
+    };
+    row.appendChild(b);
+  }
+}
 function renderVenueChips(){
   const wrap=document.getElementById("venue-chips");wrap.innerHTML="";
-  const all=Object.keys(VENUES), L=I18N[lang];
+  const L=I18N[lang];
+  /* venue strip is grouped by class (livehouse → jazz → hall → arena)
+     and, when a class filter is active, shows only that class */
+  const shown=Object.keys(VENUES)
+    .filter(id=>vclass==="all"||vclassOf(id)===vclass)
+    .sort((a,b)=>{
+      const ca=VCLASS_KEYS.indexOf(vclassOf(a)), cb=VCLASS_KEYS.indexOf(vclassOf(b));
+      return ca!==cb?ca-cb:VENUES[a].name.localeCompare(VENUES[b].name,"ja");
+    });
+  const all=Object.keys(VENUES);
   const allActive=activeVenues.size===all.length;
   const allBtn=document.createElement("button");
   allBtn.className="chip";
@@ -400,7 +471,7 @@ function renderVenueChips(){
   allBtn.setAttribute("aria-pressed",allActive);
   allBtn.onclick=()=>{activeVenues=new Set(all);render();};
   wrap.appendChild(allBtn);
-  for(const [id,v] of Object.entries(VENUES)){
+  for(const id of shown){const v=VENUES[id];
     const b=document.createElement("button");
     b.className="chip v-chip";
     b.setAttribute("aria-pressed",activeVenues.has(id)&&!allActive);
@@ -450,7 +521,7 @@ function dayGroupsHtml(evs){
       <div class="day-count">${L.count(dayEvents.length)}</div>
     </div><div class="cards">`;
     for(const ev of dayEvents){
-      const V=VENUES[ev.source];
+      const V=VENUES[venueIdOf(ev)];
       const past=P(ev.end_date||ev.start_date)<TODAY;
       const times=ev.open_time||ev.start_time
         ?`${ev.open_time?`<div class="t-label">${L.open}</div><div class="t-time">${ev.open_time}</div>`:""}
@@ -471,7 +542,7 @@ function dayGroupsHtml(evs){
           ${ev.subtitle?`<div class="subtitle">${esc(ev.subtitle)}</div>`:""}
           ${multi}
           <div class="meta">
-            <span class="venue-tag alink" data-venue-link="${esc(ev.source)}">${dot(ev.source)}${esc(V.name)}</span>
+            <span class="venue-tag alink" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</span>
             <span class="area">${esc(V.area)}</span>
             ${price}${gtags}${ticketBadges(ev)}
             <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${L.details}</a>
@@ -529,7 +600,7 @@ function renderArtistPage(name){
     .sort((a,b)=>a.start_date.localeCompare(b.start_date));
   const upcoming=evs.filter(ev=>P(ev.end_date||ev.start_date)>=TODAY);
   const genres=[...new Set(evs.flatMap(e=>e.genres||[]))];
-  const venues=[...new Set(evs.map(e=>e.source))];
+  const venues=[...new Set(evs.map(venueIdOf))];
   list.innerHTML=`<div class="detail-head">
       <h2>${esc(name)}</h2>
       <div class="detail-sub">
@@ -547,7 +618,7 @@ function renderVenuePage(id){
   const list=document.getElementById("list");
   const V=VENUES[id];
   if(!V){list.innerHTML=`<div class="empty">${L.empty}</div>`;return;}
-  const evs=DATA.events.filter(ev=>ev.source===id&&ev.start_date&&isMusic(ev))
+  const evs=DATA.events.filter(ev=>venueIdOf(ev)===id&&ev.start_date&&isMusic(ev))
     .sort((a,b)=>a.start_date.localeCompare(b.start_date));
   const upcoming=evs.filter(ev=>P(ev.end_date||ev.start_date)>=TODAY);
   const sample=evs.find(e=>e.address);
@@ -584,6 +655,7 @@ function render(){
   document.getElementById("filters").hidden=!!route;
   if(route&&route.artist){renderArtistPage(route.artist);return;}
   if(route&&route.venue){renderVenuePage(route.venue);return;}
+  renderVclassChips();
   renderGenreChips();
   renderVenueChips();
   renderList();
