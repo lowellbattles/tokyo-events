@@ -12,6 +12,7 @@
     --f-billboard:#8f2d56; --f-pia:#e4007f; --f-other:#6b7280;
     --f-quattro:#d97706; --f-www:#7c3aed; --f-duo:#0d9488; --f-loft:#b91c1c;
     --f-indie:#84cc16; --f-jazz:#78350f; --f-hall:#546e7a; --f-arena:#5b21b6;
+    --f-festival:#059669;
     --radius:10px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -244,8 +245,22 @@ const VENUE_META = {
   shinjuku_head_power:{fam:"indie",   letter:"H"},
   kanda_myojin_hall: {fam:"hall",     letter:"K"},
   yokosuka_arts_theatre:{fam:"hall",  letter:"Y"},
+  showa_hitomi:      {fam:"hall",     letter:"H"},
+  kanda_square_hall: {fam:"hall",     letter:"K"},
   tokyo_taiikukan:   {fam:"arena",    letter:"T"},
   zozo_marine_stadium:{fam:"arena",   letter:"Z"},
+  /* festivals — the festival is the venue identity */
+  fuji_rock:         {fam:"festival", letter:"F"},
+  summer_sonic_tokyo:{fam:"festival", letter:"S"},
+  rock_in_japan:     {fam:"festival", letter:"R"},
+  countdown_japan:   {fam:"festival", letter:"C"},
+  japan_jam:         {fam:"festival", letter:"J"},
+  sweet_love_shower: {fam:"festival", letter:"S"},
+  metrock_tokyo:     {fam:"festival", letter:"M"},
+  viva_la_rock:      {fam:"festival", letter:"V"},
+  synchronicity_fes: {fam:"festival", letter:"S"},
+  greenroom_fes:     {fam:"festival", letter:"G"},
+  ultra_japan:       {fam:"festival", letter:"U"},
 };
 /* promoter events carry venue_key (canonical venue id from the export
    merge); venue-scraped events keep their source id as identity */
@@ -254,13 +269,15 @@ const FAM_COLOR = {liquid:"var(--f-liquid)",ogroup:"var(--f-ogroup)",
   zepp:"var(--f-zepp)",billboard:"var(--f-billboard)",pia:"var(--f-pia)",
   quattro:"var(--f-quattro)",www:"var(--f-www)",duo:"var(--f-duo)",
   loft:"var(--f-loft)",indie:"var(--f-indie)",jazz:"var(--f-jazz)",
-  hall:"var(--f-hall)",arena:"var(--f-arena)",other:"var(--f-other)"};
+  hall:"var(--f-hall)",arena:"var(--f-arena)",festival:"var(--f-festival)",
+  other:"var(--f-other)"};
 /* venue class (会場タイプ): derived from the scraper family, with the two
    Pia venues split (a live house and an arena share that family). */
-const VCLASS_KEYS=["livehouse","jazz","hall","arena"];
+const VCLASS_KEYS=["livehouse","jazz","hall","arena","festival"];
 const FAM_CLASS={liquid:"livehouse",ogroup:"livehouse",zepp:"livehouse",
   quattro:"livehouse",www:"livehouse",duo:"livehouse",loft:"livehouse",
-  indie:"livehouse",billboard:"jazz",jazz:"jazz",hall:"hall",arena:"arena"};
+  indie:"livehouse",billboard:"jazz",jazz:"jazz",hall:"hall",arena:"arena",
+  festival:"festival"};
 const VCLASS_OVERRIDE={toyosu_pit:"livehouse",pia_arena_mm:"arena"};
 const vclassOf=id=>VCLASS_OVERRIDE[id]||
   FAM_CLASS[(VENUE_META[id]||{}).fam]||"livehouse";
@@ -272,7 +289,7 @@ const I18N = {
     tagline:"都内ライブハウスからアリーナまで、ひとつに。",
     l_when:"日付",l_genre:"ジャンル",l_venue:"会場",l_vclass:"会場タイプ",
     vclasses:{all:"すべて",livehouse:"ライブハウス・クラブ",jazz:"ジャズクラブ",
-      hall:"ホール・劇場",arena:"アリーナ・スタジアム"},
+      hall:"ホール・劇場",arena:"アリーナ・スタジアム",festival:"フェス"},
     today:"今日",week:"今週",weekend:"今週末",all:"すべて",
     genres:{all:"すべて",idol:"アイドル","j-rock":"ロック・バンド",
       international:"来日・海外","k-pop":"K-POP","jazz-soul":"ジャズ・ソウル",
@@ -301,7 +318,7 @@ const I18N = {
     tagline:"Every live house to every arena. One schedule.",
     l_when:"When",l_genre:"Genre",l_venue:"Venue",l_vclass:"Venue type",
     vclasses:{all:"All",livehouse:"Live houses / clubs",jazz:"Jazz clubs",
-      hall:"Halls / theaters",arena:"Arenas / stadiums"},
+      hall:"Halls / theaters",arena:"Arenas / stadiums",festival:"Festivals"},
     today:"Today",week:"This week",weekend:"Weekend",all:"All dates",
     genres:{all:"All",idol:"Idol","j-rock":"Rock / Band",
       international:"Int'l artists","k-pop":"K-pop","jazz-soul":"Jazz / Soul",
@@ -388,8 +405,9 @@ function inWindow(ev){
   return true;
 }
 /* music site (for now): arena/hall calendars also carry sports,
-   ice shows, ceremonies — scrapers mark those category:"other" */
-const isMusic=ev=>(ev.category||"music")==="music";
+   ice shows, ceremonies — scrapers mark those category:"other".
+   Festivals count as music. */
+const isMusic=ev=>["music","music_festival"].includes(ev.category||"music");
 function matches(ev){
   if(!ev.start_date) return false;
   if(!isMusic(ev)) return false;

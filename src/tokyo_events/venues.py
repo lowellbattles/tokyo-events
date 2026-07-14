@@ -11,7 +11,10 @@ slug for known gap venues we only see through promoters (日本武道館...).
 Resolution runs at EXPORT time so alias updates apply without re-scraping.
 
 Venue classes (vclass) mirror the frontend filter:
-livehouse / jazz / hall / arena.
+livehouse / jazz / hall / arena / festival.
+
+Festivals are venue identities too — a festival's "venue" is the festival
+itself (FUJI ROCK, not 苗場スキー場), giving each its own chip and page.
 """
 
 from __future__ import annotations
@@ -110,6 +113,20 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "shinjuku_head_power": ("新宿HEAD POWER", "livehouse"),
     "yokosuka_arts_theatre": ("よこすか芸術劇場", "hall"),
     "zozo_marine_stadium": ("ZOZOマリンスタジアム", "arena"),
+    "showa_hitomi": ("昭和女子大学 人見記念講堂", "hall"),
+    "kanda_square_hall": ("KANDA SQUARE HALL", "hall"),
+    # --- festivals (the festival itself is the venue identity) -----------
+    "fuji_rock": ("FUJI ROCK FESTIVAL", "festival"),
+    "summer_sonic_tokyo": ("SUMMER SONIC (TOKYO)", "festival"),
+    "rock_in_japan": ("ROCK IN JAPAN FESTIVAL", "festival"),
+    "countdown_japan": ("COUNTDOWN JAPAN", "festival"),
+    "japan_jam": ("JAPAN JAM", "festival"),
+    "sweet_love_shower": ("SWEET LOVE SHOWER", "festival"),
+    "metrock_tokyo": ("METROCK (TOKYO)", "festival"),
+    "viva_la_rock": ("VIVA LA ROCK", "festival"),
+    "synchronicity_fes": ("SYNCHRONICITY", "festival"),
+    "greenroom_fes": ("GREENROOM FESTIVAL", "festival"),
+    "ultra_japan": ("ULTRA JAPAN", "festival"),
 }
 
 #: extra spellings seen in the wild -> venue_key (normalized at build time)
@@ -145,6 +162,9 @@ _EXTRA_ALIASES: dict[str, str] = {
     "トヨタアリーナ東京": "toyota_arena_tokyo",
     "国立代々木競技場第一体育館": "yoyogi_gym1",
     "代々木第一体育館": "yoyogi_gym1",
+    "Shibuya WWW X": "www_x",     # Udo prefixes the district
+    "Shibuya WWW": "www",
+    "人見記念講堂": "showa_hitomi",
 }
 
 

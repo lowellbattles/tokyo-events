@@ -140,19 +140,34 @@ promoter's calendar is the promoter's content).
 | SOGO TOKYO | sogo_tokyo | sogotokyo.com/live_information/calendar/ — month pages, dl/dt detail pages; recovers Budokan, Kinema Club, 東京体育館, 神田明神ホール, ZOZOマリンスタジアム bookings |
 | Creativeman | creativeman | /event/?cmy=&cmm= — per-tour pages with multi-leg ticket tables + per-leg SOLD OUT; strong international bookings; prefecture labels give a free Kanto filter |
 
+| SMASH | smash_jpn | calendar/?year=&month=&p=3 (site's own Kanto filter); 開場/開演, SOLD OUT/当日券/《公演中止》 markers; multi-leg detail pages need leg matching *(2026-07-14)* |
+| Udo Artists | udo_artists | /shows tours → per-city tabs on detail pages; classic-rock internationals; ticket links live in JS modals *(2026-07-14)* |
+
 Overlap policy: export-time merge (promoters.py) — venue-source records
 stay authoritative; duplicate promoter rows fold in (sold-out OR,
 ticket-link union, gap-fill); gap-venue events stand alone under
-venue_key. Candidates for later: Hayashi International (ハヤシ),
-Kyodo Tokyo, H.I.P., Live Nation Japan, Smash (Fuji Rock operator —
-doubles as the festival lead).
+venue_key; festival-titled rows at host venues fold into festival
+records (after-parties at clubs survive).
 
-## Festivals (new source class — annual, lineup-wave updates)
-Fuji Rock (Naeba) · Summer Sonic (Chiba/Osaka) · Rock in Japan ·
-Japan Jam (Chiba) · Countdown Japan (Makuhari) · Sweet Love Shower (Yamanakako) ·
-Metrock (Tokyo/Osaka) · Viva La Rock (Saitama) · Synchronicity (Shibuya) ·
-Greenroom (Yokohama) · Ultra Japan (Odaiba)
-→ Scrape/curate official lineup pages monthly; lineups feed the artist graph.
+Probed and NOT onboarded (2026-07-14): Kyodo Tokyo (edge/WAF returns 403
+to our identifiable UA on every path incl. robots.txt — we do not bypass
+bot detection); DISK GARAGE (a ticket pre-sale agency platform, excluded
+by the no-ticketing-aggregators rule); Live Nation Japan / H.I.P.
+(hipjpn.co.jp is absorbed into Live Nation's global Ticketmaster
+platform; the events API cannot be Japan-scoped with polite GETs, and
+onboarding a Ticketmaster-family platform is an owner policy call —
+revisit if a JP-scoped feed appears).
+
+## Festivals (source class added 2026-07-14) ✅ built
+`festivals` source: curated ACTIVE_EDITIONS in scrapers/festivals.py —
+dates/venue/tickets are curated facts, lineups scraped per-festival.
+Active: Fuji Rock '26 (full set times), Summer Sonic Tokyo 2026,
+Rock in Japan 2026 (JSON API), Sweet Love Shower 2026, Ultra Japan 2026
+(poster-only lineup → skeleton), Countdown Japan 26/27 (lineup pending —
+wire the /2627/ API when it cuts over). DORMANT (2026 done; re-curate
+next season): Japan Jam, Metrock, Viva La Rock, Synchronicity, Greenroom.
+Lineups feed the artist graph; festival-titled rows at host venues
+(Makuhari/ZOZO) dedupe into festival records at export.
 
 ## Deliberately excluded / cautions
 - **Closed venues that still appear in stale lists:** Shinkiba Studio Coast /

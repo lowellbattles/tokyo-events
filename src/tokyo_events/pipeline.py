@@ -62,6 +62,9 @@ from .scrapers.makuhari_messe import MakuhariMesseScraper
 from .scrapers.yokohama_buntai import YokohamaBuntaiScraper
 from .scrapers.sogo_tokyo import SogoTokyoScraper
 from .scrapers.creativeman import CreativemanScraper
+from .scrapers.smash import SmashScraper
+from .scrapers.udo import UdoArtistsScraper
+from .scrapers.festivals import FestivalsScraper
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -134,6 +137,10 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     #     folded at export by promoters.apply_promoter_merge) ---
     "sogo_tokyo":        (SogoTokyoScraper,                  ReviewStatus.PENDING),
     "creativeman":       (CreativemanScraper,                ReviewStatus.PENDING),
+    "smash_jpn":         (SmashScraper,                      ReviewStatus.PENDING),
+    "udo_artists":       (UdoArtistsScraper,                 ReviewStatus.PENDING),
+    # --- festivals (curated editions; lineups scraped, dates are facts) ---
+    "festivals":         (FestivalsScraper,                  ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the
@@ -203,7 +210,10 @@ def run(store: EventStore, only: list[str] | None = None,
                 report["error"] = (f"detail pass failed for all "
                                    f"{detail_failures} attempted pages")
 
-            if report["found"] == 0:
+            # Seasonal sources (festivals) legitimately go quiet off-season;
+            # they opt out of the loud-zero rule via allow_empty.
+            if report["found"] == 0 and not getattr(scraper, "allow_empty",
+                                                    False):
                 report["error"] = ("0 events parsed — site structure may "
                                    "have changed")
         except Exception:

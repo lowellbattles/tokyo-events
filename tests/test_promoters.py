@@ -73,3 +73,47 @@ def test_unresolvable_promoter_venue_falls_back_to_source_key():
     out = apply_promoter_merge([promo])
     assert out == [promo]
     assert promo["venue_key"] == "creativeman"
+
+
+def _fest_ev(**kw):
+    d = {"source": "festivals", "source_url": "https://fes/#2026-08-15",
+         "title_ja": "SUMMER SONIC 2026", "title_en": None,
+         "start_date": "2026-08-15", "end_date": None,
+         "venue_name": "SUMMER SONIC (TOKYO)", "lineup": ["FALL OUT BOY"],
+         "ticket_links": [], "is_sold_out": False}
+    d.update(kw)
+    return d
+
+
+def test_festival_events_get_festival_venue_key():
+    fest = _fest_ev()
+    out = apply_promoter_merge([fest])
+    assert out == [fest]
+    assert fest["venue_key"] == "summer_sonic_tokyo"
+
+
+def test_host_venue_row_folds_into_festival():
+    fest = _fest_ev()
+    messe = _venue_ev(source="makuhari_messe",
+                      title_ja="SUMMER SONIC 2026",
+                      venue_name="幕張メッセ", start_date="2026-08-15",
+                      lineup=[])
+    out = apply_promoter_merge([fest, messe])
+    assert out == [fest]                    # host-venue duplicate folded
+
+
+def test_afterparty_at_club_is_not_folded():
+    fest = _fest_ev()
+    club = _venue_ev(source="www", title_ja="SUMMER SONIC AFTER PARTY",
+                     venue_name="WWW", start_date="2026-08-15", lineup=[])
+    out = apply_promoter_merge([fest, club])
+    assert len(out) == 2                    # club show survives
+
+
+def test_promoter_row_for_festival_folds():
+    fest = _fest_ev()
+    promo = _promo_ev(title_ja="SUMMER SONIC 2026",
+                      venue_name="幕張メッセ", start_date="2026-08-15",
+                      lineup=[])
+    out = apply_promoter_merge([fest, promo])
+    assert out == [fest]
