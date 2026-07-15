@@ -115,6 +115,22 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "zozo_marine_stadium": ("ZOZOマリンスタジアム", "arena"),
     "showa_hitomi": ("昭和女子大学 人見記念講堂", "hall"),
     "kanda_square_hall": ("KANDA SQUARE HALL", "hall"),
+    # surfaced by DISK GARAGE (2026-07-15)
+    "suntory_hall": ("サントリーホール", "hall"),
+    "ebisu_garden_hall": ("恵比寿ザ・ガーデンホール", "hall"),
+    "kannai_hall": ("関内ホール", "hall"),
+    "kawaguchi_lilia": ("川口リリア", "hall"),
+    "saitama_kaikan": ("埼玉会館", "hall"),
+    "mori_no_hall21": ("森のホール21", "hall"),
+    "todoroki_arena": ("とどろきアリーナ", "arena"),
+    "kashiwa_palooza": ("柏PALOOZA", "livehouse"),
+    "supernova_kawasaki": ("SUPERNOVA KAWASAKI", "livehouse"),
+    "unravel_tokyo": ("unravel tokyo", "livehouse"),
+    "kata_ebisu": ("KATA", "livehouse"),
+    # surfaced by Live Nation Japan (2026-07-15)
+    "belluna_dome": ("ベルーナドーム", "arena"),
+    "pacifico_yokohama": ("パシフィコ横浜 国立大ホール", "hall"),
+    "baysis_yokohama": ("BAYSIS", "livehouse"),
     # --- festivals (the festival itself is the venue identity) -----------
     "fuji_rock": ("FUJI ROCK FESTIVAL", "festival"),
     "summer_sonic_tokyo": ("SUMMER SONIC (TOKYO)", "festival"),
@@ -165,6 +181,21 @@ _EXTRA_ALIASES: dict[str, str] = {
     "Shibuya WWW X": "www_x",     # Udo prefixes the district
     "Shibuya WWW": "www",
     "人見記念講堂": "showa_hitomi",
+    # DISK GARAGE spellings for venues we already track (2026-07-15)
+    "渋谷CLUB QUATTRO": "quattro_shibuya",
+    "eggman": "eggman",
+    "LIVE HOUSE FEVER": "fever_shindaita",
+    "DAIKANYAMA UNIT": "unit_daikanyama",
+    "渋谷PLEASURE PLEASURE": "pleasure_pleasure",
+    "HEAVEN'S ROCK さいたま新都心": "heavens_rock_saitama",
+    "恵比寿ザ・ガーデンルーム": "ebisu_garden_hall",  # same complex
+    "サントリーホール 大ホール": "suntory_hall",
+    "関内ホール 大ホール": "kannai_hall",
+    "東急ドレッセとどろきアリーナ": "todoroki_arena",  # naming rights
+    "ベルーナドーム(西武ドーム)": "belluna_dome",
+    "西武ドーム": "belluna_dome",
+    "パシフィコ横浜": "pacifico_yokohama",
+    "横浜BAYSIS": "baysis_yokohama",
 }
 
 

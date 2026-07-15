@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-15T17:01:45.729088",
+  "generated_at": "2026-07-15T17:31:01.921485",
   "sources": [
     {
       "source": "ariake_arena",
@@ -62,6 +62,14 @@
       "started_at": "2026-07-14T11:58:11",
       "found": 36,
       "new": 36,
+      "changed": 0,
+      "error": null
+    },
+    {
+      "source": "disk_garage",
+      "started_at": "2026-07-15T17:28:46",
+      "found": 253,
+      "new": 253,
       "changed": 0,
       "error": null
     },
@@ -151,6 +159,14 @@
       "found": 66,
       "new": 0,
       "changed": 25,
+      "error": null
+    },
+    {
+      "source": "livenation_jp",
+      "started_at": "2026-07-15T17:30:13",
+      "found": 36,
+      "new": 36,
+      "changed": 0,
       "error": null
     },
     {
@@ -1626,7 +1642,9 @@
       "id": "b08bcd1099acb29c",
       "status": "auto",
       "venue_key": "ocrest",
-      "artists": []
+      "artists": [
+        "Blue"
+      ]
     },
     {
       "source": "onest",
@@ -3217,7 +3235,9 @@
       "id": "e1825ea990f7cbc3",
       "status": "approved",
       "venue_key": "billboard_tokyo",
-      "artists": []
+      "artists": [
+        "Blue"
+      ]
     },
     {
       "source": "billboard_yokohama",
@@ -4777,7 +4797,9 @@
       "id": "df2474a9cf575e06",
       "status": "approved",
       "venue_key": "cotton_club",
-      "artists": []
+      "artists": [
+        "BREAKERZ"
+      ]
     },
     {
       "source": "line_cube_shibuya",
@@ -6679,7 +6701,9 @@
       "id": "dab443f1bebb3fa7",
       "status": "approved",
       "venue_key": "tokyo_intl_forum",
-      "artists": []
+      "artists": [
+        "― 最新作公開記念 ― 『キングダム』 シネマコンサート"
+      ]
     },
     {
       "source": "nhk_hall",
@@ -7709,6 +7733,7 @@
       "status": "approved",
       "venue_key": "zepp_shinjuku",
       "artists": [
+        "Blue",
         "Sunny Girl"
       ]
     },
@@ -8484,7 +8509,9 @@
       "id": "68e9c37894466c23",
       "status": "approved",
       "venue_key": "zepp_divercity",
-      "artists": []
+      "artists": [
+        "vistlip"
+      ]
     },
     {
       "source": "zepp_haneda",
@@ -9474,6 +9501,7 @@
         "NEW 夜光性アミューズ主催ライブ 『YORU-FES ~夜を駆けるサーキットSP~』",
         "Pastel Closet",
         "Pretty Chuu",
+        "RealRomantic",
         "STAiNY",
         "Sweet Alley",
         "THE ORCHESTRA TOKYO",
@@ -19353,7 +19381,9 @@
       "id": "a6f452ec4d005dd9",
       "status": "approved",
       "venue_key": "nhk_hall",
-      "artists": []
+      "artists": [
+        "Blue"
+      ]
     },
     {
       "source": "opera_city",
@@ -19589,6 +19619,80 @@
       "venue_key": "chiba_anga",
       "artists": [
         "さかいゆう"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100587",
+      "title_ja": "浜田省吾",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-15",
+      "end_date": null,
+      "open_time": "17:10",
+      "start_time": "18:00",
+      "venue_name": "NHKホール（東京）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 S席 ¥13,200(税込) ／ ¥12,000(税抜) A席 ¥11,000(税込) ／ ¥10,000(税抜)",
+      "price_min": 11000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "浜田省吾"
+      ],
+      "tags": [],
+      "id": "6d5dd34881112ceb",
+      "status": "approved",
+      "venue_key": "nhk_hall",
+      "artists": [
+        "浜田省吾"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100897",
+      "title_ja": "Bialystocks",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-15",
+      "end_date": null,
+      "open_time": "17:30",
+      "start_time": "18:30",
+      "venue_name": "日本武道館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 指定席 ¥9,500(税込) ／ ¥8,637(税抜) 2Fスタンド後方指定席 ¥8,800(税込) ／ ¥8,000(税抜) 注釈付指定席 ¥8,500(税込) ／ ¥7,728(税抜)",
+      "price_min": 8500,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/bialystocks/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "Bialystocks"
+      ],
+      "tags": [],
+      "id": "01293f4fe4d15271",
+      "status": "approved",
+      "venue_key": "budokan",
+      "artists": [
+        "Bialystocks"
       ]
     },
     {
@@ -20359,7 +20463,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/monobright/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/monobright/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/monobright/",
+          "code": null
+        }
+      ],
       "lineup": [
         "モノブライト",
         "モーモールルギャバン"
@@ -21040,6 +21160,40 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100586",
+      "title_ja": "浜田省吾",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-16",
+      "end_date": null,
+      "open_time": "17:10",
+      "start_time": "18:00",
+      "venue_name": "NHKホール（東京）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 S席 ¥13,200(税込) ／ ¥12,000(税抜) A席 ¥11,000(税込) ／ ¥10,000(税抜)",
+      "price_min": 11000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "浜田省吾"
+      ],
+      "tags": [],
+      "id": "b3e460335a43d136",
+      "status": "approved",
+      "venue_key": "nhk_hall",
+      "artists": [
+        "浜田省吾"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/one-and-only-2nd-anniversary-day2/",
       "title_ja": "ONE AND ONLY 2nd Anniversary day2",
@@ -21639,7 +21793,8 @@
       "venue_key": "zepp_shinjuku",
       "artists": [
         "MORE STAR",
-        "ドラマチックレコード"
+        "ドラマチックレコード",
+        "高嶺のなでしこ"
       ]
     },
     {
@@ -22266,19 +22421,35 @@
       "genres": [],
       "start_date": "2026-07-17",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "17:30",
+      "start_time": "18:30",
       "venue_name": "SGCホール有明",
       "venue_area": "Ariake",
       "address": "東京都江東区有明1丁目3番33号",
       "lat": 35.636,
       "lng": 139.793,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "券種・料金 全席指定 ¥11,000(税込) ／ ¥10,000(税抜)",
+      "price_min": 11000,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/harry-thebirthday0717/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/harry-thebirthday-t/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/harry-thebirthday/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "3532313e7eac0c2c",
@@ -22527,6 +22698,90 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100966",
+      "title_ja": "黒夢",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-17",
+      "end_date": null,
+      "open_time": "17:30",
+      "start_time": "19:00",
+      "venue_name": "TOYOTA ARENA TOKYO",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 アリーナ席 ¥14,000(税込) ／ ¥12,728(税抜) スタンド席 ¥10,000(税込) ／ ¥9,091(税抜)",
+      "price_min": 10000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/kuroyume/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/kuroyume/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/kuroyume/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "黒夢"
+      ],
+      "tags": [],
+      "id": "d55033798ae95008",
+      "status": "approved",
+      "venue_key": "toyota_arena_tokyo",
+      "artists": [
+        "黒夢"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101228",
+      "title_ja": "Sakurashimeji",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-17",
+      "end_date": null,
+      "open_time": "18:30",
+      "start_time": "19:00",
+      "venue_name": "HEAVEN'S ROCK さいたま新都心",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 スタンディング ¥5,500(税込) ／ ¥5,000(税抜)",
+      "price_min": 5500,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Sakurashimeji"
+      ],
+      "tags": [],
+      "id": "71f5e75e3499a57d",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "Sakurashimeji"
+      ]
+    },
+    {
       "source": "owest",
       "source_url": "https://shibuya-o.com/west/schedule/sex%e5%86%a0tour2026%ef%bc%9cday1%ef%bc%9e/",
       "title_ja": "SEX冠TOUR2026",
@@ -22683,7 +22938,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/nigami17/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/nigami17/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/nigami17/",
+          "code": null
+        }
+      ],
       "lineup": [
         "ニガミ17才"
       ],
@@ -23013,7 +23284,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/yutorikun/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/yutorikun/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/yutorikun/",
+          "code": null
+        }
+      ],
       "lineup": [
         "ゆとりくん"
       ],
@@ -23502,19 +23789,35 @@
       "genres": [],
       "start_date": "2026-07-18",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "16:00",
+      "start_time": "17:00",
       "venue_name": "SGCホール有明",
       "venue_area": "Ariake",
       "address": "東京都江東区有明1丁目3番33号",
       "lat": 35.636,
       "lng": 139.793,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "券種・料金 指定席 ¥9,000(税込) ／ ¥8,182(税抜)",
+      "price_min": 9000,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/hilcrhyme/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/hilcrhyme/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/hilcrhyme/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "f9e1f8d868de7005",
@@ -23925,6 +24228,214 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101911",
+      "title_ja": "GAME MUSIC JAM",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-18",
+      "end_date": null,
+      "open_time": "16:00",
+      "start_time": "17:00",
+      "venue_name": "LaLa arena TOKYO-BAY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 指定席 ¥13,750(税込) ／ ¥12,500(税抜)",
+      "price_min": 13750,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/gmj-level1/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/gmj-level1/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/gmj-level1/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "GAME MUSIC JAM"
+      ],
+      "tags": [],
+      "id": "a14ef9d599cba596",
+      "status": "approved",
+      "venue_key": "lala_arena_tokyo_bay",
+      "artists": [
+        "GAME MUSIC JAM"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100929",
+      "title_ja": "田村ゆかり",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-18",
+      "end_date": null,
+      "open_time": "16:00",
+      "start_time": "17:00",
+      "venue_name": "市川市文化会館 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 全席指定 ¥11,000(税込) ／ ¥10,000(税抜)",
+      "price_min": 11000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "田村ゆかり"
+      ],
+      "tags": [],
+      "id": "91c89f7026b7545b",
+      "status": "approved",
+      "venue_key": "ichikawa_bunkakaikan",
+      "artists": [
+        "田村ゆかり"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101892",
+      "title_ja": "Psycho le Cému",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-18",
+      "end_date": null,
+      "open_time": "17:00",
+      "start_time": "17:30",
+      "venue_name": "柏PALOOZA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 一般チケット ¥6,600(税込) ／ ¥6,000(税抜)",
+      "price_min": 6600,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Psycho le Cému"
+      ],
+      "tags": [],
+      "id": "36c3102856bb214b",
+      "status": "approved",
+      "venue_key": "kashiwa_palooza",
+      "artists": [
+        "Psycho le Cému"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101515",
+      "title_ja": "KIRITO",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-18",
+      "end_date": null,
+      "open_time": "17:00",
+      "start_time": "17:30",
+      "venue_name": "KANDA SQUARE HALL",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 全席指定 ¥11,000(税込) ／ ¥10,000(税抜)",
+      "price_min": 11000,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/kirito-acoustic26/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "KIRITO"
+      ],
+      "tags": [],
+      "id": "22ae6c2f2fc8474f",
+      "status": "approved",
+      "venue_key": "kanda_square_hall",
+      "artists": [
+        "KIRITO"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100965",
+      "title_ja": "黒夢",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-18",
+      "end_date": null,
+      "open_time": "16:30",
+      "start_time": "18:00",
+      "venue_name": "TOYOTA ARENA TOKYO",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 アリーナ席 ¥14,000(税込) ／ ¥12,728(税抜) スタンド席 ¥10,000(税込) ／ ¥9,091(税抜)",
+      "price_min": 10000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/kuroyume/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/kuroyume/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/kuroyume/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "黒夢"
+      ],
+      "tags": [],
+      "id": "79e559a37dbc7f1c",
+      "status": "approved",
+      "venue_key": "toyota_arena_tokyo",
+      "artists": [
+        "黒夢"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/chiaki-mayumura-tour-ampland-plan/",
       "title_ja": "Chiaki Mayumura Tour “AMPLAND PLAN”",
@@ -24239,9 +24750,25 @@
       "price_text": "./DOOR [一般] ¥5,000 (税込 / スタンディング / ドリンク代別) [学割] ¥4,000 (税込 / スタンディング / ドリンク代別) LINE UP さとう。 TICKET 一般発売：2026年5月23日(土) 10時〜 e+ / チケットぴあ / ローソンチケット",
       "price_min": 4000,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sato-darari/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/sato/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/sato/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "d797deb6d565e8d0",
@@ -24455,7 +24982,9 @@
       "id": "d59d758019468363",
       "status": "auto",
       "venue_key": "shelter",
-      "artists": []
+      "artists": [
+        "Blue"
+      ]
     },
     {
       "source": "toyosu_pit",
@@ -25431,16 +25960,16 @@
       "genres": [],
       "start_date": "2026-07-19",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "15:00",
+      "start_time": "16:00",
       "venue_name": "SGCホール有明",
       "venue_area": "Ariake",
       "address": "東京都江東区有明1丁目3番33号",
       "lat": 35.636,
       "lng": 139.793,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "券種・料金 全席指定 ¥13,500(税込) ／ ¥12,273(税抜)",
+      "price_min": 13500,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
@@ -26036,6 +26565,438 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101542",
+      "title_ja": "PUFFY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "11:30",
+      "start_time": "13:00",
+      "venue_name": "東急ドレッセとどろきアリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 1日券(指定席) ¥13,000(税込) ／ ¥11,819(税抜)",
+      "price_min": 13000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/puffy-pfes/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "PUFFY"
+      ],
+      "tags": [],
+      "id": "6e3f2a7014c3d154",
+      "status": "approved",
+      "venue_key": "todoroki_arena",
+      "artists": [
+        "PUFFY"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102111",
+      "title_ja": "RealRomantic",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "13:30",
+      "start_time": "14:00",
+      "venue_name": "unravel tokyo",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 一般 ¥5,500(税込) ／ ¥5,000(税抜)",
+      "price_min": 5500,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "RealRomantic"
+      ],
+      "tags": [],
+      "id": "6fcdbbdfbde2deff",
+      "status": "approved",
+      "venue_key": "unravel_tokyo",
+      "artists": [
+        "RealRomantic"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100297",
+      "title_ja": "八神純子 シンフォニックコンサート「Season of Songs and Strings～翠緑」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "13:00",
+      "start_time": "14:00",
+      "venue_name": "サントリーホール 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 全席指定 ¥11,000(税込) ／ ¥10,000(税抜) 注釈付き指定席 ¥11,000(税込) ／ ¥10,000(税抜)",
+      "price_min": 11000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/junkoyagami/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/yagamijunko/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/yagamijunko/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "八神純子 シンフォニックコンサート「Season of Songs and Strings～翠緑」"
+      ],
+      "tags": [],
+      "id": "09e84a7560470e64",
+      "status": "approved",
+      "venue_key": "suntory_hall",
+      "artists": [
+        "八神純子 シンフォニックコンサート「Season of Songs and Strings～翠緑」"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101891",
+      "title_ja": "Psycho le Cému",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "15:00",
+      "start_time": "15:30",
+      "venue_name": "柏PALOOZA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 一般チケット ¥6,600(税込) ／ ¥6,000(税抜)",
+      "price_min": 6600,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Psycho le Cému"
+      ],
+      "tags": [],
+      "id": "ddceb7fc39f03496",
+      "status": "approved",
+      "venue_key": "kashiwa_palooza",
+      "artists": [
+        "Psycho le Cému"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100696",
+      "title_ja": "米倉利紀",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "15:30",
+      "start_time": "16:00",
+      "venue_name": "恵比寿ザ・ガーデンルーム",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 全席指定 ¥8,800(税込) ／ ¥8,000(税抜)",
+      "price_min": 8800,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/toshinoriyonekura2026/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/toshinoriyonekura/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/toshinoriyonekura/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "米倉利紀"
+      ],
+      "tags": [],
+      "id": "0dc5c58214172114",
+      "status": "approved",
+      "venue_key": "ebisu_garden_hall",
+      "artists": [
+        "米倉利紀"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100964",
+      "title_ja": "黒夢",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "14:30",
+      "start_time": "16:00",
+      "venue_name": "TOYOTA ARENA TOKYO",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 アリーナ席 ¥14,000(税込) ／ ¥12,728(税抜) スタンド席 ¥10,000(税込) ／ ¥9,091(税抜)",
+      "price_min": 10000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/kuroyume/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/kuroyume/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/kuroyume/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "黒夢"
+      ],
+      "tags": [],
+      "id": "c982a75fc7f40d9a",
+      "status": "approved",
+      "venue_key": "toyota_arena_tokyo",
+      "artists": [
+        "黒夢"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101910",
+      "title_ja": "GAME MUSIC JAM",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "16:00",
+      "start_time": "17:00",
+      "venue_name": "LaLa arena TOKYO-BAY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 指定席 ¥13,750(税込) ／ ¥12,500(税抜)",
+      "price_min": 13750,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/gmj-level1/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/gmj-level1/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/gmj-level1/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "GAME MUSIC JAM"
+      ],
+      "tags": [],
+      "id": "1742b4e05a33a6aa",
+      "status": "approved",
+      "venue_key": "lala_arena_tokyo_bay",
+      "artists": [
+        "GAME MUSIC JAM"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101514",
+      "title_ja": "KIRITO",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "16:30",
+      "start_time": "17:00",
+      "venue_name": "KANDA SQUARE HALL",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 全席指定 ¥11,000(税込) ／ ¥10,000(税抜)",
+      "price_min": 11000,
+      "is_free": false,
+      "is_sold_out": true,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/kirito-acoustic26/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "KIRITO"
+      ],
+      "tags": [],
+      "id": "a2a0ff457975cf01",
+      "status": "approved",
+      "venue_key": "kanda_square_hall",
+      "artists": [
+        "KIRITO"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102110",
+      "title_ja": "RealRomantic",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "17:30",
+      "start_time": "18:00",
+      "venue_name": "unravel tokyo",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 一般 ¥5,500(税込) ／ ¥5,000(税抜)",
+      "price_min": 5500,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "RealRomantic"
+      ],
+      "tags": [],
+      "id": "20fb67a50fad4abe",
+      "status": "approved",
+      "venue_key": "unravel_tokyo",
+      "artists": [
+        "RealRomantic"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101385",
+      "title_ja": "大江千里",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-19",
+      "end_date": null,
+      "open_time": "17:30",
+      "start_time": "18:30",
+      "venue_name": "サントリーホール 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 全席指定 ¥8,000(税込) ／ ¥7,273(税抜)",
+      "price_min": 8000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/senrioe/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/senrioe-t/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/senrioe/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "大江千里"
+      ],
+      "tags": [],
+      "id": "86ada5996a622fdf",
+      "status": "approved",
+      "venue_key": "suntory_hall",
+      "artists": [
+        "大江千里"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/this-is-last-one-man-live-tour-2026/",
       "title_ja": "This is LAST one man live tour 2026",
@@ -26176,6 +27137,16 @@
           "provider": "eplus",
           "url": "https://eplus.jp/qujila/",
           "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/qujilayoru/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/qujila/",
+          "code": null
         }
       ],
       "lineup": [],
@@ -26183,7 +27154,9 @@
       "id": "a8499d25b8957abd",
       "status": "auto",
       "venue_key": "ocrest",
-      "artists": []
+      "artists": [
+        "クジラ夜の街"
+      ]
     },
     {
       "source": "onest",
@@ -26812,7 +27785,9 @@
       "id": "69c22bd7156230db",
       "status": "approved",
       "venue_key": "zepp_yokohama",
-      "artists": []
+      "artists": [
+        "GRe4N BOYZ（グリーンボーイズ）"
+      ]
     },
     {
       "source": "billboard_tokyo",
@@ -27678,6 +28653,350 @@
         "SIRUP、☆Taku Takahashi(m-flo)、hitomi",
         "YUKI",
         "富樫勇樹、小田 凱人、萱 和磨、 黒後 愛、Shigekix、出口 クリスタ、宮崎 早織、柳田 将洋、吉田 知那美"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101541",
+      "title_ja": "PUFFY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": "11:30",
+      "start_time": "13:00",
+      "venue_name": "東急ドレッセとどろきアリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "券種・料金 1日券(指定席) ¥13,000(税込) ／ ¥11,819(税抜)",
+      "price_min": 13000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/puffy-pfes/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "PUFFY"
+      ],
+      "tags": [],
+      "id": "ec6a44fefda4fd8d",
+      "status": "approved",
+      "venue_key": "todoroki_arena",
+      "artists": [
+        "PUFFY"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102172",
+      "title_ja": "ザ・オーケストラマッチ 新日本プロレス×オーケストラ（京都フィル特別交響楽団） -ゴールドリボン・チャリティーコンサート-",
+      "title_en": null,
+      "subtitle": null,
+      "category": "other",
+      "genres": [
+        "classical"
+      ],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "14:00",
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "1d6e5cdc009ed266",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": []
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101909",
+      "title_ja": "GAME MUSIC JAM",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:00",
+      "venue_name": "LaLa arena TOKYO-BAY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "GAME MUSIC JAM"
+      ],
+      "tags": [],
+      "id": "701f1248aa8a8cc1",
+      "status": "approved",
+      "venue_key": "lala_arena_tokyo_bay",
+      "artists": [
+        "GAME MUSIC JAM"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101472",
+      "title_ja": "halca",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:00",
+      "venue_name": "SUPERNOVA KAWASAKI",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "halca"
+      ],
+      "tags": [],
+      "id": "fb61e38fc27c933f",
+      "status": "approved",
+      "venue_key": "supernova_kawasaki",
+      "artists": [
+        "halca"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100695",
+      "title_ja": "米倉利紀",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:00",
+      "venue_name": "恵比寿ザ・ガーデンルーム",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "米倉利紀"
+      ],
+      "tags": [],
+      "id": "5396ec438cb54431",
+      "status": "approved",
+      "venue_key": "ebisu_garden_hall",
+      "artists": [
+        "米倉利紀"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101227",
+      "title_ja": "Sakurashimeji",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "柏PALOOZA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Sakurashimeji"
+      ],
+      "tags": [],
+      "id": "81a15cc1899f1b19",
+      "status": "approved",
+      "venue_key": "kashiwa_palooza",
+      "artists": [
+        "Sakurashimeji"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100860",
+      "title_ja": "ナオト・インティライミ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "大宮ソニックシティ 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ナオト・インティライミ"
+      ],
+      "tags": [],
+      "id": "034950e422e43fac",
+      "status": "approved",
+      "venue_key": "omiya_sonic_city",
+      "artists": [
+        "ナオト・インティライミ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101569",
+      "title_ja": "長渕 剛",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "森のホール21 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "長渕 剛"
+      ],
+      "tags": [],
+      "id": "c3131e0f2e3b4b0b",
+      "status": "approved",
+      "venue_key": "mori_no_hall21",
+      "artists": [
+        "長渕 剛"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101471",
+      "title_ja": "halca",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:15",
+      "venue_name": "SUPERNOVA KAWASAKI",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "halca"
+      ],
+      "tags": [],
+      "id": "47ce0e2b19b884db",
+      "status": "approved",
+      "venue_key": "supernova_kawasaki",
+      "artists": [
+        "halca"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1685359/32-sunny-party-/kanagawa/2026-07-20/ja",
+      "title_ja": "百田夏菜子(ももいろクローバーZ)",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1685359/32-sunny-party-/kanagawa/2026-07-20/ja",
+      "ticket_links": [],
+      "lineup": [
+        "百田夏菜子(ももいろクローバーZ)"
+      ],
+      "tags": [],
+      "id": "4bfaa425b7c9b57a",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "百田夏菜子(ももいろクローバーZ)"
       ]
     },
     {
@@ -29720,6 +31039,7 @@
       "status": "auto",
       "venue_key": "quattro_shibuya",
       "artists": [
+        "Sakurashimeji",
         "Sakurashimeji w",
         "chef's"
       ]
@@ -30487,6 +31807,74 @@
       "venue_key": "zepp_divercity",
       "artists": [
         "ヒプノシスマイク"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102215",
+      "title_ja": "ENJIN",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "14:30",
+      "venue_name": "渋谷PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ENJIN"
+      ],
+      "tags": [],
+      "id": "820ca4c7da214f4e",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "ENJIN"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102023",
+      "title_ja": "ENJIN",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "渋谷PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ENJIN"
+      ],
+      "tags": [],
+      "id": "3e7651194351bc03",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "ENJIN"
       ]
     },
     {
@@ -31829,6 +33217,108 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101478",
+      "title_ja": "― 最新作公開記念 ― 『キングダム』 シネマコンサート",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-24",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "14:00",
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "― 最新作公開記念 ― 『キングダム』 シネマコンサート"
+      ],
+      "tags": [],
+      "id": "c1948f12435882af",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "― 最新作公開記念 ― 『キングダム』 シネマコンサート"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100196",
+      "title_ja": "ゆず",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-24",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "横浜アリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ゆず"
+      ],
+      "tags": [],
+      "id": "5f26586aafee2b58",
+      "status": "approved",
+      "venue_key": "yokohama_arena",
+      "artists": [
+        "ゆず"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101477",
+      "title_ja": "― 最新作公開記念 ― 『キングダム』 シネマコンサート",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-24",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "― 最新作公開記念 ― 『キングダム』 シネマコンサート"
+      ],
+      "tags": [],
+      "id": "fa1101c17044477d",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "― 最新作公開記念 ― 『キングダム』 シネマコンサート"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/%e5%9b%9b%e5%ae%ae%e4%bc%8a%e7%b9%94-one-man-live-2026-%e3%80%8emetaphysics%e3%80%8f/",
       "title_ja": "四宮伊織 ONE-MAN LIVE 2026 『Metaphysics』",
@@ -32066,7 +33556,9 @@
       "id": "79369b7011acfd37",
       "status": "auto",
       "venue_key": "duo",
-      "artists": []
+      "artists": [
+        "Blue"
+      ]
     },
     {
       "source": "yokohama_arena",
@@ -33433,6 +34925,278 @@
         "梅井美咲",
         "猿臂",
         "苗場音楽突撃隊"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102252",
+      "title_ja": "FIVE NEW OLD",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "14:00",
+      "venue_name": "KATA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "FIVE NEW OLD"
+      ],
+      "tags": [],
+      "id": "8d525899883c0c31",
+      "status": "approved",
+      "venue_key": "kata_ebisu",
+      "artists": [
+        "FIVE NEW OLD"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101214",
+      "title_ja": "BREAKERZ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:00",
+      "venue_name": "恵比寿ザ・ガーデンホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "BREAKERZ"
+      ],
+      "tags": [],
+      "id": "6fa2c3399b977dc5",
+      "status": "approved",
+      "venue_key": "ebisu_garden_hall",
+      "artists": [
+        "BREAKERZ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100195",
+      "title_ja": "ゆず",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:00",
+      "venue_name": "横浜アリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ゆず"
+      ],
+      "tags": [],
+      "id": "c17cce282f2e970f",
+      "status": "approved",
+      "venue_key": "yokohama_arena",
+      "artists": [
+        "ゆず"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101002",
+      "title_ja": "東京ディズニーシー®25周年“スパークリング・ジュビリー”イン・コンサート",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "東京ディズニーシー®25周年“スパークリング・ジュビリー”イン・コンサート"
+      ],
+      "tags": [],
+      "id": "fc34c6a8036702fe",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "東京ディズニーシー®25周年“スパークリング・ジュビリー”イン・コンサート"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101518",
+      "title_ja": "コブクロ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "J:COMホール八王子",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "コブクロ"
+      ],
+      "tags": [],
+      "id": "9ef0707b94d62f5b",
+      "status": "approved",
+      "venue_key": "jcom_hall_hachioji",
+      "artists": [
+        "コブクロ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101890",
+      "title_ja": "Psycho le Cému",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "HEAVEN'S ROCK さいたま新都心",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Psycho le Cému"
+      ],
+      "tags": [],
+      "id": "0b0fdaa364ea7686",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "Psycho le Cému"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101663",
+      "title_ja": "我生",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "Shibuya WWW",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "我生"
+      ],
+      "tags": [],
+      "id": "c0c07d1250f5adcf",
+      "status": "approved",
+      "venue_key": "www",
+      "artists": [
+        "我生"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102251",
+      "title_ja": "FIVE NEW OLD",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "KATA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "FIVE NEW OLD"
+      ],
+      "tags": [],
+      "id": "b5e324f516c273e9",
+      "status": "approved",
+      "venue_key": "kata_ebisu",
+      "artists": [
+        "FIVE NEW OLD"
       ]
     },
     {
@@ -35058,6 +36822,210 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101889",
+      "title_ja": "Psycho le Cému",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:30",
+      "venue_name": "HEAVEN'S ROCK さいたま新都心",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Psycho le Cému"
+      ],
+      "tags": [],
+      "id": "d0f9d176311de44a",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "Psycho le Cému"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100194",
+      "title_ja": "ゆず",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:00",
+      "venue_name": "横浜アリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ゆず"
+      ],
+      "tags": [],
+      "id": "894fa0be4df8867e",
+      "status": "approved",
+      "venue_key": "yokohama_arena",
+      "artists": [
+        "ゆず"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101517",
+      "title_ja": "コブクロ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:00",
+      "venue_name": "J:COMホール八王子",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "コブクロ"
+      ],
+      "tags": [],
+      "id": "35f8f641cf0afc0f",
+      "status": "approved",
+      "venue_key": "jcom_hall_hachioji",
+      "artists": [
+        "コブクロ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101853",
+      "title_ja": "やくましんいち（SPARKS GO GO）",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "eggman(渋谷)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "やくましんいち（SPARKS GO GO）"
+      ],
+      "tags": [],
+      "id": "c2ee3e5534807fd7",
+      "status": "approved",
+      "venue_key": "eggman",
+      "artists": [
+        "やくましんいち（SPARKS GO GO）"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101531",
+      "title_ja": "moumoon",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "関内ホール 大ホール (横浜市市民文化会館)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "moumoon"
+      ],
+      "tags": [],
+      "id": "ef72055f007fbf62",
+      "status": "approved",
+      "venue_key": "kannai_hall",
+      "artists": [
+        "moumoon"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100850",
+      "title_ja": "Uru",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "大宮ソニックシティ 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Uru"
+      ],
+      "tags": [],
+      "id": "a5eafd1369422662",
+      "status": "approved",
+      "venue_key": "omiya_sonic_city",
+      "artists": [
+        "Uru"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/%e7%94%98%e3%81%84%e6%9a%b4%e5%8a%9b-%e3%82%af%e3%82%bd%e3%83%97%e3%83%ac%e3%82%bc%e3%83%b3%e3%83%84-%e3%83%89m%e9%99%90%e5%ae%9a-%e5%a4%a7%e8%aa%bf%e6%95%99%e4%bc%9a-%e6%9c%80%e7%b5%82%e7%ab%a0/",
       "title_ja": "甘い暴力 クソプレゼンツ ドM限定 大調教会 -最終章-",
@@ -35262,7 +37230,7 @@
       "start_date": "2026-07-26",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "17:00",
       "venue_name": "Toyosu PIT",
       "venue_area": "Toyosu",
       "address": "6-1-23 Toyosu, Koto-ku, Tokyo",
@@ -36075,8 +38043,8 @@
       "price_text": "指定席 ￥8,900 (税込) / ファミリー席 ￥8,900 (税込) / 着席指定席 ￥8,900 (税込) / 注釈付指定席 ￥8,900 (税込)",
       "price_min": 8900,
       "is_free": false,
-      "is_sold_out": false,
-      "ticket_url": null,
+      "is_sold_out": true,
+      "ticket_url": "https://www.livenation.co.jp/show/1649641/m-lk/tokyo/2026-07-27/ja",
       "ticket_links": [],
       "lineup": [
         "M!LK"
@@ -37155,6 +39123,40 @@
       "artists": []
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102359",
+      "title_ja": "TIF2026 TIF début Special LIVE",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-28",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "Shibuya WWW X",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "TIF2026 TIF début Special LIVE"
+      ],
+      "tags": [],
+      "id": "9f0248ed74b89a6b",
+      "status": "approved",
+      "venue_key": "www_x",
+      "artists": [
+        "TIF2026 TIF début Special LIVE"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/claquepot-crosspoint-2026/",
       "title_ja": "claquepot crosspoint 2026",
@@ -38003,6 +40005,76 @@
       "venue_key": "toyota_arena_tokyo",
       "artists": [
         "桑田佳祐"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100101",
+      "title_ja": "ユニコーン",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ユニコーン"
+      ],
+      "tags": [],
+      "id": "a9949ada96908c96",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "ユニコーン"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101504",
+      "title_ja": "甲斐田晴（にじさんじ）",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "anime-seiyu"
+      ],
+      "start_date": "2026-07-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "甲斐田晴（にじさんじ）"
+      ],
+      "tags": [],
+      "id": "ffa010ea1846166f",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "甲斐田晴（にじさんじ）"
       ]
     },
     {
@@ -38941,6 +41013,212 @@
       "venue_key": "nhk_hall",
       "artists": [
         "JUJU"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101819",
+      "title_ja": "コムドット",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:30",
+      "venue_name": "東京ドーム",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "コムドット"
+      ],
+      "tags": [],
+      "id": "ddf7b9afe9c99b00",
+      "status": "approved",
+      "venue_key": "tokyo_dome",
+      "artists": [
+        "コムドット"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100100",
+      "title_ja": "ユニコーン",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ユニコーン"
+      ],
+      "tags": [],
+      "id": "de4789a48c9e2558",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "ユニコーン"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101382",
+      "title_ja": "大江千里",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "埼玉会館 小ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "大江千里"
+      ],
+      "tags": [],
+      "id": "5e037d596d5bdfdd",
+      "status": "approved",
+      "venue_key": "saitama_kaikan",
+      "artists": [
+        "大江千里"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101505",
+      "title_ja": "ローレン・イロアス（にじさんじ）",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "anime-seiyu"
+      ],
+      "start_date": "2026-07-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ローレン・イロアス（にじさんじ）"
+      ],
+      "tags": [],
+      "id": "63961e65543813ed",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "ローレン・イロアス（にじさんじ）"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101257",
+      "title_ja": "BALLISTIK BOYZ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "森のホール21 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "BALLISTIK BOYZ"
+      ],
+      "tags": [],
+      "id": "51064c68c4cc7312",
+      "status": "approved",
+      "venue_key": "mori_no_hall21",
+      "artists": [
+        "BALLISTIK BOYZ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101794",
+      "title_ja": "LM.C",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "KANDA SQUARE HALL",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "LM.C"
+      ],
+      "tags": [],
+      "id": "646ae765499b025f",
+      "status": "approved",
+      "venue_key": "kanda_square_hall",
+      "artists": [
+        "LM.C"
       ]
     },
     {
@@ -39994,6 +42272,110 @@
       "venue_key": "makuhari_messe",
       "artists": [
         "GLAY"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101372",
+      "title_ja": "高橋 優",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-31",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "日本武道館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "高橋 優"
+      ],
+      "tags": [],
+      "id": "b42a1d08cca7f5e7",
+      "status": "approved",
+      "venue_key": "budokan",
+      "artists": [
+        "高橋 優"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101496",
+      "title_ja": "叶（にじさんじ）",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "anime-seiyu"
+      ],
+      "start_date": "2026-07-31",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "叶（にじさんじ）"
+      ],
+      "tags": [],
+      "id": "8226107f921efb6a",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "叶（にじさんじ）"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101904",
+      "title_ja": "Empty old City",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-31",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "東京キネマ倶楽部",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Empty old City"
+      ],
+      "tags": [],
+      "id": "b80038d3da1af3c6",
+      "status": "approved",
+      "venue_key": "kinema_club",
+      "artists": [
+        "Empty old City"
       ]
     },
     {
@@ -41180,7 +43562,9 @@
       "id": "e0c23254c4902c45",
       "status": "approved",
       "venue_key": "ariake_arena",
-      "artists": []
+      "artists": [
+        "ME:I"
+      ]
     },
     {
       "source": "toyota_arena_tokyo",
@@ -41386,6 +43770,278 @@
       "venue_key": "makuhari_messe",
       "artists": [
         "GLAY"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101116",
+      "title_ja": "『葬送のフリーレン』フィルムコンサート2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "13:00",
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "『葬送のフリーレン』フィルムコンサート2026"
+      ],
+      "tags": [],
+      "id": "de227424866e3bb8",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "『葬送のフリーレン』フィルムコンサート2026"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101932",
+      "title_ja": "映秀。",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "Spotify O-WEST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "映秀。"
+      ],
+      "tags": [],
+      "id": "7db44caea522aa82",
+      "status": "approved",
+      "venue_key": "owest",
+      "artists": [
+        "映秀。"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101001",
+      "title_ja": "東京ディズニーシー®25周年“スパークリング・ジュビリー”イン・コンサート",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "東京ディズニーシー®25周年“スパークリング・ジュビリー”イン・コンサート"
+      ],
+      "tags": [],
+      "id": "e97a02bef03120bf",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "東京ディズニーシー®25周年“スパークリング・ジュビリー”イン・コンサート"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101729",
+      "title_ja": "喜多村英梨",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "柏PALOOZA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "喜多村英梨"
+      ],
+      "tags": [],
+      "id": "6a0911391bcfd1d2",
+      "status": "approved",
+      "venue_key": "kashiwa_palooza",
+      "artists": [
+        "喜多村英梨"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102089",
+      "title_ja": "FIVE NEW OLD",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "東京キネマ倶楽部",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "FIVE NEW OLD"
+      ],
+      "tags": [],
+      "id": "fd3fa0f86b62e0c5",
+      "status": "approved",
+      "venue_key": "kinema_club",
+      "artists": [
+        "FIVE NEW OLD"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101611",
+      "title_ja": "雨宮天",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "Shibuya LOVEZ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "雨宮天"
+      ],
+      "tags": [],
+      "id": "e72331660e92e4a8",
+      "status": "approved",
+      "venue_key": "shibuya_lovez",
+      "artists": [
+        "雨宮天"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101115",
+      "title_ja": "『葬送のフリーレン』フィルムコンサート2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "『葬送のフリーレン』フィルムコンサート2026"
+      ],
+      "tags": [],
+      "id": "f76ed3ae3fdc2f7f",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "『葬送のフリーレン』フィルムコンサート2026"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102255",
+      "title_ja": "清春",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "新宿 ReNY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "清春"
+      ],
+      "tags": [],
+      "id": "c8687116a592dfa0",
+      "status": "approved",
+      "venue_key": "reny_shinjuku",
+      "artists": [
+        "清春"
       ]
     },
     {
@@ -42355,6 +45011,278 @@
       "venue_key": "jcom_hall_hachioji",
       "artists": [
         "超ときめき♡宣伝部"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101000",
+      "title_ja": "東京ディズニーシー®25周年“スパークリング・ジュビリー”イン・コンサート",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "13:00",
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "東京ディズニーシー®25周年“スパークリング・ジュビリー”イン・コンサート"
+      ],
+      "tags": [],
+      "id": "fa748854fa3bfa3a",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "東京ディズニーシー®25周年“スパークリング・ジュビリー”イン・コンサート"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101610",
+      "title_ja": "雨宮天",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "14:30",
+      "venue_name": "Shibuya LOVEZ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "雨宮天"
+      ],
+      "tags": [],
+      "id": "c6c94eeb4f2635f2",
+      "status": "approved",
+      "venue_key": "shibuya_lovez",
+      "artists": [
+        "雨宮天"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101720",
+      "title_ja": "ME:I",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:00",
+      "venue_name": "有明アリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ME:I"
+      ],
+      "tags": [],
+      "id": "8c796d70cdd43d80",
+      "status": "approved",
+      "venue_key": "ariake_arena",
+      "artists": [
+        "ME:I"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101451",
+      "title_ja": "寺岡呼人",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "渋谷PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "寺岡呼人"
+      ],
+      "tags": [],
+      "id": "f847a8db31715bf9",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "寺岡呼人"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102254",
+      "title_ja": "清春",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "新宿 ReNY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "清春"
+      ],
+      "tags": [],
+      "id": "c800271790b48952",
+      "status": "approved",
+      "venue_key": "reny_shinjuku",
+      "artists": [
+        "清春"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102142",
+      "title_ja": "CHAQLA.",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "東京キネマ倶楽部",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "CHAQLA."
+      ],
+      "tags": [],
+      "id": "1b8bec7a9bfdccba",
+      "status": "approved",
+      "venue_key": "kinema_club",
+      "artists": [
+        "CHAQLA."
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101609",
+      "title_ja": "雨宮天",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "Shibuya LOVEZ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "雨宮天"
+      ],
+      "tags": [],
+      "id": "fea50b70a5ca0368",
+      "status": "approved",
+      "venue_key": "shibuya_lovez",
+      "artists": [
+        "雨宮天"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1666858/not-found/tokyo/2026-08-02/ja",
+      "title_ja": "Not Found　Summer Adventure",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "大手町三井ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": "https://www.livenation.co.jp/show/1666858/not-found/tokyo/2026-08-02/ja",
+      "ticket_links": [],
+      "lineup": [
+        "Not Found　Summer Adventure"
+      ],
+      "tags": [],
+      "id": "8301800c70577926",
+      "status": "approved",
+      "venue_key": "otemachi_mitsui_hall",
+      "artists": [
+        "Not Found Summer Adventure"
       ]
     },
     {
@@ -43929,6 +46857,40 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101877",
+      "title_ja": "POLYPLUS と H ZETTRIO with YUCCO MILLER",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-04",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "Shibuya WWW",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "POLYPLUS と H ZETTRIO with YUCCO MILLER"
+      ],
+      "tags": [],
+      "id": "9dab044e0c51ad21",
+      "status": "approved",
+      "venue_key": "www",
+      "artists": [
+        "POLYPLUS と H ZETTRIO with YUCCO MILLER"
+      ]
+    },
+    {
       "source": "www",
       "source_url": "https://www-shibuya.jp/schedule/019776.php",
       "title_ja": "POLYPLUS / H ZETTRIO with YUCCO MILLER",
@@ -45264,7 +48226,9 @@
       "id": "8ce8c1745d4bc12c",
       "status": "approved",
       "venue_key": "zepp_yokohama",
-      "artists": []
+      "artists": [
+        "高嶺のなでしこ"
+      ]
     },
     {
       "source": "tokyo_dome",
@@ -45366,6 +48330,40 @@
       "venue_key": "shibuya_lovez",
       "artists": [
         "ONE LOVE ONE HEART"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101475",
+      "title_ja": "近藤晃央",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-06",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "渋谷PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "近藤晃央"
+      ],
+      "tags": [],
+      "id": "7ec86bda93898f49",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "近藤晃央"
       ]
     },
     {
@@ -46106,6 +49104,108 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102105",
+      "title_ja": "高嶺のなでしこ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-07",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:00",
+      "venue_name": "ヒューリックホール東京(有楽町)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "高嶺のなでしこ"
+      ],
+      "tags": [],
+      "id": "5f7786620b3b722a",
+      "status": "approved",
+      "venue_key": "hulic_hall",
+      "artists": [
+        "高嶺のなでしこ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101798",
+      "title_ja": "浦島坂田船",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-07",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "LaLa arena TOKYO-BAY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "浦島坂田船"
+      ],
+      "tags": [],
+      "id": "353396493030f44b",
+      "status": "approved",
+      "venue_key": "lala_arena_tokyo_bay",
+      "artists": [
+        "浦島坂田船"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102104",
+      "title_ja": "高嶺のなでしこ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-07",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:30",
+      "venue_name": "ヒューリックホール東京(有楽町)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "高嶺のなでしこ"
+      ],
+      "tags": [],
+      "id": "f0c7c8d3f71a1c41",
+      "status": "approved",
+      "venue_key": "hulic_hall",
+      "artists": [
+        "高嶺のなでしこ"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6863.html",
       "title_ja": "『あんさんぶるスターズ！THE STAGE』-10th Anniversary LIVE-",
@@ -46116,7 +49216,7 @@
       "start_date": "2026-08-07",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "18:00",
       "venue_name": "ぴあアリーナMM",
       "venue_area": "Minatomirai",
       "address": "3-2-2 Minatomirai, Nishi-ku, Yokohama",
@@ -47163,7 +50263,9 @@
       "id": "5b19dab7aed69d80",
       "status": "approved",
       "venue_key": "zepp_shinjuku",
-      "artists": []
+      "artists": [
+        "halca"
+      ]
     },
     {
       "source": "zepp_yokohama",
@@ -47271,8 +50373,8 @@
       "price_text": "◆指定席 ：12,500円 (税込) ◆ファミリー号⾞席 ：12,500円 (税込) ◆着席指定席 ：12,500円 (税込) ＜全席共通＞ ※3歳以上はチケットが必要です。 ※3歳未満のお⼦様は必ず⼤⼈1名につき1名まで膝上に限り無料。ただし、お席が必要な場合はチケットが必要です。 ＜ファミリー号⾞席＞ ※お申込みは2枚からになります。 ※ファミリー号⾞席では、⼤⼈の⽅もお⼦様も着席でご観覧いただきます。 ※⽴ってのご観覧は禁⽌させていただきます。 ※中学⽣以下のお⼦様が必ず1名以上同席していただくことが条件のお席となります。 ※会場の構造上通路を挟んだ席等になる場合がございます。 ※ファミ",
       "price_min": 12500,
       "is_free": false,
-      "is_sold_out": false,
-      "ticket_url": null,
+      "is_sold_out": true,
+      "ticket_url": "https://www.livenation.co.jp/show/1649210/超特急/yokohama/2026-08-08/ja",
       "ticket_links": [],
       "lineup": [
         "超特急"
@@ -47286,6 +50388,108 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101797",
+      "title_ja": "浦島坂田船",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-08",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:00",
+      "venue_name": "LaLa arena TOKYO-BAY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "浦島坂田船"
+      ],
+      "tags": [],
+      "id": "20151a265be3201f",
+      "status": "approved",
+      "venue_key": "lala_arena_tokyo_bay",
+      "artists": [
+        "浦島坂田船"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100978",
+      "title_ja": "まみれた",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-08",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "東京キネマ倶楽部",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "まみれた"
+      ],
+      "tags": [],
+      "id": "18e575196fa54215",
+      "status": "approved",
+      "venue_key": "kinema_club",
+      "artists": [
+        "まみれた"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101788",
+      "title_ja": "少女革命計画",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-08",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "少女革命計画"
+      ],
+      "tags": [],
+      "id": "da843e2c03b219bd",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": [
+        "少女革命計画"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6867.html",
       "title_ja": "『あんさんぶるスターズ！THE STAGE』-10th Anniversary LIVE-",
@@ -47296,7 +50500,7 @@
       "start_date": "2026-08-08",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "13:00",
       "venue_name": "ぴあアリーナMM",
       "venue_area": "Minatomirai",
       "address": "3-2-2 Minatomirai, Nishi-ku, Yokohama",
@@ -48212,7 +51416,9 @@
       "id": "40116814a10d7b8c",
       "status": "approved",
       "venue_key": "ariake_arena",
-      "artists": []
+      "artists": [
+        "CANNONBALL外伝"
+      ]
     },
     {
       "source": "toyota_arena_tokyo",
@@ -48301,6 +51507,176 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102026",
+      "title_ja": "でか美ちゃん",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-09",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:00",
+      "venue_name": "Shibuya LOVEZ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "でか美ちゃん"
+      ],
+      "tags": [],
+      "id": "aa92d16bb64f6376",
+      "status": "approved",
+      "venue_key": "shibuya_lovez",
+      "artists": [
+        "でか美ちゃん"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101459",
+      "title_ja": "Azavana / ダウト / RAZOR / XANVALA 4MAN LIVE「二十討ち」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-09",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:30",
+      "venue_name": "柏PALOOZA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Azavana / ダウト / RAZOR / XANVALA 4MAN LIVE「二十討ち」"
+      ],
+      "tags": [],
+      "id": "67ca2e5dc67e8b63",
+      "status": "approved",
+      "venue_key": "kashiwa_palooza",
+      "artists": [
+        "Azavana / ダウト / RAZOR / XANVALA 4MAN LIVE「二十討ち」"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/99767",
+      "title_ja": "Snugs(スナッグス)",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-09",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "Zepp DiverCity(TOKYO)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Snugs(スナッグス)"
+      ],
+      "tags": [],
+      "id": "6eafb4d1832061a5",
+      "status": "approved",
+      "venue_key": "zepp_divercity",
+      "artists": [
+        "Snugs(スナッグス)"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101633",
+      "title_ja": "Tohji",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-09",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "LaLa arena TOKYO-BAY",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Tohji"
+      ],
+      "tags": [],
+      "id": "e9e4fef39efe1c7a",
+      "status": "approved",
+      "venue_key": "lala_arena_tokyo_bay",
+      "artists": [
+        "Tohji"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102185",
+      "title_ja": "ハルルナ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-09",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "Zepp Shinjuku (TOKYO)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ハルルナ"
+      ],
+      "tags": [],
+      "id": "5eef9bcfba43a7dd",
+      "status": "approved",
+      "venue_key": "zepp_shinjuku",
+      "artists": [
+        "ハルルナ"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6868.html",
       "title_ja": "『あんさんぶるスターズ！THE STAGE』-10th Anniversary LIVE-",
@@ -48311,7 +51687,7 @@
       "start_date": "2026-08-09",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "13:00",
       "venue_name": "ぴあアリーナMM",
       "venue_area": "Minatomirai",
       "address": "3-2-2 Minatomirai, Nishi-ku, Yokohama",
@@ -48974,6 +52350,74 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102121",
+      "title_ja": "CANNONBALL外伝",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-10",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:00",
+      "venue_name": "有明アリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "CANNONBALL外伝"
+      ],
+      "tags": [],
+      "id": "751dcaffab6e80d7",
+      "status": "approved",
+      "venue_key": "ariake_arena",
+      "artists": [
+        "CANNONBALL外伝"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101820",
+      "title_ja": "T-BOLAN",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-10",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "日本武道館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "T-BOLAN"
+      ],
+      "tags": [],
+      "id": "c23cf0307fc3399d",
+      "status": "approved",
+      "venue_key": "budokan",
+      "artists": [
+        "T-BOLAN"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018461",
       "title_ja": "笹川真生「脈拍」Vol.6",
@@ -49137,7 +52581,8 @@
         "夜光性アミューズ",
         "月刊PAM",
         "美味しい曖昧",
-        "衛星とカラテア"
+        "衛星とカラテア",
+        "高嶺のなでしこ"
       ]
     },
     {
@@ -49255,7 +52700,7 @@
       "start_date": "2026-08-11",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "14:00",
       "venue_name": "Toyosu PIT",
       "venue_area": "Toyosu",
       "address": "6-1-23 Toyosu, Koto-ku, Tokyo",
@@ -49796,7 +53241,7 @@
       "start_date": "2026-08-11",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "14:00",
       "venue_name": "東京国際フォーラム",
       "venue_area": "Yurakucho",
       "address": "3-5-1 Marunouchi, Chiyoda-ku, Tokyo 100-0005",
@@ -50259,6 +53704,108 @@
       "venue_key": "ichikawa_bunkakaikan",
       "artists": [
         "超ときめき♡宣伝部"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101527",
+      "title_ja": "O-MENZ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-11",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "12:00",
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "O-MENZ"
+      ],
+      "tags": [],
+      "id": "50a5cbc48c6b027a",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "O-MENZ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102120",
+      "title_ja": "CANNONBALL外伝",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-11",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:00",
+      "venue_name": "有明アリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "CANNONBALL外伝"
+      ],
+      "tags": [],
+      "id": "3a7f65302a2dedda",
+      "status": "approved",
+      "venue_key": "ariake_arena",
+      "artists": [
+        "CANNONBALL外伝"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101526",
+      "title_ja": "O-MENZ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-11",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "O-MENZ"
+      ],
+      "tags": [],
+      "id": "af7ff994fa9d30e6",
+      "status": "approved",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "O-MENZ"
       ]
     },
     {
@@ -51099,6 +54646,40 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101675",
+      "title_ja": "DOBERMAN INFINITY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-12",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "川口リリア・フカガワみらいホール（メインホール）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "DOBERMAN INFINITY"
+      ],
+      "tags": [],
+      "id": "275acbbd5f00bba0",
+      "status": "approved",
+      "venue_key": "kawaguchi_lilia",
+      "artists": [
+        "DOBERMAN INFINITY"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6942.html",
       "title_ja": "NAKAMA to MEETING Vol.5",
@@ -51906,6 +55487,40 @@
       "venue_key": "omiya_sonic_city",
       "artists": [
         "いぎなり東北産"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1684139/ebidan-the-live-2026-15th-anniversary/tokyo/2026-08-13/ja",
+      "title_ja": "EBiDAN THE LIVE 2026 15th Anniversary",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-13",
+      "end_date": "2026-08-16",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "国立代々木競技場第一体育館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1684139/ebidan-the-live-2026-15th-anniversary/tokyo/2026-08-13/ja",
+      "ticket_links": [],
+      "lineup": [
+        "EBiDAN THE LIVE 2026 15th Anniversary"
+      ],
+      "tags": [],
+      "id": "f6a36ebed8bec820",
+      "status": "approved",
+      "venue_key": "yoyogi_gym1",
+      "artists": [
+        "EBiDAN THE LIVE 2026 15th Anniversary"
       ]
     },
     {
@@ -52740,6 +56355,108 @@
         "indigo la End",
         "kurayamisaka",
         "バチカン市国に愛されたい 出れんの!?サマソニ!?"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102109",
+      "title_ja": "ニシコリ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-14",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "13:30",
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ニシコリ"
+      ],
+      "tags": [],
+      "id": "e1790cad86eeb249",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": [
+        "ニシコリ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101287",
+      "title_ja": "Voice Connect",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-14",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Voice Connect"
+      ],
+      "tags": [],
+      "id": "a814e31bd3e8203e",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": [
+        "Voice Connect"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1685357/33-samba-to-ボンボンdance-まるごとれにちゃん祭り-2026-/yokohama/2026-08-14/ja",
+      "title_ja": "高城れに(ももいろクローバーZ)",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-14",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1685357/33-samba-to-ボンボンdance-まるごとれにちゃん祭り-2026-/yokohama/2026-08-14/ja",
+      "ticket_links": [],
+      "lineup": [
+        "高城れに(ももいろクローバーZ)"
+      ],
+      "tags": [],
+      "id": "ebc78ef10fdd276a",
+      "status": "approved",
+      "venue_key": "zepp_yokohama",
+      "artists": [
+        "高城れに(ももいろクローバーZ)"
       ]
     },
     {
@@ -53805,6 +57522,40 @@
         "mgk",
         "sakanaction",
         "阿部真央"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101493",
+      "title_ja": "ユナイト",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-15",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "HEAVEN'S ROCK さいたま新都心",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ユナイト"
+      ],
+      "tags": [],
+      "id": "dc26eee16640b7b5",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "ユナイト"
       ]
     },
     {
@@ -54896,6 +58647,142 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102220",
+      "title_ja": "ExWHYZ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "02:30",
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ExWHYZ"
+      ],
+      "tags": [],
+      "id": "e1b1953090fa596a",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": [
+        "ExWHYZ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101879",
+      "title_ja": "藍井エイル",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "Zepp Haneda(TOKYO)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "藍井エイル"
+      ],
+      "tags": [],
+      "id": "1106b269b1504b09",
+      "status": "approved",
+      "venue_key": "zepp_haneda",
+      "artists": [
+        "藍井エイル"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101492",
+      "title_ja": "ユナイト",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "HEAVEN'S ROCK さいたま新都心",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ユナイト"
+      ],
+      "tags": [],
+      "id": "6618496847d45e12",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "ユナイト"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101143",
+      "title_ja": "Natural Lag",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "日本武道館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Natural Lag"
+      ],
+      "tags": [],
+      "id": "b54c0732e4ef3b14",
+      "status": "approved",
+      "venue_key": "budokan",
+      "artists": [
+        "Natural Lag"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018309",
       "title_ja": "PIZZA OF DEATH RECORDS presents \"Fuck That Shit vol.37564\"",
@@ -55253,6 +59140,7 @@
       "artists": [
         "Amane Takai",
         "Aoi Murakoshi",
+        "Blue",
         "Chihiro Yamazaki",
         "Eijiro Nakagawa",
         "Eric Miyashiro",
@@ -55391,6 +59279,40 @@
       "venue_key": "oeast",
       "artists": [
         "KODALINE"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101142",
+      "title_ja": "SOTA HANAMURA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-17",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "日本武道館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SOTA HANAMURA"
+      ],
+      "tags": [],
+      "id": "b3a8005a4a444f7d",
+      "status": "approved",
+      "venue_key": "budokan",
+      "artists": [
+        "SOTA HANAMURA"
       ]
     },
     {
@@ -55882,6 +59804,74 @@
       "venue_key": "oeast",
       "artists": [
         "DECEMBER 10"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101359",
+      "title_ja": "八十八ヶ所巡礼",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-18",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "日本武道館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "八十八ヶ所巡礼"
+      ],
+      "tags": [],
+      "id": "985fca9f17276005",
+      "status": "approved",
+      "venue_key": "budokan",
+      "artists": [
+        "八十八ヶ所巡礼"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102189",
+      "title_ja": "CNBLUE",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-18",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "東京ガーデンシアター(有明)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "CNBLUE"
+      ],
+      "tags": [],
+      "id": "895d4d9d99f81bf5",
+      "status": "approved",
+      "venue_key": "tokyo_garden_theater",
+      "artists": [
+        "CNBLUE"
       ]
     },
     {
@@ -56479,6 +60469,40 @@
       "venue_key": "carats_kawasaki",
       "artists": [
         "スキマスイッチ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101722",
+      "title_ja": "水曜日のカンパネラ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "Shibuya LOVEZ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "水曜日のカンパネラ"
+      ],
+      "tags": [],
+      "id": "d46b3a06f06c07c9",
+      "status": "approved",
+      "venue_key": "shibuya_lovez",
+      "artists": [
+        "水曜日のカンパネラ"
       ]
     },
     {
@@ -57126,6 +61150,74 @@
       "venue_key": "pleasure_pleasure",
       "artists": [
         "Skoop On Somebody"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102196",
+      "title_ja": "吉川晃司",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "市川市文化会館 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "吉川晃司"
+      ],
+      "tags": [],
+      "id": "a5b04b352aed0964",
+      "status": "approved",
+      "venue_key": "ichikawa_bunkakaikan",
+      "artists": [
+        "吉川晃司"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101608",
+      "title_ja": "平手友梨奈",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "日本武道館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "平手友梨奈"
+      ],
+      "tags": [],
+      "id": "c77e16ce1b64d4c3",
+      "status": "approved",
+      "venue_key": "budokan",
+      "artists": [
+        "平手友梨奈"
       ]
     },
     {
@@ -58005,6 +62097,74 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102388",
+      "title_ja": "MUCC",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-21",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "東京キネマ倶楽部",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "MUCC"
+      ],
+      "tags": [],
+      "id": "0d0989f89ad35a13",
+      "status": "approved",
+      "venue_key": "kinema_club",
+      "artists": [
+        "MUCC"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102253",
+      "title_ja": "清春",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-21",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "DAIKANYAMA UNIT",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "清春"
+      ],
+      "tags": [],
+      "id": "043246bf51d76754",
+      "status": "approved",
+      "venue_key": "unit_daikanyama",
+      "artists": [
+        "清春"
+      ]
+    },
+    {
       "source": "toyosu_pit",
       "source_url": "https://toyosu.pia-pit.jp/schedule/202606/8583.html",
       "title_ja": "MAX DECIBEL 25-26",
@@ -58786,7 +62946,9 @@
       "id": "82e5644dd4c65a44",
       "status": "approved",
       "venue_key": "cotton_club",
-      "artists": []
+      "artists": [
+        "米倉利紀"
+      ]
     },
     {
       "source": "line_cube_shibuya",
@@ -59399,6 +63561,380 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102170",
+      "title_ja": "『プリキュアシンガーズ Premium LIVE HOUSE Circuit！2026』",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "14:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "『プリキュアシンガーズ Premium LIVE HOUSE Circuit！2026』"
+      ],
+      "tags": [],
+      "id": "075ca43052d51664",
+      "status": "approved",
+      "venue_key": "zepp_yokohama",
+      "artists": [
+        "『プリキュアシンガーズ Premium LIVE HOUSE Circuit！2026』"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100890",
+      "title_ja": "中島卓偉",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "14:30",
+      "venue_name": "HEAVEN'S ROCK さいたま新都心",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "中島卓偉"
+      ],
+      "tags": [],
+      "id": "88854b6d77730aa5",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "中島卓偉"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100710",
+      "title_ja": "TENSONG",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:00",
+      "venue_name": "恵比寿ザ・ガーデンホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "TENSONG"
+      ],
+      "tags": [],
+      "id": "a8e30cb49bd6182a",
+      "status": "approved",
+      "venue_key": "ebisu_garden_hall",
+      "artists": [
+        "TENSONG"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102392",
+      "title_ja": "VSinger UTAMATSURI LIVE in Toyosu PIT",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "豊洲PIT",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "VSinger UTAMATSURI LIVE in Toyosu PIT"
+      ],
+      "tags": [],
+      "id": "66040aeead965087",
+      "status": "approved",
+      "venue_key": "toyosu_pit",
+      "artists": [
+        "VSinger UTAMATSURI LIVE in Toyosu PIT"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100903",
+      "title_ja": "GRe4N BOYZ（グリーンボーイズ）",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "Zepp Haneda(TOKYO)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "GRe4N BOYZ（グリーンボーイズ）"
+      ],
+      "tags": [],
+      "id": "3a68e1c1c7ffeb93",
+      "status": "approved",
+      "venue_key": "zepp_haneda",
+      "artists": [
+        "GRe4N BOYZ（グリーンボーイズ）"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101997",
+      "title_ja": "JILUKA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "東京キネマ倶楽部",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "JILUKA"
+      ],
+      "tags": [],
+      "id": "169e35c8322ddda2",
+      "status": "approved",
+      "venue_key": "kinema_club",
+      "artists": [
+        "JILUKA"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102141",
+      "title_ja": "vistlip",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "大手町三井ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "vistlip"
+      ],
+      "tags": [],
+      "id": "043afe5b05c85072",
+      "status": "approved",
+      "venue_key": "otemachi_mitsui_hall",
+      "artists": [
+        "vistlip"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100889",
+      "title_ja": "中島卓偉",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "HEAVEN'S ROCK さいたま新都心",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "中島卓偉"
+      ],
+      "tags": [],
+      "id": "e3da65f830b1a358",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "中島卓偉"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102440",
+      "title_ja": "LOVE IT! ROCK 2026（ラヴィット！ロック 2026）",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "国立代々木競技場 第一体育館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "LOVE IT! ROCK 2026（ラヴィット！ロック 2026）"
+      ],
+      "tags": [],
+      "id": "8534eb32c6a5154e",
+      "status": "approved",
+      "venue_key": "yoyogi_gym1",
+      "artists": [
+        "LOVE IT! ROCK 2026（ラヴィット！ロック 2026）"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101306",
+      "title_ja": "クジラ夜の街",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "下北沢 SHELTER",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "クジラ夜の街"
+      ],
+      "tags": [],
+      "id": "c54604640737fde5",
+      "status": "approved",
+      "venue_key": "shelter",
+      "artists": [
+        "クジラ夜の街"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102169",
+      "title_ja": "『プリキュアシンガーズ Premium LIVE HOUSE Circuit！2026』",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "『プリキュアシンガーズ Premium LIVE HOUSE Circuit！2026』"
+      ],
+      "tags": [],
+      "id": "b64a57bdc557d085",
+      "status": "approved",
+      "venue_key": "zepp_yokohama",
+      "artists": [
+        "『プリキュアシンガーズ Premium LIVE HOUSE Circuit！2026』"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6916.html",
       "title_ja": "きゃりーぱみゅぱみゅ PAMYU FES ～Kyary Pamyu Pamyu 15th Anniversary ～",
@@ -59781,6 +64317,7 @@
       "venue_key": "club_citta",
       "artists": [
         "D’ESPAIRSRAY",
+        "KIRITO",
         "出演）KIRITO"
       ]
     },
@@ -60555,6 +65092,78 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102147",
+      "title_ja": "モンスターハンターオーケストラコンサート 〜狩猟音楽祭2026〜 Monster Hunter Orchestra Concert 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "classical"
+      ],
+      "start_date": "2026-08-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "14:00",
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "モンスターハンターオーケストラコンサート 〜狩猟音楽祭2026〜 Monster Hunter Orchestra Concert 2026"
+      ],
+      "tags": [],
+      "id": "48aed013e860e199",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "モンスターハンターオーケストラコンサート 〜狩猟音楽祭2026〜 Monster Hunter Orchestra Concert 2026"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102146",
+      "title_ja": "モンスターハンターオーケストラコンサート 〜狩猟音楽祭2026〜 Monster Hunter Orchestra Concert 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "classical"
+      ],
+      "start_date": "2026-08-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "東京国際フォーラム ホールA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "モンスターハンターオーケストラコンサート 〜狩猟音楽祭2026〜 Monster Hunter Orchestra Concert 2026"
+      ],
+      "tags": [],
+      "id": "8f834c00085486be",
+      "status": "approved",
+      "venue_key": "tokyo_intl_forum",
+      "artists": [
+        "モンスターハンターオーケストラコンサート 〜狩猟音楽祭2026〜 Monster Hunter Orchestra Concert 2026"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6919.html",
       "title_ja": "SWEET STEADY",
@@ -61055,6 +65664,7 @@
       "status": "auto",
       "venue_key": "quattro_shibuya",
       "artists": [
+        "Blue",
         "three berry icecream）",
         "アイコ（advantage Lucy）",
         "原gen秀樹",
@@ -61851,6 +66461,74 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102296",
+      "title_ja": "高嶺のなでしこ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "恵比寿ザ・ガーデンホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "高嶺のなでしこ"
+      ],
+      "tags": [],
+      "id": "09e8b9535457e8b3",
+      "status": "approved",
+      "venue_key": "ebisu_garden_hall",
+      "artists": [
+        "高嶺のなでしこ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102212",
+      "title_ja": "M bit Live",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "Zepp Shinjuku (TOKYO)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "M bit Live"
+      ],
+      "tags": [],
+      "id": "9bd1d6b45f649996",
+      "status": "approved",
+      "venue_key": "zepp_shinjuku",
+      "artists": [
+        "M bit Live"
+      ]
+    },
+    {
       "source": "www",
       "source_url": "https://www-shibuya.jp/schedule/019879.php",
       "title_ja": "SAKA-SAMA",
@@ -62045,7 +66723,7 @@
       "start_date": "2026-08-26",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "17:30",
       "venue_name": "Toyosu PIT",
       "venue_area": "Toyosu",
       "address": "6-1-23 Toyosu, Koto-ku, Tokyo",
@@ -62573,7 +67251,7 @@
       "price_min": 4000,
       "is_free": false,
       "is_sold_out": false,
-      "ticket_url": null,
+      "ticket_url": "https://www.livenation.co.jp/show/1685386/ilife-ワンマンlive-megalife-/yokohama/2026-08-26/ja",
       "ticket_links": [],
       "lineup": [
         "iLiFE!"
@@ -63206,6 +67884,40 @@
       "venue_key": "creativeman",
       "artists": [
         "Kvi Baba"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101977",
+      "title_ja": "ペルシカリア",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-27",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "Spotify O-Crest",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ペルシカリア"
+      ],
+      "tags": [],
+      "id": "5fd2932adcdcd9ed",
+      "status": "approved",
+      "venue_key": "ocrest",
+      "artists": [
+        "ペルシカリア"
       ]
     },
     {
@@ -64097,6 +68809,108 @@
         "眞名子 新",
         "礼賛",
         "羊文学"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101800",
+      "title_ja": "うらたぬき",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-28",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "大宮ソニックシティ 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "うらたぬき"
+      ],
+      "tags": [],
+      "id": "7bdfc9e56dd8ef11",
+      "status": "approved",
+      "venue_key": "omiya_sonic_city",
+      "artists": [
+        "うらたぬき"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100734",
+      "title_ja": "-真天地開闢集団-ジグザグ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-28",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "J:COMホール八王子",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "-真天地開闢集団-ジグザグ"
+      ],
+      "tags": [],
+      "id": "9a81c8a4749ac15b",
+      "status": "approved",
+      "venue_key": "jcom_hall_hachioji",
+      "artists": [
+        "-真天地開闢集団-ジグザグ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101895",
+      "title_ja": "AST8",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-28",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "KANDA SQUARE HALL",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "AST8"
+      ],
+      "tags": [],
+      "id": "70c90ed3ecd521b0",
+      "status": "approved",
+      "venue_key": "kanda_square_hall",
+      "artists": [
+        "AST8"
       ]
     },
     {
@@ -65121,6 +69935,176 @@
       "venue_key": "creativeman",
       "artists": [
         "SKRYU"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101967",
+      "title_ja": "ジェーン・スーと堀井美香の｢OVER THE SUN｣",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "11:30",
+      "venue_name": "横浜BUNTAI",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ジェーン・スーと堀井美香の｢OVER THE SUN｣"
+      ],
+      "tags": [],
+      "id": "2f0b7aca0d6d57de",
+      "status": "approved",
+      "venue_key": "yokohama_buntai",
+      "artists": [
+        "ジェーン・スーと堀井美香の｢OVER THE SUN｣"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101656",
+      "title_ja": "SHAZNA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:00",
+      "venue_name": "渋谷PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SHAZNA"
+      ],
+      "tags": [],
+      "id": "cf82526fb0c4635a",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "SHAZNA"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101799",
+      "title_ja": "うらたぬき",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "大宮ソニックシティ 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "うらたぬき"
+      ],
+      "tags": [],
+      "id": "e17e529f0d76d08c",
+      "status": "approved",
+      "venue_key": "omiya_sonic_city",
+      "artists": [
+        "うらたぬき"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102084",
+      "title_ja": "仙台貨物",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "仙台貨物"
+      ],
+      "tags": [],
+      "id": "ccd16d001450c356",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": [
+        "仙台貨物"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101655",
+      "title_ja": "SHAZNA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "渋谷PLEASURE PLEASURE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SHAZNA"
+      ],
+      "tags": [],
+      "id": "978948a852af1917",
+      "status": "approved",
+      "venue_key": "pleasure_pleasure",
+      "artists": [
+        "SHAZNA"
       ]
     },
     {
@@ -66269,6 +71253,180 @@
       "venue_key": "creativeman",
       "artists": [
         "SKRYU"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101614",
+      "title_ja": "プリンセッション・オーケストラ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "classical"
+      ],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "14:30",
+      "venue_name": "J:COMホール八王子",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "プリンセッション・オーケストラ"
+      ],
+      "tags": [],
+      "id": "da13d86f1ae61ee7",
+      "status": "approved",
+      "venue_key": "jcom_hall_hachioji",
+      "artists": [
+        "プリンセッション・オーケストラ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102428",
+      "title_ja": "千葉翔也",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "EX THEATER ROPPONGI",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "千葉翔也"
+      ],
+      "tags": [],
+      "id": "f3219bba567e86fd",
+      "status": "approved",
+      "venue_key": "ex_theater",
+      "artists": [
+        "千葉翔也"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100783",
+      "title_ja": "摩天楼オペラ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "Shibuya LOVEZ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "摩天楼オペラ"
+      ],
+      "tags": [],
+      "id": "f8fb0f6674eb6428",
+      "status": "approved",
+      "venue_key": "shibuya_lovez",
+      "artists": [
+        "摩天楼オペラ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101155",
+      "title_ja": "陽高真白",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "大手町三井ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "陽高真白"
+      ],
+      "tags": [],
+      "id": "a9a2fc85103aaebe",
+      "status": "approved",
+      "venue_key": "otemachi_mitsui_hall",
+      "artists": [
+        "陽高真白"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101613",
+      "title_ja": "プリンセッション・オーケストラ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "classical"
+      ],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "J:COMホール八王子",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "プリンセッション・オーケストラ"
+      ],
+      "tags": [],
+      "id": "05c6b8542095b7e9",
+      "status": "approved",
+      "venue_key": "jcom_hall_hachioji",
+      "artists": [
+        "プリンセッション・オーケストラ"
       ]
     },
     {
@@ -67874,6 +73032,7 @@
       "status": "approved",
       "venue_key": "zepp_divercity",
       "artists": [
+        "Blue",
         "FOMARE"
       ]
     },
@@ -69831,6 +74990,40 @@
       "artists": []
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1682571/粗品/tokyo/2026-09-05/ja",
+      "title_ja": "粗品",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-05",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Zepp Shinjuku(TOKYO)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1682571/粗品/tokyo/2026-09-05/ja",
+      "ticket_links": [],
+      "lineup": [
+        "粗品"
+      ],
+      "tags": [],
+      "id": "0bed19d46c6a18e9",
+      "status": "approved",
+      "venue_key": "zepp_shinjuku",
+      "artists": [
+        "粗品"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6958.html",
       "title_ja": "CORTIS 2026 CORTIS TOUR <PUT YOUR PHONE DOWN> IN JAPAN",
@@ -71228,6 +76421,40 @@
       "venue_key": "shibuya_lovez",
       "artists": [
         "龍宮城"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1686587/シンガーズハイ/yokohama/2026-09-08/ja",
+      "title_ja": "シンガーズハイ　PLAYBACK tour 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-08",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1686587/シンガーズハイ/yokohama/2026-09-08/ja",
+      "ticket_links": [],
+      "lineup": [
+        "シンガーズハイ　PLAYBACK tour 2026"
+      ],
+      "tags": [],
+      "id": "98f46ff2f9ba30c2",
+      "status": "approved",
+      "venue_key": "zepp_yokohama",
+      "artists": [
+        "シンガーズハイ PLAYBACK tour 2026"
       ]
     },
     {
@@ -73469,6 +78696,40 @@
         "コレサワ",
         "サンボマスター",
         "トゲナシトゲアリ"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1663135/live-tour-2026-inferno-/tokyo/2026-09-12/ja",
+      "title_ja": "ONE N' ONLY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-12",
+      "end_date": "2026-09-13",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "国立代々木競技場第一体育館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1663135/live-tour-2026-inferno-/tokyo/2026-09-12/ja",
+      "ticket_links": [],
+      "lineup": [
+        "ONE N' ONLY"
+      ],
+      "tags": [],
+      "id": "4c7a6f1f1f333760",
+      "status": "approved",
+      "venue_key": "yoyogi_gym1",
+      "artists": [
+        "ONE N' ONLY"
       ]
     },
     {
@@ -76860,6 +82121,42 @@
       ]
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1678734/the-weeknd-the-after-hours-til-dawn-tour/saitama/2026-09-19/ja",
+      "title_ja": "The Weeknd",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "ベルーナドーム(西武ドーム)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1678734/the-weeknd-the-after-hours-til-dawn-tour/saitama/2026-09-19/ja",
+      "ticket_links": [],
+      "lineup": [
+        "The Weeknd",
+        "CREEPY NUTS"
+      ],
+      "tags": [],
+      "id": "71feee08ac659adb",
+      "status": "approved",
+      "venue_key": "belluna_dome",
+      "artists": [
+        "Creepy Nuts",
+        "The Weeknd"
+      ]
+    },
+    {
       "source": "www_x",
       "source_url": "https://www-shibuya.jp/schedule/019849.php",
       "title_ja": "Unlucky Morpheus / O.A.Unholy Orpheus",
@@ -77615,6 +82912,44 @@
         "平井 大",
         "東京スカパラダイスオーケストラ",
         "超ときめき♡宣伝部"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1672824/the-weeknd-the-after-hours-til-dawn-tour/saitama/2026-09-20/ja",
+      "title_ja": "The Weeknd",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "ベルーナドーム(西武ドーム)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1672824/the-weeknd-the-after-hours-til-dawn-tour/saitama/2026-09-20/ja",
+      "ticket_links": [],
+      "lineup": [
+        "The Weeknd",
+        "CREEPY NUTS",
+        "¥ØU$UK€ ¥UK1MAT$U"
+      ],
+      "tags": [],
+      "id": "2ae4dfb1eb021d12",
+      "status": "approved",
+      "venue_key": "belluna_dome",
+      "artists": [
+        "Creepy Nuts",
+        "The Weeknd",
+        "¥ØU$UK€ ¥UK1MAT$U"
       ]
     },
     {
@@ -79066,8 +84401,8 @@
       "price_text": null,
       "price_min": null,
       "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
+      "is_sold_out": true,
+      "ticket_url": "https://www.livenation.co.jp/show/1663129/icex-fourth-concert-tour-2026-freshest-/tokyo/2026-09-23/ja",
       "ticket_links": [],
       "lineup": [],
       "tags": [],
@@ -83144,6 +88479,40 @@
       ]
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1682653/粗品/kanagawa/2026-10-02/ja",
+      "title_ja": "粗品",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-10-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "BAYSIS",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1682653/粗品/kanagawa/2026-10-02/ja",
+      "ticket_links": [],
+      "lineup": [
+        "粗品"
+      ],
+      "tags": [],
+      "id": "b5289fdf6cee6dc8",
+      "status": "approved",
+      "venue_key": "baysis_yokohama",
+      "artists": [
+        "粗品"
+      ]
+    },
+    {
       "source": "club_citta",
       "source_url": "https://clubcitta.co.jp/schedule/1703",
       "title_ja": "2026 ADDICT OF THE TRIP MINDS Live -Autumn-",
@@ -83808,6 +89177,40 @@
       ]
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1677429/ren/tokyo/2026-10-04/ja",
+      "title_ja": "ReN LIVE TOUR '26 HIGHS+LOWS",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-10-04",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "duo Music Exchange",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1677429/ren/tokyo/2026-10-04/ja",
+      "ticket_links": [],
+      "lineup": [
+        "ReN LIVE TOUR '26 HIGHS+LOWS"
+      ],
+      "tags": [],
+      "id": "36fc729e05620b94",
+      "status": "approved",
+      "venue_key": "duo",
+      "artists": [
+        "ReN LIVE TOUR '26 HIGHS+LOWS"
+      ]
+    },
+    {
       "source": "zepp_haneda",
       "source_url": "https://www.zepp.co.jp/hall/haneda/schedule/single/?rid=157018",
       "title_ja": "TMG",
@@ -83830,7 +89233,7 @@
       "price_min": 20000,
       "is_free": false,
       "is_sold_out": false,
-      "ticket_url": null,
+      "ticket_url": "https://www.livenation.co.jp/show/1674567/tmg-live-2026-sayonara-/tokyo/2026-10-05/ja",
       "ticket_links": [],
       "lineup": [],
       "tags": [],
@@ -84024,7 +89427,7 @@
       "price_min": null,
       "is_free": null,
       "is_sold_out": false,
-      "ticket_url": null,
+      "ticket_url": "https://www.livenation.co.jp/show/1664567/post-malone-presents-the-big-ass-stadium-world-tour/yokohama/2026-10-06/ja",
       "ticket_links": [],
       "lineup": [
         "Post Malone",
@@ -84037,6 +89440,40 @@
       "artists": [
         "Don Toliver",
         "Post Malone"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1682676/粗品/chiba/2026-10-06/ja",
+      "title_ja": "粗品",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-10-06",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "柏PALOOZA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1682676/粗品/chiba/2026-10-06/ja",
+      "ticket_links": [],
+      "lineup": [
+        "粗品"
+      ],
+      "tags": [],
+      "id": "c21573b60b51a5c0",
+      "status": "approved",
+      "venue_key": "kashiwa_palooza",
+      "artists": [
+        "粗品"
       ]
     },
     {
@@ -84212,6 +89649,40 @@
       "artists": []
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1676818/zara-larsson-midnight-sun-tour/tokyo/2026-10-07/ja",
+      "title_ja": "Zara Larsson",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-10-07",
+      "end_date": "2026-10-08",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "恵比寿ザ・ガーデンホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1676818/zara-larsson-midnight-sun-tour/tokyo/2026-10-07/ja",
+      "ticket_links": [],
+      "lineup": [
+        "Zara Larsson"
+      ],
+      "tags": [],
+      "id": "b744fdff326aa095",
+      "status": "approved",
+      "venue_key": "ebisu_garden_hall",
+      "artists": [
+        "Zara Larsson"
+      ]
+    },
+    {
       "source": "zepp_divercity",
       "source_url": "https://www.zepp.co.jp/hall/divercity/schedule/single/?rid=160541",
       "title_ja": "w.o.d.",
@@ -84376,6 +89847,40 @@
       "status": "approved",
       "venue_key": "toyota_arena_tokyo",
       "artists": []
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1682703/粗品/saitama/2026-10-08/ja",
+      "title_ja": "粗品",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-10-08",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "HEAVEN'S ROCK さいたま新都心 VJ-3",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1682703/粗品/saitama/2026-10-08/ja",
+      "ticket_links": [],
+      "lineup": [
+        "粗品"
+      ],
+      "tags": [],
+      "id": "e11d04f3681b4d21",
+      "status": "approved",
+      "venue_key": "heavens_rock_saitama",
+      "artists": [
+        "粗品"
+      ]
     },
     {
       "source": "zepp_divercity",
@@ -86008,6 +91513,40 @@
       "artists": []
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1666517/charlie-puth-whatever-s-clever-world-tour/yokohama/2026-10-16/ja",
+      "title_ja": "Charlie Puth",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-10-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "ぴあアリーナMM",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1666517/charlie-puth-whatever-s-clever-world-tour/yokohama/2026-10-16/ja",
+      "ticket_links": [],
+      "lineup": [
+        "Charlie Puth"
+      ],
+      "tags": [],
+      "id": "e9ccad4c01855110",
+      "status": "approved",
+      "venue_key": "pia_arena_mm",
+      "artists": [
+        "Charlie Puth"
+      ]
+    },
+    {
       "source": "zepp_divercity",
       "source_url": "https://www.zepp.co.jp/hall/divercity/schedule/single/?rid=159485",
       "title_ja": "kurayamisaka",
@@ -86665,6 +92204,42 @@
       "artists": []
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1686401/less-than-jake/tokyo/2026-10-19/ja",
+      "title_ja": "LESS THAN JAKE Japan Tour 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "international"
+      ],
+      "start_date": "2026-10-19",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "LIQUIDROOM",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1686401/less-than-jake/tokyo/2026-10-19/ja",
+      "ticket_links": [],
+      "lineup": [
+        "LESS THAN JAKE Japan Tour 2026"
+      ],
+      "tags": [],
+      "id": "d0f8cb77789b19f1",
+      "status": "approved",
+      "venue_key": "liquidroom",
+      "artists": [
+        "LESS THAN JAKE Japan Tour 2026"
+      ]
+    },
+    {
       "source": "bluenote_tokyo",
       "source_url": "https://www.bluenote.co.jp/jp/artists/joshua-redman/",
       "title_ja": "JOSHUA REDMAN",
@@ -87255,6 +92830,40 @@
       ]
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1665246/ca7riel-and-paco-amoroso-free-spirits-world-tour/tokyo/2026-10-22/ja",
+      "title_ja": "CA7RIEL & Paco Amoroso",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-10-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "豊洲PIT",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1665246/ca7riel-and-paco-amoroso-free-spirits-world-tour/tokyo/2026-10-22/ja",
+      "ticket_links": [],
+      "lineup": [
+        "CA7RIEL & Paco Amoroso"
+      ],
+      "tags": [],
+      "id": "fa5d547958c84902",
+      "status": "approved",
+      "venue_key": "toyosu_pit",
+      "artists": [
+        "CA7RIEL & Paco Amoroso"
+      ]
+    },
+    {
       "source": "zepp_divercity",
       "source_url": "https://www.zepp.co.jp/hall/divercity/schedule/single/?rid=157826",
       "title_ja": "ASIAN KUNG-FU GENERATION",
@@ -87602,6 +93211,40 @@
       "venue_key": "k_arena_yokohama",
       "artists": [
         "ゆず"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1674575/tmg-live-2026-sayonara-/tokyo/2026-10-23/ja",
+      "title_ja": "TMG",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-10-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京ガーデンシアター",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1674575/tmg-live-2026-sayonara-/tokyo/2026-10-23/ja",
+      "ticket_links": [],
+      "lineup": [
+        "TMG"
+      ],
+      "tags": [],
+      "id": "afcdd5f9011d1133",
+      "status": "approved",
+      "venue_key": "tokyo_garden_theater",
+      "artists": [
+        "TMG"
       ]
     },
     {
@@ -88034,7 +93677,9 @@
       "id": "c0a9f8ab4e39e33c",
       "status": "approved",
       "venue_key": "sgc_hall_ariake",
-      "artists": []
+      "artists": [
+        "長渕 剛"
+      ]
     },
     {
       "source": "zepp_haneda",
@@ -90518,6 +96163,40 @@
       ]
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1682732/粗品/tokyo/2026-11-17/ja",
+      "title_ja": "粗品",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-11-17",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "豊洲PIT",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1682732/粗品/tokyo/2026-11-17/ja",
+      "ticket_links": [],
+      "lineup": [
+        "粗品"
+      ],
+      "tags": [],
+      "id": "6c555943a74c58c9",
+      "status": "approved",
+      "venue_key": "toyosu_pit",
+      "artists": [
+        "粗品"
+      ]
+    },
+    {
       "source": "sgc_hall_ariake",
       "source_url": "https://tdp.tv-asahi.co.jp/hall/event/0072/",
       "title_ja": "TEDESCHI TRUCKS BAND",
@@ -91068,6 +96747,40 @@
       ]
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1652553/m-lk/yokohama/2026-11-21/ja",
+      "title_ja": "M!LK ARENA TOUR 2026-2027 「シャカリキレボリューション」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-11-21",
+      "end_date": "2026-11-22",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "ぴあアリーナMM",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": "https://www.livenation.co.jp/show/1652553/m-lk/yokohama/2026-11-21/ja",
+      "ticket_links": [],
+      "lineup": [
+        "M!LK ARENA TOUR 2026-2027 「シャカリキレボリューション」"
+      ],
+      "tags": [],
+      "id": "3651198a4bbadaae",
+      "status": "approved",
+      "venue_key": "pia_arena_mm",
+      "artists": [
+        "M!LK ARENA TOUR 2026-2027 「シャカリキレボリューション」"
+      ]
+    },
+    {
       "source": "veats_shibuya",
       "source_url": "https://veats.jp/schedule/8480/",
       "title_ja": "ヒグチアイ",
@@ -91511,6 +97224,40 @@
       ]
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1649622/シンガーズハイ/tokyo/2026-11-24/ja",
+      "title_ja": "シンガーズハイ　We are SINGER'S HIGH from Tokyo.",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-11-24",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "日本武道館",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1649622/シンガーズハイ/tokyo/2026-11-24/ja",
+      "ticket_links": [],
+      "lineup": [
+        "シンガーズハイ　We are SINGER'S HIGH from Tokyo."
+      ],
+      "tags": [],
+      "id": "cc5ac177b8272f44",
+      "status": "approved",
+      "venue_key": "budokan",
+      "artists": [
+        "シンガーズハイ We are SINGER'S HIGH from Tokyo."
+      ]
+    },
+    {
       "source": "tokyo_dome",
       "source_url": "https://www.tokyo-dome.co.jp/dome/event/schedule.html#2026-11-25",
       "title_ja": "超特急",
@@ -91578,6 +97325,40 @@
       "venue_key": "k_arena_yokohama",
       "artists": [
         "IRON MAIDEN"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1655882/超特急/tokyo/2026-11-25/ja",
+      "title_ja": "超特急 東京ドーム公演",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-11-25",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京ドーム",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1655882/超特急/tokyo/2026-11-25/ja",
+      "ticket_links": [],
+      "lineup": [
+        "超特急 東京ドーム公演"
+      ],
+      "tags": [],
+      "id": "d32317ef64445249",
+      "status": "approved",
+      "venue_key": "tokyo_dome",
+      "artists": [
+        "超特急 東京ドーム公演"
       ]
     },
     {
@@ -91702,6 +97483,40 @@
       ]
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1684161/超特急/tokyo/2026-11-26/ja",
+      "title_ja": "超特急 東京ドーム公演",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-11-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京ドーム",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1684161/超特急/tokyo/2026-11-26/ja",
+      "ticket_links": [],
+      "lineup": [
+        "超特急 東京ドーム公演"
+      ],
+      "tags": [],
+      "id": "a11f7db0bec45edb",
+      "status": "approved",
+      "venue_key": "tokyo_dome",
+      "artists": [
+        "超特急 東京ドーム公演"
+      ]
+    },
+    {
       "source": "zepp_divercity",
       "source_url": "https://www.zepp.co.jp/hall/divercity/schedule/single/?rid=159823",
       "title_ja": "wave to earth",
@@ -91724,7 +97539,7 @@
       "price_min": 10300,
       "is_free": false,
       "is_sold_out": false,
-      "ticket_url": null,
+      "ticket_url": "https://www.livenation.co.jp/show/1674474/wave-to-earth-the-pieces-tour/tokyo/2026-11-27/ja",
       "ticket_links": [],
       "lineup": [],
       "tags": [],
@@ -92397,7 +98212,7 @@
       "price_min": 9800,
       "is_free": false,
       "is_sold_out": false,
-      "ticket_url": null,
+      "ticket_url": "https://www.livenation.co.jp/show/1685292/khalid-it-s-always-summer-somewhere-tour/tokyo/2026-12-03/ja",
       "ticket_links": [],
       "lineup": [
         "カリード"
@@ -94346,6 +100161,74 @@
       "artists": []
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1652547/m-lk/kanagawa/2027-01-15/ja",
+      "title_ja": "M!LK ARENA TOUR 2026-2027 「シャカリキレボリューション」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2027-01-15",
+      "end_date": "2027-01-17",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "横浜アリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": true,
+      "ticket_url": "https://www.livenation.co.jp/show/1652547/m-lk/kanagawa/2027-01-15/ja",
+      "ticket_links": [],
+      "lineup": [
+        "M!LK ARENA TOUR 2026-2027 「シャカリキレボリューション」"
+      ],
+      "tags": [],
+      "id": "9d2f5bf1f90861f0",
+      "status": "approved",
+      "venue_key": "yokohama_arena",
+      "artists": [
+        "M!LK ARENA TOUR 2026-2027 「シャカリキレボリューション」"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1683365/bruno-mars-the-romantic-tour-in-japan/saitama/2027-01-15/ja",
+      "title_ja": "Bruno Mars",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2027-01-15",
+      "end_date": "2027-01-16",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "ベルーナドーム(西武ドーム)",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1683365/bruno-mars-the-romantic-tour-in-japan/saitama/2027-01-15/ja",
+      "ticket_links": [],
+      "lineup": [
+        "Bruno Mars"
+      ],
+      "tags": [],
+      "id": "2665c2b324082b66",
+      "status": "approved",
+      "venue_key": "belluna_dome",
+      "artists": [
+        "Bruno Mars"
+      ]
+    },
+    {
       "source": "tokyo_garden_theater",
       "source_url": "https://www.shopping-sumitomo-rd.com/tokyo_garden_theater/schedule/5203/",
       "title_ja": "BUDDiiS vol.12 Hall Tour – LiMiT –",
@@ -94481,6 +100364,40 @@
       "venue_key": "tokyo_dome",
       "artists": [
         "=LOVE"
+      ]
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1630440/blue-25th-anniversary-tour/tokyo/2027-01-19/ja",
+      "title_ja": "Blue",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2027-01-19",
+      "end_date": "2027-01-20",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "Spotify O-EAST",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1630440/blue-25th-anniversary-tour/tokyo/2027-01-19/ja",
+      "ticket_links": [],
+      "lineup": [
+        "Blue"
+      ],
+      "tags": [],
+      "id": "861a2cd01d9299b8",
+      "status": "approved",
+      "venue_key": "oeast",
+      "artists": [
+        "Blue"
       ]
     },
     {
@@ -94655,7 +100572,9 @@
       "id": "3eb3e7fc582f8532",
       "status": "approved",
       "venue_key": "tokyo_dome",
-      "artists": []
+      "artists": [
+        "Bruno Mars"
+      ]
     },
     {
       "source": "tokyo_dome",
@@ -94689,7 +100608,9 @@
       "id": "db35659b529f6d7a",
       "status": "approved",
       "venue_key": "tokyo_dome",
-      "artists": []
+      "artists": [
+        "Bruno Mars"
+      ]
     },
     {
       "source": "shibuya_dive",

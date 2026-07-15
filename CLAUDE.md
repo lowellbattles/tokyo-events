@@ -64,7 +64,7 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
 | Jazz (Blue Note Japan) | bluenote_tokyo cotton_club | jazz-soul prior |
 | Halls / theaters | ex_theater line_cube_shibuya hulic_hall kanadevia_hall sgc_hall_ariake tokyo_intl_forum nhk_hall opera_city tachikawa_stage_garden orchard_hall | ex_theater + sgc_hall = TV-Asahi TDP JSON feeds; tokyo_intl_forum funnels the 8-hall complex to Hall A concerts via the detail pass; hulic = hulic-theater.com |
 | Arenas / domes / stadiums | yokohama_arena tokyo_dome tokyo_garden_theater ariake_arena toyota_arena_tokyo k_arena_yokohama yoyogi_gym1 kokuritsu_stadium makuhari_messe yokohama_buntai | tokyo_dome = one static full-year page, concert rows only; makuhari uses the site's own music-category filter (?c=2); kokuritsu = jns-e.com (MUFG naming) |
-| Promoters (2026-07-14) | sogo_tokyo creativeman smash_jpn udo_artists | promoters' own calendars — a PRIMARY source for their productions; covers gap venues (Budokan, Kinema Club, 東京体育館, ZOZO Marine, KANDA SQUARE HALL, 人見記念講堂...) and carries sold-out badges; venue strings stored RAW, resolved + deduped against venue sources at export (venues.py + promoters.py); unresolved venue strings skipped — extend venues.CANONICAL to admit new halls. Skipped: Kyodo Tokyo (WAF 403s our UA), DISK GARAGE (ticket agency), Live Nation/H.I.P. (Ticketmaster platform, JP scoping unreachable politely — owner policy call) |
+| Promoters (2026-07-14/15) | sogo_tokyo creativeman smash_jpn udo_artists disk_garage livenation_jp | promoters' own calendars — a PRIMARY source for their productions; covers gap venues (Budokan, Kinema Club, 東京体育館, ZOZO Marine, KANDA SQUARE HALL, Belluna Dome, Pacifico, Suntory Hall...) and carries sold-out badges; venue strings stored RAW, resolved + deduped against venue sources at export (venues.py + promoters.py); unresolved venue strings skipped — extend venues.CANONICAL to admit new halls. disk_garage + livenation_jp were onboarded on explicit OWNER approval 2026-07-15 (rule 2's ticketing-page ban does not cover them per owner); livenation_jp = JSON API with CountryIds=110, sold-out from allTicketStatus==3. Skipped: Kyodo Tokyo (WAF 403s our UA — we don't bypass bot detection) |
 | Festivals (2026-07-14) | festivals | curated ACTIVE_EDITIONS config (dates = facts, lineups scraped): Fuji Rock, Summer Sonic Tokyo, Rock in Japan, Sweet Love Shower, Ultra Japan, Countdown Japan skeleton; allow_empty=True (seasonal); category music_festival; the festival IS the venue identity (vclass festival); DORMANT_EDITIONS documents finished 2026 editions for next-season curation |
 
 Checked and NOT scrapeable (2026-07-13): Budokan (official site
@@ -82,7 +82,10 @@ SALOON (saloon-tokyo.com, UNIT's sister floor), other TDP JSON feeds.
 2. **Politeness.** Keep `rate_limit_s >= 2`, identifiable User-Agent,
    detail-fetch caps. Check robots.txt before adding any new source.
    Never scrape ticketing companies' own aggregation pages (e+ live house
-   listings etc.) — official venue sites only.
+   listings, Pia listing pages). Official venue sites, promoters' own
+   calendars, and platforms the owner explicitly approves (DISK GARAGE,
+   Live Nation Japan — approved 2026-07-15) are all fair game. Never
+   bypass bot detection: a site that 403s our honest UA stays skipped.
 3. **Parsers key off URL patterns and text conventions (OPEN/START/¥),
    not CSS class names.** Structural failure must be loud (found=0), not
    silent garbage.

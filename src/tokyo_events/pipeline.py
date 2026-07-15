@@ -64,6 +64,8 @@ from .scrapers.sogo_tokyo import SogoTokyoScraper
 from .scrapers.creativeman import CreativemanScraper
 from .scrapers.smash import SmashScraper
 from .scrapers.udo import UdoArtistsScraper
+from .scrapers.disk_garage import DiskGarageScraper
+from .scrapers.livenation import LiveNationScraper
 from .scrapers.festivals import FestivalsScraper
 
 # source_id -> (factory, default review status)
@@ -139,6 +141,8 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "creativeman":       (CreativemanScraper,                ReviewStatus.PENDING),
     "smash_jpn":         (SmashScraper,                      ReviewStatus.PENDING),
     "udo_artists":       (UdoArtistsScraper,                 ReviewStatus.PENDING),
+    "disk_garage":       (DiskGarageScraper,                 ReviewStatus.PENDING),
+    "livenation_jp":     (LiveNationScraper,                 ReviewStatus.PENDING),
     # --- festivals (curated editions; lineups scraped, dates are facts) ---
     "festivals":         (FestivalsScraper,                  ReviewStatus.PENDING),
 }

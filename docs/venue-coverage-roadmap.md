@@ -149,14 +149,12 @@ ticket-link union, gap-fill); gap-venue events stand alone under
 venue_key; festival-titled rows at host venues fold into festival
 records (after-parties at clubs survive).
 
-Probed and NOT onboarded (2026-07-14): Kyodo Tokyo (edge/WAF returns 403
-to our identifiable UA on every path incl. robots.txt — we do not bypass
-bot detection); DISK GARAGE (a ticket pre-sale agency platform, excluded
-by the no-ticketing-aggregators rule); Live Nation Japan / H.I.P.
-(hipjpn.co.jp is absorbed into Live Nation's global Ticketmaster
-platform; the events API cannot be Japan-scoped with polite GETs, and
-onboarding a Ticketmaster-family platform is an owner policy call —
-revisit if a JP-scoped feed appears).
+| DISK GARAGE | disk_garage | /artist/date/YYYY-MM calendar, ~60 venues aggregated; tax-included price parsing; onboarded on OWNER approval 2026-07-15 — its skipped-venue list drove a big curation wave (Suntory Hall, Ebisu Garden, Kashiwa PALOOZA...) |
+| Live Nation Japan | livenation_jp | JSON API /api/search/events with CountryIds=110 (the scoping facet earlier probes missed — found by reading the site's own network calls; plain GET + our honest UA); sold-out = allTicketStatus==3; surfaces Budokan/Tokyo Dome shows their venues never list; onboarded on OWNER approval 2026-07-15 |
+
+Probed and NOT onboarded: Kyodo Tokyo (edge/WAF returns 403 to our
+identifiable UA on every path incl. robots.txt — we do not bypass bot
+detection; revisit if their policy changes).
 
 ## Festivals (source class added 2026-07-14) ✅ built
 `festivals` source: curated ACTIVE_EDITIONS in scrapers/festivals.py —

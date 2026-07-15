@@ -26,7 +26,8 @@ import datetime as dt
 from .artists import norm_key
 from .venues import resolve_venue
 
-PROMOTER_SOURCES = {"sogo_tokyo", "creativeman", "smash_jpn", "udo_artists"}
+PROMOTER_SOURCES = {"sogo_tokyo", "creativeman", "smash_jpn", "udo_artists",
+                    "disk_garage", "livenation_jp"}
 FESTIVAL_SOURCE = "festivals"
 
 #: venue keys that HOST a festival we cover — only rows at these venues are
