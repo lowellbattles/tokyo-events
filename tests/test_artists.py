@@ -96,3 +96,17 @@ def test_cjk_title_match_respects_script_boundaries(tmp_path):
     assert events[1]["artists"] == []
     assert events[2]["artists"] == []
     assert events[3]["artists"] == ["レモン"]
+
+
+def test_longest_artist_wins_title_containment(tmp_path):
+    # TRUE (anisong singer) must not be linked to DREAMS COME TRUE shows.
+    store = EventStore(tmp_path / "true.db")
+    events = [
+        _ev("e1", "a", ["TRUE"]),
+        _ev("e2", "b", ["DREAMS COME TRUE"]),
+        _ev("e3", "DREAMS COME TRUE CONCERT TOUR 2026 THE BLACK ALBUM"),
+        _ev("e4", "TRUE Live Tour PLAY! vol.3"),
+    ]
+    apply_artists(store.conn, events)
+    assert events[2]["artists"] == ["DREAMS COME TRUE"]   # no TRUE
+    assert events[3]["artists"] == ["TRUE"]

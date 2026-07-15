@@ -646,3 +646,28 @@ def test_pipeline_soldout_sweep_flips_near_term_event(tmp_path, monkeypatch):
     stored = store.list_events()[0]
     assert stored["is_sold_out"] is True
     assert stored["price_min"] == 5000     # enrichment untouched
+
+
+# ------------------------------------------------- generic ticket links
+def test_generic_playguide_links_are_dropped():
+    from bs4 import BeautifulSoup
+    assert tu.is_generic_ticket_url("http://eplus.jp/")
+    assert tu.is_generic_ticket_url("https://l-tike.com/")
+    assert tu.is_generic_ticket_url("https://t.pia.jp/")
+    assert tu.is_generic_ticket_url("https://w.pia.jp/t/")
+    assert tu.is_generic_ticket_url("https://eplus.jp/sf/")
+    assert tu.is_generic_ticket_url("https://support.eplus.jp/hc/ja")
+    assert tu.is_generic_ticket_url("https://faq.l-tike.com/detail?id=1")
+    # real event/artist links must survive — including short slugs
+    assert not tu.is_generic_ticket_url("https://eplus.jp/9mm")
+    assert not tu.is_generic_ticket_url("https://w.pia.jp/t/oneandonly/")
+    assert not tu.is_generic_ticket_url("https://l-tike.com/bim")
+
+    soup = BeautifulSoup(
+        '<a href="http://eplus.jp/">e+</a>'
+        '<a href="https://support.eplus.jp/hc">help</a>'
+        '<a href="https://eplus.jp/chakra/">ちゃくら</a>'
+        '<a href="https://w.pia.jp/t/oneandonly/">ぴあ</a>', "lxml")
+    links = tu.extract_ticket_links(soup)
+    urls = {l["url"] for l in links}
+    assert urls == {"https://eplus.jp/chakra/", "https://w.pia.jp/t/oneandonly/"}

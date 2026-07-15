@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import datetime as dt
 import re
+from urllib.parse import urlparse
 
 OPEN_START_COMBINED_RE = re.compile(r"OPEN\s*/\s*START[\]】\s]*(\d{1,2}:\d{2})", re.I)
 OPEN_RE = re.compile(r"\[?OPEN[\]】\s:]*(\d{1,2}:\d{2})", re.I)
@@ -66,6 +67,29 @@ TICKET_PROVIDERS = {
 }
 P_CODE_RE = re.compile(r"[PＰ]コード[:：\s]*([\d-]{4,10})")
 L_CODE_RE = re.compile(r"[LＬ]コード[:：\s]*([\d-]{4,10})")
+
+#: playguide hosts that never identify an event (help desks, FAQ)
+_NONEVENT_TICKET_HOST_RE = re.compile(r"^(?:support|faq|info|help)\.", re.I)
+#: provider section roots with no event identity ("eplus.jp/sf/", "w.pia.jp/t/")
+_GENERIC_TICKET_PATHS = {"t", "sf", "interpia"}
+
+
+def is_generic_ticket_url(url: str) -> bool:
+    """True for playguide links that point at the provider itself rather
+    than an event — bare homepages (http://eplus.jp/), section roots and
+    support/FAQ subdomains. Venue pages love placing these next to real
+    event links, and a homepage is worse than no link. Short paths like
+    eplus.jp/9mm are real artist slugs and must survive."""
+    try:
+        p = urlparse(url)
+    except ValueError:                          # pragma: no cover
+        return True
+    if _NONEVENT_TICKET_HOST_RE.match(p.netloc or ""):
+        return True
+    path = (p.path or "").strip("/")
+    if not path and not p.query:
+        return True
+    return path.lower() in _GENERIC_TICKET_PATHS and not p.query
 
 
 def first(pattern: re.Pattern, s: str) -> str | None:
@@ -159,7 +183,8 @@ def extract_ticket_links(soup, page_text: str = "") -> list[dict]:
     for a in soup.find_all("a", href=True):
         href = a["href"]
         for domain, provider in TICKET_PROVIDERS.items():
-            if domain in href and (provider, href) not in seen:
+            if domain in href and (provider, href) not in seen \
+                    and not is_generic_ticket_url(href):
                 seen.add((provider, href))
                 links.append({"provider": provider, "url": href, "code": None})
                 break

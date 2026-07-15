@@ -74,10 +74,10 @@ def _title_match_re(key: str) -> re.Pattern | None:
     return re.compile(rf"(?<![0-9a-z]){re.escape(key)}(?![0-9a-z])")
 
 
-def _cjk_bounded(key: str, hay: str) -> bool:
-    """True if `key` occurs in `hay` with script-class boundaries: the
-    char immediately before/after the match must not continue the same
-    script as the key's edge char (レモン must not match inside
+def _cjk_bounded_span(key: str, hay: str) -> tuple[int, int] | None:
+    """First occurrence of `key` in `hay` with script-class boundaries:
+    the char immediately before/after the match must not continue the
+    same script as the key's edge char (レモン must not match inside
     レモンジャム; ヨルシカ in ヨルシカな夜 is fine — な switches script)."""
     start = 0
     while (i := hay.find(key, start)) != -1:
@@ -85,9 +85,9 @@ def _cjk_bounded(key: str, hay: str) -> bool:
         j = i + len(key)
         right_ok = j >= len(hay) or _script(hay[j]) != _script(key[-1])
         if left_ok and right_ok:
-            return True
+            return (i, j)
         start = i + 1
-    return False
+    return None
 
 
 def apply_artists(conn, events: list[dict]) -> None:
@@ -135,11 +135,23 @@ def _apply(conn, events: list[dict]) -> None:
         hay = norm_key(f"{d.get('title_ja') or ''} {d.get('title_en') or ''}")
         if not hay:
             continue
+        # Collect every key's first match WITH its span, then drop matches
+        # strictly contained in a longer key's span: TRUE must not link to
+        # a DREAMS COME TRUE show — the longest matching artist wins.
+        spans: list[tuple[str, int, int]] = []
         for key, rx in ascii_matchers.items():
-            if d["id"] not in links[key] and rx.search(hay):
-                links[key].add(d["id"])
+            m = rx.search(hay)
+            if m:
+                spans.append((key, m.start(), m.end()))
         for key in cjk_keys:
-            if d["id"] not in links[key] and _cjk_bounded(key, hay):
+            span = _cjk_bounded_span(key, hay)
+            if span:
+                spans.append((key, span[0], span[1]))
+        for key, s, e in spans:
+            swallowed = any(
+                s2 <= s and e <= e2 and (e2 - s2) > (e - s)
+                for _k2, s2, e2 in spans)
+            if not swallowed:
                 links[key].add(d["id"])
 
     # -- rebuild tables (derived index: wipe links, upsert artists) ------

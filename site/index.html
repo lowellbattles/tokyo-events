@@ -428,10 +428,12 @@ const dot=(src)=>{const v=VENUES[src];
 /* --- artist cross-linking (client-side, computed from the feed) --- */
 const norm=s=>String(s||"").normalize("NFKC").toLowerCase().replace(/\s+/g," ").trim();
 function evMatchesArtist(ev,name){
+  /* the exported artists[] index already includes guarded title matching
+     (longest-artist-wins) — a raw substring fallback here would re-open
+     false links like TRUE -> DREAMS COME TRUE shows */
   const n=norm(name); if(!n) return false;
   if((ev.artists||[]).some(a=>norm(a)===n)) return true;   /* server index */
-  if((ev.lineup||[]).some(a=>norm(a)===n)) return true;
-  return norm(ev.title_ja).includes(n)||norm(ev.title_en).includes(n);
+  return (ev.lineup||[]).some(a=>norm(a)===n);
 }
 /* Titles are often "A / B" multi-act bills — make each act clickable. */
 function titleSegments(title){
