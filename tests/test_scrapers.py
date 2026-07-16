@@ -1,4 +1,5 @@
 import datetime as dt
+import re
 import sys
 from pathlib import Path
 
@@ -14,6 +15,7 @@ from tokyo_events.scrapers import textutils as tu
 
 FIX = Path(__file__).parent / "fixtures"
 TODAY = dt.date(2026, 7, 2)   # pin 'today' so year inference is deterministic
+DATE_PREFIX_RE = re.compile(r"^\s*20\d{2}\s")   # titles must not start w/ date
 
 
 def _load(name):
@@ -121,6 +123,22 @@ def test_billboard_fields():
     assert "2-stages" in e.tags
     assert e.genres == ["jazz-soul"]
     assert e.venue_name == "Billboard Live TOKYO"
+
+
+def test_billboard_2026_07_relayout_titles_lose_date_prefix():
+    """2026-07 relayout: date token '2026 7.16 ( Thu )' moved in front of the
+    title; titles must come from the semantic <h3 aria-label>, not swallow
+    the date."""
+    evs = BillboardScraper("billboard_tokyo").parse(
+        _load("billboard_schedule_live.html"))
+    assert len(evs) == 23
+    assert not any(DATE_PREFIX_RE.match(e.title_ja) for e in evs)
+    e = next(e for e in evs if e.start_date == "2026-07-15")
+    assert e.title_ja == "中村雅俊 ビルボードライブ2026"
+    assert e.subtitle == "Masatoshi Nakamura"
+    assert (e.open_time, e.start_time) == ("14:30", "15:30")
+    assert e.price_min == 9300                                 # casual tier
+    assert "2-stages" in e.tags
 
 
 # --------------------------------------------------------- detail enrichment
@@ -658,8 +676,20 @@ def test_generic_playguide_links_are_dropped():
     assert tu.is_generic_ticket_url("https://eplus.jp/sf/")
     assert tu.is_generic_ticket_url("https://support.eplus.jp/hc/ja")
     assert tu.is_generic_ticket_url("https://faq.l-tike.com/detail?id=1")
+    # provider-site chrome: privacy policy, membership pitch, help, legacy
+    # e+ homepage (2026-07-16: these leaked into ~90 exported events)
+    assert tu.is_generic_ticket_url("https://t.pia.jp/info/privacy.jsp")
+    assert tu.is_generic_ticket_url("https://t.pia.jp/premium/piacard/")
+    assert tu.is_generic_ticket_url("https://t.pia.jp/help/")
+    assert tu.is_generic_ticket_url("https://t.pia.jp/guide/how-to.jsp")
+    assert tu.is_generic_ticket_url("http://eplus.jp/sys/main.jsp")
+    assert tu.is_generic_ticket_url("https://eplus.jp/qa")
+    assert tu.is_generic_ticket_url("https://l-tike.com/contact/")
+    assert tu.is_generic_ticket_url("https://tiget.net/inquiry")
     # real event/artist links must survive — including short slugs
     assert not tu.is_generic_ticket_url("https://eplus.jp/9mm")
+    assert not tu.is_generic_ticket_url("https://tiget.net/events/12345")
+    assert not tu.is_generic_ticket_url("https://t.pia.jp/pia/event/event.do?eventCd=1")
     assert not tu.is_generic_ticket_url("https://w.pia.jp/t/oneandonly/")
     assert not tu.is_generic_ticket_url("https://l-tike.com/bim")
 

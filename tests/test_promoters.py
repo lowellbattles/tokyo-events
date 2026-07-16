@@ -68,11 +68,15 @@ def test_merge_never_overwrites_venue_facts():
     assert venue["price_min"] == 6000           # venue is authoritative
 
 
-def test_unresolvable_promoter_venue_falls_back_to_source_key():
+def test_unresolved_promoter_venue_is_skipped_from_export():
+    """A promoter row with no displayable venue — unresolved string or a
+    listing-level placeholder (venue_name None) — must not export; keeping
+    it made the promoter itself appear as a venue on the site."""
     promo = _promo_ev(venue_name="謎の新会場XYZ")
-    out = apply_promoter_merge([promo])
-    assert out == [promo]
-    assert promo["venue_key"] == "creativeman"
+    placeholder = _promo_ev(venue_name=None,
+                            source_url="https://cm.example/tour2/#2026-09-01")
+    out = apply_promoter_merge([promo, placeholder])
+    assert out == []
 
 
 def _fest_ev(**kw):

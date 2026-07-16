@@ -72,14 +72,24 @@ L_CODE_RE = re.compile(r"[LＬ]コード[:：\s]*([\d-]{4,10})")
 _NONEVENT_TICKET_HOST_RE = re.compile(r"^(?:support|faq|info|help)\.", re.I)
 #: provider section roots with no event identity ("eplus.jp/sf/", "w.pia.jp/t/")
 _GENERIC_TICKET_PATHS = {"t", "sf", "interpia"}
+#: provider site sections that NEVER identify an event, query or not —
+#: privacy policies (t.pia.jp/info/privacy.jsp), membership-card pitches
+#: (t.pia.jp/premium/piacard/), help/FAQ/contact pages. Venue pages drop
+#: these in their footers right next to the real playguide links.
+_NONEVENT_TICKET_SECTIONS = {"info", "premium", "guide", "help", "faq",
+                             "inquiry", "qa", "contact"}
+#: exact legacy non-event paths ("http://eplus.jp/sys/main.jsp" is the old
+#: e+ homepage; other /sys/ paths were real event pages, so match exactly)
+_NONEVENT_TICKET_EXACT = {"sys/main.jsp"}
 
 
 def is_generic_ticket_url(url: str) -> bool:
     """True for playguide links that point at the provider itself rather
-    than an event — bare homepages (http://eplus.jp/), section roots and
-    support/FAQ subdomains. Venue pages love placing these next to real
-    event links, and a homepage is worse than no link. Short paths like
-    eplus.jp/9mm are real artist slugs and must survive."""
+    than an event — bare homepages (http://eplus.jp/), section roots,
+    support/FAQ subdomains, and provider-site chrome (privacy policy,
+    membership pitches, help desks). Venue pages love placing these next
+    to real event links, and a homepage is worse than no link. Short paths
+    like eplus.jp/9mm are real artist slugs and must survive."""
     try:
         p = urlparse(url)
     except ValueError:                          # pragma: no cover
@@ -88,6 +98,10 @@ def is_generic_ticket_url(url: str) -> bool:
         return True
     path = (p.path or "").strip("/")
     if not path and not p.query:
+        return True
+    if path.lower() in _NONEVENT_TICKET_EXACT:
+        return True
+    if path.lower().split("/")[0] in _NONEVENT_TICKET_SECTIONS:
         return True
     return path.lower() in _GENERIC_TICKET_PATHS and not p.query
 

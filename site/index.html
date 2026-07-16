@@ -7,7 +7,7 @@
 <style>
   :root{
     --paper:#f5f5f2; --card:#ffffff; --ink:#15171c; --ink-2:#5b606b; --ink-3:#9aa0ac;
-    --line:#e3e3de; --stamp:#c8102e;
+    --line:#e3e3de; --stamp:#c8102e; --tix:#0b7a3e;
     --f-liquid:#4c5fd5; --f-ogroup:#00a04b; --f-zepp:#0091d4;
     --f-billboard:#8f2d56; --f-pia:#e4007f; --f-other:#6b7280;
     --f-quattro:#d97706; --f-www:#7c3aed; --f-duo:#0d9488; --f-loft:#b91c1c;
@@ -73,9 +73,10 @@
   .area{color:var(--ink-3)}
   .price{font-variant-numeric:tabular-nums;color:var(--ink-2);font-weight:600}
   .g-tag{font-size:10px;font-weight:700;letter-spacing:.05em;color:var(--ink-2);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
-  .tickets{display:inline-flex;gap:5px}
-  .tickets a{font-size:10px;font-weight:700;border:1px solid var(--line);border-radius:4px;padding:1px 6px;text-decoration:none;color:var(--ink-2)}
-  .tickets a:hover{border-color:var(--ink-2);color:var(--ink)}
+  .tickets{display:flex;gap:6px;flex-wrap:wrap;align-items:center;margin-top:8px}
+  .tickets .tix-label{font-size:9.5px;font-weight:800;letter-spacing:.12em;color:var(--tix)}
+  .tickets a{font-size:11px;font-weight:700;border:1.5px solid var(--tix);border-radius:999px;padding:2px 10px;text-decoration:none;color:var(--tix);background:var(--card)}
+  .tickets a:hover{background:var(--tix);color:#fff}
   .lineup{font-size:11.5px;color:var(--ink-3);margin-top:6px;display:-webkit-box;-webkit-line-clamp:1;-webkit-box-orient:vertical;overflow:hidden}
   .srclink{font-size:12px;font-weight:700;text-decoration:none;color:var(--ink);white-space:nowrap;margin-left:auto}
   .srclink:hover{text-decoration:underline}
@@ -314,6 +315,7 @@ const I18N = {
     open:"OPEN",start:"START",tbd:"詳細は公演ページへ",
     from:p=>`¥${p.toLocaleString()}〜`,free:"無料",
     details:"公演ページ →",sold:"SOLD OUT",ended:"終了",todayTag:"本日",
+    tickets:"チケット",
     multi:(a,b)=>`${a}〜${b}`,
     dow:["日","月","火","水","木","金","土"],
     dayfmt:d=>`${d.getMonth()+1}月${d.getDate()}日`,
@@ -324,6 +326,7 @@ const I18N = {
     okList:"取得済み",errList:"エラー",waitList:"イベント0件",
     facts:"本サイトは事実情報（日時・会場・料金）のみを掲載し、詳細・写真・チケットは各公演ページへリンクします。",
     allVenues:"すべて",expandAll:"すべて開く",collapseAll:"すべて閉じる",
+    moreVenues:n=>`+ 他 ${n} 会場`,fewerVenues:"− 会場を減らす",
     back:"← 一覧へ戻る",
     artistShows:n=>`今後の公演 ${n} 件`,venueShows:n=>`公演 ${n} 件`,
     playsAt:"出演会場",
@@ -343,6 +346,7 @@ const I18N = {
     open:"OPEN",start:"START",tbd:"See event page",
     from:p=>`From ¥${p.toLocaleString()}`,free:"Free",
     details:"Details →",sold:"SOLD OUT",ended:"Ended",todayTag:"Today",
+    tickets:"TICKETS",
     multi:(a,b)=>`${a} – ${b}`,
     dow:["SUN","MON","TUE","WED","THU","FRI","SAT"],
     dayfmt:d=>`${["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]} ${d.getDate()}`,
@@ -353,6 +357,7 @@ const I18N = {
     okList:"captured",errList:"errors",waitList:"0 events",
     facts:"This site lists facts only (dates, venues, prices) and links to each event page for details, photos, and tickets.",
     allVenues:"All",expandAll:"Expand all",collapseAll:"Collapse all",
+    moreVenues:n=>`+ ${n} more venues`,fewerVenues:"− Fewer venues",
     back:"← Back to list",
     artistShows:n=>`${n} upcoming show${n===1?"":"s"}`,
     venueShows:n=>`${n} show${n===1?"":"s"}`,
@@ -361,8 +366,9 @@ const I18N = {
 };
 
 /* ============================================================ state */
-let DATA=null, VENUES={}, lang="ja", when="week", genre="all", query="";
+let DATA=null, VENUES={}, VENUE_COUNTS={}, lang="ja", when="week", genre="all", query="";
 let vclass="all";
+let venuesExpanded=false;
 let activeVenues=new Set();
 let collapsedDays=new Set();
 /* route: null = main list; {artist:name} or {venue:sourceId} = detail page */
@@ -394,6 +400,9 @@ async function load(){
       VENUES[vid]={...meta,
         name:ev.venue_name||vid, area:ev.venue_area||""};
     }
+    // upcoming-show count drives which chips the collapsed strip shows
+    if(ev.start_date&&isMusic(ev)&&P(ev.end_date||ev.start_date)>=TODAY)
+      VENUE_COUNTS[vid]=(VENUE_COUNTS[vid]||0)+1;
   }
   activeVenues=new Set(Object.keys(VENUES));
   document.getElementById("filters").hidden=false;
@@ -437,6 +446,16 @@ function matches(ev){
   return true;
 }
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+/* Narrowing to one venue/class from a short date window often lands on an
+   empty list even though the venue has upcoming shows — silently widen the
+   window to "all dates" when (and only when) that rescues the result. */
+function widenWhenIfEmpty(){
+  if(when==="all"||!DATA) return;
+  if(DATA.events.some(matches)) return;
+  const saved=when;
+  when="all";
+  if(!DATA.events.some(matches)) when=saved;   /* truly nothing — keep window */
+}
 const dot=(src)=>{const v=VENUES[src];
   return `<span class="v-dot" style="background:${FAM_COLOR[v.fam]}">${v.letter}</span>`;};
 /* --- artist cross-linking (client-side, computed from the feed) --- */
@@ -487,6 +506,7 @@ function renderVclassChips(){
       /* a class pick resets any single-venue selection so the list
          reflects the whole class, not a stale venue intersection */
       activeVenues=new Set(Object.keys(VENUES));
+      if(c!=="all") widenWhenIfEmpty();
       render();
     };
     row.appendChild(b);
@@ -495,14 +515,34 @@ function renderVclassChips(){
 function renderVenueChips(){
   const wrap=document.getElementById("venue-chips");wrap.innerHTML="";
   const L=I18N[lang];
-  /* venue strip is grouped by class (livehouse → jazz → hall → arena)
-     and, when a class filter is active, shows only that class */
-  const shown=Object.keys(VENUES)
-    .filter(id=>vclass==="all"||vclassOf(id)===vclass)
-    .sort((a,b)=>{
-      const ca=VCLASS_KEYS.indexOf(vclassOf(a)), cb=VCLASS_KEYS.indexOf(vclassOf(b));
-      return ca!==cb?ca-cb:VENUES[a].name.localeCompare(VENUES[b].name,"ja");
-    });
+  const byClassThenName=(a,b)=>{
+    const ca=VCLASS_KEYS.indexOf(vclassOf(a)), cb=VCLASS_KEYS.indexOf(vclassOf(b));
+    return ca!==cb?ca-cb:VENUES[a].name.localeCompare(VENUES[b].name,"ja");
+  };
+  /* With a class picked: that class's full strip (incl. festivals under
+     フェス). At "all": festivals stay out of the strip, and only the
+     busiest venues show until the "+N more" chip expands the rest. */
+  let shown, hidden=0;
+  if(vclass!=="all"){
+    shown=Object.keys(VENUES).filter(id=>vclassOf(id)===vclass)
+      .sort(byClassThenName);
+  }else{
+    const pool=Object.keys(VENUES).filter(id=>vclassOf(id)!=="festival");
+    if(venuesExpanded){
+      shown=pool.sort(byClassThenName);
+    }else{
+      shown=pool.slice()
+        .sort((a,b)=>(VENUE_COUNTS[b]||0)-(VENUE_COUNTS[a]||0))
+        .slice(0,15);
+      /* a solo-selected venue must stay visible even outside the top 15 */
+      if(activeVenues.size===1){
+        const sel=[...activeVenues][0];
+        if(!shown.includes(sel)&&pool.includes(sel)) shown.push(sel);
+      }
+      hidden=pool.length-shown.length;
+      shown.sort(byClassThenName);
+    }
+  }
   const all=Object.keys(VENUES);
   const allActive=activeVenues.size===all.length;
   const allBtn=document.createElement("button");
@@ -525,10 +565,18 @@ function renderVenueChips(){
         activeVenues=new Set(all);          /* click solo again -> all */
       }else{
         activeVenues=new Set([id]);         /* click -> only this venue */
+        widenWhenIfEmpty();
       }
       render();
     };
     wrap.appendChild(b);
+  }
+  if(vclass==="all"&&(hidden>0||venuesExpanded)){
+    const t=document.createElement("button");
+    t.className="chip";
+    t.textContent=venuesExpanded?L.fewerVenues:L.moreVenues(hidden);
+    t.onclick=()=>{venuesExpanded=!venuesExpanded;renderVenueChips();};
+    wrap.appendChild(t);
   }
 }
 function ticketBadges(ev){
@@ -536,9 +584,10 @@ function ticketBadges(ev){
   if(!links.length) return "";
   const label={eplus:"e+",pia:"ぴあ",lawson:"ローチケ",rakuten:"楽天",
     zaiko:"ZAIKO",livepocket:"LivePocket",tiget:"TIGET",ticketmaster:"TM"};
-  return `<span class="tickets">`+links.map(t=>
-    `<a href="${esc(t.url)}" target="_blank" rel="noopener">${label[t.provider]||t.provider}</a>`
-  ).join("")+`</span>`;
+  return `<div class="tickets"><span class="tix-label">${I18N[lang].tickets}</span>`+
+    links.map(t=>
+      `<a href="${esc(t.url)}" target="_blank" rel="noopener">${label[t.provider]||t.provider}</a>`
+    ).join("")+`</div>`;
 }
 function dayGroupsHtml(evs){
   const L=I18N[lang];
@@ -584,10 +633,11 @@ function dayGroupsHtml(evs){
           <div class="meta">
             <span class="venue-tag alink" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</span>
             <span class="area">${esc(V.area)}</span>
-            ${price}${gtags}${ticketBadges(ev)}
+            ${price}${gtags}
             <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${L.details}</a>
           </div>
           ${lineupHtml?`<div class="lineup">${lineupHtml}</div>`:""}
+          ${ticketBadges(ev)}
         </div>
         ${ev.is_sold_out?`<div class="stamp">${L.sold}</div>`:""}
       </article>`;

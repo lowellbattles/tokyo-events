@@ -3,13 +3,18 @@
 Covers TOKYO (Roppongi/Midtown) and YOKOHAMA (Bashamichi); OSAKA exists on
 the same platform if geography ever widens.
 
-Structure verified live 2026-07-02:
+Structure verified live 2026-07-02, re-verified 2026-07-16 after a relayout:
 - Month schedule pages: /{city}/schedules?month=YYYY-MM-01
 - Event anchors: /{city}/show?event_id=ev-NNNNN&date=YYYY-MM-DD
   (event id AND date in the URL — best-case scrapeability)
-- Block text: doubled title, date "2026 6.1(Mon)", artist reading,
-  "1st Stage / Open HH:MM / Start HH:MM - 2nd Stage / ...",
+- Each anchor carries a semantic <hgroup> heading: <h3 aria-label="TITLE">
+  plus <p> subtitle/reading lines. Title comes from there (semantic tags,
+  not CSS classes). Flattened block text still supplies
+  "1st Stage / Open HH:MM / Start HH:MM - 2nd Stage / ..." and
   "Music Charge" price tiers (min tier = casual seat).
+- 2026-07 relayout: the date token moved in FRONT of the title and gained
+  spaces — "2026 7.16 ( Thu )" — which the old text-only title parse
+  swallowed into title_ja. The text parse survives as a fallback only.
 - Multi-night runs share event_id with distinct date params -> one Event
   per night, which is what we want.
 
@@ -47,7 +52,8 @@ STAGE_RE = re.compile(
     r"1st\s*Stage\s*/\s*Open\s*(\d{1,2}:\d{2})\s*/\s*Start\s*(\d{1,2}:\d{2})",
     re.I)
 STAGE2_RE = re.compile(r"2nd\s*Stage", re.I)
-DATE_TOKEN_RE = re.compile(r"20\d{2}\s*(\d{1,2})[.](\d{1,2})\s*[(（]\w+[)）]")
+DATE_TOKEN_RE = re.compile(
+    r"20\d{2}\s*(\d{1,2})[.](\d{1,2})\s*[(（]\s*\w+\s*[)）]")
 
 
 class BillboardScraper(BaseScraper):
@@ -84,27 +90,51 @@ class BillboardScraper(BaseScraper):
                 continue
             url = href if href.startswith("http") else self.BASE + href
             text = re.sub(r"\s+", " ", a.get_text(" ", strip=True))
-            ev = self._parse_block(text, url, date[0])
+            title, subtitle = self._heading(a)
+            ev = self._parse_block(text, url, date[0], title, subtitle)
             if ev and ev.source_url not in events:
                 events[ev.source_url] = ev
         return list(events.values())
 
-    def _parse_block(self, text: str, url: str, date: str) -> Event | None:
+    @staticmethod
+    def _heading(a) -> tuple[str | None, str | None]:
+        """Title/subtitle from the anchor's semantic heading: <hgroup> with
+        <h3 aria-label="full title"> and <p> subtitle/reading lines."""
+        hg = a.find("hgroup")
+        h3 = hg.find("h3") if hg else a.find("h3")
+        if h3 is None:
+            return None, None
+        title = (h3.get("aria-label") or "").strip() \
+            or re.sub(r"\s+", " ", h3.get_text(" ", strip=True))
+        subs = [re.sub(r"\s+", " ", p.get_text(" ", strip=True))
+                for p in (hg.find_all("p") if hg else [])]
+        subtitle = " / ".join(s for s in subs if s) or None
+        return title or None, subtitle
+
+    def _parse_block(self, text: str, url: str, date: str,
+                     title: str | None = None,
+                     subtitle: str | None = None) -> Event | None:
         try:
             dt.date.fromisoformat(date)
         except ValueError:
             return None
 
-        # Title: text before the date token is a doubled title; text between
-        # the date token and "Open / Start" holds title+reading (subtitle).
-        head = re.split(r"Open\s*/\s*Start", text, maxsplit=1)[0]
-        m = DATE_TOKEN_RE.search(head)
-        if m:
-            before, after = head[:m.start()].strip(), head[m.end():].strip()
-            title, _ = tu.split_repeated_title(before)
-            subtitle = after.replace(title, "").strip(" -–—|・※") or None
-        else:
-            title, subtitle = tu.split_repeated_title(head.strip())
+        # Text-convention fallback when no semantic heading was found:
+        # pre-relayout blocks double the title before the date token and put
+        # the reading after it; post-relayout blocks lead with the date token
+        # and follow with the title.
+        if not title:
+            head = re.split(r"Open\s*/\s*Start", text, maxsplit=1)[0]
+            m = DATE_TOKEN_RE.search(head)
+            if m:
+                before, after = head[:m.start()].strip(), head[m.end():].strip()
+                if before:
+                    title, _ = tu.split_repeated_title(before)
+                    subtitle = after.replace(title, "").strip(" -–—|・※") or None
+                else:
+                    title, subtitle = tu.split_repeated_title(after)
+            else:
+                title, subtitle = tu.split_repeated_title(head.strip())
         if not title:
             return None
 

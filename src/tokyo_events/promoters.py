@@ -141,7 +141,11 @@ def _apply(events: list[dict]) -> list[dict]:
             d["venue_key"] = (resolve_venue(d.get("venue_name"))
                               or FESTIVAL_SOURCE)
         elif d["source"] in PROMOTER_SOURCES:
-            d["venue_key"] = resolve_venue(d.get("venue_name")) or d["source"]
+            # None marks a promoter row with no displayable venue: either a
+            # listing-level placeholder awaiting detail enrichment
+            # (venue_name None) or a venue string not in venues.CANONICAL.
+            # Exporting those made the promoter itself show up as a venue.
+            d["venue_key"] = resolve_venue(d.get("venue_name"))
         else:
             d["venue_key"] = d["source"]
             by_date_venue.setdefault(
@@ -149,7 +153,7 @@ def _apply(events: list[dict]) -> list[dict]:
 
     wins = _festival_windows(events)
     out: list[dict] = []
-    merged = fest_folded = 0
+    merged = fest_folded = unresolved = 0
     for d in events:
         if d["source"] == FESTIVAL_SOURCE:
             out.append(d)
@@ -160,6 +164,9 @@ def _apply(events: list[dict]) -> list[dict]:
         if d["source"] not in PROMOTER_SOURCES:
             out.append(d)
             continue
+        if not d["venue_key"]:
+            unresolved += 1
+            continue
         candidates = by_date_venue.get((d.get("start_date"), d["venue_key"]))
         hit = next((c for c in candidates or []
                     if _artist_overlap(d, c)), None)
@@ -168,7 +175,8 @@ def _apply(events: list[dict]) -> list[dict]:
             merged += 1
         else:
             out.append(d)
-    if merged or fest_folded:
+    if merged or fest_folded or unresolved:
         print(f"promoter merge: folded {merged} duplicate rows into venue "
-              f"records, {fest_folded} into festival records")
+              f"records, {fest_folded} into festival records; skipped "
+              f"{unresolved} promoter rows with no resolved venue")
     return out
