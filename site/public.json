@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-16T07:11:49.779389",
+  "generated_at": "2026-07-16T16:34:46.834736",
   "sources": [
     {
       "source": "ariake_arena",
@@ -11,18 +11,18 @@
     },
     {
       "source": "billboard_tokyo",
-      "started_at": "2026-07-16T06:44:23",
+      "started_at": "2026-07-16T16:34:36",
       "found": 42,
       "new": 0,
-      "changed": 0,
+      "changed": 42,
       "error": null
     },
     {
       "source": "billboard_yokohama",
-      "started_at": "2026-07-16T06:44:28",
+      "started_at": "2026-07-16T16:34:40",
       "found": 38,
       "new": 0,
-      "changed": 1,
+      "changed": 38,
       "error": null
     },
     {
@@ -510,11 +510,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/sf/detail/4512870001-P0030001",
           "code": null
         }
@@ -623,11 +618,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
         {
           "provider": "eplus",
           "url": "https://eplus.jp/hitorie/",
@@ -1003,9 +993,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21399&date=2026-07-01",
-      "title_ja": "2026 7.1 ( Wed ) An Intimate Night with Erykah Badu エリカ・バドゥ",
+      "title_ja": "An Intimate Night with Erykah Badu",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "エリカ・バドゥ",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -1419,13 +1409,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [
-        {
-          "provider": "muramatsuflute",
-          "url": "http://www.muramatsuflute.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "3ffb39b9c67f37b6",
@@ -1702,13 +1686,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "【出演】CANDY TUNE / 錦鯉 / ゆうたろう"
       ],
@@ -1742,18 +1720,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "5df87c475237e860",
@@ -1998,11 +1965,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/hitorie/",
           "code": null
         }
@@ -2131,9 +2093,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21333&date=2026-07-02",
-      "title_ja": "2026 7.2 ( Thu ) Billboard JAPAN Records presents Los Retros with special guests 一十三十一＆ JINTANA & EMERALDS",
+      "title_ja": "Los Retros with special guests 一十三十一＆JINTANA & EMERALDS",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Billboard JAPAN Records presents",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -2603,13 +2565,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [
-        {
-          "provider": "muramatsuflute",
-          "url": "http://www.muramatsuflute.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "c388c57fe7e95dc3",
@@ -3027,13 +2983,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "9c6f32cfbe2c04d5",
@@ -3204,9 +3154,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21379&date=2026-07-03",
-      "title_ja": "2026 7.3 ( Fri ) 中田裕二 THE BLUE SEAGULLS Yuji Nakada",
+      "title_ja": "中田裕二",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "THE BLUE SEAGULLS / Yuji Nakada",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -3233,16 +3183,14 @@
       "id": "e1825ea990f7cbc3",
       "status": "approved",
       "venue_key": "billboard_tokyo",
-      "artists": [
-        "Blue"
-      ]
+      "artists": []
     },
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21305&date=2026-07-03",
-      "title_ja": "2026 7.3 ( Fri ) 稲垣潤一 コンセプトライブ2026 Focus on the endless chain ～back to the 2001〜 Junichi Inagaki",
+      "title_ja": "稲垣潤一 コンセプトライブ2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Focus on the endless chain ～back to the 2001〜 / Junichi Inagaki",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -3732,13 +3680,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [
-        {
-          "provider": "muramatsuflute",
-          "url": "http://www.muramatsuflute.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "f8a61b2fd64b2a06",
@@ -3926,11 +3868,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
           "provider": "eplus",
           "url": "https://eplus.jp/chehon/",
           "code": null
@@ -4112,11 +4049,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/mayaongaku/",
           "code": null
         },
@@ -4270,13 +4202,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "https://eplus.jp/qa/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "ac604d61805c20ce",
@@ -4287,9 +4213,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21349&date=2026-07-04",
-      "title_ja": "2026 7.4 ( Sat ) May J. Billboard Live Tour 2026 - 20 Years of Love -",
+      "title_ja": "May J. Billboard Live Tour 2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "- 20 Years of Love -",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -4981,13 +4907,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://shibukon.com",
-      "ticket_links": [
-        {
-          "provider": "shibukon",
-          "url": "https://shibukon.com",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "b4c8c95476854d4a",
@@ -5019,13 +4939,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [
-        {
-          "provider": "muramatsuflute",
-          "url": "http://www.muramatsuflute.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "50bb28ea665211e9",
@@ -5605,13 +5519,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "YANG YOSEOP"
       ],
@@ -5647,18 +5555,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "e0331302231903ca",
@@ -5970,11 +5867,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
           "provider": "pia",
           "url": "http://ticket-search.pia.jp/pia/search_all.do?pc1=https://w.pia.jp/t/yosugala&pc2=o/",
           "code": null
@@ -6128,9 +6020,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21383&date=2026-07-05",
-      "title_ja": "2026 7.5 ( Sun ) ※全席公演記念CD付（公演記念CDセットチケット） Billboard JAPAN Records presents magora Billboard Live Tour yurameki 2026",
+      "title_ja": "magora Billboard Live Tour yurameki 2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Billboard JAPAN Records presents",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -6162,9 +6054,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21334&date=2026-07-05",
-      "title_ja": "2026 7.5 ( Sun ) J-POP CLASSIC CLUB TOKYO 2026 バリエーション・ツアー",
+      "title_ja": "J-POP CLASSIC CLUB TOKYO",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "2026 バリエーション・ツアー",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -6759,13 +6651,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://gobchor.net",
-      "ticket_links": [
-        {
-          "provider": "gobchor",
-          "url": "http://gobchor.net",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "56fa1aa738cd1fc8",
@@ -6797,13 +6683,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [
-        {
-          "provider": "muramatsuflute",
-          "url": "http://www.muramatsuflute.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "b556520ae1f325b4",
@@ -7214,11 +7094,6 @@
           "provider": "tiget",
           "url": "https://tiget.net/events/459296",
           "code": null
-        },
-        {
-          "provider": "tiget",
-          "url": "https://tiget.net/inquiry?event_id=459296&user_id=661901",
-          "code": null
         }
       ],
       "lineup": [],
@@ -7328,13 +7203,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "YANG YOSEOP"
       ],
@@ -7370,18 +7239,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "10cdaa5467fa43e7",
@@ -7604,13 +7462,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "4ef4bdac87eafcf2",
@@ -7738,9 +7590,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21400&date=2026-07-06",
-      "title_ja": "2026 7.6 ( Mon ) An Intimate Night with Erykah Badu エリカ・バドゥ",
+      "title_ja": "An Intimate Night with Erykah Badu",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "エリカ・バドゥ",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -8126,13 +7978,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [
-        {
-          "provider": "muramatsuflute",
-          "url": "http://www.muramatsuflute.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "f4678fe013d4f626",
@@ -8455,13 +8301,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "GUEST ：Bose",
         "MUMMY-D",
@@ -8614,7 +8454,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21386&date=2026-07-07",
-      "title_ja": "2026 7.7 ( Tue ) Dream Ami Billboard Live 2026 ～Milkyway～",
+      "title_ja": "Dream Ami Billboard Live 2026 ～Milkyway～",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -9137,13 +8977,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tokyosymphony.jp",
-      "ticket_links": [
-        {
-          "provider": "tokyosymphony",
-          "url": "https://tokyosymphony.jp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "7e1adcecdaee2cbb",
@@ -9175,13 +9009,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [
-        {
-          "provider": "muramatsuflute",
-          "url": "http://www.muramatsuflute.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "dca8a7287ccc07cb",
@@ -9435,11 +9263,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
         {
           "provider": "pia",
           "url": "https://t.pia.jp/pia/event/event.do?eventCd=2607050",
@@ -9718,11 +9541,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/sf/detail/4488320001-P0030001",
           "code": null
         }
@@ -9773,9 +9591,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21335&date=2026-07-08",
-      "title_ja": "2026 7.8 ( Wed ) 冨田ラボ the birds of four LIVE! Tomita Lab",
+      "title_ja": "冨田ラボ",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "the birds of four LIVE! / Tomita Lab",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -9807,9 +9625,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21416&date=2026-07-08",
-      "title_ja": "2026 7.8 ( Wed ) berry meet berry meet Diner MAJOR 1ST ANNIVERSARY SHOW",
+      "title_ja": "berry meet",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "berry meet Diner / MAJOR 1ST ANNIVERSARY SHOW",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -10563,13 +10381,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "435027566b87a674",
@@ -10678,9 +10490,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21356&date=2026-07-09",
-      "title_ja": "2026 7.9 ( Thu ) CRAZY KEN BAND Billboard Live TOUR 2026 ビルボードライブ東京のクレイジーケンバンド",
+      "title_ja": "CRAZY KEN BAND Billboard Live TOUR 2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "ビルボードライブ東京のクレイジーケンバンド",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -10712,9 +10524,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21362&date=2026-07-09",
-      "title_ja": "2026 7.9 ( Thu ) 上田正樹 R&B BAND Birthday Live at Billboard Live YOKOHAMA Masaki Ueda",
+      "title_ja": "上田正樹 R&B BAND",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Birthday Live at Billboard Live YOKOHAMA / Masaki Ueda",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -10787,23 +10599,8 @@
           "code": null
         },
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/guide/refund.jsp",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/help/",
-          "code": null
-        },
-        {
           "provider": "lawson",
           "url": "https://l-tike.com/oc/lt/haraimodoshi/",
-          "code": null
-        },
-        {
-          "provider": "lawson",
-          "url": "https://l-tike.com/guide/a_cashpost.html",
           "code": null
         },
         {
@@ -11457,13 +11254,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "【公演中止】 YZERR"
       ],
@@ -11497,18 +11288,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "a2615b463a1036ef",
@@ -11707,11 +11487,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
           "provider": "pia",
           "url": "https://w.pia.jp/t/inaichiband/",
           "code": null
@@ -11841,11 +11616,6 @@
           "provider": "tiget",
           "url": "https://tiget.net/events/479555",
           "code": null
-        },
-        {
-          "provider": "tiget",
-          "url": "https://tiget.net/inquiry?event_id=479555&user_id=1212905",
-          "code": null
         }
       ],
       "lineup": [],
@@ -11858,9 +11628,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21356&date=2026-07-10",
-      "title_ja": "2026 7.10 ( Fri ) CRAZY KEN BAND Billboard Live TOUR 2026 ビルボードライブ東京のクレイジーケンバンド",
+      "title_ja": "CRAZY KEN BAND Billboard Live TOUR 2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "ビルボードライブ東京のクレイジーケンバンド",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -11892,9 +11662,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21305&date=2026-07-10",
-      "title_ja": "2026 7.10 ( Fri ) 稲垣潤一 コンセプトライブ2026 Focus on the endless chain ～back to the 2001〜 Junichi Inagaki",
+      "title_ja": "稲垣潤一 コンセプトライブ2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Focus on the endless chain ～back to the 2001〜 / Junichi Inagaki",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -12329,13 +12099,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "official",
-          "url": "https://www.saishumiraishoujo.com",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "1bf18e78f7ba1a67",
@@ -12437,13 +12201,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://info.diskgarage.com/",
-      "ticket_links": [
-        {
-          "provider": "diskgarage",
-          "url": "https://info.diskgarage.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "73d4e67947471584",
@@ -12507,13 +12265,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.nihon-mozartaikoukai.com/",
-      "ticket_links": [
-        {
-          "provider": "nihon-mozartaikoukai",
-          "url": "https://www.nihon-mozartaikoukai.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "6dfd9e08ce4c55ef",
@@ -12867,11 +12619,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
           "provider": "lawson",
           "url": "https://l-tike.com/hamanoharuki/",
           "code": null
@@ -13062,13 +12809,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "Shinya Oe ＆ Super Birds × ザ50回転ズ"
       ],
@@ -13235,9 +12976,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21320&date=2026-07-11",
-      "title_ja": "2026 7.11 ( Sat ) ※曜日により開演時間が異なります。 木村カエラ Billboard Live Tour “Kaela’s Petit Quartet” Kaela Kimura",
+      "title_ja": "木村カエラ",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Billboard Live Tour “Kaela’s Petit Quartet” / Kaela Kimura",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -13269,9 +13010,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21351&date=2026-07-11",
-      "title_ja": "2026 7.11 ( Sat ) 柳家睦& THE RATBONES OLD BOYS SPECIAL Release Tour FINAL Special Guest 〈1stステージ〉宮藤官九郎 〈2ndステージ〉CHIBOW(SKA-9)",
+      "title_ja": "柳家睦&THE RATBONES",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "OLD BOYS SPECIAL Release Tour FINAL / Special Guest 〈1stステージ〉宮藤官九郎 〈2ndステージ〉CHIBOW(SKA-9)",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -13298,9 +13039,7 @@
       "id": "054b054af8b2d47d",
       "status": "approved",
       "venue_key": "billboard_yokohama",
-      "artists": [
-        "SPECIAL GUEST"
-      ]
+      "artists": []
     },
     {
       "source": "unit_daikanyama",
@@ -13497,13 +13236,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "33bc119df87d58fa",
@@ -14015,13 +13748,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://maltamusic.net/",
-      "ticket_links": [
-        {
-          "provider": "maltamusic",
-          "url": "https://maltamusic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "e448cb2ef86a888c",
@@ -14633,11 +14360,6 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://w.pia.jp/t/kagurascope/",
           "code": null
         },
@@ -14685,18 +14407,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "f1423e30c9d5c050",
@@ -15018,9 +14729,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21320&date=2026-07-12",
-      "title_ja": "2026 7.12 ( Sun ) ※曜日により開演時間が異なります。 木村カエラ Billboard Live Tour “Kaela’s Petit Quartet” Kaela Kimura",
+      "title_ja": "木村カエラ",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Billboard Live Tour “Kaela’s Petit Quartet” / Kaela Kimura",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -15372,13 +15083,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "3d520a5bc257dcb3",
@@ -15812,13 +15517,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://minamiaoyamamusiclabo.com/",
-      "ticket_links": [
-        {
-          "provider": "minamiaoyamamusiclabo",
-          "url": "https://minamiaoyamamusiclabo.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "d5a4409530de345a",
@@ -16378,11 +16077,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
           "provider": "eplus",
           "url": "https://eplus.jp/aliproject/",
           "code": null
@@ -16431,18 +16125,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "e727e3f481589c9b",
@@ -16699,11 +16382,6 @@
       "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
         {
           "provider": "eplus",
           "url": "https://eplus.jp/sf/detail/4546360001-P0030001",
@@ -17351,13 +17029,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.ensemble-nomad.com/",
-      "ticket_links": [
-        {
-          "provider": "ensemble-nomad",
-          "url": "https://www.ensemble-nomad.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "43b064e745930c0d",
@@ -17525,13 +17197,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "d65a768abd555603",
@@ -17789,11 +17455,6 @@
       "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
         {
           "provider": "eplus",
           "url": "https://eplus.jp/sf/detail/4502400001-P0030001",
@@ -18747,11 +18408,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/sf/detail/4518240001-P0030001",
           "code": null
         }
@@ -18884,9 +18540,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21363&date=2026-07-15",
-      "title_ja": "2026 7.15 ( Wed ) 中村雅俊 ビルボードライブ2026 Masatoshi Nakamura",
+      "title_ja": "中村雅俊 ビルボードライブ2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Masatoshi Nakamura",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -19373,13 +19029,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tempoprimo.co.jp/",
-      "ticket_links": [
-        {
-          "provider": "tempoprimo",
-          "url": "https://tempoprimo.co.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "c8f4607a0f47adbd",
@@ -19411,13 +19061,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tempoprimo.co.jp/",
-      "ticket_links": [
-        {
-          "provider": "tempoprimo",
-          "url": "https://tempoprimo.co.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "690050595023b218",
@@ -19827,18 +19471,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "0ca67d9b46c705af",
@@ -20210,11 +19843,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/sf/detail/4518270001-P0030001",
           "code": null
         }
@@ -20327,9 +19955,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21363&date=2026-07-16",
-      "title_ja": "2026 7.16 ( Thu ) 中村雅俊 ビルボードライブ2026 Masatoshi Nakamura",
+      "title_ja": "中村雅俊 ビルボードライブ2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Masatoshi Nakamura",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -20361,9 +19989,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21387&date=2026-07-16",
-      "title_ja": "2026 7.16 ( Thu ) 石川綾子 Billboard Live Tour 2026 “ ストラディヴァリウス・ギフト” Ayako Ishikawa",
+      "title_ja": "石川綾子 Billboard Live Tour 2026 “ストラディヴァリウス・ギフト”",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Ayako Ishikawa",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -21393,18 +21021,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "ac510f0fe9a885a2",
@@ -21436,13 +21053,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "夜光性アミューズ"
       ],
@@ -21763,11 +21374,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/sf/detail/4530860001-P0030001",
           "code": null
         }
@@ -21932,9 +21538,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21339&date=2026-07-17",
-      "title_ja": "2026 7.17 ( Fri ) バブルガム・ブラザーズ ～ジジイが街にやってくる！〜 バブルガム・ブラザーズ LAST LIVE vol.3 〜マジで最後だ♡ DA BUBBLEGUM BROTHERS",
+      "title_ja": "バブルガム・ブラザーズ",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "～ジジイが街にやってくる！〜 / バブルガム・ブラザーズ LAST LIVE vol.3 〜マジで最後だ♡ / DA BUBBLEGUM BROTHERS",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -22979,11 +22585,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
           "provider": "lawson",
           "url": "https://l-tike.com/reiko/",
           "code": null
@@ -23325,7 +22926,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21322&date=2026-07-18",
-      "title_ja": "2026 7.18 ( Sat ) idom Billboard Live",
+      "title_ja": "idom Billboard Live",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -23359,9 +22960,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21382&date=2026-07-18",
-      "title_ja": "2026 7.18 ( Sat ) 水夏希 『La vida con el Tango〜タンゴのある人生〜vol.3』 Natsuki Mizu",
+      "title_ja": "水夏希",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "『La vida con el Tango〜タンゴのある人生〜vol.3』 / Natsuki Mizu",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -23388,9 +22989,7 @@
       "id": "bf5540bfbdadc6a9",
       "status": "approved",
       "venue_key": "billboard_yokohama",
-      "artists": [
-        "Natsuki"
-      ]
+      "artists": []
     },
     {
       "source": "unit_daikanyama",
@@ -24039,13 +23638,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://euodia.jp/",
-      "ticket_links": [
-        {
-          "provider": "euodia",
-          "url": "https://euodia.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "f903073c0f2c5d25",
@@ -24803,18 +24396,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "92cb7148b2f92b0c",
@@ -25140,13 +24722,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "iLiFE! / ポルカドットスティングレイ / Wienners"
       ],
@@ -25249,11 +24825,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
         {
           "provider": "eplus",
           "url": "https://eplus.jp/sf/detail/4497640001-P0030001",
@@ -25393,13 +24964,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/help/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "5b42890bc29c0cbb",
@@ -25410,9 +24975,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21229&date=2026-07-19",
-      "title_ja": "2026 7.19 ( Sun ) ※全席GOODS付き ※曜日により開演時間が異なります 藤木直人 Naohito Fujiki Live Tour ver14.5 Billboard Live 2026",
+      "title_ja": "藤木直人",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Naohito Fujiki Live Tour ver14.5 Billboard Live 2026",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -25444,9 +25009,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21385&date=2026-07-19",
-      "title_ja": "2026 7.19 ( Sun ) ※全席公演記念CD付（公演記念CDセットチケット） Billboard JAPAN Records presents magora Billboard Live Tour yurameki 2026",
+      "title_ja": "magora Billboard Live Tour yurameki 2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Billboard JAPAN Records presents",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -25537,11 +25102,6 @@
         {
           "provider": "eplus",
           "url": "https://eplus.jp/t7s/",
-          "code": null
-        },
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/qa/",
           "code": null
         }
       ],
@@ -25866,13 +25426,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "rakuten",
-          "url": "https://ticket.rakuten.co.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "InnocentFairy",
         "來未あい",
@@ -25916,13 +25470,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "rakuten",
-          "url": "https://ticket.rakuten.co.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "AZの理由",
         "OTOMICHI",
@@ -26292,13 +25840,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [
-        {
-          "provider": "bachcollegiumjapan",
-          "url": "https://bachcollegiumjapan.org",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "e04097102b9b6c9c",
@@ -27422,18 +26964,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "80ad454fdc38c272",
@@ -27771,11 +27302,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/laccotower-2026/",
           "code": null
         }
@@ -27958,9 +27484,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21229&date=2026-07-20",
-      "title_ja": "2026 7.20 ( Mon ) ※全席GOODS付き ※曜日により開演時間が異なります 藤木直人 Naohito Fujiki Live Tour ver14.5 Billboard Live 2026",
+      "title_ja": "藤木直人",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Naohito Fujiki Live Tour ver14.5 Billboard Live 2026",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -27992,9 +27518,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21380&date=2026-07-20",
-      "title_ja": "2026 7.20 ( Mon ) 渡辺真知子コンサート2026 ～唇よ、熱く君を語れ～ Vol.3 Machiko Watanabe",
+      "title_ja": "渡辺真知子コンサート2026 ～唇よ、熱く君を語れ～ Vol.3",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Machiko Watanabe",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -29410,11 +28936,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
           "provider": "lawson",
           "url": "https://l-tike.com/negicco/",
           "code": null
@@ -29725,9 +29246,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21454&date=2026-07-21",
-      "title_ja": "2026 7.21 ( Tue ) Graham Gouldman Heart Full of Songs",
+      "title_ja": "Graham Gouldman",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Heart Full of Songs",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -30608,9 +30129,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21454&date=2026-07-22",
-      "title_ja": "2026 7.22 ( Wed ) Graham Gouldman Heart Full of Songs",
+      "title_ja": "Graham Gouldman",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Heart Full of Songs",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -30642,9 +30163,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21475&date=2026-07-22",
-      "title_ja": "2026 7.22 ( Wed ) NIGHT LUNCH vol.02 奇妙礼太郎×七尾旅人 Strange Reitaro × Tavito Nanao",
+      "title_ja": "奇妙礼太郎×七尾旅人",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "NIGHT LUNCH vol.02 / Strange Reitaro × Tavito Nanao",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -31559,11 +31080,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/azavana/",
           "code": null
         }
@@ -31653,9 +31169,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21307&date=2026-07-23",
-      "title_ja": "2026 7.23 ( Thu ) 稲垣潤一 コンセプトライブ2026 Focus on the endless chain ～back to the 2001〜 Junichi Inagaki",
+      "title_ja": "稲垣潤一 コンセプトライブ2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Focus on the endless chain ～back to the 2001〜 / Junichi Inagaki",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -31687,9 +31203,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21455&date=2026-07-23",
-      "title_ja": "2026 7.23 ( Thu ) Graham Gouldman Heart Full of Songs",
+      "title_ja": "Graham Gouldman",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Heart Full of Songs",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -32632,13 +32148,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "CyberAgent Legit"
       ],
@@ -32706,13 +32216,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "63024eeb6ba5b327",
@@ -32791,7 +32295,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21457&date=2026-07-24",
-      "title_ja": "2026 7.24 ( Fri ) MONKEY MAJIK at Billboard Live ～Summer Vibes～",
+      "title_ja": "MONKEY MAJIK at Billboard Live ～Summer Vibes～",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -32825,7 +32329,7 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21360&date=2026-07-24",
-      "title_ja": "2026 7.24 ( Fri ) Reina Washio Billboard Live 2026",
+      "title_ja": "Reina Washio Billboard Live 2026",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -34347,9 +33851,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21419&date=2026-07-25",
-      "title_ja": "2026 7.25 ( Sat ) ※全席音楽プレイヤー風マグネット付き LINDBERG Extra Flight Vol.6 Billboard Live Tour",
+      "title_ja": "LINDBERG",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Extra Flight Vol.6 Billboard Live Tour",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -34381,7 +33885,7 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21458&date=2026-07-25",
-      "title_ja": "2026 7.25 ( Sat ) MONKEY MAJIK at Billboard Live ～Summer Vibes～",
+      "title_ja": "MONKEY MAJIK at Billboard Live ～Summer Vibes～",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -35997,18 +35501,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "8dcabefccc885aaf",
@@ -36245,13 +35738,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "CHIMIRO"
       ],
@@ -36557,13 +36044,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "17191202c4fc56d7",
@@ -36661,13 +36142,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/help/index.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "2935687bd710b04d",
@@ -36678,9 +36153,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21443&date=2026-07-26",
-      "title_ja": "2026 7.26 ( Sun ) Chara Sweet Soul Sessions ～Mojo Popcorn Returns～",
+      "title_ja": "Chara",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Sweet Soul Sessions / ～Mojo Popcorn Returns～",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -36712,9 +36187,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21394&date=2026-07-26",
-      "title_ja": "2026 7.26 ( Sun ) ※全席チケット型アクリルキーホルダー付き 大澤誉志幸 45 th Anniversary Live Guest:山下久美子",
+      "title_ja": "大澤誉志幸 45th Anniversary Live",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Guest:山下久美子",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -36874,13 +36349,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "b76493dfc91a8013",
@@ -37152,13 +36621,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.samonpromotion.com",
-      "ticket_links": [
-        {
-          "provider": "samonpromotion",
-          "url": "https://www.samonpromotion.com",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "42e9faeda1528a7d",
@@ -38155,11 +37618,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
           "provider": "eplus",
           "url": "https://eplus.jp/kaorikishitani/",
           "code": null
@@ -38208,18 +37666,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "8c8de1cc7e54d10b",
@@ -38495,11 +37942,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
         {
           "provider": "eplus",
           "url": "https://eplus.jp/klangruler/",
@@ -38933,13 +38375,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://agite.base.shop/",
-      "ticket_links": [
-        {
-          "provider": "shop",
-          "url": "https://agite.base.shop/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "7062385edc6bcd1d",
@@ -39222,13 +38658,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "b31d39eab159c121",
@@ -40425,13 +39855,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "微熱ノアト 【ゲスト友情出演】Snugs"
       ],
@@ -40510,9 +39934,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21456&date=2026-07-29",
-      "title_ja": "2026 7.29 ( Wed ) クリス・ハート with 宮間利之ニューハード Chris Hart with Toshiyuki Miyama NEWHERD",
+      "title_ja": "クリス・ハート with 宮間利之ニューハード",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Chris Hart with Toshiyuki Miyama NEWHERD",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -40919,13 +40343,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tpo.or.jp/",
-      "ticket_links": [
-        {
-          "provider": "tpo",
-          "url": "https://www.tpo.or.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "dc073e6438cb6c8b",
@@ -42541,13 +41959,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "ZiDol"
       ],
@@ -42698,9 +42110,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21307&date=2026-07-31",
-      "title_ja": "2026 7.31 ( Fri ) 稲垣潤一 コンセプトライブ2026 Focus on the endless chain ～back to the 2001〜 Junichi Inagaki",
+      "title_ja": "稲垣潤一 コンセプトライブ2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Focus on the endless chain ～back to the 2001〜 / Junichi Inagaki",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -42732,9 +42144,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21433&date=2026-07-31",
-      "title_ja": "2026 7.31 ( Fri ) 布施明 AKIRA FUSE SOMETHING JAZZY 2026",
+      "title_ja": "布施明",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "AKIRA FUSE SOMETHING JAZZY 2026",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -42761,9 +42173,7 @@
       "id": "8119e65678464c4c",
       "status": "approved",
       "venue_key": "billboard_yokohama",
-      "artists": [
-        "AKIRA"
-      ]
+      "artists": []
     },
     {
       "source": "eggman",
@@ -43939,9 +43349,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21502&date=2026-08-01",
-      "title_ja": "2026 8.1 ( Sat ) Billboard Live presents Piano Duo Session #11 Akko（My Little Lover）× 武部聡志",
+      "title_ja": "#11 Akko（My Little Lover）×武部聡志",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Billboard Live presents Piano Duo Session",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -44375,13 +43785,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "official",
-          "url": "https://stepjam.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "dfcb2187dac0285e",
@@ -45284,18 +44688,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "85c961254c12d9d1",
@@ -45429,13 +44822,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "SUPER JUNIOR 83z"
       ],
@@ -45580,9 +44967,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21443&date=2026-08-02",
-      "title_ja": "2026 8.2 ( Sun ) Chara Sweet Soul Sessions ～Mojo Popcorn Returns～",
+      "title_ja": "Chara",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Sweet Soul Sessions / ～Mojo Popcorn Returns～",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -45614,9 +45001,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21403&date=2026-08-02",
-      "title_ja": "2026 8.2 ( Sun ) ※全席チケット型アクリルキーホルダー付き 石川ひとみ 「まちぶせ」発売45周年記念 Live with Strings Hitomi Ishikawa",
+      "title_ja": "石川ひとみ 「まちぶせ」発売45周年記念Live with Strings",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Hitomi Ishikawa",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -45946,13 +45333,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "official",
-          "url": "https://stepjam.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "9902f5a4e7c665c0",
@@ -46613,18 +45994,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "be2dd3ddf1ad668d",
@@ -46822,13 +46192,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "SUPER JUNIOR 83z"
       ],
@@ -47047,11 +46411,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
         {
           "provider": "pia",
           "url": "https://t.pia.jp/pia/event/event.do?eventCd=2618002",
@@ -47757,11 +47116,6 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://t.pia.jp/pia/event/event.do?eventCd=2618002",
           "code": null
         }
@@ -47969,13 +47323,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.ints.co.jp/",
-      "ticket_links": [
-        {
-          "provider": "ints",
-          "url": "https://www.ints.co.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "bfd06d3b6325c868",
@@ -48007,13 +47355,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://cvmf.jp/",
-      "ticket_links": [
-        {
-          "provider": "cvmf",
-          "url": "https://cvmf.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "cf0b3e23193489e2",
@@ -48527,11 +47869,6 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://t.pia.jp/pia/ticketInformation.do?lotRlsCd=12773",
           "code": null
         }
@@ -49006,23 +48343,8 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/guide/refund-process.jsp",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/help/index.jsp",
-          "code": null
-        },
-        {
           "provider": "eplus",
           "url": "http://eplus.jp/page/eplus/refund1/index.html",
-          "code": null
-        },
-        {
-          "provider": "lawson",
-          "url": "https://l-tike.com/guide/a_cashpost.html",
           "code": null
         }
       ],
@@ -49257,13 +48579,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "44e428b75d15529d",
@@ -49341,7 +48657,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21448&date=2026-08-06",
-      "title_ja": "2026 8.6 ( Thu ) Jazztronik Summer Live 2026",
+      "title_ja": "Jazztronik Summer Live 2026",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -49375,9 +48691,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21555&date=2026-08-06",
-      "title_ja": "2026 8.6 ( Thu ) TOKU presents TYJ with 沼澤尚(ds) , 柴田敏孝(key)& 馬場智章 (sax) Tribute to Miles Davis session",
+      "title_ja": "TOKU",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "presents TYJ with 沼澤尚(ds) , 柴田敏孝(key)& 馬場智章 (sax) / Tribute to Miles Davis session",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -49431,11 +48747,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
         {
           "provider": "pia",
           "url": "https://t.pia.jp/pia/event/event.do?eventCd=2618002",
@@ -49687,13 +48998,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tpo.or.jp/",
-      "ticket_links": [
-        {
-          "provider": "tpo",
-          "url": "https://www.tpo.or.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "8ce9becf8e2e2fd8",
@@ -49725,13 +49030,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://classicmusic.tokyo/",
-      "ticket_links": [
-        {
-          "provider": "tokyo",
-          "url": "https://classicmusic.tokyo/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "450a70cc375f3352",
@@ -50131,7 +49430,7 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21369&date=2026-08-07",
-      "title_ja": "2026 8.7 ( Fri ) Summer Jazz Camp All Stars",
+      "title_ja": "Summer Jazz Camp All Stars",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -50187,11 +49486,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
         {
           "provider": "pia",
           "url": "https://t.pia.jp/pia/event/event.do?eventCd=2618002",
@@ -50431,13 +49725,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://maoito.info/",
-      "ticket_links": [
-        {
-          "provider": "maoito",
-          "url": "https://maoito.info/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "4f66881e1c62efde",
@@ -50845,18 +50133,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "5f2529230718f8cf",
@@ -51033,9 +50310,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21503&date=2026-08-08",
-      "title_ja": "2026 8.8 ( Sat ) 真心ブラザーズ ROMANCE DANCE #2",
+      "title_ja": "真心ブラザーズ",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "ROMANCE DANCE #2",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -51089,11 +50366,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
         {
           "provider": "pia",
           "url": "https://t.pia.jp/pia/event/event.do?eventCd=2618002",
@@ -51354,13 +50626,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "46d88c4468e9f55e",
@@ -51705,13 +50971,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tokyosymphony.jp",
-      "ticket_links": [
-        {
-          "provider": "tokyosymphony",
-          "url": "https://tokyosymphony.jp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "9a2f95cf02ddad7a",
@@ -51883,11 +51143,6 @@
         {
           "provider": "tiget",
           "url": "https://tiget.net/events/493247",
-          "code": null
-        },
-        {
-          "provider": "tiget",
-          "url": "https://tiget.net/inquiry?event_id=493247&user_id=1251343",
           "code": null
         },
         {
@@ -52183,18 +51438,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "5ffef10151787223",
@@ -52335,7 +51579,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21428&date=2026-08-09",
-      "title_ja": "2026 8.9 ( Sun ) BRADIO Billboard Live 2026",
+      "title_ja": "BRADIO Billboard Live 2026",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -52369,9 +51613,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21438&date=2026-08-09",
-      "title_ja": "2026 8.9 ( Sun ) ※全席チケット型アクリルキーホルダー付き 伊東歌詞太郎 Billboard Live Tour 2026 「JPOP」 Kashitaro Ito",
+      "title_ja": "伊東歌詞太郎 Billboard Live Tour 2026 「JPOP」",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Kashitaro Ito",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -52425,11 +51669,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
         {
           "provider": "pia",
           "url": "https://t.pia.jp/pia/event/event.do?eventCd=2618002",
@@ -52910,13 +52149,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.soleilmusic.com/",
-      "ticket_links": [
-        {
-          "provider": "soleilmusic",
-          "url": "https://www.soleilmusic.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "896d1d00e8f5d918",
@@ -53370,18 +52603,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "5638d6cef7821da0",
@@ -53582,7 +52804,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21412&date=2026-08-10",
-      "title_ja": "2026 8.10 ( Mon ) CLAUDIO SIMONETTI'S GOBLIN",
+      "title_ja": "CLAUDIO SIMONETTI'S GOBLIN",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -53616,7 +52838,7 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21493&date=2026-08-10",
-      "title_ja": "2026 8.10 ( Mon ) 土岐麻子× TENDRE with 高木大丈夫",
+      "title_ja": "土岐麻子×TENDRE with 高木大丈夫",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -54332,7 +53554,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21415&date=2026-08-11",
-      "title_ja": "2026 8.11 ( Tue ) paris match",
+      "title_ja": "paris match",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -54366,9 +53588,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21489&date=2026-08-11",
-      "title_ja": "2026 8.11 ( Tue ) SHAG WHAT IS JAM? Vol.11 hosted by SHAG Special Guest 土屋昌巳 (g), 勝井祐二 (vln), 田中邦和 (sax)",
+      "title_ja": "SHAG",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "WHAT IS JAM? Vol.11 hosted by SHAG / Special Guest 土屋昌巳 (g), 勝井祐二 (vln), 田中邦和 (sax)",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -54395,9 +53617,7 @@
       "id": "f635967b06f32f03",
       "status": "approved",
       "venue_key": "billboard_yokohama",
-      "artists": [
-        "SPECIAL GUEST"
-      ]
+      "artists": []
     },
     {
       "source": "toyosu_pit",
@@ -54424,11 +53644,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
         {
           "provider": "pia",
           "url": "https://w.pia.jp/t/tag-right/",
@@ -55554,18 +54769,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "402ceb31ed93d5ac",
@@ -55914,7 +55118,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21469&date=2026-08-12",
-      "title_ja": "2026 8.12 ( Wed ) KISHOW from GRANRODEO Billboard Live",
+      "title_ja": "KISHOW from GRANRODEO Billboard Live",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -56275,13 +55479,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tpo.or.jp/",
-      "ticket_links": [
-        {
-          "provider": "tpo",
-          "url": "https://www.tpo.or.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "4ffb949033b0540e",
@@ -56475,18 +55673,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "7cea03a1bf0a791e",
@@ -56629,9 +55816,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21462&date=2026-08-13",
-      "title_ja": "2026 8.13 ( Thu ) The RH Factor reunion tribute to Roy Hargrove",
+      "title_ja": "The RH Factor reunion",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "tribute to Roy Hargrove",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -56658,14 +55845,12 @@
       "id": "af1e476462584b42",
       "status": "approved",
       "venue_key": "billboard_tokyo",
-      "artists": [
-        "The RH Factor reunion tribute to Roy Hargrove"
-      ]
+      "artists": []
     },
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21413&date=2026-08-13",
-      "title_ja": "2026 8.13 ( Thu ) CLAUDIO SIMONETTI'S GOBLIN",
+      "title_ja": "CLAUDIO SIMONETTI'S GOBLIN",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -56721,11 +55906,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
         {
           "provider": "eplus",
           "url": "https://eplus.jp/stevelacy/",
@@ -57460,9 +56640,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21542&date=2026-08-14",
-      "title_ja": "2026 8.14 ( Fri ) SHIMIZMYUKOPIA〜 シミズムユーコピア〜 vol.2 安藤裕子×清水ミチコ",
+      "title_ja": "SHIMIZMYUKOPIA〜シミズムユーコピア〜 vol.2",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "安藤裕子×清水ミチコ",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -57494,7 +56674,7 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21505&date=2026-08-14",
-      "title_ja": "2026 8.14 ( Fri ) Ms.OOJA",
+      "title_ja": "Ms.OOJA",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -58269,18 +57449,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "a8689c6c594d7fad",
@@ -58521,7 +57690,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21445&date=2026-08-15",
-      "title_ja": "2026 8.15 ( Sat ) the band apart (naked) at Billboard Live TOKYO 2026",
+      "title_ja": "the band apart (naked) at Billboard Live TOKYO 2026",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -58555,9 +57724,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21435&date=2026-08-15",
-      "title_ja": "2026 8.15 ( Sat ) ※全席チケット型アクリルキーホルダー付き 矢井田 瞳 Acoustic Live Tour 『DOOR to DOORS』 Billboard Live Special Hitomi Yaida",
+      "title_ja": "矢井田 瞳 Acoustic Live Tour 『DOOR to DOORS』 Billboard Live Special",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Hitomi Yaida",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -59398,18 +58567,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "d12fd21973981485",
@@ -59687,13 +58845,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.filmscorephil.com/",
-      "ticket_links": [
-        {
-          "provider": "filmscorephil",
-          "url": "https://www.filmscorephil.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "546efdca0fb4a93c",
@@ -59766,9 +58918,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21432&date=2026-08-16",
-      "title_ja": "2026 8.16 ( Sun ) 布施明 AKIRA FUSE SOMETHING JAZZY 2026",
+      "title_ja": "布施明",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "AKIRA FUSE SOMETHING JAZZY 2026",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -59795,16 +58947,14 @@
       "id": "ebadee4a5618f02b",
       "status": "approved",
       "venue_key": "billboard_tokyo",
-      "artists": [
-        "AKIRA"
-      ]
+      "artists": []
     },
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21231&date=2026-08-16",
-      "title_ja": "2026 8.16 ( Sun ) ※全席GOODS付き 藤木直人 Naohito Fujiki Live Tour ver14.5 Billboard Live 2026",
+      "title_ja": "藤木直人",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Naohito Fujiki Live Tour ver14.5 Billboard Live 2026",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -60090,13 +59240,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "ce0db3c9653c762c",
@@ -60349,11 +59493,6 @@
         {
           "provider": "tiget",
           "url": "https://tiget.net/events/495918",
-          "code": null
-        },
-        {
-          "provider": "tiget",
-          "url": "https://tiget.net/inquiry?event_id=495508&user_id=1370218",
           "code": null
         }
       ],
@@ -61391,11 +60530,6 @@
       "ticket_links": [
         {
           "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        },
-        {
-          "provider": "eplus",
           "url": "https://eplus.jp/kiekimi/ ",
           "code": null
         }
@@ -61449,7 +60583,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21536&date=2026-08-18",
-      "title_ja": "2026 8.18 ( Tue ) Omarion",
+      "title_ja": "Omarion",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -61485,9 +60619,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21525&date=2026-08-18",
-      "title_ja": "2026 8.18 ( Tue ) Leola デビュー10周年記念2マンリレー企画 「 Chase The Stars」 Leola × NakamuraEmi",
+      "title_ja": "Leola デビュー10周年記念2マンリレー企画 「Chase The Stars」",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Leola × NakamuraEmi",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -61514,9 +60648,7 @@
       "id": "2bbda77c05294f0c",
       "status": "approved",
       "venue_key": "billboard_yokohama",
-      "artists": [
-        "NakamuraEmi"
-      ]
+      "artists": []
     },
     {
       "source": "que_shimokitazawa",
@@ -62051,7 +61183,7 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21482&date=2026-08-19",
-      "title_ja": "2026 8.19 ( Wed ) Jazztronik Summer Live 2026",
+      "title_ja": "Jazztronik Summer Live 2026",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -62698,7 +61830,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21506&date=2026-08-20",
-      "title_ja": "2026 8.20 ( Thu ) Ms.OOJA",
+      "title_ja": "Ms.OOJA",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -62754,11 +61886,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
         {
           "provider": "pia",
           "url": "https://t.pia.jp/pia/event/event.do?eventCd=2611385",
@@ -63525,7 +62652,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21506&date=2026-08-21",
-      "title_ja": "2026 8.21 ( Fri ) Ms.OOJA",
+      "title_ja": "Ms.OOJA",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -63559,9 +62686,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21496&date=2026-08-21",
-      "title_ja": "2026 8.21 ( Fri ) ※全席チケット型アクリルキーホルダー付き 麻倉未稀 45 th Anniversary Live「My Soul」 with guest 富田京子 Asakura Miki",
+      "title_ja": "麻倉未稀 45th Anniversary Live「My Soul」",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "with guest 富田京子 / Asakura Miki",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -63938,13 +63065,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "dbc14e1f1406ab5a",
@@ -64319,11 +63440,6 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://w.pia.jp/t/max-decibel/",
           "code": null
         },
@@ -64518,7 +63634,7 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21481&date=2026-08-22",
-      "title_ja": "2026 8.22 ( Sat ) パスピエ Billboard Live “SEPTET”",
+      "title_ja": "パスピエ Billboard Live “SEPTET”",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -65260,13 +64376,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://ayonihonjimukyoku.com/",
-      "ticket_links": [
-        {
-          "provider": "ayonihonjimukyoku",
-          "url": "http://ayonihonjimukyoku.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "2986db1e6ab57f37",
@@ -65298,13 +64408,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "dc584b3ac5e345ae",
@@ -66048,18 +65152,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "9fccf5b333e1dfea",
@@ -66303,9 +65396,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21494&date=2026-08-23",
-      "title_ja": "2026 8.23 ( Sun ) Tokimeki Records COVERS NIGHT 2026 ONE-MAN LIVE YOKOHAMA トキメキレコーズ",
+      "title_ja": "Tokimeki Records COVERS NIGHT 2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "ONE-MAN LIVE YOKOHAMA / トキメキレコーズ",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -66760,13 +65853,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "17496027faf915f4",
@@ -67133,38 +66220,6 @@
       ]
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/falilv-standby/#2026-08-23",
-      "title_ja": "Fear, and Loathing in Las Vegas",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-08-23",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": true,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "eebede6f1d029872",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "Fear, and Loathing in Las Vegas"
-      ]
-    },
-    {
       "source": "disk_garage",
       "source_url": "https://diskgarage.com/ticket/detail/102147",
       "title_ja": "モンスターハンターオーケストラコンサート 〜狩猟音楽祭2026〜 Monster Hunter Orchestra Concert 2026",
@@ -67258,18 +66313,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "2cc746642241842c",
@@ -67456,9 +66500,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21554&date=2026-08-24",
-      "title_ja": "2026 8.24 ( Mon ) ONE PARK Special Band 〜 Billboard Live Exclusive Session 〜",
+      "title_ja": "ONE PARK Special Band",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "〜 Billboard Live Exclusive Session 〜",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -67657,13 +66701,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "7828be1123cbcd01",
@@ -67913,9 +66951,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21524&date=2026-08-25",
-      "title_ja": "2026 8.25 ( Tue ) ALI JUNGLE LOVE 2026 at Billboard Live TOKYO",
+      "title_ja": "ALI",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "JUNGLE LOVE 2026 at Billboard Live TOKYO",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -68691,9 +67729,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21453&date=2026-08-26",
-      "title_ja": "2026 8.26 ( Wed ) 伊藤銀次 来年いよいよ55周年！ THANKS from 銀次 前年祭ライヴ with 杉真理&EPO Ginji Ito",
+      "title_ja": "伊藤銀次",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "来年いよいよ55周年！ / THANKS from 銀次 前年祭ライヴ with 杉真理&EPO / Ginji Ito",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -68725,7 +67763,7 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21574&date=2026-08-26",
-      "title_ja": "2026 8.26 ( Wed ) ※全席GOODS付き U-zhaan× 環 ROY× 鎮座 DOPENESS ビルボードライブツアー",
+      "title_ja": "U-zhaan×環ROY×鎮座DOPENESS ビルボードライブツアー",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -68780,13 +67818,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "くれいじーまぐねっと"
       ],
@@ -69044,13 +68076,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "5531abcc55c266b1",
@@ -69164,13 +68190,7 @@
       "is_free": false,
       "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "lawson",
-          "url": "https://l-tike.com/contact/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "62cede610e6e2f39",
@@ -69580,13 +68600,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "4404a407ccaf6d02",
@@ -69829,38 +68843,6 @@
       ]
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/kvibaba_2026/#2026-08-27",
-      "title_ja": "Kvi Baba",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-08-27",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "51c59f186aed8f51",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "Kvi Baba"
-      ]
-    },
-    {
       "source": "disk_garage",
       "source_url": "https://diskgarage.com/ticket/detail/101977",
       "title_ja": "ペルシカリア",
@@ -70089,9 +69071,9 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21436&date=2026-08-28",
-      "title_ja": "2026 8.28 ( Fri ) ※全席チケット型アクリルキーホルダー付き 矢井田 瞳 Acoustic Live Tour 『DOOR to DOORS』 Billboard Live Special Hitomi Yaida",
+      "title_ja": "矢井田 瞳 Acoustic Live Tour 『DOOR to DOORS』 Billboard Live Special",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "Hitomi Yaida",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -70123,9 +69105,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21446&date=2026-08-28",
-      "title_ja": "2026 8.28 ( Fri ) フレンズ Billboard Live 2026 〜Crystal Nights〜",
+      "title_ja": "フレンズ Billboard Live 2026",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "〜Crystal Nights〜",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -70386,13 +69368,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "edd33fead092720b",
@@ -71859,38 +70835,6 @@
       ]
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/skryu-the-light/#2026-08-29",
-      "title_ja": "SKRYU",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-08-29",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "3681b8578e41e305",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "SKRYU"
-      ]
-    },
-    {
       "source": "disk_garage",
       "source_url": "https://diskgarage.com/ticket/detail/101967",
       "title_ja": "ジェーン・スーと堀井美香の｢OVER THE SUN｣",
@@ -72082,18 +71026,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "0b4bd04c01f30d43",
@@ -72270,7 +71203,7 @@
     {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21405&date=2026-08-30",
-      "title_ja": "2026 8.30 ( Sun ) Laura day romance Billboard Live 魔法、４度も",
+      "title_ja": "Laura day romance Billboard Live 魔法、４度も",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -72306,9 +71239,9 @@
     {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21407&date=2026-08-30",
-      "title_ja": "2026 8.30 ( Sun ) Cityy 寺地美穂（Sax,Fl,Vo）/ 中園亜美（Sax,Vo）/ 竹田麻里絵（Key,Vo）/ Juna Serita（Ba,Vo） featuring 則竹裕之（Dr）",
+      "title_ja": "Cityy",
       "title_en": null,
-      "subtitle": null,
+      "subtitle": "寺地美穂（Sax,Fl,Vo）/ 中園亜美（Sax,Vo）/ 竹田麻里絵（Key,Vo）/ Juna Serita（Ba,Vo） / featuring 則竹裕之（Dr）",
       "category": "music",
       "genres": [
         "jazz-soul"
@@ -73139,38 +72072,6 @@
       ]
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/skryu-the-light/#2026-08-30",
-      "title_ja": "SKRYU",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-08-30",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "40f09b1739eafdc6",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "SKRYU"
-      ]
-    },
-    {
       "source": "disk_garage",
       "source_url": "https://diskgarage.com/ticket/detail/101614",
       "title_ja": "プリンセッション・オーケストラ",
@@ -73366,18 +72267,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "cef50a33784a2ea5",
@@ -73904,68 +72794,6 @@
       ]
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/flo26/#2026-08-31",
-      "title_ja": "FLO",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-08-31",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "ef8d4f1664054440",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": []
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/artist/2026/08ecb/#2026-08-31",
-      "title_ja": "ELECTRIC CALLBOY",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-08-31",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "55b5f47eb9f9e959",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "ELECTRIC CALLBOY"
-      ]
-    },
-    {
       "source": "toyosu_pit",
       "source_url": "https://toyosu.pia-pit.jp/schedule/202606/8585.html",
       "title_ja": "FLO - Therapy At The Club Tour 2026 JAPAN",
@@ -73989,13 +72817,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "FLO"
       ],
@@ -74029,18 +72851,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "6033c2775b2e2473",
@@ -74248,13 +73059,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "8edcca181cb4145f",
@@ -74691,13 +73496,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "6ddf3a95a8724753",
@@ -74771,38 +73570,6 @@
       "venue_key": "shinjuku_head_power",
       "artists": [
         "NEE"
-      ]
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/rmp26/#2026-09-02",
-      "title_ja": "RACING MOUNT PLEASANT",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-02",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "79b8e0fb72171933",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "Racing Mount Pleasant"
       ]
     },
     {
@@ -75232,13 +73999,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "ab57abc622df72a0",
@@ -75336,13 +74097,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "lawson",
-          "url": "https://l-tike.com/contact/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "a6f03504b3781f0c",
@@ -75869,13 +74624,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "948619b85b2cf82d",
@@ -76058,38 +74807,6 @@
       ]
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/abemao-abemania/#2026-09-04",
-      "title_ja": "阿部真央",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-04",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "b2c0d2c29007f687",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "阿部真央"
-      ]
-    },
-    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6955.html",
       "title_ja": "CORTIS 2026 CORTIS TOUR <PUT YOUR PHONE DOWN> IN JAPAN",
@@ -76113,18 +74830,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "982a9cd80de414d0",
@@ -76645,13 +75351,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "3b31387f33c8ebe4",
@@ -77048,36 +75748,6 @@
       ]
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/galneryus_2026/#2026-09-05",
-      "title_ja": "GALNERYUS",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-05",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "00c1629ab7f6bf83",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": []
-    },
-    {
       "source": "livenation_jp",
       "source_url": "https://www.livenation.co.jp/show/1682571/粗品/tokyo/2026-09-05/ja",
       "title_ja": "粗品",
@@ -77135,18 +75805,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "1bf35e8b05d3f68d",
@@ -77702,13 +76361,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "fad89b49ae83b107",
@@ -78047,18 +76700,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "734318350090c85c",
@@ -78978,13 +77620,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://info.diskgarage.com/",
-      "ticket_links": [
-        {
-          "provider": "diskgarage",
-          "url": "https://info.diskgarage.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "荒井岳史(the band apart)",
         "Keishi Tanaka",
@@ -79068,13 +77704,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "727ccd0ec0ee2c60",
@@ -79524,13 +78154,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "00d3a49aca1c1698",
@@ -79598,36 +78222,6 @@
       "id": "af215ad3897f9a0c",
       "status": "approved",
       "venue_key": "line_cube_shibuya",
-      "artists": []
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/nia-archives26/#2026-09-10",
-      "title_ja": "NIA ARCHIVES",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-10",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "3735058052f77d0c",
-      "status": "approved",
-      "venue_key": "creativeman",
       "artists": []
     },
     {
@@ -80048,13 +78642,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "b745db7feaa1e83c",
@@ -80665,13 +79253,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "47353e3d3a24eb39",
@@ -80917,18 +79499,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "535fa10b73a3560f",
@@ -81118,13 +79689,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "3959fda60fe282c3",
@@ -81408,13 +79973,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tokyosymphony.jp",
-      "ticket_links": [
-        {
-          "provider": "tokyosymphony",
-          "url": "https://tokyosymphony.jp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "9411cead2ccf0bbb",
@@ -81446,13 +80005,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [
-        {
-          "provider": "mainichi-classic",
-          "url": "https://gaccon.mainichi-classic.net/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "26a6c45b7a4ade97",
@@ -81696,18 +80249,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "d2fc81a25d593eea",
@@ -82096,38 +80638,6 @@
       "artists": []
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/amorphis26/#2026-09-15",
-      "title_ja": "AMORPHIS",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-15",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "8b7d4fc113223352",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "AMORPHIS"
-      ]
-    },
-    {
       "source": "smash_jpn",
       "source_url": "https://smash-jpn.com/live/?id=4716#2026-09-15",
       "title_ja": "君島大空 合奏形態",
@@ -82452,68 +80962,6 @@
       "artists": []
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/amorphis26/#2026-09-16",
-      "title_ja": "AMORPHIS",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-16",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "9cb15b24fe43e058",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "AMORPHIS"
-      ]
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/fishbone26/#2026-09-16",
-      "title_ja": "Fishbone",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-16",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "32fe5c9bb6d98af0",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": []
-    },
-    {
       "source": "smash_jpn",
       "source_url": "https://smash-jpn.com/live/?id=4716#2026-09-16",
       "title_ja": "君島大空 合奏形態",
@@ -82589,16 +81037,6 @@
         {
           "provider": "pia",
           "url": "https://w.pia.jp/t/hanszimmer-live2026/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
           "code": null
         }
       ],
@@ -83103,36 +81541,6 @@
       "artists": []
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/carcass_2026/#2026-09-17",
-      "title_ja": "CARCASS",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-17",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "66bf5ea69917dd07",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": []
-    },
-    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018501",
       "title_ja": "なんキニ！ワンマンライブ2026 君とした約束",
@@ -83228,13 +81636,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "Rockon Social Club"
       ],
@@ -83661,13 +82063,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "The Damned"
       ],
@@ -84081,13 +82477,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://nihon-mozartaikoukai.com/contact/",
-      "ticket_links": [
-        {
-          "provider": "nihon-mozartaikoukai",
-          "url": "https://nihon-mozartaikoukai.com/contact/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "3edbf7f64b463c51",
@@ -84253,70 +82643,6 @@
       "venue_key": "kinema_club",
       "artists": [
         "Kaede"
-      ]
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/hanabie26/#2026-09-19",
-      "title_ja": "花冷え。",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-19",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "eb2feeab2452024f",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "花冷え。"
-      ]
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/the-damned26/#2026-09-19",
-      "title_ja": "THE DAMNED",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-19",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "09f460446714c2d9",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "The Damned"
       ]
     },
     {
@@ -84912,13 +83238,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tpo.or.jp",
-      "ticket_links": [
-        {
-          "provider": "tpo",
-          "url": "https://www.tpo.or.jp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "9551ec09297ab816",
@@ -84950,13 +83270,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://otonokai.jimdofree.com/",
-      "ticket_links": [
-        {
-          "provider": "jimdofree",
-          "url": "https://otonokai.jimdofree.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "34353630d74fb9a0",
@@ -85136,36 +83450,6 @@
       "artists": [
         "郷ひろみ"
       ]
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/mfs-bandset/#2026-09-20",
-      "title_ja": "MFS",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-20",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "982388c810f232e3",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": []
     },
     {
       "source": "festivals",
@@ -85657,13 +83941,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://info.diskgarage.com/",
-      "ticket_links": [
-        {
-          "provider": "diskgarage",
-          "url": "https://info.diskgarage.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "d61f7cad0166f5f3",
@@ -85757,13 +84035,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tokyo-academy.com/",
-      "ticket_links": [
-        {
-          "provider": "tokyo-academy",
-          "url": "https://www.tokyo-academy.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "193960d94269e10f",
@@ -86289,13 +84561,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.musicasilva.com",
-      "ticket_links": [
-        {
-          "provider": "musicasilva",
-          "url": "https://www.musicasilva.com",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "67a0a5b25ec9aa0e",
@@ -87011,13 +85277,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://shinmusica.com/",
-      "ticket_links": [
-        {
-          "provider": "shinmusica",
-          "url": "https://shinmusica.com/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "51ac7f7e639cca43",
@@ -87619,11 +85879,6 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://w.pia.jp/t/deepest-respect/",
           "code": null
         }
@@ -87829,13 +86084,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://t-onkyo.co.jp/",
-      "ticket_links": [
-        {
-          "provider": "t-onkyo",
-          "url": "https://t-onkyo.co.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "b2ea45635ff55b6c",
@@ -87876,66 +86125,6 @@
       "artists": [
         "UVERworld"
       ]
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/pubchoir26/#2026-09-24",
-      "title_ja": "PUB CHOIR",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-24",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "5da795a998a26405",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": []
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/belle-sebastian_2026/#2026-09-24",
-      "title_ja": "BELLE & SEBASTIAN",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-24",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "5d261ad6d4b9f872",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": []
     },
     {
       "source": "www_x",
@@ -88025,13 +86214,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [
         "松浦航大"
       ],
@@ -88330,36 +86513,6 @@
       ]
     },
     {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/belle-sebastian_2026/#2026-09-25",
-      "title_ja": "BELLE & SEBASTIAN",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-25",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "6b60984d07b2a59d",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": []
-    },
-    {
       "source": "liquidroom",
       "source_url": "https://www.liquidroom.net/schedule/specialothers_20260926",
       "title_ja": "SPECIAL OTHERS",
@@ -88546,11 +86699,6 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
-        {
-          "provider": "official",
-          "url": "https://devilanthem.net/#/",
-          "code": null
-        },
         {
           "provider": "diskgarage",
           "url": "https://diskgarage.com/ticket/detail/102206",
@@ -88978,18 +87126,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "f13fdab528972c7c",
@@ -89403,13 +87540,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [
-        {
-          "provider": "bachcollegiumjapan",
-          "url": "https://bachcollegiumjapan.org",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "ff045281c62f8131",
@@ -89615,18 +87746,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/premium/piacard/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "http://t.pia.jp/info/privacy.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "bccd9d7e6fc70f37",
@@ -90551,13 +88671,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.shin-en.jp/",
-      "ticket_links": [
-        {
-          "provider": "shin-en",
-          "url": "https://www.shin-en.jp/",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "a1c37280a452eb54",
@@ -90597,68 +88711,6 @@
       "venue_key": "zepp_yokohama",
       "artists": [
         "[Alexandros]"
-      ]
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/artist/2026/11a7x/#2026-09-30",
-      "title_ja": "Avenged Sevenfold",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-30",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": true,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "bcbd59ad9dd4f998",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": []
-    },
-    {
-      "source": "creativeman",
-      "source_url": "https://www.creativeman.co.jp/event/juju-hall-tour26/#2026-09-30",
-      "title_ja": "JUJU",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-30",
-      "end_date": null,
-      "open_time": null,
-      "start_time": null,
-      "venue_name": null,
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
-      "tags": [],
-      "id": "ad69bc32f3219805",
-      "status": "approved",
-      "venue_key": "creativeman",
-      "artists": [
-        "JUJU"
       ]
     },
     {
@@ -92670,13 +90722,7 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "eplus",
-          "url": "http://eplus.jp/sys/main.jsp",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "1fed469dcdba5bfb",
@@ -96806,13 +94852,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [
-        {
-          "provider": "bachcollegiumjapan",
-          "url": "https://bachcollegiumjapan.org",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "2eec7cd01ad12926",
@@ -101386,13 +99426,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [
-        {
-          "provider": "bachcollegiumjapan",
-          "url": "https://bachcollegiumjapan.org",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "88c11aef350a874e",
@@ -103906,13 +101940,7 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [
-        {
-          "provider": "bachcollegiumjapan",
-          "url": "https://bachcollegiumjapan.org",
-          "code": null
-        }
-      ],
+      "ticket_links": [],
       "lineup": [],
       "tags": [],
       "id": "e22055bd31cd1264",
