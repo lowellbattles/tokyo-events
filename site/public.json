@@ -1,137 +1,137 @@
 {
-  "generated_at": "2026-07-16T16:34:46.834736",
+  "generated_at": "2026-07-17T07:02:05.958773",
   "sources": [
     {
       "source": "ariake_arena",
-      "started_at": "2026-07-16T07:03:14",
+      "started_at": "2026-07-17T06:54:18",
       "found": 30,
-      "new": 2,
-      "changed": 1,
+      "new": 0,
+      "changed": 0,
       "error": null
     },
     {
       "source": "billboard_tokyo",
-      "started_at": "2026-07-16T16:34:36",
+      "started_at": "2026-07-17T06:36:29",
       "found": 42,
       "new": 0,
-      "changed": 42,
+      "changed": 0,
       "error": null
     },
     {
       "source": "billboard_yokohama",
-      "started_at": "2026-07-16T16:34:40",
+      "started_at": "2026-07-17T06:36:33",
       "found": 38,
       "new": 0,
-      "changed": 38,
+      "changed": 0,
       "error": null
     },
     {
       "source": "bluenote_tokyo",
-      "started_at": "2026-07-16T06:57:25",
-      "found": 44,
-      "new": 0,
-      "changed": 36,
-      "error": null
-    },
-    {
-      "source": "club_citta",
-      "started_at": "2026-07-16T06:50:00",
-      "found": 78,
-      "new": 4,
+      "started_at": "2026-07-17T06:48:39",
+      "found": 47,
+      "new": 3,
       "changed": 12,
       "error": null
     },
     {
+      "source": "club_citta",
+      "started_at": "2026-07-17T06:42:42",
+      "found": 79,
+      "new": 1,
+      "changed": 4,
+      "error": null
+    },
+    {
       "source": "club_seata",
-      "started_at": "2026-07-16T06:56:58",
+      "started_at": "2026-07-17T06:48:15",
       "found": 38,
-      "new": 3,
-      "changed": 1,
+      "new": 0,
+      "changed": 0,
       "error": null
     },
     {
       "source": "cotton_club",
-      "started_at": "2026-07-16T06:57:52",
-      "found": 51,
+      "started_at": "2026-07-17T06:48:58",
+      "found": 53,
       "new": 2,
       "changed": 0,
       "error": null
     },
     {
       "source": "creativeman",
-      "started_at": "2026-07-16T07:07:46",
+      "started_at": "2026-07-17T06:57:52",
       "found": 40,
-      "new": 4,
-      "changed": 1,
+      "new": 0,
+      "changed": 0,
       "error": null
     },
     {
       "source": "disk_garage",
-      "started_at": "2026-07-16T07:09:58",
-      "found": 253,
-      "new": 2,
+      "started_at": "2026-07-17T07:00:12",
+      "found": 249,
+      "new": 0,
       "changed": 3,
       "error": null
     },
     {
       "source": "duo",
-      "started_at": "2026-07-16T06:47:33",
-      "found": 61,
-      "new": 3,
-      "changed": 0,
-      "error": null
-    },
-    {
-      "source": "eggman",
-      "started_at": "2026-07-16T06:51:03",
-      "found": 48,
-      "new": 3,
-      "changed": 0,
-      "error": null
-    },
-    {
-      "source": "ex_theater",
-      "started_at": "2026-07-16T06:58:05",
-      "found": 27,
-      "new": 0,
-      "changed": 1,
-      "error": null
-    },
-    {
-      "source": "festivals",
-      "started_at": "2026-07-16T07:11:31",
-      "found": 18,
-      "new": 0,
-      "changed": 0,
-      "error": null
-    },
-    {
-      "source": "fever_shindaita",
-      "started_at": "2026-07-16T06:56:06",
-      "found": 79,
-      "new": 2,
-      "changed": 4,
-      "error": null
-    },
-    {
-      "source": "hulic_hall",
-      "started_at": "2026-07-16T06:58:55",
-      "found": 6,
-      "new": 0,
-      "changed": 0,
-      "error": null
-    },
-    {
-      "source": "k_arena_yokohama",
-      "started_at": "2026-07-16T07:03:40",
-      "found": 61,
+      "started_at": "2026-07-17T06:40:13",
+      "found": 63,
       "new": 2,
       "changed": 3,
       "error": null
     },
     {
+      "source": "eggman",
+      "started_at": "2026-07-17T06:43:24",
+      "found": 48,
+      "new": 0,
+      "changed": 1,
+      "error": null
+    },
+    {
+      "source": "ex_theater",
+      "started_at": "2026-07-17T06:49:12",
+      "found": 27,
+      "new": 0,
+      "changed": 0,
+      "error": null
+    },
+    {
+      "source": "festivals",
+      "started_at": "2026-07-17T07:01:46",
+      "found": 18,
+      "new": 0,
+      "changed": 5,
+      "error": null
+    },
+    {
+      "source": "fever_shindaita",
+      "started_at": "2026-07-17T06:47:24",
+      "found": 79,
+      "new": 0,
+      "changed": 1,
+      "error": null
+    },
+    {
+      "source": "hulic_hall",
+      "started_at": "2026-07-17T06:49:57",
+      "found": 6,
+      "new": 0,
+      "changed": 3,
+      "error": null
+    },
+    {
+      "source": "k_arena_yokohama",
+      "started_at": "2026-07-17T06:54:45",
+      "found": 61,
+      "new": 0,
+      "changed": 0,
+      "error": null
+    },
+    {
       "source": "kanadevia_hall",
-      "started_at": "2026-07-16T06:59:08",
+      "started_at": "2026-07-17T06:50:12",
       "found": 41,
       "new": 0,
       "changed": 0,
@@ -139,7 +139,7 @@
     },
     {
       "source": "kokuritsu_stadium",
-      "started_at": "2026-07-16T07:05:18",
+      "started_at": "2026-07-17T06:55:51",
       "found": 17,
       "new": 0,
       "changed": 0,
@@ -147,47 +147,47 @@
     },
     {
       "source": "line_cube_shibuya",
-      "started_at": "2026-07-16T06:58:19",
+      "started_at": "2026-07-17T06:49:26",
       "found": 41,
-      "new": 1,
+      "new": 0,
       "changed": 1,
       "error": null
     },
     {
       "source": "liquidroom",
-      "started_at": "2026-07-16T06:38:13",
+      "started_at": "2026-07-17T06:30:01",
       "found": 68,
-      "new": 2,
-      "changed": 3,
-      "error": null
-    },
-    {
-      "source": "livenation_jp",
-      "started_at": "2026-07-16T07:11:30",
-      "found": 36,
       "new": 0,
       "changed": 0,
       "error": null
     },
     {
+      "source": "livenation_jp",
+      "started_at": "2026-07-17T07:01:46",
+      "found": 41,
+      "new": 5,
+      "changed": 0,
+      "error": null
+    },
+    {
       "source": "loft_heaven",
-      "started_at": "2026-07-16T06:48:50",
-      "found": 14,
-      "new": 4,
+      "started_at": "2026-07-17T06:41:30",
+      "found": 13,
+      "new": 1,
       "changed": 0,
       "error": null
     },
     {
       "source": "loft_shinjuku",
-      "started_at": "2026-07-16T06:47:39",
+      "started_at": "2026-07-17T06:40:19",
       "found": 18,
-      "new": 6,
+      "new": 2,
       "changed": 0,
       "error": null
     },
     {
       "source": "makuhari_messe",
-      "started_at": "2026-07-16T07:05:25",
+      "started_at": "2026-07-17T06:56:00",
       "found": 4,
       "new": 0,
       "changed": 0,
@@ -195,7 +195,7 @@
     },
     {
       "source": "nhk_hall",
-      "started_at": "2026-07-16T07:01:24",
+      "started_at": "2026-07-17T06:52:16",
       "found": 35,
       "new": 0,
       "changed": 0,
@@ -203,39 +203,39 @@
     },
     {
       "source": "ocrest",
-      "started_at": "2026-07-16T06:40:04",
+      "started_at": "2026-07-17T06:31:38",
       "found": 39,
-      "new": 1,
+      "new": 0,
       "changed": 1,
       "error": null
     },
     {
       "source": "oeast",
-      "started_at": "2026-07-16T06:38:38",
+      "started_at": "2026-07-17T06:30:21",
       "found": 36,
-      "new": 1,
-      "changed": 4,
+      "new": 0,
+      "changed": 1,
       "error": null
     },
     {
       "source": "onest",
-      "started_at": "2026-07-16T06:40:51",
+      "started_at": "2026-07-17T06:32:22",
       "found": 32,
-      "new": 4,
+      "new": 0,
       "changed": 1,
       "error": null
     },
     {
       "source": "opera_city",
-      "started_at": "2026-07-16T07:01:25",
+      "started_at": "2026-07-17T06:52:17",
       "found": 151,
-      "new": 1,
-      "changed": 3,
+      "new": 0,
+      "changed": 62,
       "error": null
     },
     {
       "source": "orchard_hall",
-      "started_at": "2026-07-16T07:02:27",
+      "started_at": "2026-07-17T06:53:27",
       "found": 17,
       "new": 0,
       "changed": 4,
@@ -243,47 +243,47 @@
     },
     {
       "source": "owest",
-      "started_at": "2026-07-16T06:39:23",
+      "started_at": "2026-07-17T06:31:00",
       "found": 35,
-      "new": 1,
+      "new": 0,
       "changed": 0,
       "error": null
     },
     {
       "source": "pia_arena_mm",
-      "started_at": "2026-07-16T06:44:53",
+      "started_at": "2026-07-17T06:37:14",
       "found": 34,
       "new": 0,
-      "changed": 1,
+      "changed": 0,
       "error": null
     },
     {
       "source": "quattro_shibuya",
-      "started_at": "2026-07-16T06:45:30",
-      "found": 75,
+      "started_at": "2026-07-17T06:38:18",
+      "found": 76,
       "new": 1,
-      "changed": 5,
-      "error": null
-    },
-    {
-      "source": "que_shimokitazawa",
-      "started_at": "2026-07-16T06:53:48",
-      "found": 67,
-      "new": 2,
       "changed": 3,
       "error": null
     },
     {
+      "source": "que_shimokitazawa",
+      "started_at": "2026-07-17T06:46:06",
+      "found": 67,
+      "new": 0,
+      "changed": 0,
+      "error": null
+    },
+    {
       "source": "reny_shinjuku",
-      "started_at": "2026-07-16T06:52:18",
+      "started_at": "2026-07-17T06:44:34",
       "found": 58,
-      "new": 4,
+      "new": 0,
       "changed": 40,
       "error": null
     },
     {
       "source": "sgc_hall_ariake",
-      "started_at": "2026-07-16T06:59:09",
+      "started_at": "2026-07-17T06:50:13",
       "found": 54,
       "new": 0,
       "changed": 0,
@@ -291,55 +291,55 @@
     },
     {
       "source": "shelter",
-      "started_at": "2026-07-16T06:48:17",
+      "started_at": "2026-07-17T06:40:53",
       "found": 20,
-      "new": 4,
-      "changed": 1,
-      "error": null
-    },
-    {
-      "source": "shibuya_dive",
-      "started_at": "2026-07-16T06:51:46",
-      "found": 21,
       "new": 1,
       "changed": 0,
       "error": null
     },
     {
-      "source": "smash_jpn",
-      "started_at": "2026-07-16T07:09:09",
-      "found": 32,
-      "new": 0,
-      "changed": 5,
-      "error": null
-    },
-    {
-      "source": "sogo_tokyo",
-      "started_at": "2026-07-16T07:05:40",
-      "found": 176,
-      "new": 3,
-      "changed": 6,
-      "error": null
-    },
-    {
-      "source": "stellar_ball",
-      "started_at": "2026-07-16T06:57:25",
-      "found": 7,
+      "source": "shibuya_dive",
+      "started_at": "2026-07-17T06:44:00",
+      "found": 20,
       "new": 0,
       "changed": 0,
       "error": null
     },
     {
-      "source": "tachikawa_stage_garden",
-      "started_at": "2026-07-16T07:01:45",
-      "found": 29,
+      "source": "smash_jpn",
+      "started_at": "2026-07-17T06:59:20",
+      "found": 32,
       "new": 0,
-      "changed": 27,
+      "changed": 1,
+      "error": null
+    },
+    {
+      "source": "sogo_tokyo",
+      "started_at": "2026-07-17T06:56:15",
+      "found": 176,
+      "new": 0,
+      "changed": 3,
+      "error": null
+    },
+    {
+      "source": "stellar_ball",
+      "started_at": "2026-07-17T06:48:38",
+      "found": 7,
+      "new": 0,
+      "changed": 4,
+      "error": null
+    },
+    {
+      "source": "tachikawa_stage_garden",
+      "started_at": "2026-07-17T06:52:39",
+      "found": 30,
+      "new": 1,
+      "changed": 13,
       "error": null
     },
     {
       "source": "tokyo_dome",
-      "started_at": "2026-07-16T07:02:41",
+      "started_at": "2026-07-17T06:53:42",
       "found": 35,
       "new": 0,
       "changed": 0,
@@ -347,7 +347,7 @@
     },
     {
       "source": "tokyo_garden_theater",
-      "started_at": "2026-07-16T07:02:42",
+      "started_at": "2026-07-17T06:53:43",
       "found": 39,
       "new": 0,
       "changed": 0,
@@ -355,15 +355,15 @@
     },
     {
       "source": "tokyo_intl_forum",
-      "started_at": "2026-07-16T06:59:45",
-      "found": 77,
-      "new": 1,
+      "started_at": "2026-07-17T06:50:32",
+      "found": 79,
+      "new": 2,
       "changed": 40,
       "error": null
     },
     {
       "source": "toyosu_pit",
-      "started_at": "2026-07-16T06:44:31",
+      "started_at": "2026-07-17T06:36:37",
       "found": 38,
       "new": 0,
       "changed": 0,
@@ -371,7 +371,7 @@
     },
     {
       "source": "toyota_arena_tokyo",
-      "started_at": "2026-07-16T07:03:28",
+      "started_at": "2026-07-17T06:54:33",
       "found": 51,
       "new": 0,
       "changed": 0,
@@ -379,55 +379,55 @@
     },
     {
       "source": "udo_artists",
-      "started_at": "2026-07-16T07:09:15",
+      "started_at": "2026-07-17T06:59:26",
       "found": 17,
-      "new": 2,
-      "changed": 10,
+      "new": 0,
+      "changed": 12,
       "error": null
     },
     {
       "source": "unit_daikanyama",
-      "started_at": "2026-07-16T06:49:27",
-      "found": 33,
-      "new": 0,
+      "started_at": "2026-07-17T06:42:07",
+      "found": 34,
+      "new": 1,
       "changed": 1,
       "error": null
     },
     {
       "source": "veats_shibuya",
-      "started_at": "2026-07-16T06:56:13",
-      "found": 58,
-      "new": 3,
+      "started_at": "2026-07-17T06:47:32",
+      "found": 60,
+      "new": 2,
       "changed": 0,
       "error": null
     },
     {
       "source": "www",
-      "started_at": "2026-07-16T06:46:27",
-      "found": 68,
+      "started_at": "2026-07-17T06:39:11",
+      "found": 69,
       "new": 1,
-      "changed": 4,
+      "changed": 2,
       "error": null
     },
     {
       "source": "www_x",
-      "started_at": "2026-07-16T06:47:03",
-      "found": 59,
-      "new": 2,
-      "changed": 4,
+      "started_at": "2026-07-17T06:39:44",
+      "found": 60,
+      "new": 1,
+      "changed": 2,
       "error": null
     },
     {
       "source": "yokohama_arena",
-      "started_at": "2026-07-16T06:49:21",
+      "started_at": "2026-07-17T06:42:01",
       "found": 44,
-      "new": 1,
-      "changed": 8,
+      "new": 0,
+      "changed": 0,
       "error": null
     },
     {
       "source": "yokohama_bay_hall",
-      "started_at": "2026-07-16T06:55:23",
+      "started_at": "2026-07-17T06:46:39",
       "found": 39,
       "new": 0,
       "changed": 0,
@@ -435,50 +435,50 @@
     },
     {
       "source": "yokohama_buntai",
-      "started_at": "2026-07-16T07:05:26",
-      "found": 14,
-      "new": 0,
-      "changed": 0,
-      "error": null
-    },
-    {
-      "source": "yoyogi_gym1",
-      "started_at": "2026-07-16T07:04:50",
-      "found": 19,
-      "new": 10,
-      "changed": 0,
-      "error": null
-    },
-    {
-      "source": "zepp_divercity",
-      "started_at": "2026-07-16T06:41:29",
-      "found": 84,
+      "started_at": "2026-07-17T06:56:01",
+      "found": 15,
       "new": 1,
       "changed": 0,
       "error": null
     },
     {
+      "source": "yoyogi_gym1",
+      "started_at": "2026-07-17T06:55:50",
+      "found": 19,
+      "new": 0,
+      "changed": 0,
+      "error": null
+    },
+    {
+      "source": "zepp_divercity",
+      "started_at": "2026-07-17T06:32:58",
+      "found": 84,
+      "new": 0,
+      "changed": 0,
+      "error": null
+    },
+    {
       "source": "zepp_haneda",
-      "started_at": "2026-07-16T06:42:01",
-      "found": 89,
+      "started_at": "2026-07-17T06:33:32",
+      "found": 90,
       "new": 1,
       "changed": 0,
       "error": null
     },
     {
       "source": "zepp_shinjuku",
-      "started_at": "2026-07-16T06:42:40",
+      "started_at": "2026-07-17T06:34:16",
       "found": 84,
-      "new": 2,
-      "changed": 1,
+      "new": 0,
+      "changed": 0,
       "error": null
     },
     {
       "source": "zepp_yokohama",
-      "started_at": "2026-07-16T06:43:31",
-      "found": 80,
-      "new": 3,
-      "changed": 3,
+      "started_at": "2026-07-17T06:35:04",
+      "found": 94,
+      "new": 14,
+      "changed": 2,
       "error": null
     }
   ],
@@ -1409,7 +1409,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "muramatsuflute",
+          "url": "http://www.muramatsuflute.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "3ffb39b9c67f37b6",
@@ -2565,7 +2571,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "muramatsuflute",
+          "url": "http://www.muramatsuflute.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "c388c57fe7e95dc3",
@@ -2814,6 +2826,7 @@
       "artists": [
         "AFTERS",
         "GANGDEMIC",
+        "Maison de Queen",
         "NEW AGE HEROS",
         "NUANCE",
         "airattic",
@@ -3680,7 +3693,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "muramatsuflute",
+          "url": "http://www.muramatsuflute.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "f8a61b2fd64b2a06",
@@ -4907,7 +4926,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://shibukon.com",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "shibukon",
+          "url": "https://shibukon.com",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "b4c8c95476854d4a",
@@ -4939,7 +4964,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "muramatsuflute",
+          "url": "http://www.muramatsuflute.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "50bb28ea665211e9",
@@ -6651,7 +6682,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://gobchor.net",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "gobchor",
+          "url": "http://gobchor.net",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "56fa1aa738cd1fc8",
@@ -6683,7 +6720,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "muramatsuflute",
+          "url": "http://www.muramatsuflute.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "b556520ae1f325b4",
@@ -7978,7 +8021,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "muramatsuflute",
+          "url": "http://www.muramatsuflute.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "f4678fe013d4f626",
@@ -8977,7 +9026,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tokyosymphony.jp",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tokyosymphony",
+          "url": "https://tokyosymphony.jp",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "7e1adcecdaee2cbb",
@@ -9009,7 +9064,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://www.muramatsuflute.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "muramatsuflute",
+          "url": "http://www.muramatsuflute.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "dca8a7287ccc07cb",
@@ -9307,7 +9368,7 @@
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [
-        "NEW 夜光性アミューズ主催ライブ 『YORU-FES ~夜を駆けるサーキットSP~』"
+        "夜光性アミューズ主催ライブ 『YORU-FES ~夜を駆けるサーキットSP~』"
       ],
       "tags": [],
       "id": "f9b1a7f4031b6773",
@@ -9319,7 +9380,6 @@
         "Lv.♡Charm",
         "MEGAFON",
         "Merry BAD TUNE.",
-        "NEW 夜光性アミューズ主催ライブ 『YORU-FES ~夜を駆けるサーキットSP~』",
         "Pastel Closet",
         "Pretty Chuu",
         "RealRomantic",
@@ -9333,15 +9393,18 @@
         "myojou",
         "アキシブproject",
         "ジエメイ",
+        "ドレスコード",
         "ハルニシオン",
         "パラディーク",
         "パラレルサイダー",
         "ヒロインズ研究生",
         "フルコース",
+        "ベロティカ",
         "マリークラウン",
         "マーキュロ",
         "ラストシーン",
-        "夜光性アミューズ"
+        "夜光性アミューズ",
+        "夜光性アミューズ主催ライブ 『YORU-FES ~夜を駆けるサーキットSP~』"
       ]
     },
     {
@@ -12099,7 +12162,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "official",
+          "url": "https://www.saishumiraishoujo.com",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "1bf18e78f7ba1a67",
@@ -12201,7 +12270,13 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://info.diskgarage.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "diskgarage",
+          "url": "https://info.diskgarage.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "73d4e67947471584",
@@ -12265,7 +12340,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.nihon-mozartaikoukai.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "nihon-mozartaikoukai",
+          "url": "https://www.nihon-mozartaikoukai.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "6dfd9e08ce4c55ef",
@@ -13748,7 +13829,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://maltamusic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "maltamusic",
+          "url": "https://maltamusic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "e448cb2ef86a888c",
@@ -15517,7 +15604,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://minamiaoyamamusiclabo.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "minamiaoyamamusiclabo",
+          "url": "https://minamiaoyamamusiclabo.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "d5a4409530de345a",
@@ -17029,7 +17122,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.ensemble-nomad.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "ensemble-nomad",
+          "url": "https://www.ensemble-nomad.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "43b064e745930c0d",
@@ -17429,6 +17528,73 @@
       "status": "auto",
       "venue_key": "shelter",
       "artists": []
+    },
+    {
+      "source": "veats_shibuya",
+      "source_url": "https://veats.jp/schedule/8594/",
+      "title_ja": "Ill / etc.",
+      "title_en": null,
+      "subtitle": "イグジステンス vol.4",
+      "category": "music",
+      "genres": [
+        "idol"
+      ],
+      "start_date": "2026-07-13",
+      "end_date": null,
+      "open_time": "14:20",
+      "start_time": "15:00",
+      "venue_name": "Veats Shibuya",
+      "venue_area": "Shibuya",
+      "address": "東京都渋谷区宇田川町33番地1号 グランド東京渋谷ビルB1・B2",
+      "lat": 35.6614,
+      "lng": 139.6981,
+      "price_text": "前方¥7,000・一般¥2,000 / ¥-,--- (D代別)",
+      "price_min": 2000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "other",
+          "url": "https://ticketdive.com/event/existence_vol4",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "Ill",
+        "MADOROMI-マドロミ-",
+        "ベロティカ",
+        "RiNCENT♯",
+        "Maison de Queen",
+        "アキシブproject",
+        "VVSiS",
+        "Pastel Closet",
+        "Real Romantic",
+        "TENRIN",
+        "ドレスコード",
+        "ヒロインズ研究生",
+        "ラストシーン"
+      ],
+      "tags": [],
+      "id": "634ff38c2700c600",
+      "status": "auto",
+      "venue_key": "veats_shibuya",
+      "artists": [
+        "Ill",
+        "MADOROMI-マドロミ-",
+        "Maison de Queen",
+        "Pastel Closet",
+        "Real Romantic",
+        "RiNCENT♯",
+        "TENRIN",
+        "VVSiS",
+        "etc.",
+        "アキシブproject",
+        "ドレスコード",
+        "ヒロインズ研究生",
+        "ベロティカ",
+        "ラストシーン"
+      ]
     },
     {
       "source": "liquidroom",
@@ -19029,7 +19195,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tempoprimo.co.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tempoprimo",
+          "url": "https://tempoprimo.co.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "c8f4607a0f47adbd",
@@ -19061,7 +19233,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tempoprimo.co.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tempoprimo",
+          "url": "https://tempoprimo.co.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "690050595023b218",
@@ -19615,6 +19793,7 @@
       "status": "auto",
       "venue_key": "duo",
       "artists": [
+        "ドレスコード",
         "ラストシーン"
       ]
     },
@@ -20502,28 +20681,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "Cañizares",
-        "Andrés Barrios",
-        "Gen Ogimi",
-        "Special Guests :",
-        "Hiroki Sato",
-        "Shiro Ijuin",
-        "Yuske Saegusa"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "ecc5cc41f3502fad",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": [
-        "Andrés Barrios",
-        "Cañizares",
-        "Gen Ogimi",
-        "Hiroki Sato",
-        "Shiro Ijuin",
-        "Special Guests :",
-        "Yuske Saegusa"
-      ]
+      "artists": []
     },
     {
       "source": "cotton_club",
@@ -21170,6 +21333,7 @@
       "status": "auto",
       "venue_key": "duo",
       "artists": [
+        "As a Cutie Pomeranian",
         "DREAMING MONSTER",
         "Falench.",
         "HIGH SPIRITS",
@@ -22826,6 +22990,40 @@
       "artists": []
     },
     {
+      "source": "shelter",
+      "source_url": "https://www.loft-prj.co.jp/schedule/shelter/360806",
+      "title_ja": "さとりモンスター2マンシリーズ さとりモンスター×totos 『さとす』",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-07-17",
+      "end_date": null,
+      "open_time": "19:00",
+      "start_time": "19:20",
+      "venue_name": "下北沢SHELTER",
+      "venue_area": "Shimokitazawa",
+      "address": "2-6-10 Kitazawa B1, Setagaya-ku, Tokyo",
+      "lat": 35.662398,
+      "lng": 139.6678,
+      "price_text": "通常¥2000 / 『さとす』囲みチェキ¥4000 【発売日】 https://t-dv.com/satosu0717 Share HOME SCHEDULE さとりモンスター2マンシリーズ さとりモンスター×totos 『さとす』 下北沢SHELTER 〒155-0031 東京都世田谷区北沢2-6-10仙田ビルB1 GooleMaps TEL：03-3466-7430 HOME SCHEDULE ABOUT ACCESS NEWS CONTACT",
+      "price_min": 2000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "764efa32908c2a0b",
+      "status": "auto",
+      "venue_key": "shelter",
+      "artists": [
+        "さとりモンスター"
+      ]
+    },
+    {
       "source": "zepp_haneda",
       "source_url": "https://www.zepp.co.jp/hall/haneda/schedule/single/?rid=157087",
       "title_ja": "Eve",
@@ -23638,7 +23836,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://euodia.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "euodia",
+          "url": "https://euodia.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "f903073c0f2c5d25",
@@ -25426,7 +25630,13 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "rakuten",
+          "url": "https://ticket.rakuten.co.jp/",
+          "code": null
+        }
+      ],
       "lineup": [
         "InnocentFairy",
         "來未あい",
@@ -25470,7 +25680,13 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "rakuten",
+          "url": "https://ticket.rakuten.co.jp/",
+          "code": null
+        }
+      ],
       "lineup": [
         "AZの理由",
         "OTOMICHI",
@@ -25840,7 +26056,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "bachcollegiumjapan",
+          "url": "https://bachcollegiumjapan.org",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "e04097102b9b6c9c",
@@ -27471,7 +27693,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/gre4n-boyz/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/gre4nboyz/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/gre4nboyz/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "69c22bd7156230db",
@@ -28445,19 +28683,35 @@
       "genres": [],
       "start_date": "2026-07-20",
       "end_date": null,
-      "open_time": null,
+      "open_time": "14:00",
       "start_time": "15:00",
       "venue_name": "LaLa arena TOKYO-BAY",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "券種・料金 指定席 ¥13,750(税込) ／ ¥12,500(税抜)",
+      "price_min": 13750,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/gmj-level1/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/gmj-level1/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/gmj-level1/",
+          "code": null
+        }
+      ],
       "lineup": [
         "GAME MUSIC JAM"
       ],
@@ -28479,19 +28733,35 @@
       "genres": [],
       "start_date": "2026-07-20",
       "end_date": null,
-      "open_time": null,
+      "open_time": "14:30",
       "start_time": "15:00",
       "venue_name": "SUPERNOVA KAWASAKI",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "券種・料金 全自由 ¥6,000(税込) ／ ¥5,455(税抜)",
+      "price_min": 6000,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/halca/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/halca/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/halca/",
+          "code": null
+        }
+      ],
       "lineup": [
         "halca"
       ],
@@ -28513,19 +28783,35 @@
       "genres": [],
       "start_date": "2026-07-20",
       "end_date": null,
-      "open_time": null,
+      "open_time": "15:30",
       "start_time": "16:00",
       "venue_name": "恵比寿ザ・ガーデンルーム",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "券種・料金 全席指定 ¥8,800(税込) ／ ¥8,000(税抜)",
+      "price_min": 8800,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/toshinoriyonekura2026/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/toshinoriyonekura/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/toshinoriyonekura/",
+          "code": null
+        }
+      ],
       "lineup": [
         "米倉利紀"
       ],
@@ -28547,16 +28833,16 @@
       "genres": [],
       "start_date": "2026-07-20",
       "end_date": null,
-      "open_time": null,
+      "open_time": "16:30",
       "start_time": "17:00",
       "venue_name": "柏PALOOZA",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "券種・料金 スタンディング ¥5,500(税込) ／ ¥5,000(税抜)",
+      "price_min": 5500,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
@@ -29034,7 +29320,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/honebone/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/honebone-t/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/honebone/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "84d450c956807a05",
@@ -30113,10 +30415,12 @@
         "ジエメイ",
         "スプスラッシュ",
         "ドラマチックレコード",
+        "ドレスコード",
         "ハルニシオン",
         "パラディーク",
         "パラレルサイダー",
         "フューチャーサイダー",
+        "ベロティカ",
         "マリークラウン",
         "ラストシーン",
         "ラナキュラ",
@@ -31076,7 +31380,7 @@
       "price_min": 6500,
       "is_free": false,
       "is_sold_out": false,
-      "ticket_url": null,
+      "ticket_url": "https://www.livenation.co.jp/show/1687176/azavana-presents-proelium-/tokyo/2026-07-23/ja",
       "ticket_links": [
         {
           "provider": "eplus",
@@ -32412,7 +32716,7 @@
       "genres": [],
       "start_date": "2026-07-24",
       "end_date": null,
-      "open_time": "23:45",
+      "open_time": "24:00",
       "start_time": null,
       "venue_name": "Shibuya eggman",
       "venue_area": "Shibuya",
@@ -32962,7 +33266,7 @@
         "HYUKOH",
         "SNAIL MAIL",
         "TESTSET",
-        "SORRY",
+        "a flood of circle",
         "w.o.d.",
         "テレビ大陸音頭 (Selected by ROOKIE A GO-GO)",
         "maya ongaku",
@@ -33078,7 +33382,6 @@
         "SHADOWS",
         "SNAIL MAIL",
         "SON ROMPE PERA",
-        "SORRY",
         "SUGIURUMN",
         "TAKUTO AND NEKKOYA BAND",
         "TEKASA",
@@ -33094,6 +33397,7 @@
         "Upendra and friends plus Mr. Sunil",
         "Wata Igarashi",
         "Yo-Sea",
+        "a flood of circle",
         "almenialva",
         "el tempo",
         "maya ongaku",
@@ -33828,8 +34132,8 @@
       ],
       "start_date": "2026-07-25",
       "end_date": null,
-      "open_time": "17:30",
-      "start_time": "18:30",
+      "open_time": "17:00",
+      "start_time": "18:00",
       "venue_name": "KT Zepp Yokohama",
       "venue_area": "Yokohama",
       "address": null,
@@ -34848,7 +35152,7 @@
       "price_text": "全自由席 ￥5,000-(税込) ※ドリンク代別 立見 ￥5,000-(税込) ※ドリンク代別",
       "price_min": 5000,
       "is_free": false,
-      "is_sold_out": true,
+      "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
         {
@@ -35652,6 +35956,7 @@
         "myojou",
         "selfish",
         "アイテムはてるてるのみ",
+        "アイドルカレッジ",
         "アルテミスの翼",
         "ハルカエコー"
       ]
@@ -36182,7 +36487,9 @@
       "id": "4455a6519852f5a3",
       "status": "approved",
       "venue_key": "billboard_tokyo",
-      "artists": []
+      "artists": [
+        "Chara"
+      ]
     },
     {
       "source": "billboard_yokohama",
@@ -36349,7 +36656,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "http://t.pia.jp/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "http://l-tike.com/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "http://eplus.jp/sys/main.jsp",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "b76493dfc91a8013",
@@ -36621,7 +36944,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.samonpromotion.com",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "samonpromotion",
+          "url": "https://www.samonpromotion.com",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "42e9faeda1528a7d",
@@ -36997,7 +37326,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "music_festival",
-      "genres": [],
+      "genres": [
+        "classical"
+      ],
       "start_date": "2026-07-26",
       "end_date": null,
       "open_time": null,
@@ -37020,6 +37351,7 @@
         "KNEECAP",
         "DONAVON FRANKENREITER",
         "平井 大",
+        "SPECIAL GUEST 1950’s Western Caravan Orchestra",
         "MITSKI",
         "Tempalay",
         "GEORDIE GREEP",
@@ -37144,6 +37476,7 @@
         "SAKURA CIRCUS",
         "SOFIA ISELLA",
         "SPECIAL GUEST",
+        "SPECIAL GUEST 1950’s Western Caravan Orchestra",
         "SYAYOS",
         "Satria Ramadhan",
         "TAKKYU ISHINO",
@@ -37918,6 +38251,106 @@
       "artists": []
     },
     {
+      "source": "loft_shinjuku",
+      "source_url": "https://www.loft-prj.co.jp/schedule/loft/schedule/360764",
+      "title_ja": "INFINITY LIVE PRESENTS『THE NEXTGATE – LOFT 50th COUNTDOWN -』",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": "11:00",
+      "start_time": "11:20",
+      "venue_name": "Shinjuku LOFT",
+      "venue_area": "Kabukicho",
+      "address": "1-12-9 Kabukicho B2, Shinjuku-ku, Tokyo",
+      "lat": 35.69633,
+      "lng": 139.703533,
+      "price_text": "ADV¥3300 / DOOR¥4200(DRINK代別¥600) [発売]Ticket Dive 7月10日(金)22:00〜7月26日(日)11:20まで https://t-dv.com/20260726_loft 雨模様のソラリス alma il pleut and more… SHARE HOME SCHEDULE INFINITY LIVE PRESENTS『THE NEXTGATE – LOFT 50th COUNTDOWN -』 新宿ロフト 〒160-0021 東京都新宿区歌舞",
+      "price_min": 600,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "6d8ce89f5198a7c4",
+      "status": "auto",
+      "venue_key": "loft_shinjuku",
+      "artists": []
+    },
+    {
+      "source": "loft_heaven",
+      "source_url": "https://www.loft-prj.co.jp/schedule/heaven/360369",
+      "title_ja": "DAY EVENT パラパラ★パラダイス～963のバースデー～",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": "11:20",
+      "start_time": "11:45",
+      "venue_name": "LOFT HEAVEN",
+      "venue_area": "Shibuya",
+      "address": "2-12-13 Shibuya B1, Shibuya-ku, Tokyo",
+      "lat": 35.6595,
+      "lng": 139.701,
+      "price_text": "＜会場チケット＞ 前売予約¥2,900/当日¥3,400 ※それぞれ 別途必要 https://tiget.net/events/501999 ＜配信チケット＞ 料金￥2,000 https://premier.twitcasting.tv/loft_heaven/shopcart/441911 《アーカイブについて》 配信終了後から2026年7月11日(土) まで購入可能です（その間も配信チケットご購入頂けます）。リアルタイムでのご視聴ができない方は、アーカイブでお楽しみくだ",
+      "price_min": 2000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "tiget",
+          "url": "https://tiget.net/events/501999",
+          "code": null
+        }
+      ],
+      "lineup": [],
+      "tags": [],
+      "id": "28b77746eaf7453d",
+      "status": "auto",
+      "venue_key": "loft_heaven",
+      "artists": []
+    },
+    {
+      "source": "tokyo_intl_forum",
+      "source_url": "https://www.t-i-forum.co.jp/visitors/event/detail.html?id=20260726_0715",
+      "title_ja": "レバテックIT転職フェア",
+      "title_en": null,
+      "subtitle": null,
+      "category": "other",
+      "genres": [],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京国際フォーラム ホールE",
+      "venue_area": "Yurakucho",
+      "address": "3-5-1 Marunouchi, Chiyoda-ku, Tokyo 100-0005",
+      "lat": 35.6752,
+      "lng": 139.7631,
+      "price_text": "参加無料 ※イベントサイトより事前の参加申し込みが必要となります。",
+      "price_min": 0,
+      "is_free": true,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "bbcb49cdf2a3596d",
+      "status": "auto",
+      "venue_key": "tokyo_intl_forum",
+      "artists": []
+    },
+    {
       "source": "liquidroom",
       "source_url": "https://www.liquidroom.net/schedule/klang-ruler_20260727",
       "title_ja": "Klang Ruler",
@@ -38252,12 +38685,32 @@
           "code": null
         }
       ],
-      "lineup": [],
+      "lineup": [
+        "Marlene",
+        "Jiro Yoshida",
+        "Penny K",
+        "Kyoko Onoda",
+        "Satsuki Kusui",
+        "Senri Kawaguchi",
+        "Atsushi Tsuzurano",
+        "Jay",
+        "Maya"
+      ],
       "tags": [],
       "id": "8c4f0b4c9600df28",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": []
+      "artists": [
+        "Atsushi Tsuzurano",
+        "Jay",
+        "Jiro Yoshida",
+        "Kyoko Onoda",
+        "Marlene",
+        "Maya",
+        "Penny K",
+        "Satsuki Kusui",
+        "Senri Kawaguchi"
+      ]
     },
     {
       "source": "ex_theater",
@@ -38375,7 +38828,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://agite.base.shop/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "shop",
+          "url": "https://agite.base.shop/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "7062385edc6bcd1d",
@@ -38509,7 +38968,13 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/elephantgoestojetcity/",
+          "code": null
+        }
+      ],
       "lineup": [
         "THEE MICHELLE GUN ELEPHANT 『WORLD PSYCHO BLUES TOUR ～ ALL STANDING! MAXIMUM!! ～YOKOHAMA ARENA 99.01.17 <Revive 爆音experience>』"
       ],
@@ -38573,7 +39038,7 @@
       "price_text": "./DOOR ¥5,000 (税込 / オールスタンディング / ドリンク代別) LINE UP 菊地成孔とペペ・トルメント・アスカラール / betcover!! / DJ : Akie TICKET THANK YOU SOLD OUT!! ◆抽選先行 申込受付期間：5/20(水)19:00〜5/27(水)23:59 抽選結果ご確認：5/29(金)13:00〜 ご入金期間：5/29(金) 13:00〜5/31(日) 21:00 e+ ◆一般発売： 5/30(土)10:00 e+ ※国外在住の",
       "price_min": 5000,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [
         {
@@ -38632,6 +39097,38 @@
       "id": "348d9e758f35de61",
       "status": "auto",
       "venue_key": "shelter",
+      "artists": []
+    },
+    {
+      "source": "loft_shinjuku",
+      "source_url": "https://www.loft-prj.co.jp/schedule/loft/schedule/355161",
+      "title_ja": "TEEN’S MUSIC CAMP 2026 ~supported by Eggs〜",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-07-27",
+      "end_date": null,
+      "open_time": "16:00",
+      "start_time": "16:30",
+      "venue_name": "Shinjuku LOFT",
+      "venue_area": "Kabukicho",
+      "address": "1-12-9 Kabukicho B2, Shinjuku-ku, Tokyo",
+      "lat": 35.69633,
+      "lng": 139.703533,
+      "price_text": "ADV¥1800 / DOOR¥2300(DRINK代別¥600) [発売]LOFT予約・バンド予約 ※新宿ロフトチケット予約システム注意事項 ・こちらのサイトの「チケット予約」からお申し込み下さい。 ・枚数制限：お一人様1枚 ・お名前はフルネームでご記載ください ・整理番号をお控えの上、当日開場時間までにご来店下さい。 基本的に整理番号順でのご入場となりますが、イベントによって異なる場合もありますので、各店舗ホームページのイベント欄をご確認ください。 ・席数に限りがございますのでウェブ予約を",
+      "price_min": 600,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "8e2974a0758db5d8",
+      "status": "auto",
+      "venue_key": "loft_shinjuku",
       "artists": []
     },
     {
@@ -40343,7 +40840,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tpo.or.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tpo",
+          "url": "https://www.tpo.or.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "dc073e6438cb6c8b",
@@ -43785,7 +44288,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "official",
+          "url": "https://stepjam.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "dfcb2187dac0285e",
@@ -44933,6 +45442,38 @@
       "artists": []
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=158672",
+      "title_ja": "beatnation [dj TAKA / DJ YOSHITAKA / Sota Fujimori/ L.E.D. / kors k / 猫叉Master / Ryu☆] VENUS / Hommarju / RoughSketch / かめりあTORIENA / めめめ / KE!JU / TAN1CHU pop'n musicMini Live D-crew / wac / PON / 劇団レコード / NU-KO / mami秋成 / red glasses / good-cool / すわひでお Dancer :LEO / ViolaVJ :Motion CombatまぐかべLaser :CRYSTALINOCostume Provider :CuLLt",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": "13:00",
+      "start_time": "14:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "S席（2階指定席）/ ¥22,000 A席（1階前方スタンディング）/ ¥9,900 B席（1階後方スタンディング）/ ¥8,800 [お問合せ] 株式会社EMP [email protected] READ MORE",
+      "price_min": 8800,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "68f0940e1f415a88",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": []
+    },
+    {
       "source": "liquidroom",
       "source_url": "https://www.liquidroom.net/schedule/lavt_20260802",
       "title_ja": "Lavt",
@@ -44996,7 +45537,9 @@
       "id": "ec6a099e3d7db8e7",
       "status": "approved",
       "venue_key": "billboard_tokyo",
-      "artists": []
+      "artists": [
+        "Chara"
+      ]
     },
     {
       "source": "billboard_yokohama",
@@ -45333,7 +45876,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "official",
+          "url": "https://stepjam.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "9902f5a4e7c665c0",
@@ -45379,13 +45928,13 @@
       "title_ja": "SBI証券 夏休み自由研究フェス2026〜親子で楽しもう！〜",
       "title_en": null,
       "subtitle": null,
-      "category": "other",
+      "category": "music",
       "genres": [],
       "start_date": "2026-08-02",
       "end_date": null,
       "open_time": null,
       "start_time": null,
-      "venue_name": "東京国際フォーラム ホールB5",
+      "venue_name": "東京国際フォーラム",
       "venue_area": "Yurakucho",
       "address": "3-5-1 Marunouchi, Chiyoda-ku, Tokyo 100-0005",
       "lat": 35.6752,
@@ -46303,6 +46852,123 @@
       "artists": []
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=167242",
+      "title_ja": "BOYFRIEND",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": "13:30",
+      "start_time": "14:30",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "VVIP席/ ¥23,000 S席/ ¥13,500 [OPEN] 18:00 [START] 19:00 [PRICE] VVIP席/ ¥23,000 S席/ ¥13,500 [お問合せ] iTONY INTERNATIONAL [email protected] READ MORE",
+      "price_min": 13500,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "ec1500323b74443b",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": []
+    },
+    {
+      "source": "tachikawa_stage_garden",
+      "source_url": "https://www.t-sg.jp/events/2026/08/00001469.php",
+      "title_ja": "Free! Series ORCHESTRA CONCERT 2026 ―Beyond the New Journey―",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "classical",
+        "anime-seiyu"
+      ],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": "13:00",
+      "start_time": "14:00",
+      "venue_name": "TACHIKAWA STAGE GARDEN（立川ステージガーデン）",
+      "venue_area": "Tachikawa",
+      "address": "3-3 Midori-cho, Tachikawa-shi, Tokyo (GREEN SPRINGS N1)",
+      "lat": 35.704859,
+      "lng": 139.410453,
+      "price_text": "＜「“ようこそ！”招待状セット」付チケット＞ 13,800円(税込) ※お一人様各公演2枚まで ＜通常チケット＞ 9,900円(税込) ＜昼の部のみ 見切れ席＞ 8,800円(税込み) ※お一人様4枚まで",
+      "price_min": 8800,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/venue/1900320#anchor-4",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/search/?vnu=TACHIKAWA%20STAGE%20GARDEN",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/search_all.do?pfdy=&pfdm=&pfdd=&ptdy=&ptdm=&ptdd=&rfdy=&rfdm=&rfdd=&rtdy=&rtdm=&rtdd=&kw=TACHIKAWA+STAGE+GARDEN&rg=&pf=&perfIn=0&rlsIn=0&rlsKnd=&rlsStatus=&pc1=&pc2=",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "出演：加藤達也",
+        "指揮：吉⽥⾏地",
+        "演奏：Heartbeat Symphony",
+        "コーラス：Zinee",
+        "Melody Chubak",
+        "ゲストミュージシャン：Guitar 遠⼭哲朗",
+        "Saxophone 近藤淳也",
+        "公演内ボイス：七瀬遙(CV 島﨑信長)",
+        "橘真琴(CV 鈴木達央)",
+        "松岡凛(CV 宮野真守)",
+        "※キャスト登壇はございません。",
+        "※公演内ボイスは事前収録となります。",
+        "※【昼の部】【夜の部】のボイス内容は同一のものとなります。",
+        "※一部",
+        "全公演共通ボイスが含まれます。",
+        "※アニメ本編映像出演のキャストは記載しておりません。"
+      ],
+      "tags": [
+        "コンサート"
+      ],
+      "id": "cfb2c8977f148658",
+      "status": "auto",
+      "venue_key": "tachikawa_stage_garden",
+      "artists": [
+        "Melody Chubak",
+        "Saxophone 近藤淳也",
+        "※【昼の部】【夜の部】のボイス内容は同一のものとなります。",
+        "※アニメ本編映像出演のキャストは記載しておりません。",
+        "※キャスト登壇はございません。",
+        "※一部",
+        "※公演内ボイスは事前収録となります。",
+        "ゲストミュージシャン：Guitar 遠⼭哲朗",
+        "コーラス：Zinee",
+        "全公演共通ボイスが含まれます。",
+        "公演内ボイス：七瀬遙(CV 島﨑信長)",
+        "出演：加藤達也",
+        "指揮：吉⽥⾏地",
+        "松岡凛(CV 宮野真守)",
+        "橘真琴(CV 鈴木達央)",
+        "演奏：Heartbeat Symphony"
+      ]
+    },
+    {
       "source": "liquidroom",
       "source_url": "https://www.liquidroom.net/schedule/gunyukappo_20260803",
       "title_ja": "リキッドルームで47～ぐんゆうかっぽ～",
@@ -47008,6 +47674,40 @@
       "artists": []
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=158760",
+      "title_ja": "0.1gの誤算",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-03",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "前方Aチケット(FC限定)/ ¥6,000 初心者・棒立ちエリアBチケット/ ¥4,000 2階席最前Cチケット/ ¥15,000 2階自由観覧エリアDチケット/ ¥6,000 [お問合せ] キョードー東京 0570-550-799 オペレーター受付 平日 11:00～18:00 / 土日祝 10:00～18:00 READ MORE",
+      "price_min": 4000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "f9422cd88faa921e",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": [
+        "0.1gの誤算"
+      ]
+    },
+    {
       "source": "liquidroom",
       "source_url": "https://www.liquidroom.net/schedule/gunyukappo_20260804",
       "title_ja": "リキッドルームで47～ぐんゆうかっぽ～",
@@ -47323,7 +48023,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.ints.co.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "ints",
+          "url": "https://www.ints.co.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "bfd06d3b6325c868",
@@ -47355,7 +48061,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://cvmf.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "cvmf",
+          "url": "https://cvmf.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "cf0b3e23193489e2",
@@ -47542,19 +48254,25 @@
       "genres": [],
       "start_date": "2026-08-04",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "18:30",
+      "start_time": "19:00",
       "venue_name": "HEAVEN'S ROCKさいたま新都心VJ-3",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全自由席 ¥5,500-(税込) ※整理番号付・ドリンク代別",
+      "price_min": 5500,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/pistol-acoustic/",
+          "code": null
+        }
+      ],
       "lineup": [
         "竹原ピストル"
       ],
@@ -47827,12 +48545,28 @@
       "address": "2-1-1 Jinnan, Shibuya-ku, Tokyo",
       "lat": 35.6702,
       "lng": 139.6967,
-      "price_text": null,
+      "price_text": "・VIP席 \\24,200-(税込) ・指定席 \\12,100-(税込)",
       "price_min": null,
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://lp.lanal7.com/lana_live_tour_2026",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/lana/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/lana-dits/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/lana/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "be44e4b5438ffcc8",
@@ -47841,6 +48575,74 @@
       "artists": [
         "LANA"
       ]
+    },
+    {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=158875",
+      "title_ja": "coming soon…",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-04",
+      "end_date": null,
+      "open_time": "12:30",
+      "start_time": "13:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "一般チケット(1階スタンディング)/ ¥4,000 2階席(着席VIP)/ ¥2,000 2階席(着席)/ ¥1,000 [OPEN] 18:30 [START] 19:00 [PRICE] 一般チケット(1階スタンディング)/ ¥4,000 2階席(着席VIP)/ ¥2,000 2階席(着席)/ ¥1,000 [お問合せ] READ MORE",
+      "price_min": 1000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "zaiko",
+          "url": "https://vintom.zaiko.io/ja/e/ongaeshi2026-summer-tokyo",
+          "code": null
+        }
+      ],
+      "lineup": [],
+      "tags": [],
+      "id": "4fd5d13ef7c65a6f",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": []
+    },
+    {
+      "source": "yokohama_buntai",
+      "source_url": "https://yokohama-buntai.jp/event/#2026-08-04-c4a3cfd5",
+      "title_ja": "WTTチャンピオンズ横浜2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-04",
+      "end_date": "2026-08-09",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "横浜BUNTAI",
+      "venue_area": "Kannai",
+      "address": "2-7-1 Furocho, Naka-ku, Yokohama",
+      "lat": 35.4453,
+      "lng": 139.6396,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://wtt-yokohama2026.world-tt-s.com/",
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "336cda4269f78f4e",
+      "status": "auto",
+      "venue_key": "yokohama_buntai",
+      "artists": []
     },
     {
       "source": "toyosu_pit",
@@ -48474,12 +49276,18 @@
       "address": "13-17 Udagawa-cho, Shibuya-ku, Tokyo",
       "lat": 35.660557,
       "lng": 139.696371,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "スタンディング ¥6,600-(税込) ※整理番号付・ドリンク代別",
+      "price_min": 6600,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/pistol-band/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "6810357dc188892a",
@@ -48604,12 +49412,28 @@
       "address": "2-1-1 Jinnan, Shibuya-ku, Tokyo",
       "lat": 35.6702,
       "lng": 139.6967,
-      "price_text": null,
+      "price_text": "・VIP席 \\24,200-(税込) ・指定席 \\12,100-(税込)",
       "price_min": null,
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://lp.lanal7.com/lana_live_tour_2026",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/lana/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/lana-dits/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/lana/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "268b857de7ac4e9e",
@@ -48618,6 +49442,36 @@
       "artists": [
         "LANA"
       ]
+    },
+    {
+      "source": "tokyo_intl_forum",
+      "source_url": "https://www.t-i-forum.co.jp/visitors/event/detail.html?id=20260805_0716",
+      "title_ja": "NEW KAWAIIってしてよ？フェス～真夏の七変化歌合戦～",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-05",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京国際フォーラム",
+      "venue_area": "Yurakucho",
+      "address": "3-5-1 Marunouchi, Chiyoda-ku, Tokyo 100-0005",
+      "lat": 35.6752,
+      "lng": 139.7631,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "eb7c19fb98c674c0",
+      "status": "auto",
+      "venue_key": "tokyo_intl_forum",
+      "artists": []
     },
     {
       "source": "liquidroom",
@@ -48998,7 +49852,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tpo.or.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tpo",
+          "url": "https://www.tpo.or.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "8ce9becf8e2e2fd8",
@@ -49030,7 +49890,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://classicmusic.tokyo/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tokyo",
+          "url": "https://classicmusic.tokyo/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "450a70cc375f3352",
@@ -49226,18 +50092,24 @@
       "start_date": "2026-08-06",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "14:30",
       "venue_name": "Shibuya LOVEZ",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全席指定 8,400円(税込) ※入場時",
+      "price_min": 8400,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/artist/000000000904205/",
+          "code": null
+        }
+      ],
       "lineup": [
         "ONE LOVE ONE HEART"
       ],
@@ -49425,6 +50297,40 @@
       "venue_key": "yokohama_arena",
       "artists": [
         "なにわ男子"
+      ]
+    },
+    {
+      "source": "duo",
+      "source_url": "https://www.duomusicexchange.com/schedule/2026/index_2026-08.html#260806",
+      "title_ja": "ラストシーン 新体制初！ラストシーン単独公演『One Cut EP.3.5』",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-06",
+      "end_date": null,
+      "open_time": "18:30",
+      "start_time": "19:30",
+      "venue_name": "duo MUSIC EXCHANGE",
+      "venue_area": "Shibuya",
+      "address": "2-14-8 Dogenzaka, Shibuya-ku, Tokyo",
+      "lat": 35.657219,
+      "lng": 139.69633,
+      "price_text": "【前方】ADV.¥6,000-(税込)（前方エリア、写メ券付き） 【一般】ADV.¥2,500-(税込) 【女性】ADV.¥1,500-(税込) ※",
+      "price_min": 1500,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "2368d1e832d7ac30",
+      "status": "auto",
+      "venue_key": "duo",
+      "artists": [
+        "ラストシーン"
       ]
     },
     {
@@ -49725,7 +50631,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://maoito.info/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "maoito",
+          "url": "https://maoito.info/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "4f66881e1c62efde",
@@ -49878,9 +50790,9 @@
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "スタンディング：￥5,500(税込)※ドリンク代別途必要",
+      "price_min": 5500,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
@@ -49901,19 +50813,25 @@
       "genres": [],
       "start_date": "2026-08-07",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "18:30",
+      "start_time": "19:00",
       "venue_name": "Yokohama mint hall",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全自由席 ¥5,500-(税込) ※整理番号付・ドリンク代別",
+      "price_min": 5500,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/pistol-acoustic/",
+          "code": null
+        }
+      ],
       "lineup": [
         "竹原ピストル"
       ],
@@ -50308,6 +51226,68 @@
       ]
     },
     {
+      "source": "club_citta",
+      "source_url": "https://clubcitta.co.jp/schedule/1753",
+      "title_ja": "@JAM MEETS vol.22〜オールナイトライブ〜",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "idol"
+      ],
+      "start_date": "2026-08-07",
+      "end_date": null,
+      "open_time": "24:00",
+      "start_time": "24:30",
+      "venue_name": "CLUB CITTA'（クラブチッタ）",
+      "venue_area": "Kawasaki",
+      "address": null,
+      "lat": 35.5308,
+      "lng": 139.6994,
+      "price_text": "オールスタンディング 前売り 4,500円(税込) ※入場の際にドリンク代600円が別途必要となります。 【当日券】5,500円(税込)",
+      "price_min": 4500,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "I'mew(あいみゅう)",
+        "アイドルカレッジ",
+        "As a Cutie Pomeranian",
+        "泡沫パーティーズ",
+        "コングラッチェ！",
+        "SOMOSOMO",
+        "二丁目の魁カミングアウト",
+        "FOKALITE",
+        "BLUEGOATS",
+        "BOCCHI。",
+        "Melodys High",
+        "世ノ果テデ人形ハ唯晒フ。",
+        "DJダイノジ・大谷(ナビゲートDJ)",
+        "魔訶不思議変革者-デスデス-(OA)"
+      ],
+      "tags": [],
+      "id": "dbe05ecf7b5d49b7",
+      "status": "auto",
+      "venue_key": "club_citta",
+      "artists": [
+        "As a Cutie Pomeranian",
+        "BLUEGOATS",
+        "BOCCHI。",
+        "DJダイノジ・大谷(ナビゲートDJ)",
+        "FOKALITE",
+        "I'mew(あいみゅう)",
+        "Melodys High",
+        "SOMOSOMO",
+        "アイドルカレッジ",
+        "コングラッチェ！",
+        "世ノ果テデ人形ハ唯晒フ。",
+        "二丁目の魁カミングアウト",
+        "泡沫パーティーズ",
+        "魔訶不思議変革者-デスデス-(OA)"
+      ]
+    },
+    {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21503&date=2026-08-08",
       "title_ja": "真心ブラザーズ",
@@ -50408,7 +51388,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/rikakoaida/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/rikakoaida/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/rikakoaida/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "0e7212b1d313a6a6",
@@ -50971,7 +51967,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tokyosymphony.jp",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tokyosymphony",
+          "url": "https://tokyosymphony.jp",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "9a2f95cf02ddad7a",
@@ -51846,6 +52848,21 @@
           "provider": "eplus",
           "url": "https://eplus.jp/sf/venue/1560020/events",
           "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/event/event.do?eventCd=2621089",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/order/?gLcode=70147",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/detail/0038920001-P0030642?P1=0175",
+          "code": null
         }
       ],
       "lineup": [
@@ -52149,7 +53166,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.soleilmusic.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "soleilmusic",
+          "url": "https://www.soleilmusic.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "896d1d00e8f5d918",
@@ -53221,19 +54244,25 @@
       "genres": [],
       "start_date": "2026-08-10",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "18:30",
+      "start_time": "19:00",
       "venue_name": "千葉ANGA",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全自由席 ¥5,500-(税込) ※整理番号付・ドリンク代別",
+      "price_min": 5500,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/pistol-acoustic/",
+          "code": null
+        }
+      ],
       "lineup": [
         "竹原ピストル"
       ],
@@ -53380,7 +54409,7 @@
     {
       "source": "duo",
       "source_url": "https://www.duomusicexchange.com/schedule/2026/index_2026-08.html#260810",
-      "title_ja": "NEO JAPONISM主催フェス NEO KASSEN2026 Spotify O-EAST / Spotify O-WEST / Spotify O-nest / Spotify O-Crest / duo MUSIC EXCHANGE / clubasia / WOMB LIVE / SHIBUYA RING / SHIBUYA DESEO / Veats Shibuya / SHIBUYA VIDENT / GRIT at Shibuya More Info... 第1弾発表出演者 NEO JAPONISM AOAO / Appare! / INUWASI / UtaGe! / 高嶺のなでしこ / Devil ANTHEM. ドラマチックレコード / Merry BAD TUNE. / 夜光性アミューズ 第2弾発表出演者 iON! / アンスリューム / 衛星とカラテア / タイトル未定 / NANIMONO 虹のコンキスタドール / のんふぃく！ / FES☆TIVE / MEGAFON 第3弾発表出演者 カラフルスクリーム / Sweet Alley / chuLa / なみだ色の消しごむ / ハルニシオン Palette Parade / Peel the Apple / Pretty Chuu / MyDearDarlin’ 第4弾発表出演者 THE ORCHESTRA TOKYO / キングサリ / Kolokol / selfish / Tohkei HIBANA / feelNEO / fishbowl / Mirror,Mirror 第5弾発表出演者 アキシブproject / テンシンランマン / ドレスコード / ナナコロビヤオキ パラディーク / ハルカエコー / フルコース / ポンコツコンポ / ラストシーン 第6弾発表出演者 かすみ草とステラ / こみっきゅおん！/ STAiNY / 手羽先センセーション / HzMe #Mooove! / #よーよーよー / ラナキュラ / ラフ×ラフ 第7弾発表出演者 Axelight / AdamLilith / Ill / zanka / SITUASION / JINKS / XINXIN TENRIN / マーキュロ / Ma'Scar'Piece / ミームトーキョー / Maison de Queen RAViDAVi / RePLAY / .LiNⅨLiNE. 第8弾発表出演者 THE ENCORE / いつかの夜に僕たちが、/ OS☆U / Ｏ₂ / 限りなく白く / 可憐なアイボリー クマリデパート / CYNHN / すてねこキャッツ / すべての瞬間は君だった。 / HelloYouth himawari(船橋) / フューチャーサイダー / MAGICAL SPEC / マリークラウン 第9弾発表出演者 α＋ / JamsCollection / Task have Fun / Toi Toi Toi / 山﨑夢羽 / Root mimi Rain Tree / log you / Onephony 第10弾発表出演者 アップアップガールズ（仮） / アップアップガールズ（２） / AFTERS / CAL&RES / シャルロット シンデレラ宣言！ / 透色ドロップ / ZUTTOMOTTO / SEKAIE☆ / 点染テンセイ少女。 パラレルサイダー / VVSiS / FULIT BOX / My_Stage / マジカル・パンチライン myojou / RiNCENT♯ / ルージュブック / Lv.♡Charm / ワガママなラストノート 第11弾発表出演者 Ange☆Reve / Gran☆Ciel / コングラッチェ！ / SAI ²Rium / Jewel☆Garden SWANTICK / ちゃーむぽっしゅ / DREAMING MONSTER / ネコプラpixx. HIGH SPIRITS / buGG / ハレとハレ！ / PRSMIN / Payrin's Malcolm Mask McLaren / Melty BeaR / YOLOZ / 愛乙女★DOLL Luce Twinkle Wink☆ / ルルネージュ 第12弾発表出演者 ideal peco / EDEN / COLOR of COLOR / KissBee / 君と見るそら / 君に、胸キュン。 CURE'T / サクヤコノハナ / Cherie! / テラテラ / 虜なるプレリュード / なんキニ！ にっぽん！真骨頂 / Bunny La Crew / BNSI / MEOWMEW / MyDresscode / metarium LilyS/ash / ROOKEY♡ROOKEYS 第13弾発表出演者 iRiNE / アキストゼネコ / アストレイル / alma / UNDO / unFinale Tokyo / airattic 美味しい曖昧 / KAMAITACI / GigiL / GANGDEMIC / 月刊PAM / CoTei / SAISON / Chalca diig / 虹色の飛行少女 / 猫の眼に宇宙 / Brave Mental Orchestra / ベロティカ 魔訶不思議変革者-デスデス- / may in film 第14弾発表出演者 NMB48 / ♡めるみみ♡",
+      "title_ja": "NEO JAPONISM主催フェス NEO KASSEN2026 Spotify O-EAST / Spotify O-WEST / Spotify O-nest / Spotify O-Crest / duo MUSIC EXCHANGE / clubasia / WOMB LIVE / SHIBUYA RING / SHIBUYA DESEO / Veats Shibuya / SHIBUYA VIDENT / GRIT at Shibuya More Info... 第1弾発表出演者 NEO JAPONISM AOAO / Appare! / INUWASI / UtaGe! / 高嶺のなでしこ / Devil ANTHEM. ドラマチックレコード / Merry BAD TUNE. / 夜光性アミューズ 第2弾発表出演者 iON! / アンスリューム / 衛星とカラテア / タイトル未定 / NANIMONO 虹のコンキスタドール / のんふぃく！ / FES☆TIVE / MEGAFON 第3弾発表出演者 カラフルスクリーム / Sweet Alley / chuLa / なみだ色の消しごむ / ハルニシオン Palette Parade / Peel the Apple / Pretty Chuu / MyDearDarlin’ 第4弾発表出演者 THE ORCHESTRA TOKYO / キングサリ / Kolokol / selfish / Tohkei HIBANA / feelNEO / fishbowl / Mirror,Mirror 第5弾発表出演者 アキシブproject / テンシンランマン / ドレスコード / ナナコロビヤオキ パラディーク / ハルカエコー / フルコース / ポンコツコンポ / ラストシーン 第6弾発表出演者 かすみ草とステラ / こみっきゅおん！/ STAiNY / 手羽先センセーション / HzMe #Mooove! / #よーよーよー / ラナキュラ / ラフ×ラフ 第7弾発表出演者 Axelight / AdamLilith / Ill / zanka / SITUASION / JINKS / XINXIN TENRIN / マーキュロ / Ma'Scar'Piece / ミームトーキョー / Maison de Queen RAViDAVi / RePLAY / .LiNⅨLiNE. 第8弾発表出演者 THE ENCORE / いつかの夜に僕たちが、/ OS☆U / Ｏ₂ / 限りなく白く 可憐なアイボリー / クマリデパート / CYNHN / すてねこキャッツ すべての瞬間は君だった。 / HelloYouth / himawari(船橋) フューチャーサイダー / MAGICAL SPEC / マリークラウン 第9弾発表出演者 α＋ / JamsCollection / Task have Fun / Toi Toi Toi / 山﨑夢羽 / Root mimi Rain Tree / log you / Onephony 第10弾発表出演者 アップアップガールズ（仮） / アップアップガールズ（２） / AFTERS CAL&RES / シャルロット / シンデレラ宣言！ / 透色ドロップ / ZUTTOMOTTO SEKAIE☆ / 点染テンセイ少女。/ パラレルサイダー / VVSiS / FULIT BOX My_Stage / マジカル・パンチライン / myojou / RiNCENT♯ / ルージュブック Lv.♡Charm / ワガママなラストノート 第11弾発表出演者 Ange☆Reve / Gran☆Ciel / コングラッチェ！ / SAI ²Rium / Jewel☆Garden SWANTICK / ちゃーむぽっしゅ / DREAMING MONSTER / ネコプラpixx. HIGH SPIRITS / buGG / ハレとハレ！ / PRSMIN / Payrin's Malcolm Mask McLaren / Melty BeaR / YOLOZ / 愛乙女★DOLL Luce Twinkle Wink☆ / ルルネージュ 第12弾発表出演者 ideal peco / EDEN / COLOR of COLOR / KissBee / 君と見るそら 君に、胸キュン。/ CURE'T / サクヤコノハナ / Cherie! / テラテラ / 虜なるプレリュード なんキニ！/ にっぽん！真骨頂 / Bunny La Crew / BNSI / MEOWMEW / MyDresscode metarium / LilyS/ash / ROOKEY♡ROOKEYS 第13弾発表出演者 iRiNE / アキストゼネコ / アストレイル / alma / UNDO / unFinale Tokyo / airattic 美味しい曖昧 / KAMAITACI / GigiL / GANGDEMIC / 月刊PAM / CoTei / SAISON / Chalca diig / 虹色の飛行少女 / 猫の眼に宇宙 / Brave Mental Orchestra / ベロティカ 魔訶不思議変革者-デスデス- / may in film 第14弾発表出演者 NMB48 / ♡めるみみ♡ 第15弾発表出演者 AKANECLUB. / 煌めき☆アンフォレント / 最終未来少女 / CiON 17秒前の瞬きに光を / SCRAMBLE SMILE / Honey Devil / Hey!Mommy! メイビーME / LOVE CHANT 最終発表出演者 ai*ai / iCON! / As a Cutie Pomeranian / Aerolipop / EcruRare / ON THE AIR kijō no kūron / 君のメインヒロイン / きゅ～くる / CHEMICAL X SAKURADOLL / シオリベル / スターチスのラブレター / ぜろから☆すた→と 月とソーダ / 強がりセンセーション / -天架- / Drug&Drop / Drawry. なう♡すとれーじ / NiLUNLOCK / ネクスタリア / NEFRALISE / NO L!MIT Pastel Closet / ParaLulu / ファーストプレイリスト / Blueberry Girls 星合いのライラック / MilMoon / MATE×MATE! / mementoa / MORE* YumeLia / 宵越しのアンサンブル / LIE LILIE / LIT MOON / LADYBABY",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -53410,16 +54439,20 @@
       "venue_key": "duo",
       "artists": [
         "AFTERS",
+        "AKANECLUB.",
         "ALMA",
         "AOAO",
         "AdamLilith",
         "Appare!",
+        "As a Cutie Pomeranian",
         "Axelight",
         "BNSI",
         "Bunny La Crew",
         "CURE'T",
         "CYNHN",
+        "CiON",
         "DREAMING MONSTER",
+        "Drawry.",
         "GANGDEMIC",
         "Gran☆Ciel",
         "HIBANA",
@@ -53427,18 +54460,25 @@
         "HzMe",
         "INUWASI",
         "KissBee",
+        "LADYBABY",
+        "LIT MOON",
         "Lv.♡Charm",
+        "MATE×MATE",
         "MEGAFON",
         "MEOWMEW",
+        "Maison de Queen",
         "Malcolm Mask McLaren",
         "Melty BeaR",
         "Merry BAD TUNE.",
         "Mirror,Mirror",
         "MyDresscode",
         "NEO JAPONISM",
+        "NiLUNLOCK",
+        "Pastel Closet",
         "Payrin's",
         "Pretty Chuu",
         "SAI ²Rium",
+        "SCRAMBLE SMILE",
         "SITUASION",
         "STAiNY",
         "Sweet Alley",
@@ -53456,6 +54496,7 @@
         "diig",
         "feelNEO",
         "fishbowl",
+        "iCON!",
         "iON!",
         "ideal peco",
         "myojou",
@@ -53464,12 +54505,14 @@
         "アキシブproject",
         "カラフルスクリーム",
         "ドラマチックレコード",
+        "ドレスコード",
         "ハルカエコー",
         "ハルニシオン",
         "パラディーク",
         "パラレルサイダー",
         "フューチャーサイダー",
         "フルコース",
+        "ベロティカ",
         "マリークラウン",
         "マーキュロ",
         "ミームトーキョー",
@@ -53549,6 +54592,40 @@
       "venue_key": "www_x",
       "artists": [
         "amini"
+      ]
+    },
+    {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=157963",
+      "title_ja": "Kroi",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-10",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "1Fスタンディング/ ¥7,000 2F指定席/ ¥8,000 [お問合せ] HOT STUFF PROMOTION 050-5211-6077 READ MORE",
+      "price_min": 7000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "ea7f23a90c960bbc",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": [
+        "Kroi"
       ]
     },
     {
@@ -54505,19 +55582,35 @@
       "genres": [],
       "start_date": "2026-08-11",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "16:00",
+      "start_time": "17:00",
       "venue_name": "J:COMホール八王子",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "●一般・指定席[前売]￥8,800(税込) ●ジュニア/シニア/障がい者(児)割引・指定席[前売]￥8,300(税込) ＜割引対象者＞ ・公演日当日に25歳以下のお客様、65歳以上のお客様 ・障がい者手帳をお持ちのお客様とその介助者(1名に付き1名) ※公演日に免許証・保険証等の年齢確認できるもの、障がい者手帳をお持ち頂き、入場時にて確認させて頂きます ※ジュニア/シニア/障がい者(児)割引は当該チケットを事前購入することが必須となります。当日のキャッシュバックは行いません",
+      "price_min": 8300,
+      "is_free": false,
       "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/stardustrevue/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/word/0000000654",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/s-d-r/",
+          "code": null
+        }
+      ],
       "lineup": [
         "スターダスト☆レビュー"
       ],
@@ -54539,16 +55632,16 @@
       "genres": [],
       "start_date": "2026-08-11",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "14:30",
+      "start_time": "15:00",
       "venue_name": "SHIBUYA PLEASURE PLEASURE",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全自由（整理番号付）6,000円※ドリンク代別途必要",
+      "price_min": 6000,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
@@ -54622,18 +55715,24 @@
       "start_date": "2026-08-11",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "16:00",
       "venue_name": "市川市文化会館",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "指定席 8,800円（税込） 着席指定席 8,800円（税込） ※着席指定席は 立ち上がっての観覧は出来ません。",
+      "price_min": 8800,
+      "is_free": false,
       "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/tokisen/",
+          "code": null
+        }
+      ],
       "lineup": [
         "超ときめき♡宣伝部"
       ],
@@ -55479,7 +56578,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tpo.or.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tpo",
+          "url": "https://www.tpo.or.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "4ffb949033b0540e",
@@ -55594,18 +56699,24 @@
       "start_date": "2026-08-12",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "17:00",
       "venue_name": "大宮ソニックシティ 大ホール",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "指定席 8,800円（税込） 着席指定席 8,800円（税込） ※着席指定席は 立ち上がっての観覧は出来ません。",
+      "price_min": 8800,
+      "is_free": false,
       "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/tokisen/",
+          "code": null
+        }
+      ],
       "lineup": [
         "超ときめき♡宣伝部"
       ],
@@ -55777,6 +56888,38 @@
       "id": "b9f6369e975bb704",
       "status": "auto",
       "venue_key": "reny_shinjuku",
+      "artists": []
+    },
+    {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=166339",
+      "title_ja": "梅田サイファー",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-12",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "スタンディング/ ¥6,800 U-20スタンディング/ ¥3,000 [お問合せ] Live Nation H.I.P. 03-3475-9999 READ MORE",
+      "price_min": 3000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "13a2c30083b7b1c1",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
       "artists": []
     },
     {
@@ -56449,19 +57592,35 @@
       "genres": [],
       "start_date": "2026-08-13",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "17:00",
+      "start_time": "18:00",
       "venue_name": "大宮ソニックシティ 大ホール",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全席指定席：8,900円(税込) 学生指定席：7,500円(税込) ＜学生指定席とは＞ 学生(小学生/中学生/高校生/専門学生/大学生)を対象としたチケットです。 入場時に学生証(小学生は名札等)をご掲示していただきますので、必ずご持参ください。",
+      "price_min": 7500,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/madeintohoku/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/madeintohoku/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/madeintohoku/",
+          "code": null
+        }
+      ],
       "lineup": [
         "いぎなり東北産"
       ],
@@ -57254,6 +58413,7 @@
         "Fear, and Loathing in Las Vegas",
         "PassCode",
         "Xdinary Heroes",
+        "HANRORO Opening Act",
         "OMARION",
         "JAMES FAUNTLEROY",
         "The RH Factor reunion tribute to Roy Hargrove",
@@ -57270,6 +58430,7 @@
         "Jeremy Quartus",
         "REJAY × Andr",
         "ena mori",
+        "EMNW Opening Act",
         "バチカン市国に愛されたい 出れんの!?サマソニ!?"
       ],
       "tags": [],
@@ -57287,10 +58448,12 @@
         "CHLOE QISHA",
         "DEAN & TABBER",
         "DERMOT KENNEDY",
+        "EMNW Opening Act",
         "FKA TWIGS",
         "FLORENCE ROAD",
         "Fear, and Loathing in Las Vegas",
         "First Love is Never Returned",
+        "HANRORO Opening Act",
         "HOLLY HUMBERSTONE",
         "Hyojoo 出れんの!?サマソニ!?",
         "JADE",
@@ -57438,18 +58601,29 @@
       "start_date": "2026-08-14",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "18:00",
       "venue_name": "ぴあアリーナMM",
       "venue_area": "Minatomirai",
       "address": "3-2-2 Minatomirai, Nishi-ku, Yokohama",
       "lat": 35.460199,
       "lng": 139.628839,
-      "price_text": null,
+      "price_text": "①一般チケット / Tシャツ付き（M・L選択制）\\6,500-(税込) ②学生割引チケット / Tシャツ付き（M・L選択制）\\4,500-(税込) ③小学生チケット / Tシャツ付き（M・L選択制）\\3,500-(税込) ④一般チケット \\4,000-(税込) ⑤学生割引チケット \\2,000-(税込) ⑥小学生チケット \\1,000-(税込) 《学生割引チケットについて》 ・中学生・高校生・大学生・大学院生・専門学校生が対象となります。 ・入場時に学生証を確認させていただきますので、忘れずにお持ちください。 《小学生チケットについて》 ・小学生以下のお子様が対象となります。 ・小学生以下のお",
       "price_min": null,
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/ac2026/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/ac2026/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "a8689c6c594d7fad",
@@ -57648,6 +58822,48 @@
       "status": "auto",
       "venue_key": "yoyogi_gym1",
       "artists": []
+    },
+    {
+      "source": "veats_shibuya",
+      "source_url": "https://veats.jp/schedule/8591/",
+      "title_ja": "ラストシーン",
+      "title_en": null,
+      "subtitle": "ラストシーン主催「One Cut ~みれいお誕生日SP~」",
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-14",
+      "end_date": null,
+      "open_time": "15:20",
+      "start_time": "16:00",
+      "venue_name": "Veats Shibuya",
+      "venue_area": "Shibuya",
+      "address": "東京都渋谷区宇田川町33番地1号 グランド東京渋谷ビルB1・B2",
+      "lat": 35.6614,
+      "lng": 139.6981,
+      "price_text": "前方¥5,000・一般¥FREE / ¥-,--- (D代別)",
+      "price_min": 5000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "other",
+          "url": "https://ticketdive.com/event/mirei_biethday",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "ラストシーン",
+        "アキシブproject"
+      ],
+      "tags": [],
+      "id": "ac68fae6a19694a4",
+      "status": "auto",
+      "venue_key": "veats_shibuya",
+      "artists": [
+        "アキシブproject",
+        "ラストシーン"
+      ]
     },
     {
       "source": "liquidroom",
@@ -58364,9 +59580,15 @@
       "price_text": "◆指定席 ：14,000円（税込） ※メモリアルチケット / メモリアル",
       "price_min": 14000,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/thealfee-2026summer/",
+          "code": null
+        }
+      ],
       "lineup": [
         "THE ALFEE"
       ],
@@ -58432,6 +59654,7 @@
         "KENTO NAKAJIMA",
         "Paledusk",
         "HANABIE.",
+        "板歯目 Opening Act",
         "KOMOREBI 出れんの!?サマソニ!?",
         "CARÍN LEÓN",
         "LATIN MAFIA",
@@ -58452,6 +59675,7 @@
         "Pasocom Music Club",
         "Dungeoneering",
         "FULLHOUSE",
+        "Liza Opening Act",
         "Iga Nana 出れんの!?サマソニ!?"
       ],
       "tags": [],
@@ -58485,6 +59709,7 @@
         "Kvi Baba",
         "LATIN MAFIA",
         "Litty",
+        "Liza Opening Act",
         "MAZZEL",
         "MIDNIGHT TIL MORNING",
         "MIKADO",
@@ -58508,6 +59733,7 @@
         "luv",
         "mgk",
         "sakanaction",
+        "板歯目 Opening Act",
         "阿部真央"
       ]
     },
@@ -58556,18 +59782,34 @@
       "start_date": "2026-08-15",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "12:00",
       "venue_name": "ぴあアリーナMM",
       "venue_area": "Minatomirai",
       "address": "3-2-2 Minatomirai, Nishi-ku, Yokohama",
       "lat": 35.460199,
       "lng": 139.628839,
-      "price_text": null,
+      "price_text": "①一般チケット \\13,000-(税込) ②学割チケット \\8,000-(税込) ③小学生チケット \\6,000-(税込) 《学生割引チケットについて》 ・中学生・高校生・大学生・大学院生・専門学校生が対象となります。 ・入場時に学生証を確認させていただきますので、忘れずにお持ちください。 《小学生チケットについて》 ・小学生以下のお子様が対象となります。 ・小学生以下のお子様のみでのご来場は不可となります。保護者の方は一般チケットをお申込みいただきご同行ください。（学生割引チケットと小学生チケットのみの組み合わせ不可） ・入場時に身分証を確認させていただきますので、当日、保護者の方はお子様の",
       "price_min": null,
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/ac2026/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/ac2026/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/augustacamp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "d12fd21973981485",
@@ -58626,9 +59868,9 @@
       "address": "13-17 Udagawa-cho, Shibuya-ku, Tokyo",
       "lat": 35.660557,
       "lng": 139.696371,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "一般：6,000円（税込） 学生割：3,900円（税込）",
+      "price_min": 3900,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
@@ -58706,7 +59948,7 @@
     {
       "source": "reny_shinjuku",
       "source_url": "https://ruido.org/reny/2026/8/aug/15.html",
-      "title_ja": "Milky Monster 1st Tour Milky Magic",
+      "title_ja": "新宿ReNY 8/15公演",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -58732,16 +59974,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "Milky Monster"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "9f08d4880c513944",
       "status": "auto",
       "venue_key": "reny_shinjuku",
-      "artists": [
-        "Milky Monster"
-      ]
+      "artists": []
     },
     {
       "source": "que_shimokitazawa",
@@ -58845,7 +60083,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.filmscorephil.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "filmscorephil",
+          "url": "https://www.filmscorephil.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "546efdca0fb4a93c",
@@ -59621,9 +60865,15 @@
       "price_text": "◆指定席 ：14,000円（税込） ※メモリアルチケット / メモリアル",
       "price_min": 14000,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/thealfee-2026summer/",
+          "code": null
+        }
+      ],
       "lineup": [
         "THE ALFEE"
       ],
@@ -59718,6 +60968,7 @@
         "Chilli Beans.",
         "Oisicle Melonpan",
         "TWS",
+        "Zilqy Opening Act",
         "CRYSTAL WATERS",
         "THEA AUSTIN, formerly of SNAP!",
         "REAL McCOY",
@@ -59734,6 +60985,7 @@
         "yama",
         "HALCALI",
         "NOMELON NOLEMON",
+        "o.j.o Opening Act",
         "Legal nerd boyz 出れんの!?サマソニ!?"
       ],
       "tags": [],
@@ -59783,8 +61035,10 @@
         "Travis Japan",
         "WANIMA",
         "YUKI",
+        "Zilqy Opening Act",
         "amazarashi",
         "mgk",
+        "o.j.o Opening Act",
         "yama",
         "札幌某所 出れんの!?サマソニ!?"
       ]
@@ -60044,7 +61298,7 @@
     {
       "source": "duo",
       "source_url": "https://www.duomusicexchange.com/schedule/2026/index_2026-08.html#260816",
-      "title_ja": "UtaGe!×FES☆TIVE 主催サーキット 『超宴祭！』 More Info... 第1弾出演者： FES☆TIVE / UtaGe! / ドラマチックレコード / なみだ色の消しごむ アンスリューム / カラフルスクリーム / Palette Parade / AOAO Sweet Alley / かすみ草とステラ/ chuLa / Mirror,Mirror / myojou / HzMe 第２弾出演者： ドラマチックレコード / なみだ色の消しごむ / アンスリューム カラフルスクリーム / Palette Parade / AOAO / Sweet Alley / かすみ草とステラ chuLa / Mirror,Mirror / myojou / HzMe 第３弾出演者： Task have Fun / log you / Peel the Apple / まねきケチャ / 可憐なアイボリー こみっきゅおん！ / THE ENCORE Tohkei / HIBANA / #Mooove! / STAiNY / パラディーク",
+      "title_ja": "UtaGe!×FES☆TIVE 主催サーキット 『超宴祭！』 Spotify O-WEST / duo MUSIC EXCHANGE / WOMB LIVE / SHIBUYA RING More Info... 第1弾出演者： FES☆TIVE / UtaGe! / ドラマチックレコード / なみだ色の消しごむ アンスリューム / カラフルスクリーム / Palette Parade / AOAO Sweet Alley / かすみ草とステラ/ chuLa / Mirror,Mirror / myojou / HzMe 第２弾出演者： ドラマチックレコード / なみだ色の消しごむ / アンスリューム カラフルスクリーム / Palette Parade / AOAO / Sweet Alley / かすみ草とステラ chuLa / Mirror,Mirror / myojou / HzMe 第３弾出演者： Task have Fun / log you / Peel the Apple / まねきケチャ / 可憐なアイボリー こみっきゅおん！ / THE ENCORE Tohkei / HIBANA / #Mooove! / STAiNY / パラディーク",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -60185,6 +61439,38 @@
       "id": "d250849dcfc69558",
       "status": "auto",
       "venue_key": "yoyogi_gym1",
+      "artists": []
+    },
+    {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=160584",
+      "title_ja": "斉藤朱夏",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-16",
+      "end_date": null,
+      "open_time": "13:00",
+      "start_time": "14:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "全席指定/ ¥8,800 [OPEN] 17:00 [START] 18:00 [PRICE] 全席指定/ ¥8,800 [お問合せ] キョードー横浜 045-671-9911 READ MORE",
+      "price_min": 8800,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "a987fc8340773426",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
       "artists": []
     },
     {
@@ -60542,6 +61828,38 @@
       "artists": [
         "...そして、消え逝くキミ達と。"
       ]
+    },
+    {
+      "source": "www",
+      "source_url": "https://www-shibuya.jp/schedule/019947.php",
+      "title_ja": "トナリア",
+      "title_en": null,
+      "subtitle": "トナリア 3周年記念EVENT",
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-17",
+      "end_date": null,
+      "open_time": "17:30",
+      "start_time": "18:00",
+      "venue_name": "WWW",
+      "venue_area": "Shibuya",
+      "address": "13-17 Udagawa-cho, Shibuya-ku, Tokyo",
+      "lat": 35.660557,
+      "lng": 139.696371,
+      "price_text": "./DOOR VIP(サイン入りTシャツ付き) ：￥10,000 / - (税込 / スタンディング / ドリンク代別) 一般(Tシャツ付き)：￥6,500 / - (税込 / スタンディング / ドリンク代別) 一般：¥3,000 / ¥4,000 (税込 / スタンディング / ドリンク代別) LINE UP トナリア TICKET Ticket Dive RECOMMEND 07 / 18 Sat WWW X Fumiya Tanaka / Stones Taro / Lomax 07 /",
+      "price_min": 3000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "4ccc9a95bda3f3f4",
+      "status": "auto",
+      "venue_key": "www",
+      "artists": []
     },
     {
       "source": "liquidroom",
@@ -61181,6 +62499,40 @@
       ]
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=166050",
+      "title_ja": "SB19",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-18",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "1Fスタンディング/ ¥12,000 2F指定/ ¥17,000 [お問合せ] READ MORE",
+      "price_min": 12000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "4c8de8eeed46a3e3",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": [
+        "SB19"
+      ]
+    },
+    {
       "source": "billboard_yokohama",
       "source_url": "https://www.billboard-live.com/yokohama/show?event_id=ev-21482&date=2026-08-19",
       "title_ja": "Jazztronik Summer Live 2026",
@@ -61577,19 +62929,35 @@
       "genres": [],
       "start_date": "2026-08-19",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "18:00",
+      "start_time": "18:30",
       "venue_name": "SHIBUYA PLEASURE PLEASURE",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "●FC限定VIP指定席 25,000円(税込) ※ドリンク代別(600円) ●通常指定席 8,800円(税込) ※ドリンク代別(600円) ＜VIPチケット／4大特典＞ ①前方列確約 前方のお席にて公演をお楽しみいただけます！ ②オリジナルパス(全3種・ランダム) ご来場時にオリジナルパスをプレゼント！さらにお渡ししたパスにメンバーが直筆メッセージを1on1トークの場で記入いたします！ ③1on1トーク お好きなメンバー1名と1対1のトークをお楽しみいただけます。質問をしたり、日常会話をしたり、推しとの時間をお過ごしください。 ※1on1トークにはメンバー全員が同席しますが、メインで会話をする",
+      "price_min": 600,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/skooponsomebody/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/skooponsomebody/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/skooponsomebody/",
+          "code": null
+        }
+      ],
       "lineup": [
         "Skoop On Somebody"
       ],
@@ -61611,19 +62979,25 @@
       "genres": [],
       "start_date": "2026-08-19",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "17:30",
+      "start_time": "18:30",
       "venue_name": "下北沢Shangri-La（シャングリラ）",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全立見 6,400円 ※ドリンク代別・整理番号付 ※入場者全員にプレゼント配布（後日対応不可）",
+      "price_min": 6400,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/yagamitoll2026/",
+          "code": null
+        }
+      ],
       "lineup": [
         "Yagami Toll"
       ],
@@ -61645,19 +63019,35 @@
       "genres": [],
       "start_date": "2026-08-19",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "17:30",
+      "start_time": "18:30",
       "venue_name": "カルッツかわさき(川崎市スポーツ・文化センター)",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
+      "price_text": "・全席指定 \\9,000-(税込) ・着席指定 \\9,000-(税込) ※公演中は⽴ち上がってのご観覧はできません。 ・注釈付き指定席 \\9,000-(税込) ※演出・映像及び出演者の一部が見えにくい場合がございます。 ※照明機材の関係上、一部、ご自身の顔より高く手をあげてのご観覧が出来ないお席がございます。 ※複数枚で購入の場合は、縦並びもしくは座席が離れてのご用意になる場合がございます。 ※視聴環境を理由としたご返金・座席の振替は対応いたしかねますので、あらかじめご了承ください。",
       "price_min": null,
       "is_free": null,
       "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sukimaswitch/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/sukimaswitch26/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/sukimaswitch/",
+          "code": null
+        }
+      ],
       "lineup": [
         "スキマスイッチ"
       ],
@@ -62356,19 +63746,35 @@
       "genres": [],
       "start_date": "2026-08-20",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "18:00",
+      "start_time": "18:30",
       "venue_name": "SHIBUYA PLEASURE PLEASURE",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "●FC限定VIP指定席 25,000円(税込) ※ドリンク代別(600円) ●通常指定席 8,800円(税込) ※ドリンク代別(600円) ＜VIPチケット／4大特典＞ ①前方列確約 前方のお席にて公演をお楽しみいただけます！ ②オリジナルパス(全3種・ランダム) ご来場時にオリジナルパスをプレゼント！さらにお渡ししたパスにメンバーが直筆メッセージを1on1トークの場で記入いたします！ ③1on1トーク お好きなメンバー1名と1対1のトークをお楽しみいただけます。質問をしたり、日常会話をしたり、推しとの時間をお過ごしください。 ※1on1トークにはメンバー全員が同席しますが、メインで会話をする",
+      "price_min": 600,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/skooponsomebody/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/skooponsomebody/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/skooponsomebody/",
+          "code": null
+        }
+      ],
       "lineup": [
         "Skoop On Somebody"
       ],
@@ -62637,7 +64043,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/nagasawa/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/nagasawa-ride/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/nagasawatomoyuki/",
+          "code": null
+        }
+      ],
       "lineup": [
         "長澤知之 a flood of circle"
       ],
@@ -63065,7 +64487,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "dbc14e1f1406ab5a",
@@ -63288,15 +64716,15 @@
       "start_date": "2026-08-21",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "13:15",
       "venue_name": "ヒューリックホール東京",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "■全席指定 ￥14,300(税込) ★アップグレード券：￥13,000(税込) ・アップグレード特典：前方座席確約・お見送りハイタッチ (動画撮影可)・リハーサル観覧 ※アップグレード券にご当選された場合、一般チケット (全席指定) 14,300円からのアップグレードとなり、1枚につき13,000円を追加でお支払いいただきます。 ※アップグレード受付はFCチケット先行 (抽選) 、オフィシャルHP先行 (抽選) 、 オフィシャルHP2次先行 (先着) でのご購入者を対象に後日、抽選受付をいたします。 ※各公演毎にドリンク代必要",
+      "price_min": 13000,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
@@ -63321,16 +64749,16 @@
       "genres": [],
       "start_date": "2026-08-21",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "18:30",
+      "start_time": "19:00",
       "venue_name": "HEAVEN'S ROCKさいたま新都心VJ-3",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "スタンディング 7800円（税込） ※入場時、別途ドリンク代が必要です",
+      "price_min": 7800,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
@@ -63630,6 +65058,40 @@
       "status": "auto",
       "venue_key": "cotton_club",
       "artists": []
+    },
+    {
+      "source": "unit_daikanyama",
+      "source_url": "https://www.unit-tokyo.com/schedule/14796/",
+      "title_ja": "清春 TOUR 天使ノ詩 2026 『余る程に楽園』",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-21",
+      "end_date": null,
+      "open_time": "18:30",
+      "start_time": "19:00",
+      "venue_name": "代官山UNIT",
+      "venue_area": "Daikanyama",
+      "address": "東京都渋谷区恵比寿西1-34-17 ザ・ハウスビル B1F",
+      "lat": null,
+      "lng": null,
+      "price_text": "¥10,000(税込 / )",
+      "price_min": 10000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "清春"
+      ],
+      "tags": [],
+      "id": "ccd98c86030f680e",
+      "status": "auto",
+      "venue_key": "unit_daikanyama",
+      "artists": [
+        "清春"
+      ]
     },
     {
       "source": "billboard_yokohama",
@@ -64342,7 +65804,13 @@
       "is_free": false,
       "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/tokisen/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "75a17c0d63b65df2",
@@ -64376,7 +65844,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "http://ayonihonjimukyoku.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "ayonihonjimukyoku",
+          "url": "http://ayonihonjimukyoku.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "2986db1e6ab57f37",
@@ -64408,7 +65882,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "dc584b3ac5e345ae",
@@ -64689,12 +66169,18 @@
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "＜席種・特典＞ 1部チケット+ポストカードA＋全員ハイタッチ：11,000円（税込） 2部チケット+ポストカードB＋全員ハイタッチ：11,000円（税込） ★アップグレード席 （上記チケットに+￥5,500(税込)） 1部チケット+ポストカードA+5:1写真撮影：16,500円（税込） 2部チケット+ポストカードB+5:1写真撮影：16,500円（税込） ※入場時 必要",
+      "price_min": 5500,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/order/?gLcode=93237&gPfKey=20260608000002219997%2C20260608000002219998&gEntryMthd=03&gScheduleNo=1&gCarrierCd=08&gPfName=%EF%BC%B7%EF%BC%A5%EF%BC%BA%EF%BC%A1%EF%BC%A7&gBaseVenueCd=30361",
+          "code": null
+        }
+      ],
       "lineup": [
         "WEZAG"
       ],
@@ -65853,7 +67339,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "17496027faf915f4",
@@ -66162,18 +67654,24 @@
       "start_date": "2026-08-23",
       "end_date": null,
       "open_time": null,
-      "start_time": null,
+      "start_time": "16:00",
       "venue_name": "SGC HALL ARIAKE",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "指定席 8,800円（税込） 着席指定席 8,800円（税込） ※着席指定席は 立ち上がっての観覧は出来ません。",
+      "price_min": 8800,
+      "is_free": false,
       "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/tokisen/",
+          "code": null
+        }
+      ],
       "lineup": [
         "超ときめき♡宣伝部"
       ],
@@ -66195,19 +67693,25 @@
       "genres": [],
       "start_date": "2026-08-23",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "16:00",
+      "start_time": "17:00",
       "venue_name": "市川市文化会館",
       "venue_area": null,
       "address": null,
       "lat": null,
       "lng": null,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "全席指定 ￥9,000-(税込)",
+      "price_min": 9000,
+      "is_free": false,
       "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/yuusuke/",
+          "code": null
+        }
+      ],
       "lineup": [
         "遊助"
       ],
@@ -66466,6 +67970,40 @@
       "artists": []
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=158233",
+      "title_ja": "Char（Guitar&Vocal）/澤田浩史（Bass）/小島良喜（Keyboards）/Tully Ryan（Drums）",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-23",
+      "end_date": null,
+      "open_time": "16:00",
+      "start_time": "17:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "全席指定/ ¥9,900 [お問合せ] HOT STUFF PROMOTION 050-5211-6077 READ MORE",
+      "price_min": 9900,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "34bac2a01674321a",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": [
+        "Bass"
+      ]
+    },
+    {
       "source": "liquidroom",
       "source_url": "https://www.liquidroom.net/schedule/lirukia_20260824",
       "title_ja": "リルキア ロックフェスティバル",
@@ -66701,7 +68239,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "7828be1123cbcd01",
@@ -67468,7 +69012,23 @@
       "is_free": false,
       "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/yabaitshirtsyasan/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/yabaitshirtsyasan-mtp2026/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/yabat/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "e8cdd598e6edff59",
@@ -68076,7 +69636,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "5531abcc55c266b1",
@@ -68600,7 +70166,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "4404a407ccaf6d02",
@@ -69368,7 +70940,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "edd33fead092720b",
@@ -71201,6 +72779,41 @@
       "artists": []
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=155650",
+      "title_ja": "JUDGE ATO (CyberAgent Legit) Cheri (Benefit one MONOLIZ) Riho (Medical Concierge I’moon) YOUTEE (KOSÉ 8ROCKS) GUEST SHOW List::X MC ケリー隆介",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-29",
+      "end_date": null,
+      "open_time": "12:00",
+      "start_time": "12:30",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "観覧チケット(着席)/ ¥5,000 [OPEN] 15:00 [START] 15:30 [PRICE] 観覧チケット(着席)/ ¥5,000 [お問合せ] READ MORE",
+      "price_min": 5000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "f6f597710d7d606c",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": [
+        "CyberAgent Legit",
+        "RIHO"
+      ]
+    },
+    {
       "source": "billboard_tokyo",
       "source_url": "https://www.billboard-live.com/tokyo/show?event_id=ev-21405&date=2026-08-30",
       "title_ja": "Laura day romance Billboard Live 魔法、４度も",
@@ -71312,7 +72925,7 @@
     {
       "source": "reny_shinjuku",
       "source_url": "https://ruido.org/reny/2026/8/aug/30.html",
-      "title_ja": "新宿ReNY12th Anniversary presents KEN FES 26 DAY2",
+      "title_ja": "新宿ReNY 8/30公演",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -71338,38 +72951,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "【以心伝心ステージ】 鶴",
-        "TRAëLL",
-        "ALL iN FAZE",
-        "オトループ",
-        "ゼーゼーハーハー",
-        "DIVE TO THE 2MD",
-        "リフの惑星 ※順不同 【真心ステージ】 tamate",
-        "落合勇仁",
-        "荒木一仁",
-        "安藤祐輝",
-        "ナツノコエ",
-        "輪廻 ※順不同"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "989b0c24504ce01b",
       "status": "approved",
       "venue_key": "reny_shinjuku",
-      "artists": [
-        "ALL iN FAZE",
-        "DIVE TO THE 2MD",
-        "TRAëLL",
-        "【以心伝心ステージ】 鶴",
-        "オトループ",
-        "ゼーゼーハーハー",
-        "ナツノコエ",
-        "リフの惑星 ※順不同 【真心ステージ】 tamate",
-        "安藤祐輝",
-        "荒木一仁",
-        "落合勇仁",
-        "輪廻 ※順不同"
-      ]
+      "artists": []
     },
     {
       "source": "que_shimokitazawa",
@@ -72928,6 +74515,75 @@
       ]
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=162165",
+      "title_ja": "風見和香",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-08-31",
+      "end_date": null,
+      "open_time": "18:15",
+      "start_time": "19:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "指定席/ ¥6,900 カメコ席/ ¥12,000 [お問合せ] Live Nation H.I.P. 03-3475-9999 READ MORE",
+      "price_min": 6900,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "143b8c2bca370a9f",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": []
+    },
+    {
+      "source": "quattro_shibuya",
+      "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018589",
+      "title_ja": "〈出演〉・The Naughty Dogs ・LOOKLIKE ・穿-UGATSU- ・THE TRAINTRAINS ・ALLiCA ・老残Rec 〈アイドル〉・姫事絶対値 ・CHICKEN BLOW THE IDOL ・秘密倶楽部 ・goonie ・anew ・MØZU ・AdFicTioN ・AIBECK ・LEIWAN",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "idol"
+      ],
+      "start_date": "2026-08-31",
+      "end_date": null,
+      "open_time": "12:30",
+      "start_time": "13:00",
+      "venue_name": "Shibuya CLUB QUATTRO",
+      "venue_area": "Shibuya",
+      "address": "32-13 Udagawa-cho, Shibuya-ku, Tokyo",
+      "lat": 35.661378,
+      "lng": 139.696716,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "NEW 「せめて音楽を。」"
+      ],
+      "tags": [],
+      "id": "a45c0be7cf71efd6",
+      "status": "auto",
+      "venue_key": "quattro_shibuya",
+      "artists": [
+        "ALLiCA",
+        "NEW 「せめて音楽を。」"
+      ]
+    },
+    {
       "source": "liquidroom",
       "source_url": "https://www.liquidroom.net/schedule/tricot_20260901",
       "title_ja": "tricot",
@@ -73059,7 +74715,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "8edcca181cb4145f",
@@ -73124,12 +74786,7 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2625269&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2625268&rlsCd=003",
+          "url": "https://w.pia.jp/t/journey-t/",
           "code": null
         },
         {
@@ -73139,7 +74796,12 @@
         },
         {
           "provider": "pia",
-          "url": "https://w.pia.jp/t/journey-t/",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2625269&rlsCd=002",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2625268&rlsCd=003",
           "code": null
         }
       ],
@@ -73496,7 +75158,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "6ddf3a95a8724753",
@@ -73592,7 +75260,7 @@
       "price_text": "東京 2026/09/02 (Wed) Zepp Haneda (TOKYO) 東京都大田区羽田空港1-1-4 HANEDA INNOVATION CITY ZONE H » 会場HP / ロケーション OPEN 18:00 START 19:00 1F スタンディング 前売り:￥5,500 2F 指定席 前売り:￥6,000 ドリンク代別 お問い合わせ SMASH 03-3444-6751 ■オフィシャル先行予約（1次） 2026/05/19 (Tue) 17:00〜 2026/05/31 (Sun) 23:59 ※抽選制 チケットのお申し込み >>チケットぴあ ■オフィシャル先行予約（2次",
       "price_min": 5500,
       "is_free": false,
-      "is_sold_out": false,
+      "is_sold_out": true,
       "ticket_url": null,
       "ticket_links": [
         {
@@ -73999,7 +75667,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "ab57abc622df72a0",
@@ -74624,7 +76298,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "948619b85b2cf82d",
@@ -75210,20 +76890,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "Bill Laurance",
-        "Menelik Claffey",
-        "Oscar Ogden"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "5a951e5a7850705e",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": [
-        "Bill Laurance",
-        "Menelik Claffey",
-        "Oscar Ogden"
-      ]
+      "artists": []
     },
     {
       "source": "sgc_hall_ariake",
@@ -75351,7 +77023,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "3b31387f33c8ebe4",
@@ -76361,7 +78039,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "fad89b49ae83b107",
@@ -76908,9 +78592,9 @@
         }
       ],
       "lineup": [
-        "おとぎ話",
         "グデイBAND",
-        "(Gt.仲道良/Gt.岡村耕介/Ba.三島想平/Dr.山﨑聖之)"
+        "(Gt.仲道良/Gt.岡村耕介/Ba.三島想平/Dr.山﨑聖之)",
+        "おとぎ話"
       ],
       "tags": [],
       "id": "73a442795b08949e",
@@ -76991,6 +78675,42 @@
       "status": "approved",
       "venue_key": "zepp_haneda",
       "artists": []
+    },
+    {
+      "source": "duo",
+      "source_url": "https://www.duomusicexchange.com/schedule/2026/index_2026-09.html#260907",
+      "title_ja": "A'nimyk WONDER LIVE More Info... 愛内里菜 / 荒井麻珠 / 河下楽 / 河口恭吾 / クリス・ハート / 斉藤朱夏 サスケ / Seven Deuce / 高橋広樹 / つじあやの / 道木来明 / 花＊花 まねきケチャ / 光永亮太 / UN1CON / 世が世なら!!! / LokuRok / 100STARS 《SPアーティスト》 小柳ルミ子 〈MC〉 加藤諒 / アニマルハウスユーキ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-09-07",
+      "end_date": null,
+      "open_time": "14:25",
+      "start_time": "14:45",
+      "venue_name": "duo MUSIC EXCHANGE",
+      "venue_area": "Shibuya",
+      "address": "2-14-8 Dogenzaka, Shibuya-ku, Tokyo",
+      "lat": 35.657219,
+      "lng": 139.69633,
+      "price_text": "【前方SSチケット】ADV.¥12,000-(税込)チャリティーTシャツ付 【前方Sチケット】ADV.¥10,000-(税込) 【一般チケット】ADV.¥6,000-(税込) ※",
+      "price_min": 6000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "a3b293df1a78512e",
+      "status": "auto",
+      "venue_key": "duo",
+      "artists": [
+        "100STARS",
+        "つじあやの",
+        "アーティスト"
+      ]
     },
     {
       "source": "eggman",
@@ -77620,7 +79340,13 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://info.diskgarage.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "diskgarage",
+          "url": "https://info.diskgarage.com/",
+          "code": null
+        }
+      ],
       "lineup": [
         "荒井岳史(the band apart)",
         "Keishi Tanaka",
@@ -77704,7 +79430,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "727ccd0ec0ee2c60",
@@ -78154,7 +79886,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "00d3a49aca1c1698",
@@ -78642,7 +80380,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "b745db7feaa1e83c",
@@ -79253,7 +80997,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "47353e3d3a24eb39",
@@ -79973,7 +81723,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://tokyosymphony.jp",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tokyosymphony",
+          "url": "https://tokyosymphony.jp",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "9411cead2ccf0bbb",
@@ -80005,7 +81761,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://gaccon.mainichi-classic.net/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "mainichi-classic",
+          "url": "https://gaccon.mainichi-classic.net/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "26a6c45b7a4ade97",
@@ -80844,24 +82606,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "Christian McBride",
-        "Nicole Glover",
-        "Ely Perlman",
-        "Mike King",
-        "Savannah Harris"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "dd25af1918240948",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": [
-        "Christian McBride",
-        "Ely Perlman",
-        "Mike King",
-        "Nicole Glover",
-        "Savannah Harris"
-      ]
+      "artists": []
     },
     {
       "source": "ex_theater",
@@ -81206,12 +82956,17 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621846&rlsCd=002",
+          "url": "https://w.pia.jp/t/chetfaker-t/",
           "code": null
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=003",
+          "url": null,
+          "code": "P329562"
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/chetfaker2026/",
           "code": null
         },
         {
@@ -81226,27 +82981,22 @@
         },
         {
           "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=005",
+          "code": null
+        },
+        {
+          "provider": "pia",
           "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=004",
           "code": null
         },
         {
-          "provider": "eplus",
-          "url": "https://eplus.jp/chetfaker2026/",
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621846&rlsCd=002",
           "code": null
         },
         {
           "provider": "pia",
-          "url": "https://w.pia.jp/t/chetfaker-t/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": null,
-          "code": "P329562"
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=005",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=003",
           "code": null
         }
       ],
@@ -81575,6 +83325,38 @@
       "artists": [
         "なんキニ！"
       ]
+    },
+    {
+      "source": "www_x",
+      "source_url": "https://www-shibuya.jp/schedule/019945.php",
+      "title_ja": "HAPPY CREATORS",
+      "title_en": null,
+      "subtitle": "HAPPY CREATORS 夏ツアー2026 『はっぴー巡礼計画！〜ハピクリがあなたの街に会いに行く〜』",
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-09-17",
+      "end_date": null,
+      "open_time": "18:15",
+      "start_time": "19:00",
+      "venue_name": "WWW X",
+      "venue_area": "Shibuya",
+      "address": "13-17 Udagawa-cho, Shibuya-ku, Tokyo",
+      "lat": 35.660557,
+      "lng": 139.696371,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "be0f96d6086a93da",
+      "status": "auto",
+      "venue_key": "www_x",
+      "artists": []
     },
     {
       "source": "liquidroom",
@@ -82180,7 +83962,7 @@
     {
       "source": "reny_shinjuku",
       "source_url": "https://ruido.org/reny/2026/9/sep/19.html",
-      "title_ja": "伊波杏樹 LIVE TOUR 2026 「NON STOP the 愛愛愛っ!♡」",
+      "title_ja": "新宿ReNY 9/19公演",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -82206,16 +83988,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "伊波杏樹"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "cfc89ee3cb287cac",
       "status": "approved",
       "venue_key": "reny_shinjuku",
-      "artists": [
-        "伊波杏樹"
-      ]
+      "artists": []
     },
     {
       "source": "que_shimokitazawa",
@@ -82321,7 +84099,9 @@
       "id": "85d38e063f4a7fd7",
       "status": "approved",
       "venue_key": "cotton_club",
-      "artists": []
+      "artists": [
+        "Senri Kawaguchi"
+      ]
     },
     {
       "source": "sgc_hall_ariake",
@@ -82477,7 +84257,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://nihon-mozartaikoukai.com/contact/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "nihon-mozartaikoukai",
+          "url": "https://nihon-mozartaikoukai.com/contact/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "3edbf7f64b463c51",
@@ -82894,6 +84680,56 @@
       ]
     },
     {
+      "source": "bluenote_tokyo",
+      "source_url": "https://www.bluenote.co.jp/jp/artists/chara/",
+      "title_ja": "Chara",
+      "title_en": null,
+      "subtitle": "Anniversary Countdown Live!! / \"1991 to 2026\"",
+      "category": "music",
+      "genres": [
+        "jazz-soul"
+      ],
+      "start_date": "2026-09-19",
+      "end_date": "2026-09-20",
+      "open_time": "16:00",
+      "start_time": "17:00",
+      "venue_name": "Blue Note Tokyo (ブルーノート東京)",
+      "venue_area": "Minami-Aoyama",
+      "address": "Raika Bldg. B1F/B2F, 6-3-16 Minami-Aoyama, Minato-ku, Tokyo",
+      "lat": 35.6626,
+      "lng": 139.7156,
+      "price_text": "￥11,500 （税込）",
+      "price_min": 11500,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "bluenote",
+          "url": "https://reserve.bluenote.co.jp/reserve/schedule/show_event_info/3995/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "Chara",
+        "Kaoru Inoue",
+        "Ren Yamamoto",
+        "Kenichi Takemoto",
+        "Keiko Hiraoka"
+      ],
+      "tags": [],
+      "id": "a2987fe7c3e35c5c",
+      "status": "auto",
+      "venue_key": "bluenote_tokyo",
+      "artists": [
+        "Chara",
+        "Kaoru Inoue",
+        "Keiko Hiraoka",
+        "Kenichi Takemoto",
+        "Ren Yamamoto"
+      ]
+    },
+    {
       "source": "liquidroom",
       "source_url": "https://www.liquidroom.net/schedule/laughin%ca%bcnose-sa_20260920",
       "title_ja": "LAUGHINʼ NOSE / SA",
@@ -83238,7 +85074,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tpo.or.jp",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tpo",
+          "url": "https://www.tpo.or.jp",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "9551ec09297ab816",
@@ -83270,7 +85112,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://otonokai.jimdofree.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "jimdofree",
+          "url": "https://otonokai.jimdofree.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "34353630d74fb9a0",
@@ -83784,32 +85632,42 @@
     {
       "source": "reny_shinjuku",
       "source_url": "https://ruido.org/reny/2026/9/sep/21.html",
-      "title_ja": "新宿ReNY 9/21公演",
+      "title_ja": "THE MAD PACHI-SLOT BROTHER'S 30th Anniversary Live EventMAD FES 2026 ～回胴不法集会 FINAL～",
       "title_en": null,
       "subtitle": null,
       "category": "music",
       "genres": [],
       "start_date": "2026-09-21",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "16:00",
+      "start_time": "16:30",
       "venue_name": "新宿ReNY",
       "venue_area": "Shinjuku",
       "address": "6-5-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo (Shinjuku i-Land Tower 2F)",
       "lat": 35.6935,
       "lng": 139.6928,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "￥4,500 / ￥5,000 (D代別途要)",
+      "price_min": 4500,
+      "is_free": false,
       "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
+      "ticket_url": "https://eplus.jp/sf/venue/1601720",
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/venue/1601720",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "THE MAD PACHI-SLOT BROTHER’S"
+      ],
       "tags": [],
       "id": "45b7f1da673559cc",
       "status": "approved",
       "venue_key": "reny_shinjuku",
-      "artists": []
+      "artists": [
+        "THE MAD PACHI-SLOT BROTHER’S"
+      ]
     },
     {
       "source": "que_shimokitazawa",
@@ -83941,7 +85799,13 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": "https://info.diskgarage.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "diskgarage",
+          "url": "https://info.diskgarage.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "d61f7cad0166f5f3",
@@ -84035,7 +85899,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.tokyo-academy.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "tokyo-academy",
+          "url": "https://www.tokyo-academy.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "193960d94269e10f",
@@ -84261,6 +86131,93 @@
       ]
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=160236",
+      "title_ja": "T.C.R.横浜銀蝿R.S.",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-09-21",
+      "end_date": null,
+      "open_time": "16:15",
+      "start_time": "17:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "全席指定/ ¥12,100 [お問合せ] DISK GARAGE READ MORE",
+      "price_min": 12100,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "4e27739bd82371b6",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": []
+    },
+    {
+      "source": "bluenote_tokyo",
+      "source_url": "https://www.bluenote.co.jp/jp/artists/miles-electric-band/",
+      "title_ja": "THE MILES DAVIS CENTENNIAL CELEBRATION",
+      "title_en": null,
+      "subtitle": "with THE MILES ELECTRIC BAND",
+      "category": "music",
+      "genres": [
+        "jazz-soul"
+      ],
+      "start_date": "2026-09-21",
+      "end_date": "2026-09-23",
+      "open_time": "15:30",
+      "start_time": "16:30",
+      "venue_name": "Blue Note Tokyo (ブルーノート東京)",
+      "venue_area": "Minami-Aoyama",
+      "address": "Raika Bldg. B1F/B2F, 6-3-16 Minami-Aoyama, Minato-ku, Tokyo",
+      "lat": 35.6626,
+      "lng": 139.7156,
+      "price_text": "￥12,500 （税込）",
+      "price_min": 12500,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "bluenote",
+          "url": "https://reserve.bluenote.co.jp/reserve/schedule/show_event_info/3992/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "Darryl Jones",
+        "Munyungo Jackson",
+        "Jean-Paul Bourelly",
+        "Robert Irving Ⅲ",
+        "Keyon Harrold",
+        "Antoine Roney",
+        "Vince Wilburn Jr.",
+        "TBA"
+      ],
+      "tags": [],
+      "id": "57254e87ec4bb648",
+      "status": "auto",
+      "venue_key": "bluenote_tokyo",
+      "artists": [
+        "Antoine Roney",
+        "Darryl Jones",
+        "Jean-Paul Bourelly",
+        "Keyon Harrold",
+        "Munyungo Jackson",
+        "Robert Irving Ⅲ",
+        "Vince Wilburn Jr."
+      ]
+    },
+    {
       "source": "club_citta",
       "source_url": "https://clubcitta.co.jp/schedule/1632",
       "title_ja": "⼤冠祭2026",
@@ -84281,7 +86238,7 @@
       "price_min": null,
       "is_free": null,
       "is_sold_out": true,
-      "ticket_url": null,
+      "ticket_url": "https://www.livenation.co.jp/show/1687180/大冠祭2026/kanagawa/2026-09-22/ja",
       "ticket_links": [
         {
           "provider": "eplus",
@@ -84333,32 +86290,38 @@
     {
       "source": "reny_shinjuku",
       "source_url": "https://ruido.org/reny/2026/9/sep/22.html",
-      "title_ja": "新宿ReNY 9/22公演",
+      "title_ja": "Music Planet SUPER LIVE 2026 咲動 新宿ReNY公演",
       "title_en": null,
       "subtitle": null,
       "category": "music",
       "genres": [],
       "start_date": "2026-09-22",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "13:30",
+      "start_time": "14:00",
       "venue_name": "新宿ReNY",
       "venue_area": "Shinjuku",
       "address": "6-5-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo (Shinjuku i-Land Tower 2F)",
       "lat": 35.6935,
       "lng": 139.6928,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "グッズ付きプレミアム席￥4,500 / ￥-,— (D代別途要) 自由席￥2,500 / ￥-,— (D代別途要) 立ち見￥2,500 / ￥-,— (D代別途要)",
+      "price_min": 2500,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
-      "lineup": [],
+      "lineup": [
+        "Music Planet アーティスト 80名(予定)",
+        "Music Planet Special Band"
+      ],
       "tags": [],
       "id": "cd1eb5173cf5a7ae",
       "status": "approved",
       "venue_key": "reny_shinjuku",
-      "artists": []
+      "artists": [
+        "Music Planet Special Band",
+        "Music Planet アーティスト 80名(予定)"
+      ]
     },
     {
       "source": "que_shimokitazawa",
@@ -84561,7 +86524,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.musicasilva.com",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "musicasilva",
+          "url": "https://www.musicasilva.com",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "67a0a5b25ec9aa0e",
@@ -85277,7 +87246,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://shinmusica.com/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "shinmusica",
+          "url": "https://shinmusica.com/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "51ac7f7e639cca43",
@@ -85742,7 +87717,7 @@
     {
       "source": "reny_shinjuku",
       "source_url": "https://ruido.org/reny/2026/9/sep/23.html",
-      "title_ja": "霜月はるか 20th Anniversary Grand Final Live ~Ashioto Step Forward~",
+      "title_ja": "新宿ReNY 9/23公演",
       "title_en": null,
       "subtitle": null,
       "category": "music",
@@ -85768,19 +87743,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "霜月はるか with WYRDRAD Bandmaster",
-        "Keyboard 河合英史、Guitar 大橋英之、 Drums 矢吹正則、 Bass 蓮池真治、 Violin 土屋玲子、 Manipulator 八代新平"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "2c7de793bc9e2402",
       "status": "auto",
       "venue_key": "reny_shinjuku",
-      "artists": [
-        "Keyboard 河合英史、Guitar 大橋英之、 Drums 矢吹正則、 Bass 蓮池真治、 Violin 土屋玲子、 Manipulator 八代新平",
-        "霜月はるか",
-        "霜月はるか with WYRDRAD Bandmaster"
-      ]
+      "artists": []
     },
     {
       "source": "sogo_tokyo",
@@ -85907,12 +87875,18 @@
       "address": null,
       "lat": 35.5308,
       "lng": 139.6994,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
-      "is_sold_out": false,
+      "price_text": "前売り 1F立見 7,700円(税込) 2F指定席 8,500円(税込) ※入場の際にドリンク代600円が別途必要となります。",
+      "price_min": 7700,
+      "is_free": false,
+      "is_sold_out": true,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/red-hotrockstream/",
+          "code": null
+        }
+      ],
       "lineup": [
         "ザ・クロマニヨンズ",
         "ドレスコーズ"
@@ -86000,35 +87974,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "Septeto Santiaguero：",
-        "Fernando Dewar Webster",
-        "Deyvis Yirat Hechavaria",
-        "Inocencio Heredia Castillo",
-        "Giraldo Bravo Ramírez",
-        "Pedro Dariel Dominico Roble",
-        "Alain Antonio Dragoni Cotorruelo",
-        "Yoilan Zamora Guibert",
-        "Carlos Rafael Danger Plana",
-        "Guest：",
-        "Mayito Rivera"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "be4f63aa0c6bef19",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": [
-        "Alain Antonio Dragoni Cotorruelo",
-        "Carlos Rafael Danger Plana",
-        "Deyvis Yirat Hechavaria",
-        "Fernando Dewar Webster",
-        "Giraldo Bravo Ramírez",
-        "Inocencio Heredia Castillo",
-        "Mayito Rivera",
-        "Pedro Dariel Dominico Roble",
-        "Septeto Santiaguero：",
-        "Yoilan Zamora Guibert"
-      ]
+      "artists": []
     },
     {
       "source": "tokyo_intl_forum",
@@ -86084,7 +88035,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://t-onkyo.co.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "t-onkyo",
+          "url": "https://t-onkyo.co.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "b2ea45635ff55b6c",
@@ -86157,6 +88114,40 @@
       "status": "auto",
       "venue_key": "www_x",
       "artists": []
+    },
+    {
+      "source": "cotton_club",
+      "source_url": "https://www.cottonclubjapan.co.jp/jp/sp/artists/ulysses-owens-jr-260924/#2026-09-24",
+      "title_ja": "ULYSSES OWENS JR. & GENERATION Y",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "jazz-soul"
+      ],
+      "start_date": "2026-09-24",
+      "end_date": null,
+      "open_time": "17:00",
+      "start_time": "18:00",
+      "venue_name": "COTTON CLUB",
+      "venue_area": "Marunouchi",
+      "address": "TOKIA 2F, Tokyo Bldg., 2-7-3 Marunouchi, Chiyoda-ku, Tokyo",
+      "lat": 35.6776,
+      "lng": 139.7639,
+      "price_text": "Music charge ¥ 9,500",
+      "price_min": 9500,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "30033772d91b9e61",
+      "status": "auto",
+      "venue_key": "cotton_club",
+      "artists": [
+        "Ulysses Owens Jr."
+      ]
     },
     {
       "source": "liquidroom",
@@ -86261,32 +88252,74 @@
     {
       "source": "reny_shinjuku",
       "source_url": "https://ruido.org/reny/2026/9/sep/25.html",
-      "title_ja": "新宿ReNY 9/25公演",
+      "title_ja": "放課後プリンセス 15周年記念公演 「HOUKAGO PRINCESS: ASSEMBLE」",
       "title_en": null,
       "subtitle": null,
       "category": "music",
       "genres": [],
       "start_date": "2026-09-25",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "17:15",
+      "start_time": "18:00",
       "venue_name": "新宿ReNY",
       "venue_area": "Shinjuku",
       "address": "6-5-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo (Shinjuku i-Land Tower 2F)",
       "lat": 35.6935,
       "lng": 139.6928,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "SSチケット ￥20,000 / ￥-,— (D代別途要) Sチケット ￥6,500 / ￥-,— (D代別途要) Aチケット ￥3,000 / ￥3,500 (D代別途要)",
+      "price_min": 3000,
+      "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
-      "lineup": [],
+      "lineup": [
+        "放課後プリンセス",
+        "森川優羽",
+        "水野青海",
+        "花咲果林",
+        "高田もも",
+        "鈴木りん",
+        "小田桐奈々",
+        "山口みらん",
+        "桜木寧々",
+        "木月沙織",
+        "長澤茉里奈",
+        "道重佐保",
+        "宮下舞花",
+        "城崎ひまり",
+        "関根ささら",
+        "澤田桃佳",
+        "西宮愛理",
+        "戸川優海",
+        "白石りか",
+        "小日向ななせ"
+      ],
       "tags": [],
       "id": "6b37d086cfa3ed6c",
       "status": "approved",
       "venue_key": "reny_shinjuku",
-      "artists": []
+      "artists": [
+        "城崎ひまり",
+        "宮下舞花",
+        "小日向ななせ",
+        "小田桐奈々",
+        "山口みらん",
+        "戸川優海",
+        "放課後プリンセス",
+        "木月沙織",
+        "桜木寧々",
+        "森川優羽",
+        "水野青海",
+        "澤田桃佳",
+        "白石りか",
+        "花咲果林",
+        "西宮愛理",
+        "道重佐保",
+        "鈴木りん",
+        "長澤茉里奈",
+        "関根ささら",
+        "高田もも"
+      ]
     },
     {
       "source": "que_shimokitazawa",
@@ -86513,6 +88546,56 @@
       ]
     },
     {
+      "source": "bluenote_tokyo",
+      "source_url": "https://www.bluenote.co.jp/jp/artists/ulysses-owens-jr/",
+      "title_ja": "ULYSSES OWENS JR. & GENERATION Y",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "jazz-soul"
+      ],
+      "start_date": "2026-09-25",
+      "end_date": "2026-09-26",
+      "open_time": "17:00",
+      "start_time": "18:00",
+      "venue_name": "Blue Note Tokyo (ブルーノート東京)",
+      "venue_area": "Minami-Aoyama",
+      "address": "Raika Bldg. B1F/B2F, 6-3-16 Minami-Aoyama, Minato-ku, Tokyo",
+      "lat": 35.6626,
+      "lng": 139.7156,
+      "price_text": "￥9,500 （税込）",
+      "price_min": 9500,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "bluenote",
+          "url": "https://reserve.bluenote.co.jp/reserve/schedule/show_event_info/3996/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "Ulysses Owens Jr.",
+        "Anthony Hervey",
+        "Erena Terakubo",
+        "Tyler Bullock",
+        "Thomas Milovac"
+      ],
+      "tags": [],
+      "id": "ec0d1d1f6aec498d",
+      "status": "auto",
+      "venue_key": "bluenote_tokyo",
+      "artists": [
+        "Anthony Hervey",
+        "Erena Terakubo",
+        "Thomas Milovac",
+        "Tyler Bullock",
+        "Ulysses Owens Jr."
+      ]
+    },
+    {
       "source": "liquidroom",
       "source_url": "https://www.liquidroom.net/schedule/specialothers_20260926",
       "title_ja": "SPECIAL OTHERS",
@@ -86581,32 +88664,42 @@
     {
       "source": "reny_shinjuku",
       "source_url": "https://ruido.org/reny/2026/9/sep/26.html",
-      "title_ja": "新宿ReNY 9/26公演",
+      "title_ja": "FANTASTIC◇CIRCUS LIVE Tour 2026 【_ ADD ROCK FOR LIFE _】season2.",
       "title_en": null,
       "subtitle": null,
       "category": "music",
       "genres": [],
       "start_date": "2026-09-26",
       "end_date": null,
-      "open_time": null,
-      "start_time": null,
+      "open_time": "18:00",
+      "start_time": "18:30",
       "venue_name": "新宿ReNY",
       "venue_area": "Shinjuku",
       "address": "6-5-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo (Shinjuku i-Land Tower 2F)",
       "lat": 35.6935,
       "lng": 139.6928,
-      "price_text": null,
-      "price_min": null,
-      "is_free": null,
+      "price_text": "￥8,800/ ￥-,— (D代別途要)",
+      "price_min": 8800,
+      "is_free": false,
       "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [],
-      "lineup": [],
+      "ticket_url": "https://eplus.jp/sf/venue/1601720",
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/venue/1601720",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "FANTASTIC◇CIRCUS"
+      ],
       "tags": [],
       "id": "9a0bd28e67630496",
       "status": "approved",
       "venue_key": "reny_shinjuku",
-      "artists": []
+      "artists": [
+        "FANTASTIC◇CIRCUS"
+      ]
     },
     {
       "source": "que_shimokitazawa",
@@ -86699,6 +88792,11 @@
       "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
+        {
+          "provider": "official",
+          "url": "https://devilanthem.net/#/",
+          "code": null
+        },
         {
           "provider": "diskgarage",
           "url": "https://diskgarage.com/ticket/detail/102206",
@@ -87405,20 +89503,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "Andrea Motis",
-        "Jurandir dã Silva",
-        "Josep Traver"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "0ccb11366be7b6bd",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": [
-        "Andrea Motis",
-        "Josep Traver",
-        "Jurandir dã Silva"
-      ]
+      "artists": []
     },
     {
       "source": "cotton_club",
@@ -87540,7 +89630,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "bachcollegiumjapan",
+          "url": "https://bachcollegiumjapan.org",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "ff045281c62f8131",
@@ -87846,12 +89942,12 @@
     {
       "source": "duo",
       "source_url": "https://www.duomusicexchange.com/schedule/2026/index_2026-09.html#260927",
-      "title_ja": "TOKYO CALLING 2026 Spotify O-EAST / O-WEST / O-nest / O-Crest / duo MUSIC EXCHANGE SHIBUYA CLUB QUATTRO / Shibuya PIT ZERO / Veats Shibuya チェルシーホテル / Star Lounge/ SHIBUYA DESEO mini Shibuya Milkyway / WOMBLIVE / Club Malcolm More Info... 【第一弾出演者】 Broken my toybox / Brown Basket / Conton Candy Czecho No Republic / FINLANDS / Hakubi / SAKANAMON the shes gone / UNFAIR RULE / リアクション ザ ブッタ 明くる夜の羊 / 終活クラブ / 夜の本気ダンス 【第二弾出演者】 anewhite / bokula. / Bye-Bye-Handの方程式 / GOODWARP Ivy to Fraudulent Game / Ochunism / The Cheserasera yutori / なきごと / パーカーズ / プッシュプルポット ポップしなないで / リュックと添い寝ごはん / 打首獄門同好会 超能力戦士ドリアン / 東京メルヘン倶楽部 【第三弾出演者】 Arakezuri / Ciely / Enfants / Half time Old / Laughing Hick osage / Re:name / the paddles / This is LAST / ちゃくら ズーカラデル / セカンドバッカー / ミニマムジーク レトロマイガール！！ / 猫背のネイビーセゾン / 東京、君がいない街 【第四弾出演者】 JIJIM / Leina / Luov / Maverick Mom / moon drop / NEK! Panorama Panama Town / PompadollS / the dadadadys the twenties / アルカラ / ミーマイナー",
+      "title_ja": "TOKYO CALLING 2026 Spotify O-EAST / O-WEST / O-nest / O-Crest / duo MUSIC EXCHANGE SHIBUYA CLUB QUATTRO / Shibuya PIT ZERO / Veats Shibuya チェルシーホテル / Star Lounge/ SHIBUYA DESEO mini Shibuya Milkyway / WOMBLIVE / Club Malcolm More Info... 【第一弾出演者】 Broken my toybox / Brown Basket / Conton Candy Czecho No Republic / FINLANDS / Hakubi / SAKANAMON the shes gone / UNFAIR RULE / リアクション ザ ブッタ 明くる夜の羊 / 終活クラブ / 夜の本気ダンス 【第二弾出演者】 anewhite / bokula. / Bye-Bye-Handの方程式 / GOODWARP Ivy to Fraudulent Game / Ochunism / The Cheserasera yutori / なきごと / パーカーズ / プッシュプルポット ポップしなないで / リュックと添い寝ごはん / 打首獄門同好会 超能力戦士ドリアン / 東京メルヘン倶楽部 【第三弾出演者】 Arakezuri / Ciely / Enfants / Half time Old / Laughing Hick osage / Re:name / the paddles / This is LAST / ちゃくら ズーカラデル / セカンドバッカー / ミニマムジーク レトロマイガール！！ / 猫背のネイビーセゾン / 東京、君がいない街 【第四弾出演者】 JIJIM / Leina / Luov / Maverick Mom / moon drop / NEK! Panorama Panama Town / PompadollS / the dadadadys the twenties / アルカラ / ミーマイナー 【第五弾出演者】 『ユイカ』 / VII DAYS REASON / Doona / EHJM(韓国) kurage / PAIL OUT / Pastel Tang Club / yolufa そこに鳴る / ん・フェニ / インナージャーニー / ゴホウビ / 帰りの会 【TRUST RECORDS 20th コラボステージ】 Brown Basket / Greedy / HONEST / HOTSQUALL / Marie's Girl RAINCOVER / redmarker / SLACK / Some Life",
       "title_en": null,
       "subtitle": null,
       "category": "music",
       "genres": [
-        "j-rock"
+        "electronic"
       ],
       "start_date": "2026-09-27",
       "end_date": null,
@@ -87876,8 +89972,10 @@
       "artists": [
         "Arakezuri",
         "Czecho No Republic",
+        "Doona",
         "Enfants",
         "GOODWARP",
+        "HONEST",
         "Hakubi",
         "Ivy to Fraudulent Game",
         "JIJIM",
@@ -87890,6 +89988,7 @@
         "the dadadadys",
         "the paddles",
         "the twenties",
+        "yolufa",
         "なきごと",
         "セカンドバッカー",
         "ポップしなないで",
@@ -88671,7 +90770,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://www.shin-en.jp/",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "shin-en",
+          "url": "https://www.shin-en.jp/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "a1c37280a452eb54",
@@ -89733,24 +91838,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "Richard Bona",
-        "Alexandre Herichon",
-        "Ciro Manna",
-        "Michael Lecoq",
-        "Nicolas Viccaro"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "bf367316bfb8050c",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": [
-        "Alexandre Herichon",
-        "Ciro Manna",
-        "Michael Lecoq",
-        "Nicolas Viccaro",
-        "Richard Bona"
-      ]
+      "artists": []
     },
     {
       "source": "sgc_hall_ariake",
@@ -90012,7 +92105,9 @@
       "id": "92e5fb7715552ebb",
       "status": "approved",
       "venue_key": "zepp_shinjuku",
-      "artists": []
+      "artists": [
+        "BLUEGOATS"
+      ]
     },
     {
       "source": "kokuritsu_stadium",
@@ -90291,20 +92386,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "Nduduzo Makhathini",
-        "Dalisu Ndlazi",
-        "Lukmil Perez"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "79a78a9027007eee",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": [
-        "Dalisu Ndlazi",
-        "Lukmil Perez",
-        "Nduduzo Makhathini"
-      ]
+      "artists": []
     },
     {
       "source": "cotton_club",
@@ -90799,22 +92886,12 @@
           "code": null
         }
       ],
-      "lineup": [
-        "Anoushka Shankar",
-        "Sarathy Korwar",
-        "Tom Farmer",
-        "Arun Ghosh"
-      ],
+      "lineup": [],
       "tags": [],
       "id": "6b58e0fe69fbecd1",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": [
-        "Anoushka Shankar",
-        "Arun Ghosh",
-        "Sarathy Korwar",
-        "Tom Farmer"
-      ]
+      "artists": []
     },
     {
       "source": "sgc_hall_ariake",
@@ -91489,6 +93566,40 @@
       "status": "approved",
       "venue_key": "zepp_haneda",
       "artists": []
+    },
+    {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1687237/私立恵比寿中学-sound-of-ebichu-2026-band-edition-/kanagawa/2026-10-11/ja",
+      "title_ja": "私立恵比寿中学",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-10-11",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "パシフィコ横浜 国立大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1687237/私立恵比寿中学-sound-of-ebichu-2026-band-edition-/kanagawa/2026-10-11/ja",
+      "ticket_links": [],
+      "lineup": [
+        "私立恵比寿中学"
+      ],
+      "tags": [],
+      "id": "4def15adb29fba3e",
+      "status": "auto",
+      "venue_key": "pacifico_yokohama",
+      "artists": [
+        "私⽴恵⽐寿中学"
+      ]
     },
     {
       "source": "club_citta",
@@ -92637,34 +94748,14 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "eplus",
-          "url": "https://eplus.jp/kennyg2026/",
-          "code": null
-        },
-        {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623346&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623341&rlsCd=003",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623341&rlsCd=004",
           "code": null
         },
         {
           "provider": "pia",
           "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623341&rlsCd=005",
           "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://w.pia.jp/t/kennyg-t/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": null,
-          "code": "P330-486"
         },
         {
           "provider": "lawson",
@@ -92678,7 +94769,27 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623341&rlsCd=004",
+          "url": "https://w.pia.jp/t/kennyg-t/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": null,
+          "code": "P330-486"
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623346&rlsCd=002",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/kennyg2026/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623341&rlsCd=003",
           "code": null
         }
       ],
@@ -93361,14 +95472,19 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607699&rlsCd=002",
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/detail/0069790001?P6=001&P1=0402&P59=1",
           "code": null
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=003",
+          "url": "https://t.pia.jp/pia/event/event.do?eventBundleCd=b2665906",
           "code": null
+        },
+        {
+          "provider": "pia",
+          "url": null,
+          "code": "P321-587"
         },
         {
           "provider": "lawson",
@@ -93382,22 +95498,17 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/event/event.do?eventBundleCd=b2665906",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": null,
-          "code": "P321-587"
-        },
-        {
-          "provider": "eplus",
-          "url": "https://eplus.jp/sf/detail/0069790001?P6=001&P1=0402&P59=1",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=005",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607699&rlsCd=002",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=003",
           "code": null
         }
       ],
@@ -93568,14 +95679,19 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607699&rlsCd=002",
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/detail/0069790001?P6=001&P1=0402&P59=1",
           "code": null
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=003",
+          "url": "https://t.pia.jp/pia/event/event.do?eventBundleCd=b2665906",
           "code": null
+        },
+        {
+          "provider": "pia",
+          "url": null,
+          "code": "P321-587"
         },
         {
           "provider": "lawson",
@@ -93589,22 +95705,17 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/event/event.do?eventBundleCd=b2665906",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": null,
-          "code": "P321-587"
-        },
-        {
-          "provider": "eplus",
-          "url": "https://eplus.jp/sf/detail/0069790001?P6=001&P1=0402&P59=1",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=005",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607699&rlsCd=002",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=003",
           "code": null
         }
       ],
@@ -94600,7 +96711,9 @@
       "id": "f5504685d9e92289",
       "status": "approved",
       "venue_key": "bluenote_tokyo",
-      "artists": []
+      "artists": [
+        "Maya"
+      ]
     },
     {
       "source": "zepp_shinjuku",
@@ -94665,6 +96778,40 @@
       "status": "approved",
       "venue_key": "zepp_yokohama",
       "artists": []
+    },
+    {
+      "source": "zepp_haneda",
+      "source_url": "https://www.zepp.co.jp/hall/haneda/schedule/single/?rid=159049",
+      "title_ja": "女王蜂",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-10-30",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
+      "venue_name": "Zepp Haneda (TOKYO)",
+      "venue_area": "Haneda",
+      "address": null,
+      "lat": 35.548923,
+      "lng": 139.74287,
+      "price_text": "1Fスタンディング/ ¥7,500 2F指定席/ ¥7,500 [お問合せ] DISK GARAGE READ MORE",
+      "price_min": 7500,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "5697b9519f7e035f",
+      "status": "auto",
+      "venue_key": "zepp_haneda",
+      "artists": [
+        "女王蜂"
+      ]
     },
     {
       "source": "zepp_divercity",
@@ -94852,7 +96999,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "bachcollegiumjapan",
+          "url": "https://bachcollegiumjapan.org",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "2eec7cd01ad12926",
@@ -95449,14 +97602,19 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620280&rlsCd=002",
+          "provider": "eplus",
+          "url": "https://eplus.jp/erikgronwall/",
           "code": null
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620275&rlsCd=003",
+          "url": "https://w.pia.jp/t/erikgronwall-t/",
           "code": null
+        },
+        {
+          "provider": "pia",
+          "url": null,
+          "code": "P328663"
         },
         {
           "provider": "lawson",
@@ -95470,22 +97628,17 @@
         },
         {
           "provider": "pia",
-          "url": "https://w.pia.jp/t/erikgronwall-t/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": null,
-          "code": "P328663"
-        },
-        {
-          "provider": "eplus",
-          "url": "https://eplus.jp/erikgronwall/",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620275&rlsCd=005",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620280&rlsCd=002",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620275&rlsCd=003",
           "code": null
         }
       ],
@@ -96957,21 +99110,6 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624366&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=003",
-          "code": null
-        },
-        {
-          "provider": "lawson",
-          "url": null,
-          "code": "L71553"
-        },
-        {
-          "provider": "pia",
           "url": "https://w.pia.jp/t/annwilson-t/",
           "code": null
         },
@@ -96981,8 +99119,23 @@
           "code": "P331-106"
         },
         {
+          "provider": "lawson",
+          "url": null,
+          "code": "L71553"
+        },
+        {
           "provider": "pia",
           "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=004",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624366&rlsCd=002",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=003",
           "code": null
         }
       ],
@@ -97032,6 +99185,38 @@
       ]
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=161371",
+      "title_ja": "レキシ [メンバー] Keyboard: 元気出せ！遣唐使 (渡 和久) Guitar: 加藤えろ正（カトウタロウ） Percussion: 丑三つ時三朗太（三星章紘）",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "j-rock"
+      ],
+      "start_date": "2026-11-17",
+      "end_date": null,
+      "open_time": "17:30",
+      "start_time": "18:30",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "全席指定/ ¥8,800 [お問合せ] SOGO TOKYO 03-3405-9999 月〜土 12:00〜13:00/16:00〜19:00※日曜・祝日を除く READ MORE",
+      "price_min": 8800,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "636a8e5b15c68a45",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": []
+    },
+    {
       "source": "sgc_hall_ariake",
       "source_url": "https://tdp.tv-asahi.co.jp/hall/event/0072/",
       "title_ja": "TEDESCHI TRUCKS BAND",
@@ -97077,8 +99262,8 @@
           "code": null
         },
         {
-          "provider": "lawson",
-          "url": "https://l-tike.com/tedeschi-trucks-band/",
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=006",
           "code": null
         },
         {
@@ -97087,13 +99272,13 @@
           "code": null
         },
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616228&rlsCd=002",
+          "provider": "lawson",
+          "url": "https://l-tike.com/tedeschi-trucks-band/",
           "code": null
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=006",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616228&rlsCd=002",
           "code": null
         }
       ],
@@ -97140,6 +99325,38 @@
         "NELKE",
         "フレデリック"
       ]
+    },
+    {
+      "source": "cotton_club",
+      "source_url": "https://www.cottonclubjapan.co.jp/jp/sp/artists/carlos-toshiki-261118/#2026-11-18",
+      "title_ja": "CARLOS TOSHIKI 40th ANNIVERSARY LIVE TOUR 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "jazz-soul"
+      ],
+      "start_date": "2026-11-18",
+      "end_date": null,
+      "open_time": "17:00",
+      "start_time": "18:00",
+      "venue_name": "COTTON CLUB",
+      "venue_area": "Marunouchi",
+      "address": "TOKIA 2F, Tokyo Bldg., 2-7-3 Marunouchi, Chiyoda-ku, Tokyo",
+      "lat": 35.6776,
+      "lng": 139.7639,
+      "price_text": "Music charge ¥ 12,000",
+      "price_min": 12000,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "350d31cfe32de21f",
+      "status": "auto",
+      "venue_key": "cotton_club",
+      "artists": []
     },
     {
       "source": "zepp_divercity",
@@ -97273,6 +99490,16 @@
           "code": null
         },
         {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=006",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=003",
+          "code": null
+        },
+        {
           "provider": "lawson",
           "url": "https://l-tike.com/tedeschi-trucks-band/",
           "code": null
@@ -97284,17 +99511,7 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=003",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616228&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=006",
           "code": null
         }
       ],
@@ -97404,11 +99621,6 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=003",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://w.pia.jp/t/annwilson-t/",
           "code": null
         },
@@ -97418,9 +99630,9 @@
           "code": "P331-106"
         },
         {
-          "provider": "lawson",
-          "url": null,
-          "code": "L71553"
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=004",
+          "code": null
         },
         {
           "provider": "pia",
@@ -97428,13 +99640,18 @@
           "code": null
         },
         {
+          "provider": "lawson",
+          "url": null,
+          "code": "L71553"
+        },
+        {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624366&rlsCd=003",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=003",
           "code": null
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=004",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624366&rlsCd=003",
           "code": null
         }
       ],
@@ -99036,6 +101253,38 @@
       "artists": []
     },
     {
+      "source": "zepp_yokohama",
+      "source_url": "https://www.zepp.co.jp/hall/yokohama/schedule/single/?rid=162219",
+      "title_ja": "宮本佳林 ハロプロ研究生（メンバーは後日発表）",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "idol"
+      ],
+      "start_date": "2026-12-01",
+      "end_date": null,
+      "open_time": "17:00",
+      "start_time": "18:00",
+      "venue_name": "KT Zepp Yokohama",
+      "venue_area": "Yokohama",
+      "address": null,
+      "lat": 35.462391,
+      "lng": 139.630783,
+      "price_text": "一般席/ ¥9,800 一般女性エリア席/ ¥9,800 ファミリー席/ ¥9,800 [お問合せ] オデッセー 03-4426-6303 月・水・金 13:00～17:00 ※祝日除く READ MORE",
+      "price_min": 9800,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "ab8487b011e02575",
+      "status": "auto",
+      "venue_key": "zepp_yokohama",
+      "artists": []
+    },
+    {
       "source": "tokyo_dome",
       "source_url": "https://www.tokyo-dome.co.jp/dome/event/schedule.html#2026-12-02",
       "title_ja": "ENHYPEN WORLD TOUR 'BLOOD SAGA' IN JAPAN",
@@ -99426,7 +101675,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "bachcollegiumjapan",
+          "url": "https://bachcollegiumjapan.org",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "88c11aef350a874e",
@@ -99737,6 +101992,11 @@
           "code": null
         },
         {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627424&rlsCd=003",
+          "code": null
+        },
+        {
           "provider": "lawson",
           "url": "https://l-tike.com/diana-krall/",
           "code": null
@@ -99745,11 +102005,6 @@
           "provider": "lawson",
           "url": null,
           "code": "L73841"
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627424&rlsCd=003",
-          "code": null
         },
         {
           "provider": "pia",
@@ -99877,6 +102132,11 @@
           "code": null
         },
         {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627424&rlsCd=003",
+          "code": null
+        },
+        {
           "provider": "lawson",
           "url": "https://l-tike.com/diana-krall/",
           "code": null
@@ -99885,11 +102145,6 @@
           "provider": "lawson",
           "url": null,
           "code": "L73841"
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627424&rlsCd=003",
-          "code": null
         },
         {
           "provider": "pia",
@@ -101273,6 +103528,40 @@
       ]
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1687203/cryamy-単独公演-cryamyとわたし-彼にとっての-/tokyo/2027-01-16/ja",
+      "title_ja": "CRYAMY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2027-01-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "LINE CUBE SHIBUYA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1687203/cryamy-単独公演-cryamyとわたし-彼にとっての-/tokyo/2027-01-16/ja",
+      "ticket_links": [],
+      "lineup": [
+        "CRYAMY"
+      ],
+      "tags": [],
+      "id": "0e8991045cf6e222",
+      "status": "auto",
+      "venue_key": "line_cube_shibuya",
+      "artists": [
+        "CRYAMY"
+      ]
+    },
+    {
       "source": "k_arena_yokohama",
       "source_url": "https://k-arena.com/schedule/20270117-1/",
       "title_ja": "SUPER BEAVER 『都会のラクダ TOUR 2026-2027 〜 ラクダの人生、ゴーゴーゴー 〜』",
@@ -101821,6 +104110,40 @@
       "artists": []
     },
     {
+      "source": "livenation_jp",
+      "source_url": "https://www.livenation.co.jp/show/1687187/greatest-ever-show/tokyo/2027-02-13/ja",
+      "title_ja": "ばってん少女隊",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2027-02-13",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "SGC HALL ARIAKE",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": "https://www.livenation.co.jp/show/1687187/greatest-ever-show/tokyo/2027-02-13/ja",
+      "ticket_links": [],
+      "lineup": [
+        "ばってん少女隊"
+      ],
+      "tags": [],
+      "id": "7022cbdaa32100ed",
+      "status": "auto",
+      "venue_key": "sgc_hall_ariake",
+      "artists": [
+        "ばってん少女隊"
+      ]
+    },
+    {
       "source": "tokyo_dome",
       "source_url": "https://www.tokyo-dome.co.jp/dome/event/schedule.html#2027-02-14",
       "title_ja": "TOKYO SPACESHIP 2027",
@@ -101940,7 +104263,13 @@
       "is_free": null,
       "is_sold_out": false,
       "ticket_url": "https://bachcollegiumjapan.org",
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "bachcollegiumjapan",
+          "url": "https://bachcollegiumjapan.org",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "e22055bd31cd1264",
