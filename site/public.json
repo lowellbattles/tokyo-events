@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T17:46:52.799864",
+  "generated_at": "2026-07-26T18:06:05.083171",
   "sources": [
     {
       "source": "ariake_arena",
@@ -75,12 +75,14 @@
     },
     {
       "source": "creativeman",
-      "started_at": "2026-07-25T07:02:42",
-      "found": 40,
-      "new": 0,
+      "started_at": "2026-07-26T18:03:53",
+      "found": 44,
+      "new": 4,
       "changed": 0,
       "error": null,
-      "skipped_venues": []
+      "skipped_venues": [
+        "明治座"
+      ]
     },
     {
       "source": "design_sight_2121",
@@ -93,12 +95,40 @@
     },
     {
       "source": "disk_garage",
-      "started_at": "2026-07-25T07:05:03",
-      "found": 195,
-      "new": 1,
-      "changed": 2,
+      "started_at": "2026-07-26T18:05:39",
+      "found": 212,
+      "new": 30,
+      "changed": 1,
       "error": null,
-      "skipped_venues": []
+      "skipped_venues": [
+        "ElectricLadyLand（名古屋）",
+        "HEAVEN'S ROCK Kumagaya",
+        "HEAVEN'S ROCK Utsunomiya 2/3(VJ-4)",
+        "OSAKA MUSE",
+        "Rensa(仙台)",
+        "SPADE BOX（名古屋）",
+        "なんばHATCH",
+        "メガネのイタガキ文化ホール伊勢崎（伊勢崎市文化会館） 大ホール",
+        "ヨコスカ・ベイサイド・ポケット（よこすか芸術劇場小ホール）",
+        "ワールド記念ホール（神戸）",
+        "三郷市文化会館大ホール",
+        "北九州メッセ",
+        "名古屋DIAMOND-HALL",
+        "和光市民文化センター",
+        "大分club SPOT",
+        "富山Livehouse SoulPower",
+        "山梨県 山中湖交流プラザ きらら",
+        "岡山IMAGE",
+        "横浜市港北区民文化センター ミズキーホール",
+        "水戸市民会館 グロービスホール",
+        "甲府CONVICTION",
+        "甲府KAZOO HALL",
+        "福岡Queblick",
+        "福岡市民ホール 大ホール",
+        "高崎芸術劇場 大劇場",
+        "高松DIME",
+        "ＹＣＣ県民文化ホール 大ホール（山梨県立県民文化ホール）"
+      ]
     },
     {
       "source": "duo",
@@ -210,12 +240,14 @@
     },
     {
       "source": "livenation_jp",
-      "started_at": "2026-07-25T07:06:37",
+      "started_at": "2026-07-26T18:05:43",
       "found": 39,
       "new": 0,
       "changed": 0,
       "error": null,
-      "skipped_venues": []
+      "skipped_venues": [
+        "千葉県長生郡長生村 尼ケ台総合公園"
+      ]
     },
     {
       "source": "loft_heaven",
@@ -462,21 +494,31 @@
     },
     {
       "source": "smash_jpn",
-      "started_at": "2026-07-25T07:04:10",
+      "started_at": "2026-07-26T18:05:05",
       "found": 32,
       "new": 0,
-      "changed": 1,
+      "changed": 2,
       "error": null,
-      "skipped_venues": []
+      "skipped_venues": [
+        "OPPA-LA"
+      ]
     },
     {
       "source": "sogo_tokyo",
-      "started_at": "2026-07-25T07:01:44",
-      "found": 181,
+      "started_at": "2026-07-26T18:03:47",
+      "found": 182,
       "new": 1,
-      "changed": 6,
+      "changed": 5,
       "error": null,
-      "skipped_venues": []
+      "skipped_venues": [
+        "MOJO",
+        "club SONIC mito",
+        "東武動物公園 イベントステージ HOLA！",
+        "栃木県総合文化センター メインホール",
+        "桜座",
+        "河口湖ステラシアター",
+        "高崎 Club JAMMER'S"
+      ]
     },
     {
       "source": "sompo",
@@ -489,10 +531,10 @@
     },
     {
       "source": "stellar_ball",
-      "started_at": "2026-07-25T06:54:16",
+      "started_at": "2026-07-26T18:03:47",
       "found": 7,
       "new": 0,
-      "changed": 0,
+      "changed": 1,
       "error": null,
       "skipped_venues": []
     },
@@ -579,12 +621,23 @@
     },
     {
       "source": "udo_artists",
-      "started_at": "2026-07-25T07:04:20",
+      "started_at": "2026-07-26T18:05:10",
       "found": 14,
       "new": 0,
       "changed": 12,
       "error": null,
-      "skipped_venues": []
+      "skipped_venues": [
+        "COMTEC PORTBASE",
+        "NHK大阪ホール",
+        "Niterra日本特殊陶業市民会館ビレッジホール",
+        "Yogibo META VALLEY",
+        "みずほPayPayドーム福岡",
+        "インテックス大阪",
+        "グランキューブ大阪",
+        "フェスティバルホール",
+        "東京建物 Brillia HALL 箕面 (箕面市立文化芸能劇場) 大ホール",
+        "梅田クラブクアトロ"
+      ]
     },
     {
       "source": "unit_daikanyama",
@@ -1539,8 +1592,8 @@
       "status": "approved",
       "venue_key": "zepp_haneda",
       "artists": [
-        "Fujii Kaze",
-        "Suchmos"
+        "Suchmos",
+        "藤井風"
       ]
     },
     {
@@ -2794,8 +2847,8 @@
       "status": "approved",
       "venue_key": "zepp_haneda",
       "artists": [
-        "Fujii Kaze",
-        "Suchmos"
+        "Suchmos",
+        "藤井風"
       ]
     },
     {
@@ -5907,7 +5960,7 @@
       "price_text": "◆指定席：10,000円(税込) ◆2日間通し券：20,000円(税込) ※スペシャル特典付き ▼2日間通し券についての注意事項 ※全席指定 ※スペシャル特典:大決戦応援ハチマキ(リバーシブル)付 ・紙チケットとなりますので、必ずチケットを発券してからご来場ください。 公演日ごとに発券番号が異なります。 チケットぴあ「Myチケット」より発券番号をご確認いただき、1日目・2日目の計2回、それぞ れ発券のお手続きをお願いいたします。 【1日目の発券番号】1日目の入場券+特典引換券=計2枚発券 【2日目の発券番号】2日目の入場券=計1枚発券 ※発券時、受け取り枚数をよくお確かめください。 ・特典は当",
       "price_min": 10000,
       "is_free": false,
-      "is_sold_out": true,
+      "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
         {
@@ -7727,7 +7780,7 @@
       "price_text": "◆指定席：10,000円(税込) ◆2日間通し券：20,000円(税込) ※スペシャル特典付き ▼2日間通し券についての注意事項 ※全席指定 ※スペシャル特典:大決戦応援ハチマキ(リバーシブル)付 ・紙チケットとなりますので、必ずチケットを発券してからご来場ください。 公演日ごとに発券番号が異なります。 チケットぴあ「Myチケット」より発券番号をご確認いただき、1日目・2日目の計2回、それぞ れ発券のお手続きをお願いいたします。 【1日目の発券番号】1日目の入場券+特典引換券=計2枚発券 【2日目の発券番号】2日目の入場券=計1枚発券 ※発券時、受け取り枚数をよくお確かめください。 ・特典は当",
       "price_min": 10000,
       "is_free": false,
-      "is_sold_out": true,
+      "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
         {
@@ -7842,6 +7895,7 @@
       "status": "auto",
       "venue_key": "oeast",
       "artists": [
+        "BIGMAMA",
         "machine"
       ]
     },
@@ -15147,6 +15201,46 @@
       "artists": []
     },
     {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/chanmina_area-of-diamond-final/#2026-07-11",
+      "title_ja": "ちゃんみな AREA OF DIAMOND FINAL",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-11",
+      "end_date": null,
+      "open_time": "16:00",
+      "start_time": "18:00",
+      "venue_name": "東京ドーム",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "指定席：¥14,000-(税込) ハートオブダイヤモンドシート(着席指定席)：¥14,000-(税込) ◆ハートオブダイヤモンドシート(着席指定席) ⼩さなお⼦様、ご年配のお客様、ファミリー、その他ライブを着席してご覧になりたい⽅へ向けた「着席指定」のお席です。こちらのお席では公演中、⽴ち上がってのご鑑賞はできません。予めご了承ください。 ※「アップグレード(ダイヤモンドクラス)」対象外となりますので、ご了承のうえお申込みください。",
+      "price_min": 14000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/chanmina-t/",
+          "code": null
+        }
+      ],
+      "lineup": [
+        "ちゃんみな"
+      ],
+      "tags": [],
+      "id": "3e1698e134733c81",
+      "status": "approved",
+      "venue_key": "tokyo_dome",
+      "artists": [
+        "ちゃんみな"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/%e3%80%8eflag2026%e3%80%8f/",
       "title_ja": "『FLAG2026』",
@@ -19088,6 +19182,61 @@
       "status": "approved",
       "venue_key": "ggg",
       "artists": []
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/gaerea26/#2026-07-14",
+      "title_ja": "GAEREA Live in Tokyo 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-14",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
+      "venue_name": "代官山SPACE ODD",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "￥9,000-(税込/All Standing/1Drink別）",
+      "price_min": 9000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/gaerea/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/gaerea-26/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/gaerea/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": null,
+          "code": "L76439"
+        }
+      ],
+      "lineup": [
+        "GAEREA"
+      ],
+      "tags": [],
+      "id": "7315c667e85ec9fb",
+      "status": "approved",
+      "venue_key": "daikanyama_space_odd",
+      "artists": [
+        "GAEREA"
+      ]
     },
     {
       "source": "oeast",
@@ -23063,7 +23212,7 @@
       "title_ja": "舞台「gift」",
       "title_en": null,
       "subtitle": null,
-      "category": "music",
+      "category": "other",
       "genres": [],
       "start_date": "2026-07-17",
       "end_date": "2026-07-27",
@@ -33675,7 +33824,9 @@
       "id": "7de1e62745e50eca",
       "status": "auto",
       "venue_key": "www",
-      "artists": []
+      "artists": [
+        "THE BEAT GARDEN"
+      ]
     },
     {
       "source": "www_x",
@@ -36867,7 +37018,7 @@
       "price_text": "全自由席 ￥5,000-(税込) ※ドリンク代別 立見 ￥5,000-(税込) ※ドリンク代別",
       "price_min": 5000,
       "is_free": false,
-      "is_sold_out": true,
+      "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
         {
@@ -37023,7 +37174,6 @@
         "DJ Tommy",
         "DMBQ",
         "FUMINN",
-        "Fujii Kaze",
         "GAZ MAYALL",
         "GOMA",
         "HOT DOG EXPRESS",
@@ -37089,7 +37239,8 @@
         "柴田聡子 (BAND SET)",
         "梅井美咲",
         "猿臂",
-        "苗場音楽突撃隊"
+        "苗場音楽突撃隊",
+        "藤井風"
       ]
     },
     {
@@ -39529,7 +39680,7 @@
       "price_text": "券種・料金 指定席 ¥9,600(税込) ／ ¥8,728(税抜) 注釈付指定席 ¥9,600(税込) ／ ¥8,728(税抜) 2F後方立見 ¥8,600(税込) ／ ¥7,819(税抜) 3F後方立見 ¥8,600(税込) ／ ¥7,819(税抜)",
       "price_min": 8600,
       "is_free": false,
-      "is_sold_out": true,
+      "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [
@@ -39609,6 +39760,40 @@
       "venue_key": "omiya_sonic_city",
       "artists": [
         "Uru"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102387",
+      "title_ja": "MUCC",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-26",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "BLAZE GOTANDA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "MUCC"
+      ],
+      "tags": [],
+      "id": "d3fc6fd072a42f37",
+      "status": "approved",
+      "venue_key": "blaze_gotanda",
+      "artists": [
+        "MUCC"
       ]
     },
     {
@@ -41071,6 +41256,40 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102386",
+      "title_ja": "MUCC",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-27",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "BLAZE GOTANDA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "MUCC"
+      ],
+      "tags": [],
+      "id": "a849efe9534d76d4",
+      "status": "approved",
+      "venue_key": "blaze_gotanda",
+      "artists": [
+        "MUCC"
+      ]
+    },
+    {
       "source": "owest",
       "source_url": "https://shibuya-o.com/west/schedule/fes%e2%98%86tive%e3%83%aa%e3%82%af%e3%82%a2%e3%83%af%e3%80%9c%e7%a5%ad%e3%81%a8%e5%a4%8f%e9%97%98%e3%81%88%e3%81%be%e3%81%99%e3%81%8b%e3%80%9c/",
       "title_ja": "FES☆TIVEリクアワ〜#祭と夏闘えますか〜",
@@ -41611,7 +41830,7 @@
       "price_text": "1F スタンディング/ ¥13,000 2F 指定席/ ¥18,000 [お問合せ] SMASH 03-3444-6751 READ MORE",
       "price_min": 13000,
       "is_free": false,
-      "is_sold_out": true,
+      "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [
         {
@@ -46500,6 +46719,40 @@
       "artists": []
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101811",
+      "title_ja": "THE DESTINY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-07-31",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "13:00",
+      "venue_name": "東京辰巳アイスアリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "THE DESTINY"
+      ],
+      "tags": [],
+      "id": "850cc0a709037ee0",
+      "status": "approved",
+      "venue_key": "tatsumi_ice_arena",
+      "artists": [
+        "THE DESTINY"
+      ]
+    },
+    {
       "source": "oeast",
       "source_url": "https://shibuya-o.com/east/schedule/%e9%9b%a2%e5%a9%9a%e4%bc%9d%e8%aa%ac%e3%83%95%e3%82%a1%e3%83%b3%e3%82%af%e3%83%a9%e3%83%96%e3%83%a9%e3%82%a4%e3%83%96-%e3%80%8c%e7%8e%89%e8%91%b1%e3%80%8d/",
       "title_ja": "離婚伝説ファンクラブライブ 「玉葱」",
@@ -48507,6 +48760,74 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101810",
+      "title_ja": "THE DESTINY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "12:00",
+      "venue_name": "東京辰巳アイスアリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "THE DESTINY"
+      ],
+      "tags": [],
+      "id": "2f542140af62697f",
+      "status": "approved",
+      "venue_key": "tatsumi_ice_arena",
+      "artists": [
+        "THE DESTINY"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101809",
+      "title_ja": "THE DESTINY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-01",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "東京辰巳アイスアリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "THE DESTINY"
+      ],
+      "tags": [],
+      "id": "a600f03328c273b5",
+      "status": "approved",
+      "venue_key": "tatsumi_ice_arena",
+      "artists": [
+        "THE DESTINY"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6627.html",
       "title_ja": "BABYMONSTER 2026-27 BABYMONSTER WORLD TOUR [춤(CHOOM)] IN JAPAN",
@@ -50140,6 +50461,74 @@
       "venue_key": "otemachi_mitsui_hall",
       "artists": [
         "Not Found Summer Adventure"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101808",
+      "title_ja": "THE DESTINY",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "13:00",
+      "venue_name": "東京辰巳アイスアリーナ",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "THE DESTINY"
+      ],
+      "tags": [],
+      "id": "155152db759702ba",
+      "status": "approved",
+      "venue_key": "tatsumi_ice_arena",
+      "artists": [
+        "THE DESTINY"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101728",
+      "title_ja": "喜多村英梨",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-02",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:30",
+      "venue_name": "川崎Serbian Night",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "喜多村英梨"
+      ],
+      "tags": [],
+      "id": "5ecaa11853ebf8c1",
+      "status": "approved",
+      "venue_key": "serbian_night",
+      "artists": [
+        "喜多村英梨"
       ]
     },
     {
@@ -53431,6 +53820,40 @@
       "venue_key": "k_arena_yokohama",
       "artists": [
         "ATEEZ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102500",
+      "title_ja": "THE BEAT GARDEN",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-05",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "Daikanyama SPACE ODD",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "THE BEAT GARDEN"
+      ],
+      "tags": [],
+      "id": "90461dacae25dc0c",
+      "status": "approved",
+      "venue_key": "daikanyama_space_odd",
+      "artists": [
+        "THE BEAT GARDEN"
       ]
     },
     {
@@ -56799,6 +57222,40 @@
       "status": "approved",
       "venue_key": "yamatane",
       "artists": []
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101827",
+      "title_ja": "kobore",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-08",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "F.A.D YOKOHAMA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "kobore"
+      ],
+      "tags": [],
+      "id": "86b84b6a7b293659",
+      "status": "approved",
+      "venue_key": "fad_yokohama",
+      "artists": [
+        "kobore"
+      ]
     },
     {
       "source": "pia_arena_mm",
@@ -61397,6 +61854,40 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102244",
+      "title_ja": "ExWHYZ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-12",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "新宿 LOFT",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ExWHYZ"
+      ],
+      "tags": [],
+      "id": "b3b6217a2b3dbc99",
+      "status": "approved",
+      "venue_key": "loft_shinjuku",
+      "artists": [
+        "ExWHYZ"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6942.html",
       "title_ja": "NAKAMA to MEETING Vol.5",
@@ -62396,7 +62887,23 @@
       "is_free": false,
       "is_sold_out": false,
       "ticket_url": null,
-      "ticket_links": [],
+      "ticket_links": [
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/hollyhumberstone/",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/hollyhumberstone/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/hollyhumberstone-2026/",
+          "code": null
+        }
+      ],
       "lineup": [],
       "tags": [],
       "id": "bcd3fd2acdb9402c",
@@ -64549,7 +65056,6 @@
         "HANA",
         "HANABIE.",
         "HUMBE",
-        "Hitsujibungaku",
         "Iga Nana 出れんの!?サマソニ!?",
         "JON SPENCER",
         "KENTO NAKAJIMA",
@@ -64581,8 +65087,9 @@
         "WOos 出れんの!?サマソニ!?",
         "luv",
         "mgk",
-        "sakanaction",
+        "サカナクション",
         "板歯目 Opening Act",
+        "羊文学",
         "阿部真央"
       ]
     },
@@ -64651,6 +65158,40 @@
       "status": "approved",
       "venue_key": "nezu",
       "artists": []
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101458",
+      "title_ja": "Azavana / ダウト / RAZOR / XANVALA 4MAN LIVE「二十討ち」",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-15",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:30",
+      "venue_name": "新横浜NEW SIDE BEACH!!",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "Azavana / ダウト / RAZOR / XANVALA 4MAN LIVE「二十討ち」"
+      ],
+      "tags": [],
+      "id": "e1f83c0ddf7d6d19",
+      "status": "approved",
+      "venue_key": "new_side_beach",
+      "artists": [
+        "Azavana / ダウト / RAZOR / XANVALA 4MAN LIVE「二十討ち」"
+      ]
     },
     {
       "source": "pia_arena_mm",
@@ -66061,6 +66602,74 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/100926",
+      "title_ja": "DEXCORE",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "BLAZE GOTANDA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "DEXCORE"
+      ],
+      "tags": [],
+      "id": "4b16f032a49766f0",
+      "status": "approved",
+      "venue_key": "blaze_gotanda",
+      "artists": [
+        "DEXCORE"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101981",
+      "title_ja": "FLOW",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-16",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "横浜ReNY beta",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "FLOW"
+      ],
+      "tags": [],
+      "id": "5f03d5ee533ab3a6",
+      "status": "approved",
+      "venue_key": "yokohama_reny_beta",
+      "artists": [
+        "FLOW"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018309",
       "title_ja": "PIZZA OF DEATH RECORDS presents \"Fuck That Shit vol.37564\"",
@@ -66628,6 +67237,40 @@
       "venue_key": "budokan",
       "artists": [
         "SOTA HANAMURA"
+      ]
+    },
+    {
+      "source": "creativeman",
+      "source_url": "https://www.creativeman.co.jp/event/florence-road-ssextra/#2026-08-17",
+      "title_ja": "FLORENCE ROAD SUMMER SONIC EXTRA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-17",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
+      "venue_name": "代官山 SPACE ODD",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "￥7,700（税込/All Standing/1Drink別）",
+      "price_min": 7700,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "FLORENCE ROAD"
+      ],
+      "tags": [],
+      "id": "4ad5342568ea45f8",
+      "status": "approved",
+      "venue_key": "daikanyama_space_odd",
+      "artists": [
+        "FLORENCE ROAD"
       ]
     },
     {
@@ -68883,6 +69526,40 @@
       "venue_key": "budokan",
       "artists": [
         "平手友梨奈"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101407",
+      "title_ja": "ゴスペラーズ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-20",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "サンシティ越谷市民ホール 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ゴスペラーズ"
+      ],
+      "tags": [],
+      "id": "a7769c1b2bf0f69b",
+      "status": "approved",
+      "venue_key": "koshigaya_suncity",
+      "artists": [
+        "ゴスペラーズ"
       ]
     },
     {
@@ -71650,6 +72327,176 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101203",
+      "title_ja": "wyse",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:00",
+      "venue_name": "新横浜NEW SIDE BEACH!!",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "wyse"
+      ],
+      "tags": [],
+      "id": "521ea89e9c972157",
+      "status": "approved",
+      "venue_key": "new_side_beach",
+      "artists": [
+        "wyse"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102277",
+      "title_ja": "山根康広",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:00",
+      "venue_name": "横浜ReNY beta",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "山根康広"
+      ],
+      "tags": [],
+      "id": "e2e2195aec3ba8ff",
+      "status": "approved",
+      "venue_key": "yokohama_reny_beta",
+      "artists": [
+        "山根康広"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101962",
+      "title_ja": "THE MICRO HEAD 4N'S",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "川崎Serbian Night",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "THE MICRO HEAD 4N'S"
+      ],
+      "tags": [],
+      "id": "924b8131e3860fd7",
+      "status": "approved",
+      "venue_key": "serbian_night",
+      "artists": [
+        "THE MICRO HEAD 4N'S"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101180",
+      "title_ja": "wyse",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:45",
+      "venue_name": "新横浜NEW SIDE BEACH!!",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "wyse"
+      ],
+      "tags": [],
+      "id": "934b8c9af27f41a4",
+      "status": "approved",
+      "venue_key": "new_side_beach",
+      "artists": [
+        "wyse"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102324",
+      "title_ja": "BIGMAMA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "吉祥寺Warp",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "BIGMAMA"
+      ],
+      "tags": [],
+      "id": "6b064824d90cf394",
+      "status": "approved",
+      "venue_key": "kichijoji_warp",
+      "artists": [
+        "BIGMAMA"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6916.html",
       "title_ja": "きゃりーぱみゅぱみゅ PAMYU FES ～Kyary Pamyu Pamyu 15th Anniversary ～",
@@ -72835,6 +73682,108 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101933",
+      "title_ja": "吉田山田",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "16:00",
+      "venue_name": "上野恩賜公園野外ステージ（上野水上音楽堂）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "吉田山田"
+      ],
+      "tags": [],
+      "id": "a468064637ad4148",
+      "status": "approved",
+      "venue_key": "ueno_yagai_stage",
+      "artists": [
+        "吉田山田"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101405",
+      "title_ja": "ゴスペラーズ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "茅ヶ崎市民文化会館 大ホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "ゴスペラーズ"
+      ],
+      "tags": [],
+      "id": "d9c0412f7f07d7f4",
+      "status": "approved",
+      "venue_key": "chigasaki_bunka",
+      "artists": [
+        "ゴスペラーズ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101711",
+      "title_ja": "GOOD BYE APRIL",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-23",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "下北沢ADRIFT",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "GOOD BYE APRIL"
+      ],
+      "tags": [],
+      "id": "2f57f297d5493131",
+      "status": "approved",
+      "venue_key": "shimokita_adrift",
+      "artists": [
+        "GOOD BYE APRIL"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6919.html",
       "title_ja": "SWEET STEADY",
@@ -73433,6 +74382,40 @@
       "status": "approved",
       "venue_key": "zepp_shinjuku",
       "artists": []
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102032",
+      "title_ja": "THE MICRO HEAD 4N'S",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-24",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "赤羽ReNY alpha",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "THE MICRO HEAD 4N'S"
+      ],
+      "tags": [],
+      "id": "da4af175cbee7752",
+      "status": "approved",
+      "venue_key": "akabane_reny_alpha",
+      "artists": [
+        "THE MICRO HEAD 4N'S"
+      ]
     },
     {
       "source": "quattro_shibuya",
@@ -76939,6 +77922,76 @@
       "artists": []
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102077",
+      "title_ja": "SKE48 ミミフィーユ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [
+        "idol"
+      ],
+      "start_date": "2026-08-28",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:45",
+      "venue_name": "BLAZE GOTANDA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SKE48 ミミフィーユ"
+      ],
+      "tags": [],
+      "id": "9ccc83b7c9b29ad3",
+      "status": "approved",
+      "venue_key": "blaze_gotanda",
+      "artists": [
+        "SKE48 ミミフィーユ"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/102133",
+      "title_ja": "クジラ夜の街",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-28",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "19:00",
+      "venue_name": "Flowers Loft（下北沢）",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "クジラ夜の街"
+      ],
+      "tags": [],
+      "id": "df3f7fe71a6558a1",
+      "status": "approved",
+      "venue_key": "flowers_loft",
+      "artists": [
+        "クジラ夜の街"
+      ]
+    },
+    {
       "source": "quattro_shibuya",
       "source_url": "https://www.club-quattro.com/shibuya/schedule/detail/?cd=018353",
       "title_ja": "a flood of circle TOUR 革命未遂の蝶が見る夢",
@@ -79486,6 +80539,142 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101172",
+      "title_ja": "小倉 唯",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "15:30",
+      "venue_name": "ルネこだいら",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "小倉 唯"
+      ],
+      "tags": [],
+      "id": "1b055d9cfedc51f5",
+      "status": "approved",
+      "venue_key": "renne_kodaira",
+      "artists": [
+        "小倉 唯"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101781",
+      "title_ja": "SHOW-YA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:00",
+      "venue_name": "浅草花劇場",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "SHOW-YA"
+      ],
+      "tags": [],
+      "id": "7de4286ff7ed96cc",
+      "status": "approved",
+      "venue_key": "asakusa_hanagekijo",
+      "artists": [
+        "SHOW-YA"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101855",
+      "title_ja": "JILUKA",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "17:30",
+      "venue_name": "BLAZE GOTANDA",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "JILUKA"
+      ],
+      "tags": [],
+      "id": "d9eb1a8174ece6f8",
+      "status": "approved",
+      "venue_key": "blaze_gotanda",
+      "artists": [
+        "JILUKA"
+      ]
+    },
+    {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101171",
+      "title_ja": "小倉 唯",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-30",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:00",
+      "venue_name": "ルネこだいら",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "小倉 唯"
+      ],
+      "tags": [],
+      "id": "95a957a2aa47a41a",
+      "status": "approved",
+      "venue_key": "renne_kodaira",
+      "artists": [
+        "小倉 唯"
+      ]
+    },
+    {
       "source": "pia_arena_mm",
       "source_url": "https://pia-arena-mm.jp/event/6724.html",
       "title_ja": "SKRYU",
@@ -80050,6 +81239,40 @@
       ]
     },
     {
+      "source": "disk_garage",
+      "source_url": "https://diskgarage.com/ticket/detail/101650",
+      "title_ja": "BREAKERZ",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-08-31",
+      "end_date": null,
+      "open_time": null,
+      "start_time": "18:30",
+      "venue_name": "新横浜NEW SIDE BEACH!!",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "BREAKERZ"
+      ],
+      "tags": [],
+      "id": "a09aad5ea277ddfb",
+      "status": "approved",
+      "venue_key": "new_side_beach",
+      "artists": [
+        "BREAKERZ"
+      ]
+    },
+    {
       "source": "toyosu_pit",
       "source_url": "https://toyosu.pia-pit.jp/schedule/202606/8585.html",
       "title_ja": "FLO - Therapy At The Club Tour 2026 JAPAN",
@@ -80489,7 +81712,7 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2625268&rlsCd=003",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2625269&rlsCd=002",
           "code": null
         },
         {
@@ -80499,7 +81722,12 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2625269&rlsCd=002",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2625268&rlsCd=003",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/journey/",
           "code": null
         },
         {
@@ -80510,11 +81738,6 @@
         {
           "provider": "eplus",
           "url": "https://eplus.jp/journey/",
-          "code": null
-        },
-        {
-          "provider": "lawson",
-          "url": "https://l-tike.com/journey/",
           "code": null
         }
       ],
@@ -83791,7 +85014,9 @@
       "id": "4ff2869e0431d6e0",
       "status": "approved",
       "venue_key": "ex_theater",
-      "artists": []
+      "artists": [
+        "SHOW-YA"
+      ]
     },
     {
       "source": "tokyo_intl_forum",
@@ -89306,7 +90531,7 @@
       "price_text": "1F自由/ ¥5,280 2F指定/ ¥5,280 [お問合せ] SOGO TOKYO 03-3405-9999 月〜土 12:00〜13:00/16:00〜19:00※日曜・ 祝日を除く READ MORE",
       "price_min": 5280,
       "is_free": false,
-      "is_sold_out": true,
+      "is_sold_out": false,
       "ticket_url": null,
       "ticket_links": [],
       "lineup": [],
@@ -89398,6 +90623,86 @@
       "venue_key": "liquidroom",
       "artists": [
         "君島大空 合奏形態"
+      ]
+    },
+    {
+      "source": "udo_artists",
+      "source_url": "https://www.udo.jp/shows/ChetFaker26#2026-09-16",
+      "title_ja": "CHET FAKER",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-16",
+      "end_date": null,
+      "open_time": "18:00",
+      "start_time": "19:00",
+      "venue_name": "恵比寿 ザ・ガーデンホール",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": "スタンディング：¥8,000（税込/入場整理番号付/ドリンク代別途）",
+      "price_min": 8000,
+      "is_free": false,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621846&rlsCd=002",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/chetfaker2026/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=003",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": "https://l-tike.com/chetfaker/",
+          "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": null,
+          "code": "L73619"
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=004",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=005",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://w.pia.jp/t/chetfaker-t/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": null,
+          "code": "P329562"
+        }
+      ],
+      "lineup": [
+        "CHET FAKER"
+      ],
+      "tags": [],
+      "id": "28d57dec44eb7dca",
+      "status": "approved",
+      "venue_key": "ebisu_garden_hall",
+      "artists": [
+        "CHET FAKER"
       ]
     },
     {
@@ -89569,86 +90874,6 @@
       "status": "auto",
       "venue_key": "cotton_club",
       "artists": []
-    },
-    {
-      "source": "udo_artists",
-      "source_url": "https://www.udo.jp/shows/ChetFaker26#2026-09-16",
-      "title_ja": "CHET FAKER",
-      "title_en": null,
-      "subtitle": null,
-      "category": "music",
-      "genres": [],
-      "start_date": "2026-09-16",
-      "end_date": null,
-      "open_time": "18:00",
-      "start_time": "19:00",
-      "venue_name": "恵比寿 ザ・ガーデンホール",
-      "venue_area": null,
-      "address": null,
-      "lat": null,
-      "lng": null,
-      "price_text": "スタンディング：¥8,000（税込/入場整理番号付/ドリンク代別途）",
-      "price_min": 8000,
-      "is_free": false,
-      "is_sold_out": false,
-      "ticket_url": null,
-      "ticket_links": [
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=003",
-          "code": null
-        },
-        {
-          "provider": "eplus",
-          "url": "https://eplus.jp/chetfaker2026/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621846&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=005",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2621811&rlsCd=004",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://w.pia.jp/t/chetfaker-t/",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": null,
-          "code": "P329562"
-        },
-        {
-          "provider": "lawson",
-          "url": "https://l-tike.com/chetfaker/",
-          "code": null
-        },
-        {
-          "provider": "lawson",
-          "url": null,
-          "code": "L73619"
-        }
-      ],
-      "lineup": [
-        "CHET FAKER"
-      ],
-      "tags": [],
-      "id": "28d57dec44eb7dca",
-      "status": "auto",
-      "venue_key": "ebisu_garden_hall",
-      "artists": [
-        "CHET FAKER"
-      ]
     },
     {
       "source": "www_x",
@@ -93803,6 +95028,40 @@
       "status": "approved",
       "venue_key": "sompo",
       "artists": []
+    },
+    {
+      "source": "sogo_tokyo",
+      "source_url": "https://sogotokyo.com/live_information/detail/3042",
+      "title_ja": "TRiDENT おじ祭り 2026",
+      "title_en": null,
+      "subtitle": null,
+      "category": "music",
+      "genres": [],
+      "start_date": "2026-09-22",
+      "end_date": null,
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "代官山SPACE ODD",
+      "venue_area": null,
+      "address": null,
+      "lat": null,
+      "lng": null,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [
+        "TRiDENT"
+      ],
+      "tags": [],
+      "id": "0eb67c5f9d7c9d48",
+      "status": "approved",
+      "venue_key": "daikanyama_space_odd",
+      "artists": [
+        "TRiDENT"
+      ]
     },
     {
       "source": "www_x",
@@ -103071,7 +104330,7 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623341&rlsCd=003",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623346&rlsCd=002",
           "code": null
         },
         {
@@ -103080,14 +104339,14 @@
           "code": null
         },
         {
-          "provider": "pia",
-          "url": "https://w.pia.jp/t/kennyg-t/",
+          "provider": "eplus",
+          "url": "https://eplus.jp/kennyg2026/",
           "code": null
         },
         {
           "provider": "pia",
-          "url": null,
-          "code": "P330-486"
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623341&rlsCd=004",
+          "code": null
         },
         {
           "provider": "lawson",
@@ -103101,18 +104360,18 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623346&rlsCd=002",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623341&rlsCd=003",
           "code": null
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2623341&rlsCd=004",
+          "url": "https://w.pia.jp/t/kennyg-t/",
           "code": null
         },
         {
-          "provider": "eplus",
-          "url": "https://eplus.jp/kennyg2026/",
-          "code": null
+          "provider": "pia",
+          "url": null,
+          "code": "P330-486"
         }
       ],
       "lineup": [
@@ -104137,7 +105396,7 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=003",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607699&rlsCd=002",
           "code": null
         },
         {
@@ -104152,17 +105411,7 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607699&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=005",
-          "code": null
-        },
-        {
-          "provider": "eplus",
-          "url": "https://eplus.jp/sf/detail/0069790001?P6=001&P1=0402&P59=1",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=003",
           "code": null
         },
         {
@@ -104174,6 +105423,16 @@
           "provider": "lawson",
           "url": null,
           "code": "L71081"
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=005",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/detail/0069790001?P6=001&P1=0402&P59=1",
+          "code": null
         }
       ],
       "lineup": [
@@ -104374,7 +105633,7 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=003",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607699&rlsCd=002",
           "code": null
         },
         {
@@ -104389,17 +105648,7 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607699&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=005",
-          "code": null
-        },
-        {
-          "provider": "eplus",
-          "url": "https://eplus.jp/sf/detail/0069790001?P6=001&P1=0402&P59=1",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=003",
           "code": null
         },
         {
@@ -104411,6 +105660,16 @@
           "provider": "lawson",
           "url": null,
           "code": "L71081"
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2607641&rlsCd=005",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/sf/detail/0069790001?P6=001&P1=0402&P59=1",
+          "code": null
         }
       ],
       "lineup": [
@@ -106795,7 +108054,7 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620275&rlsCd=003",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620280&rlsCd=002",
           "code": null
         },
         {
@@ -106810,17 +108069,7 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620280&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620275&rlsCd=005",
-          "code": null
-        },
-        {
-          "provider": "eplus",
-          "url": "https://eplus.jp/erikgronwall/",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620275&rlsCd=003",
           "code": null
         },
         {
@@ -106832,6 +108081,16 @@
           "provider": "lawson",
           "url": null,
           "code": "L70417"
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2620275&rlsCd=005",
+          "code": null
+        },
+        {
+          "provider": "eplus",
+          "url": "https://eplus.jp/erikgronwall/",
+          "code": null
         }
       ],
       "lineup": [
@@ -106839,7 +108098,7 @@
       ],
       "tags": [],
       "id": "68bf20c32fa9fb00",
-      "status": "auto",
+      "status": "approved",
       "venue_key": "ebisu_garden_hall",
       "artists": [
         "ERIK GRÖNWALL"
@@ -108474,7 +109733,7 @@
       "ticket_links": [
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=003",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624366&rlsCd=002",
           "code": null
         },
         {
@@ -108489,8 +109748,13 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624366&rlsCd=002",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=003",
           "code": null
+        },
+        {
+          "provider": "lawson",
+          "url": null,
+          "code": "L71553"
         },
         {
           "provider": "pia",
@@ -108501,11 +109765,6 @@
           "provider": "eplus",
           "url": "https://eplus.jp/ann_wilson/",
           "code": null
-        },
-        {
-          "provider": "lawson",
-          "url": null,
-          "code": "L71553"
         }
       ],
       "lineup": [
@@ -108626,16 +109885,6 @@
           "code": null
         },
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=003",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=006",
-          "code": null
-        },
-        {
           "provider": "lawson",
           "url": "https://l-tike.com/tedeschi-trucks-band/",
           "code": null
@@ -108646,8 +109895,18 @@
           "code": null
         },
         {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=003",
+          "code": null
+        },
+        {
           "provider": "eplus",
           "url": "https://eplus.jp/tedeschitrucksband/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=006",
           "code": null
         }
       ],
@@ -108849,16 +110108,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=003",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=006",
-          "code": null
-        },
-        {
           "provider": "lawson",
           "url": "https://l-tike.com/tedeschi-trucks-band/",
           "code": null
@@ -108870,17 +110119,27 @@
         },
         {
           "provider": "pia",
+          "url": null,
+          "code": "P326-324"
+        },
+        {
+          "provider": "pia",
           "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616228&rlsCd=002",
           "code": null
         },
         {
           "provider": "pia",
-          "url": null,
-          "code": "P326-324"
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=003",
+          "code": null
         },
         {
           "provider": "eplus",
           "url": "https://eplus.jp/tedeschitrucksband/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2616216&rlsCd=006",
           "code": null
         }
       ],
@@ -109049,29 +110308,9 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=003",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?lotRlsCd=21844",
-          "code": null
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=004",
-          "code": null
-        },
-        {
           "provider": "lawson",
           "url": null,
           "code": "L71553"
-        },
-        {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624366&rlsCd=003",
-          "code": null
         },
         {
           "provider": "pia",
@@ -109084,8 +110323,28 @@
           "code": "P331-106"
         },
         {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624366&rlsCd=003",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?lotRlsCd=21844",
+          "code": null
+        },
+        {
           "provider": "eplus",
           "url": "https://eplus.jp/ann_wilson/",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=004",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2624344&rlsCd=003",
           "code": null
         }
       ],
@@ -110449,7 +111708,9 @@
       "id": "4ab30a47c83d56c0",
       "status": "approved",
       "venue_key": "zepp_shinjuku",
-      "artists": []
+      "artists": [
+        "kobore"
+      ]
     },
     {
       "source": "zepp_yokohama",
@@ -111524,11 +112785,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627424&rlsCd=003",
-          "code": null
-        },
-        {
           "provider": "lawson",
           "url": "https://l-tike.com/diana-krall/",
           "code": null
@@ -111540,11 +112796,6 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627429&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://w.pia.jp/t/dianakrall-2026/",
           "code": null
         },
@@ -111552,6 +112803,16 @@
           "provider": "pia",
           "url": null,
           "code": "P332-901"
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627429&rlsCd=002",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627424&rlsCd=003",
+          "code": null
         },
         {
           "provider": "eplus",
@@ -111664,11 +112925,6 @@
       "ticket_url": null,
       "ticket_links": [
         {
-          "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627424&rlsCd=003",
-          "code": null
-        },
-        {
           "provider": "lawson",
           "url": "https://l-tike.com/diana-krall/",
           "code": null
@@ -111680,11 +112936,6 @@
         },
         {
           "provider": "pia",
-          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627429&rlsCd=002",
-          "code": null
-        },
-        {
-          "provider": "pia",
           "url": "https://w.pia.jp/t/dianakrall-2026/",
           "code": null
         },
@@ -111692,6 +112943,16 @@
           "provider": "pia",
           "url": null,
           "code": "P332-901"
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627429&rlsCd=002",
+          "code": null
+        },
+        {
+          "provider": "pia",
+          "url": "https://t.pia.jp/pia/ticketInformation.do?eventCd=2627424&rlsCd=003",
+          "code": null
         },
         {
           "provider": "eplus",
@@ -112307,7 +113568,7 @@
       "status": "approved",
       "venue_key": "tokyo_dome",
       "artists": [
-        "Fujii Kaze"
+        "藤井風"
       ]
     },
     {
@@ -112407,7 +113668,7 @@
       "status": "approved",
       "venue_key": "tokyo_dome",
       "artists": [
-        "Fujii Kaze"
+        "藤井風"
       ]
     },
     {

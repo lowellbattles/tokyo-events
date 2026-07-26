@@ -76,6 +76,11 @@ AREA_RE = re.compile(r"p-calendar__areaLabel--(\w+)")
 # "東京 2026/7/15(水) Zepp Shinjuku" or "... 2026/7/19 (日) ...").
 LEG_DATE_RE = re.compile(r"(\d{4})/(\d{1,2})/(\d{1,2})")
 _WEEKDAY_PAREN_RE = re.compile(r"^\s*[（(][^）)]*[)）]\s*")
+# Two-night legs cram a second day into one header ("2026/12/11(金)・12(日)
+# 東京ドーム") — strip the "・12(日)" remnant so the venue resolves. The
+# second night itself is not (yet) emitted as its own event; before this
+# fix the WHOLE leg was dropped as an unresolvable venue string.
+_EXTRA_DAY_RE = re.compile(r"^[・･]\s*\d{1,2}\s*(?:[（(][^）)]*[)）])?\s*")
 
 
 def _clean(text: str) -> str:
@@ -134,6 +139,7 @@ def _parse_leg(table, hdr) -> dict | None:
         return None
     pref = header_text[:m.start()].strip()
     venue = _clean(_WEEKDAY_PAREN_RE.sub("", header_text[m.end():]))
+    venue = _clean(_EXTRA_DAY_RE.sub("", venue))
     if not venue:
         return None
 

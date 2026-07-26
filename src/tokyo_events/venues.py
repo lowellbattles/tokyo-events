@@ -171,10 +171,35 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "opera_city_gallery": ("東京オペラシティ アートギャラリー", "museum"),
     "what_museum": ("WHAT MUSEUM", "museum"),
     "ggg": ("ギンザ・グラフィック・ギャラリー", "gallery"),
+    # --- promoter-gap curation (skipped_venues sweep, 2026-07-26) ---------
+    "daikanyama_space_odd": ("代官山 SPACE ODD", "livehouse"),
+    "blaze_gotanda": ("BLAZE GOTANDA", "livehouse"),
+    "shimokita_adrift": ("下北沢ADRIFT", "livehouse"),
+    "flowers_loft": ("Flowers Loft", "livehouse"),
+    "kichijoji_warp": ("吉祥寺WARP", "livehouse"),
+    "akabane_reny_alpha": ("赤羽ReNY alpha", "livehouse"),
+    "yokohama_reny_beta": ("横浜ReNY beta", "livehouse"),
+    "new_side_beach": ("新横浜NEW SIDE BEACH!!", "livehouse"),
+    "fad_yokohama": ("F.A.D YOKOHAMA", "livehouse"),
+    "serbian_night": ("川崎Serbian Night", "livehouse"),
+    "tatsumi_ice_arena": ("東京辰巳アイスアリーナ", "arena"),
+    "ueno_yagai_stage": ("上野恩賜公園野外ステージ", "hall"),
+    "renne_kodaira": ("ルネこだいら", "hall"),
+    "asakusa_hanagekijo": ("浅草花劇場", "hall"),
+    "koshigaya_suncity": ("サンシティ越谷市民ホール", "hall"),
+    "chigasaki_bunka": ("茅ヶ崎市民文化会館", "hall"),
 }
 
 #: extra spellings seen in the wild -> venue_key (normalized at build time)
 _EXTRA_ALIASES: dict[str, str] = {
+    # promoter-side variants (skipped_venues sweep, 2026-07-26)
+    "渋谷 duo MUSIC EXCHANGE": "duo",
+    "渋谷duo MUSIC EXCHANGE": "duo",
+    "新宿 LOFT": "loft_shinjuku",
+    "Daikanyama SPACE ODD": "daikanyama_space_odd",
+    "代官山SPACE ODD": "daikanyama_space_odd",
+    "上野水上音楽堂": "ueno_yagai_stage",
+    "上野恩賜公園野外ステージ（上野水上音楽堂）": "ueno_yagai_stage",
     # promoter-side variants (Sogo Tokyo / Creativeman probes, 2026-07-14)
     "SGC HALL ARIAKE": "sgc_hall_ariake",
     "SGC HALL 有明": "sgc_hall_ariake",

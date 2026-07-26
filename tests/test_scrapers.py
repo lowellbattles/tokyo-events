@@ -465,8 +465,13 @@ def test_nonmusic_classifier():
     assert tu.is_nonmusic("式典")
     assert tu.is_nonmusic("第43回 マイナビ 東京ガールズコレクション")
     assert tu.is_nonmusic("ぴあ Presents エンタメ業界研究フェス VOL.2")
+    # theater: 舞台「…」 title convention + reading plays (Stellar Ball
+    # carried 舞台「gift」 as music until 2026-07-26)
+    assert tu.is_nonmusic("舞台「gift」")
+    assert tu.is_nonmusic("朗読劇「ラヴ・レターズ」")
     # concerts must never match
     assert not tu.is_nonmusic("King Gnu CEN+RAL Tour 2026")
+    assert not tu.is_nonmusic("夢の舞台へ！デビュー10周年ライブ")
     assert not tu.is_nonmusic("@JAM EXPO 2026 supported by UP-T")
     assert not tu.is_nonmusic("ヨルシカ LIVE TOUR 2026「一人称」")
     assert not tu.is_nonmusic("BABYMONSTER WORLD TOUR [춤(CHOOM)] IN JAPAN")

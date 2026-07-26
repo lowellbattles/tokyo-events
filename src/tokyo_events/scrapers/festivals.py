@@ -241,17 +241,6 @@ class Edition:
 #: Active 2026 editions. Move finished ones to DORMANT_EDITIONS after their run.
 ACTIVE_EDITIONS: tuple[Edition, ...] = (
     Edition(
-        key="fuji_rock",
-        title_ja="FUJI ROCK FESTIVAL '26",
-        venue_area="Naeba, Niigata",
-        day_split=True,
-        dates=("2026-07-24", "2026-07-25", "2026-07-26"),
-        edition_url="https://www.fujirockfestival.com/artist/index",
-        ticket_url="https://www.fujirockfestival.com/ticket/index",
-        lineup_targets=((None, "https://www.fujirockfestival.com/artist/index"),),
-        extractor=extract_fuji_rock,
-    ),
-    Edition(
         key="summer_sonic_tokyo",
         title_ja="SUMMER SONIC 2026",
         venue_area="Makuhari, Chiba",
@@ -449,7 +438,23 @@ DORMANT_EDITIONS: tuple[dict, ...] = (
                          "taxonomy to the real dates (from the homepage). "
                          "Homepage #t_lineup is an equivalent static fallback.",
     },
-    # --- added 2026-07-26 (research pass) ---------------------------------
+    # --- added 2026-07-26 (research pass + season sunsets) ----------------
+    {
+        "key": "fuji_rock",
+        "title": "FUJI ROCK FESTIVAL",
+        "venue_area": "Naeba, Niigata",
+        "day_split": True,
+        "last_run": "2026-07-24..2026-07-26",
+        "lineup_url": "https://www.fujirockfestival.com/artist/index",
+        "parse_pattern": "extract_fuji_rock stays in this module: /artist/"
+                         "index has one <table class='artistlist'> per "
+                         "stage; 3-column rows map to days BY POSITION "
+                         "(the day-header img alt text goes stale — column "
+                         "index -> edition.dates[i] is the truth). Names "
+                         "split by <br> + span.ts-smaller feat. credits "
+                         "collapse via get_text. Watch for the site "
+                         "switching year folders around March.",
+    },
     {
         "key": "pop_yours",
         "title": "POP YOURS",

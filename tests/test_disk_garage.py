@@ -32,11 +32,11 @@ def _by_id(evs):
 
 # ----------------------------------------------------------------- listing
 def test_parses_exact_count():
-    # 123 raw calendar cards in the July 2026 fixture; 108 resolve through
-    # venues.resolve_venue after the 2026-07-15 curation waves (DISK GARAGE
-    # alias spellings, Suntory Hall, Pacifico via promoters, etc.); the
-    # remaining 15 are genuinely out of Kanto scope or still uncurated.
-    assert len(_july()) == 108
+    # 123 raw calendar cards in the July 2026 fixture; 112 resolve through
+    # venues.resolve_venue after the 2026-07-15 curation waves and the
+    # 2026-07-26 skipped_venues sweep (SPACE ODD, Flowers Loft, 新宿LOFT
+    # alias, ...); the remaining 11 are genuinely out of Kanto scope.
+    assert len(_july()) == 112
 
 
 def test_field_spotcheck_nightmare():

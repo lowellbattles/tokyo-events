@@ -9,13 +9,15 @@ not source data.
 Extraction, two passes over the public event set:
   1. lineup names (scrapers already parse support acts etc. into lineup)
      define the artist universe. Raw display variants are kept as aliases
-     of their normalized key; JA vs EN spellings of the same act stay
-     separate artists until merged (alias table exists for that phase).
+     of their normalized key. JA/EN spellings of the same act merge via
+     the CURATED_ALIASES table below (deterministic, curated by hand —
+     never guessed: romanization is too ambiguous to automate safely).
   2. title matching: events whose title contains a known artist (the same
      NFKC substring logic the frontend uses, with guards against short
      false-positive keys) get linked too — this is what makes "this
      artist's other upcoming shows" work for one-man shows whose lineup
-     the venue never lists.
+     the venue never lists. Curated alias spellings match titles too,
+     linking to the canonical artist.
 """
 
 from __future__ import annotations
@@ -32,6 +34,32 @@ _PLACEHOLDER_RE = re.compile(
     re.I)
 
 _WS_RE = re.compile(r"\s+")
+
+#: curated JA<->EN spelling merges (roadmap item 2 leftover). Maps a
+#: norm_key()-form alias to the CANONICAL display (the spelling the act
+#: itself headlines with). Only unambiguous, well-known identities belong
+#: here — a wrong merge corrupts two artists' pages at once.
+CURATED_ALIASES: dict[str, str] = {
+    "yorushika": "ヨルシカ",
+    "zutomayo": "ずっと真夜中でいいのに。",
+    "ずとまよ": "ずっと真夜中でいいのに。",
+    "gen hoshino": "星野源",
+    "hoshino gen": "星野源",
+    "kenshi yonezu": "米津玄師",
+    "yonezu kenshi": "米津玄師",
+    "fujii kaze": "藤井風",
+    "kaze fujii": "藤井風",
+    "sakanaction": "サカナクション",
+    "hitsujibungaku": "羊文学",
+    "tatsuro yamashita": "山下達郎",
+    "utada hikaru": "宇多田ヒカル",
+    "hikaru utada": "宇多田ヒカル",
+}
+
+
+def canonical_spelling(name: str) -> str:
+    """Curated-merge a display name; unknown names pass through."""
+    return CURATED_ALIASES.get(norm_key(name), name)
 
 
 def norm_key(name: str) -> str:
@@ -110,27 +138,40 @@ def _apply(conn, events: list[dict]) -> None:
     aliases: dict[str, set[str]] = {}           # norm key -> raw variants
     for d in events:
         for raw in d.get("lineup") or []:
-            name = clean_artist(raw)
-            if not name:
+            cleaned = clean_artist(raw)
+            if not cleaned:
                 continue
+            name = canonical_spelling(cleaned)   # JA/EN merge (curated)
             key = norm_key(name)
             if not key:
                 continue
             votes.setdefault(key, {})
             votes[key][name] = votes[key].get(name, 0) + 1
-            aliases.setdefault(key, set()).add(name)
+            aliases.setdefault(key, set()).update({name, cleaned})
             links.setdefault(key, set()).add(d["id"])
 
     # -- pass 2: title matching against the known universe ---------------
+    # matcher key -> the LINK key its hits belong to (curated alias
+    # spellings match under their own text but link to the canonical act)
+    redirect: dict[str, str] = {}
     ascii_matchers: dict[str, re.Pattern] = {}
     cjk_keys: list[str] = []
-    for k in votes:
-        if re.fullmatch(r"[\x20-\x7e]+", k):
-            rx = _title_match_re(k)
+
+    def _register(match_key: str, link_key: str) -> None:
+        redirect[match_key] = link_key
+        if re.fullmatch(r"[\x20-\x7e]+", match_key):
+            rx = _title_match_re(match_key)
             if rx is not None:
-                ascii_matchers[k] = rx
-        elif len(k) >= 3:
-            cjk_keys.append(k)
+                ascii_matchers[match_key] = rx
+        elif len(match_key) >= 3:
+            cjk_keys.append(match_key)
+
+    for k in votes:
+        _register(k, k)
+    for alias_norm, canon_display in CURATED_ALIASES.items():
+        ck = norm_key(canon_display)
+        if ck in votes and alias_norm not in redirect:
+            _register(alias_norm, ck)
     for d in events:
         # Title matching is a music-world heuristic: an art exhibition named
         # after (or coinciding with) a band name must not join the gig graph.
@@ -156,7 +197,7 @@ def _apply(conn, events: list[dict]) -> None:
                 s2 <= s and e <= e2 and (e2 - s2) > (e - s)
                 for _k2, s2, e2 in spans)
             if not swallowed:
-                links[key].add(d["id"])
+                links[redirect[key]].add(d["id"])
 
     # -- rebuild tables (derived index: wipe links, upsert artists) ------
     conn.execute("DELETE FROM event_artists")

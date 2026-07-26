@@ -90,10 +90,15 @@ def test_second_outbound_link_is_ticket_vendor():
 
 
 # --- category policy (mixed hall calendar) --------------------------------
-def test_real_rows_are_all_music():
-    # None of the fixture rows match the shared non-music classifier, so every
-    # real event stays MUSIC (theatre/musical rows are NOT keyword-guessed).
-    assert all(e.category == Category.MUSIC for e in _events().values())
+def test_real_rows_music_except_stage_plays():
+    # Since 2026-07-26 the 舞台「…」 title convention trips the shared
+    # non-music classifier: the fixture's stage play flips to OTHER while
+    # every concert row stays MUSIC.
+    evs = _events().values()
+    stage = [e for e in evs if e.title_ja.startswith("舞台「")]
+    assert stage and all(e.category == Category.OTHER for e in stage)
+    assert all(e.category == Category.MUSIC
+               for e in evs if not e.title_ja.startswith("舞台「"))
 
 
 def test_nonmusic_row_is_categorized_other():

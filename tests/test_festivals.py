@@ -26,10 +26,19 @@ from tokyo_events.scrapers.festivals import (
 )
 
 FIX = Path(__file__).parent / "fixtures"
-# All six 2026 editions are still upcoming/ongoing relative to this pinned date.
+# All 2026 editions are still upcoming/ongoing relative to this pinned date.
 TODAY = "2026-07-14"
 
 EDITIONS = {e.key: e for e in ACTIVE_EDITIONS}
+
+# Fuji Rock '26 finished 2026-07-26 and moved to DORMANT_EDITIONS; its
+# extractor stays for next season, tested against a reconstructed edition.
+FUJI26 = F.Edition(
+    key="fuji_rock", title_ja="FUJI ROCK FESTIVAL '26",
+    venue_area="Naeba, Niigata", day_split=True,
+    dates=("2026-07-24", "2026-07-25", "2026-07-26"),
+    edition_url="https://www.fujirockfestival.com/artist/index",
+)
 
 #: fetch URL -> fixture file (mirrors each edition's lineup_targets)
 FIXTURE_FOR = {
@@ -86,7 +95,7 @@ class _NoFetchScraper(FestivalsScraper):
 # ------------------------------------------------------- per-extractor counts
 def test_fuji_rock_extractor_counts_and_spotchecks():
     daymap = F.extract_fuji_rock(_load("festival_fuji_rock_live.html"),
-                                 EDITIONS["fuji_rock"])
+                                 FUJI26)
     # column position -> day (NOT the stale 25/26/27 header alt text)
     assert {k: len(v) for k, v in daymap.items()} == {
         "2026-07-24": 80, "2026-07-25": 85, "2026-07-26": 81}
@@ -151,7 +160,13 @@ def test_ultra_japan_lineup_is_poster_only():
 
 # ------------------------------------------------------- day-split event shape
 def test_fuji_rock_three_day_events():
-    evs = _events("fuji_rock")
+    # dormant edition, reconstructed: build_edition mechanics still hold
+    payloads = {"https://www.fujirockfestival.com/artist/index":
+                _load("festival_fuji_rock_live.html")}
+    ed = F.Edition(**{**FUJI26.__dict__,
+                      "lineup_targets": ((None, FUJI26.edition_url),),
+                      "extractor": F.extract_fuji_rock})
+    evs = FestivalsScraper().build_edition(ed, payloads, today=TODAY)
     assert len(evs) == 3
     by_date = {e.start_date: e for e in evs}
     assert set(by_date) == {"2026-07-24", "2026-07-25", "2026-07-26"}
@@ -159,7 +174,6 @@ def test_fuji_rock_three_day_events():
             ("2026-07-24", "2026-07-25", "2026-07-26")] == [80, 85, 81]
     e0 = by_date["2026-07-24"]
     assert e0.end_date is None                    # per-day event, not a range
-    assert e0.title_ja == "FUJI ROCK FESTIVAL '26"
     assert e0.source_url == (
         "https://www.fujirockfestival.com/artist/index#2026-07-24")
 
@@ -255,12 +269,11 @@ def test_every_event_is_music_festival_from_festivals_source():
 # ------------------------------------------------------- full-run counts
 def test_scrape_yields_all_active_editions():
     evs = list(_StubScraper().scrape(today=TODAY))
-    # fuji 3 + summer 3 + rij 5 + sls 1 + ultra 1 + countdown 5
-    # + atjam 2 + a-nation 2 + local green 2
-    assert len(evs) == 24
+    # summer 3 + rij 5 + sls 1 + ultra 1 + countdown 5
+    # + atjam 2 + a-nation 2 + local green 2 (fuji '26 is dormant)
+    assert len(evs) == 21
     from collections import Counter
     per_title = Counter(e.title_ja for e in evs)
-    assert per_title["FUJI ROCK FESTIVAL '26"] == 3
     assert per_title["COUNTDOWN JAPAN 26/27"] == 5
     assert per_title["@JAM EXPO 2026"] == 2
 
@@ -270,14 +283,14 @@ def test_broken_lineup_fetch_still_yields_curated_skeletons():
     # Every extractor is fed "<html></html>" (via scrape's fetch): curated
     # facts (dates/title/venue) survive, lineups fall back to empty.
     evs = list(_GarbageScraper().scrape(today=TODAY))
-    assert len(evs) == 24                          # same skeleton count
+    assert len(evs) == 21                          # same skeleton count
     assert all(e.lineup == [] for e in evs)        # no garbage names
     assert all(e.title_ja and e.venue_name and e.start_date for e in evs)
 
 
 def test_extractors_fail_toward_empty_not_garbage():
     junk = "<html></html>"
-    assert F.extract_fuji_rock(junk, EDITIONS["fuji_rock"]) == {
+    assert F.extract_fuji_rock(junk, FUJI26) == {
         "2026-07-24": [], "2026-07-25": [], "2026-07-26": []}
     assert F.extract_summer_sonic(junk, EDITIONS["summer_sonic_tokyo"]) == []
     assert F.extract_rock_in_japan("not json", EDITIONS["rock_in_japan"]) == {
@@ -305,5 +318,5 @@ def test_dormant_editions_documented():
     keys = {d["key"] for d in DORMANT_EDITIONS}
     assert keys == {"japan_jam", "metrock_tokyo", "viva_la_rock",
                     "synchronicity_fes", "greenroom_fes",
-                    "pop_yours", "punkspring"}
+                    "pop_yours", "punkspring", "fuji_rock"}
     assert all(d.get("parse_pattern") for d in DORMANT_EDITIONS)

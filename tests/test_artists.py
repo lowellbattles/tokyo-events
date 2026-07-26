@@ -110,3 +110,26 @@ def test_longest_artist_wins_title_containment(tmp_path):
     apply_artists(store.conn, events)
     assert events[2]["artists"] == ["DREAMS COME TRUE"]   # no TRUE
     assert events[3]["artists"] == ["TRUE"]
+
+
+def test_curated_ja_en_alias_merge(tmp_path):
+    # roadmap item 2 leftover: JA/EN spellings collapse into ONE artist
+    store = EventStore(tmp_path / "alias.db")
+    events = [
+        _ev("e1", "夏フェス", ["ヨルシカ"]),
+        _ev("e2", "対バン", ["Yorushika"]),          # EN spelling, same act
+        _ev("e3", "Yorushika Live Tour 2099"),       # EN spelling in a TITLE
+    ]
+    apply_artists(store.conn, events)
+    # all three events link to the canonical JA artist
+    assert events[0]["artists"] == ["ヨルシカ"]
+    assert events[1]["artists"] == ["ヨルシカ"]
+    assert events[2]["artists"] == ["ヨルシカ"]
+    # one artists row; the EN spelling is preserved as an alias
+    rows = store.conn.execute(
+        "SELECT id, name FROM artists WHERE name='ヨルシカ'").fetchall()
+    assert len(rows) == 1
+    aliases = {r["alias"] for r in store.conn.execute(
+        "SELECT alias FROM artist_aliases WHERE artist_id=?",
+        (rows[0]["id"],))}
+    assert "Yorushika" in aliases

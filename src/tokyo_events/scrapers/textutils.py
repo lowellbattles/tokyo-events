@@ -46,6 +46,9 @@ NONMUSIC_RE = re.compile(
     r"世界選手権|全日本選手権|"
     r"式典|入学式|卒業式|入社式|株主総会|表彰式|説明会|業界研究|"
     r"東京ガールズコレクション|ガールズアワード|GirlsAward|"
+    # theater: the 舞台「…」 title convention and reading plays — NOT the
+    # bare noun 舞台 (it appears inside real concert titles: 夢の舞台…)
+    r"舞台「|朗読劇|"
     r"展示会|見本市|即売会", re.I)
 
 

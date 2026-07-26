@@ -80,6 +80,11 @@ YMD_RE = re.compile(r"(\d{4})\s*年\s*(\d{1,2})\s*月\s*(\d{1,2})\s*日")
 TIME_OPEN_RE = re.compile(r"(\d{1,2}:\d{2})\s*open", re.I)
 TIME_START_RE = re.compile(r"(\d{1,2}:\d{2})\s*start", re.I)
 
+# Exhibition-style legs prefix the venue cell with run prose
+# ("〜9月23日(水・祝)17:00まで開催 インテックス大阪") — strip it so the
+# venue string (and the skipped_venues report) carries only the hall name.
+VENUE_PROSE_RE = re.compile(r"^.{0,40}?まで開催\s*")
+
 
 def _clean(s: str | None) -> str:
     return re.sub(r"\s+", " ", (s or "").replace("\xa0", " ")).strip()
@@ -167,6 +172,7 @@ def _parse_item(item) -> tuple[str, str, str | None, str | None] | None:
     or None if the date/venue can't be read."""
     venue_p = item.find("p", class_="s-showsDetail__scheduleVenue")
     venue = _clean(venue_p.get_text(" ", strip=True)) if venue_p else ""
+    venue = VENUE_PROSE_RE.sub("", venue)
     if not venue:
         return None
 

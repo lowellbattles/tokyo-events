@@ -138,6 +138,15 @@ def test_scraper_source_id():
     assert UdoArtistsScraper().supports_detail is False
 
 
+def test_venue_prose_prefix_is_stripped():
+    from tokyo_events.scrapers.udo import VENUE_PROSE_RE
+    assert VENUE_PROSE_RE.sub(
+        "", "〜9月23日(水・祝)17:00まで開催 インテックス大阪") == \
+        "インテックス大阪"
+    # plain venue strings pass through untouched
+    assert VENUE_PROSE_RE.sub("", "有明アリーナ") == "有明アリーナ"
+
+
 def test_scraper_tracks_skipped_venues_across_shows():
     scraper = UdoArtistsScraper()
     html = """

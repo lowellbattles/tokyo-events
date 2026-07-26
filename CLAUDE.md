@@ -161,8 +161,11 @@ SALOON (saloon-tokyo.com, UNIT's sister floor), other TDP JSON feeds.
 
 1. ~~Live-validate all sources~~ DONE 2026-07-13 (53 sources).
 2. ~~Artist cross-referencing~~ DONE 2026-07-13 (artists.py at export;
-   frontend artist pages match the canonical `artists[]` field). Still
-   open within it: human/LLM alias merging across JA/EN spellings.
+   frontend artist pages match the canonical `artists[]` field).
+   JA/EN alias merging DONE 2026-07-26: artists.py CURATED_ALIASES —
+   hand-curated only (romanization is too ambiguous to automate); both
+   lineup entries and title matches collapse into the canonical act.
+   Extend the table as new spelling pairs surface.
 3. ~~Venue build-out (live houses, halls, arenas)~~ DONE 2026-07-13 —
    see the source table above; leads for later: RUIDO family, SALOON,
    more TDP feeds. `docs/venue-coverage-roadmap.md` has per-venue notes.

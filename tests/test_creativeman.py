@@ -245,3 +245,14 @@ def test_process_enriches_known_tours_and_honours_cap():
     evs2 = list(s2._process(_july_rows()))
     assert s2.tour_fetches == 3
     assert any(e.venue_name is None for e in evs2)     # deferred rows exist
+
+
+def test_two_night_leg_header_venue_cleanup():
+    # "2026/12/11(金)・12(日) 東京ドーム" — the second-day remnant must not
+    # poison the venue string (it used to drop the whole leg as
+    # unresolvable "・12(日) 東京ドーム")
+    from tokyo_events.scrapers.creativeman import _EXTRA_DAY_RE
+    assert _EXTRA_DAY_RE.sub("", "・12(日) 東京ドーム").strip() == "東京ドーム"
+    assert _EXTRA_DAY_RE.sub("", "・12（日）東京ドーム").strip() == "東京ドーム"
+    # normal venues pass through
+    assert _EXTRA_DAY_RE.sub("", "日本武道館") == "日本武道館"
