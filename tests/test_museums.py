@@ -254,3 +254,108 @@ def test_ring2_registry_flags_and_loud_failure():
         assert s.supports_detail is False
         assert s.rate_limit_s >= 2.0
         assert cls().parse("<html></html>") == []
+
+
+# ===========================================================================
+# Ring 3 (fixtures captured 2026-07-26): mitsui_index/next_live.html,
+# panasonic_shiodome_live.html (FY page behind the /exhibition/ meta-refresh
+# hub), top_museum_live.html (top page slider cells), shozokan_live.json
+# (WP REST CPT feed). Skipped ring-3 candidates: Idemitsu (closed for the
+# Teigeki rebuild), Bunkamura The Museum (休館中, off-site shows only).
+# ===========================================================================
+from tokyo_events.scrapers.museums import (      # noqa: E402
+    MitsuiScraper, PanasonicShiodomeScraper, ShozokanScraper,
+    TopMuseumScraper, parse_slash_range)
+
+
+def test_slash_range_variants():
+    # Mitsui p.period: end year omitted within a year
+    assert parse_slash_range("2026/7/4 (土) 〜8/30 (日)") == \
+        ("2026-07-04", "2026-08-30")
+    # explicit cross-year + junk rejection
+    assert parse_slash_range("2026/12/20〜2027/1/11") == \
+        ("2026-12-20", "2027-01-11")
+    assert parse_slash_range("10:00〜17:00") == (None, None)
+    assert parse_slash_range("7/4〜8/30") == (None, None)   # no start year
+
+
+def test_mitsui_one_event_per_page():
+    cur = MitsuiScraper().parse(_load("mitsui_index_live.html"))
+    assert len(cur) == 1
+    e = cur[0]
+    assert e.title_ja == "特別展 京都・真如堂の名宝"
+    # the dl 会期 row (full kanji range) wins over the slash p.period
+    assert (e.start_date, e.end_date) == ("2026-07-04", "2026-08-30")
+    assert e.source_url == "https://www.mitsui-museum.jp/exhibition/index.html"
+
+    nxt = MitsuiScraper().parse(
+        _load("mitsui_next_live.html"),
+        page_url="https://www.mitsui-museum.jp/exhibition/next.html")
+    assert len(nxt) == 1
+    assert nxt[0].title_ja == "館蔵の茶碗100撰 ―国宝から手造茶碗まで―"
+    assert (nxt[0].start_date, nxt[0].end_date) == ("2026-09-12", "2026-11-23")
+
+
+def test_panasonic_fy_page_filters_finished_runs():
+    evs = PanasonicShiodomeScraper().parse(
+        _load("panasonic_shiodome_live.html"), today=TODAY)
+    # FY page lists 5 shows; 2 already finished (終了 label is a template
+    # artifact on ALL rows — the date filter is what decides)
+    assert len(evs) == 3
+    hasegawa = next(e for e in evs if "長谷川潔" in e.title_ja)
+    assert (hasegawa.start_date, hasegawa.end_date) == \
+        ("2026-07-11", "2026-09-23")
+    assert "/ew/museum/exhibition/26/260711/" in hasegawa.source_url
+    # next-FY item on the same page (directory /27/) is kept
+    sweden = next(e for e in evs if "グスタフスベリ" in e.title_ja)
+    assert (sweden.start_date, sweden.end_date) == ("2027-01-16", "2027-03-22")
+
+
+def test_top_museum_slider_cells():
+    evs = TopMuseumScraper().parse(_load("top_museum_live.html"))
+    assert len(evs) == 6
+    by_url = {e.source_url: e for e in evs}
+    table = by_url["https://topmuseum.jp/exhibition/5419/"]
+    assert table.title_ja == "TOPコレクション 明日の食卓"
+    # machine-readable js-holiday-date data-date attrs win over text
+    assert (table.start_date, table.end_date) == ("2026-07-02", "2026-09-21")
+    # subtitle em is appended when present
+    idemitsu_mako = by_url["https://topmuseum.jp/exhibition/5417/"]
+    assert idemitsu_mako.title_ja == \
+        "出光真子 おんなのさくひん ――ある映像作家の自伝"
+    # film programs (/movie/) never become exhibitions
+    assert not any("/movie/" in u for u in by_url)
+
+
+def test_shozokan_closed_state_and_archive_filter():
+    # museum closed ahead of the fall-2026 grand opening: the full-archive
+    # feed (2004+) yields nothing current, and undated entries (grand
+    # opening special) are never guessed into events
+    evs = ShozokanScraper().parse(_load("shozokan_live.json"), today=TODAY)
+    assert evs == []
+    assert ShozokanScraper.allow_empty is True   # quiet feed != breakage
+    # with a pinned earlier "today" the archive DOES yield real runs at
+    # the museum, and other-venue stagings stay excluded
+    evs = ShozokanScraper().parse(_load("shozokan_live.json"),
+                                  today="2024-01-01")
+    assert evs
+    assert all("shozokan.nich.go.jp/exhibitions/" in e.source_url
+               for e in evs)
+    miyabi = next(e for e in evs if "皇室のみやび" in e.title_ja)
+    assert (miyabi.start_date, miyabi.end_date) == ("2023-11-03", "2024-06-23")
+    # 表慶館 (staged at TNM's building) run is excluded even when current
+    assert not any("hyokeikan" in e.source_url for e in
+                   ShozokanScraper().parse(_load("shozokan_live.json"),
+                                           today="2026-04-20"))
+
+
+def test_ring3_registry_flags_and_loud_failure():
+    for cls in (MitsuiScraper, PanasonicShiodomeScraper, TopMuseumScraper,
+                ShozokanScraper):
+        s = cls()
+        assert resolve_venue(s.VENUE["venue_name"]) == s.source_id
+        assert vclass_of(s.source_id) == "museum"
+        assert s.supports_detail is False
+        assert s.rate_limit_s >= 2.0
+        junk = "not json" if cls is ShozokanScraper else "<html></html>"
+        assert cls().parse(junk) == []

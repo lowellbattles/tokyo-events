@@ -41,6 +41,7 @@ excluded — its WAF 403s our honest UA, and per rule 2 we never bypass):
 from __future__ import annotations
 
 import datetime as dt
+import html as html_mod
 import json
 import re
 from typing import Iterable, Optional
@@ -593,6 +594,260 @@ class DesignSightScraper(_MuseumScraper):
             if a is None or not title or not start:
                 continue
             url = urljoin(self.BASE, a["href"])
+            if url not in events:
+                events[url] = self._event(url, title, start, end)
+        return list(events.values())
+
+
+# ===========================================================================
+# Ring 3 (2026-07-26): Mitsui Memorial, Panasonic Shiodome, Tokyo
+# Photographic Art Museum, Sannomaru Shozokan.
+# Checked and out: Idemitsu Museum of Arts (closed for the Teigeki
+# building reconstruction - site only lists past exhibitions), Bunkamura
+# ザ・ミュージアム (休館中 through the Shibuya renovation; runs off-site
+# shows at other venues - revisit on reopening).
+# ===========================================================================
+#: "2026/7/4(土)〜8/30(日)" - Mitsui prints slash dates; same first-two-hits
+#: semantics as the kanji/dotted parsers (start needs the year).
+_SLASH_DATE_RE = re.compile(r"(?:(20\d{2})/)?(\d{1,2})/(\d{1,2})")
+
+
+def _range_from_hits(hits) -> tuple[Optional[str], Optional[str]]:
+    if len(hits) < 2 or not hits[0][0]:
+        return None, None
+    try:
+        start = dt.date(int(hits[0][0]), int(hits[0][1]), int(hits[0][2]))
+        ey = int(hits[1][0]) if hits[1][0] else start.year
+        end = dt.date(ey, int(hits[1][1]), int(hits[1][2]))
+        if not hits[1][0] and end < start:
+            end = end.replace(year=ey + 1)
+    except ValueError:
+        return None, None
+    if end < start or (end - start).days > 3 * 365:
+        return None, None
+    return start.isoformat(), end.isoformat()
+
+
+def parse_slash_range(text: str) -> tuple[Optional[str], Optional[str]]:
+    return _range_from_hits(_SLASH_DATE_RE.findall(text or ""))
+
+
+class MitsuiScraper(_MuseumScraper):
+    """One exhibition per page: /exhibition/index.html (current) and
+    next.html (upcoming), each with p.title + a dl 会期 row (full kanji
+    range; p.period's slash dates are the fallback)."""
+    source_id = "mitsui"
+    source_name = "Mitsui Memorial Museum"
+    PAGES = ("https://www.mitsui-museum.jp/exhibition/index.html",
+             "https://www.mitsui-museum.jp/exhibition/next.html")
+    LISTING = PAGES[0]
+    VENUE = dict(
+        venue_name="三井記念美術館",
+        venue_area="Nihonbashi, Chuo-ku",
+        address="Mitsui Main Bldg. 7F, 2-1-1 Nihonbashi-Muromachi, "
+                "Chuo-ku, Tokyo",
+        lat=35.6866, lng=139.7745,
+    )
+
+    def scrape(self) -> Iterable[Event]:
+        for i, page in enumerate(self.PAGES):
+            try:
+                html = self.fetch(page)
+            except Exception:
+                if i == 0:
+                    raise                 # current page down = loud failure
+                continue
+            yield from self.parse(html, page_url=page)
+
+    def parse(self, html: str, page_url: Optional[str] = None,
+              **context) -> list[Event]:
+        page_url = page_url or self.LISTING
+        soup = BeautifulSoup(html, "lxml")
+        title_el = soup.select_one("p.title")
+        if title_el is None:
+            return []
+        title = _clean(title_el.get_text(" ", strip=True))
+        start = end = None
+        for dt_el in soup.find_all("dt"):
+            if _clean(dt_el.get_text()) == "会期":
+                dd = dt_el.find_next_sibling("dd")
+                if dd is not None:
+                    start, end = parse_jp_date_range(
+                        dd.get_text(" ", strip=True))
+                break
+        if not start:
+            period = soup.select_one("p.period")
+            if period is not None:
+                start, end = parse_slash_range(
+                    period.get_text(" ", strip=True))
+        if not (title and start):
+            return []
+        return [self._event(page_url, title, start, end)]
+
+
+class PanasonicShiodomeScraper(_MuseumScraper):
+    """/ew/museum/exhibition/ is a meta-refresh hop to the current
+    fiscal-year page (26/index.html...), which lists the whole FY:
+    h3.exhibition-title (series/title/subtitle spans) + .exhibition-date.
+    The 終了致しました label is a template artifact (it appears on future
+    shows too) - the today-filter is what drops finished runs."""
+    source_id = "panasonic_shiodome"
+    source_name = "Panasonic Shiodome Museum of Art"
+    HUB = "https://panasonic.co.jp/ew/museum/exhibition/"
+    LISTING = HUB
+    VENUE = dict(
+        venue_name="パナソニック汐留美術館",
+        venue_area="Shiodome, Minato-ku",
+        address="Panasonic Tokyo Shiodome Bldg. 4F, 1-5-1 "
+                "Higashi-Shimbashi, Minato-ku, Tokyo",
+        lat=35.6644, lng=139.7614,
+    )
+    _REFRESH_RE = re.compile(
+        r'http-equiv="Refresh"\s+content="\d+;\s*URL=([^"]+)"', re.I)
+
+    def scrape(self) -> Iterable[Event]:
+        hub = self.fetch(self.HUB)
+        m = self._REFRESH_RE.search(hub)
+        if not m:
+            return                        # hub shape changed = loud (found=0)
+        fy_url = urljoin(self.HUB, m.group(1).strip())
+        yield from self.parse(self.fetch(fy_url), page_url=fy_url)
+
+    def parse(self, html: str, page_url: Optional[str] = None,
+              today: Optional[str] = None, **context) -> list[Event]:
+        page_url = page_url or self.HUB
+        today = today or dt.date.today().isoformat()
+        soup = BeautifulSoup(html, "lxml")
+        events: dict[str, Event] = {}
+        for h3 in soup.select("h3.exhibition-title"):
+            block = h3
+            date_el = a = None
+            for _ in range(3):            # date/link live in nearby columns
+                block = block.parent
+                if block is None:
+                    break
+                date_el = block.select_one(".exhibition-date")
+                a = block.find("a", href=re.compile(r"/museum/exhibition/"))
+                if date_el is not None and a is not None:
+                    break
+            if date_el is None or a is None:
+                continue
+            start, end = parse_jp_date_range(
+                date_el.get_text(" ", strip=True))
+            if not start or (end or start) < today:
+                continue                  # the FY page keeps finished runs
+            title = _clean(h3.get_text(" ", strip=True))
+            url = urljoin(page_url, a["href"])
+            if title and url not in events:
+                events[url] = self._event(url, title, start, end)
+        return list(events.values())
+
+
+class TopMuseumScraper(_MuseumScraper):
+    """Tokyo Photographic Art Museum: the top page's slider/list anchors
+    carry dl.slider__cell blocks - dt em.main is the title, and the dd's
+    js-holiday-date spans carry machine-readable data-date attributes
+    (dotted text range as fallback). Film screenings (/movie/) are not
+    exhibitions and are excluded by the /exhibition/ href filter."""
+    source_id = "top_museum"
+    source_name = "Tokyo Photographic Art Museum"
+    LISTING = "https://topmuseum.jp/"
+    VENUE = dict(
+        venue_name="東京都写真美術館",
+        venue_area="Ebisu Garden Place, Meguro-ku",
+        address="1-13-3 Mita, Meguro-ku, Tokyo",
+        lat=35.6420, lng=139.7130,
+    )
+
+    def parse(self, html: str, **context) -> list[Event]:
+        soup = BeautifulSoup(html, "lxml")
+        events: dict[str, Event] = {}
+        for a in soup.select("a[href*='/exhibition/']"):
+            cell = a.select_one("dl.slider__cell")
+            if cell is None:
+                continue
+            main = cell.select_one("dt em.main")
+            dd = cell.find("dd")
+            if main is None or dd is None:
+                continue
+            title = _clean(main.get_text(" ", strip=True))
+            sub = cell.select_one("dt em.sub")
+            if sub is not None and _clean(sub.get_text()):
+                title = _clean(f"{title} {sub.get_text(' ', strip=True)}")
+            dates = [s["data-date"] for s in dd.select("span[data-date]")
+                     if re.fullmatch(r"\d{4}-\d{2}-\d{2}",
+                                     s.get("data-date") or "")]
+            if len(dates) >= 2:
+                start, end = dates[0], dates[-1]
+                if end < start:
+                    start = end = None
+            else:
+                start, end = parse_any_date_range(
+                    dd.get_text(" ", strip=True))
+            if not (title and start):
+                continue
+            url = a["href"].split("#")[0].strip()
+            if url not in events:
+                events[url] = self._event(url, title, start, end)
+        return list(events.values())
+
+
+class ShozokanScraper(_MuseumScraper):
+    """Sannomaru Shozokan (Imperial Palace): the exhibitions archive page
+    is a JS-filtered shell, but the WordPress REST API exposes the CPT with
+    machine-readable exhibition_period_from/to. The feed is the full
+    archive back to 2004 -> today-filter; entries whose dates are not yet
+    announced (empty period fields, e.g. the 令和8年秋 grand-opening
+    special) are skipped until real dates appear. Shows staged at OTHER
+    venues (exhibition_location-other-*) are excluded. The museum is
+    currently closed ahead of its fall-2026 grand opening, so found=0 is
+    legitimate -> allow_empty."""
+    source_id = "shozokan"
+    source_name = "Sannomaru Shozokan"
+    BASE = "https://shozokan.nich.go.jp"
+    LISTING = ("https://shozokan.nich.go.jp/wp-json/wp/v2/exhibitions"
+               "?per_page=100")
+    #: closed between opening phases - a quiet feed is not a breakage
+    allow_empty = True
+    VENUE = dict(
+        venue_name="皇居三の丸尚蔵館",
+        venue_area="Imperial Palace East Gardens, Chiyoda-ku",
+        address="1-8 Chiyoda, Chiyoda-ku, Tokyo",
+        lat=35.6852, lng=139.7594,
+    )
+
+    def parse(self, payload: str, today: Optional[str] = None,
+              **context) -> list[Event]:
+        today = today or dt.date.today().isoformat()
+        try:
+            rows = json.loads(payload)
+        except (ValueError, TypeError):
+            return []
+        if not isinstance(rows, list):
+            return []
+        events: dict[str, Event] = {}
+        for row in rows:
+            if not isinstance(row, dict):
+                continue
+            start = str(row.get("exhibition_period_from") or "")
+            end = str(row.get("exhibition_period_to") or "")
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", start):
+                continue                  # dates not announced yet
+            if not re.fullmatch(r"\d{4}-\d{2}-\d{2}", end):
+                end = start
+            if end < today:
+                continue
+            locs = [c for c in (row.get("class_list") or [])
+                    if str(c).startswith("exhibition_location-")]
+            if locs and not any(
+                    c.startswith("exhibition_location-shozokan")
+                    for c in locs):
+                continue                  # staged at another venue
+            title = _clean(html_mod.unescape(
+                ((row.get("title") or {}).get("rendered")) or ""))
+            url = str(row.get("link") or "")
+            if not (title and url.startswith("http")):
+                continue
             if url not in events:
                 events[url] = self._event(url, title, start, end)
         return list(events.values())
