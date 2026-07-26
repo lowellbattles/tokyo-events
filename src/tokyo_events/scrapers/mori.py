@@ -39,6 +39,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
+from . import textutils as tu
 from .base import BaseScraper
 
 # "2026.4.29（水）〜 9.23（水）" / "2026.4.29 [Wed] - 9.23 [Wed]" /
@@ -124,8 +125,8 @@ def parse_items(html: str) -> dict[str, dict]:
 
 class MoriMuseumScraper(BaseScraper):
     """One Roppongi Hills art space (see _SITES)."""
-    #: the listing carries the full run facts; no per-event detail pages yet
-    supports_detail = False
+    #: detail pass lifts the adult admission from each exhibition page
+    supports_detail = True
 
     def __init__(self, source_id: str, **kw):
         cfg = _SITES[source_id]
@@ -142,6 +143,18 @@ class MoriMuseumScraper(BaseScraper):
         except Exception:                # EN mirror is enrichment only
             en_html = None
         yield from self.parse(jp_html, en_html=en_html)
+
+    def parse_detail(self, html: str, ev: Event) -> Event:
+        """Admission price only (adult 一般 tier / 入場無料) — the generic
+        music detail parser must never touch museum pages."""
+        if ev.price_min is None and ev.is_free is None:
+            soup = BeautifulSoup(html, "lxml")
+            price, text, free = tu.parse_admission(
+                soup.get_text(" ", strip=True))
+            ev.price_min, ev.price_text = price, text
+            if free:
+                ev.is_free = True
+        return ev
 
     def parse(self, html: str, en_html: Optional[str] = None,
               **context) -> list[Event]:

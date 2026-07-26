@@ -168,7 +168,7 @@ def test_all_sources_registry_flags_and_loud_failure():
         s = cls()
         assert resolve_venue(s.VENUE["venue_name"]) == s.source_id
         assert vclass_of(s.source_id) == "museum"
-        assert s.supports_detail is False
+        assert s.supports_detail is True   # admission detail pass
         assert s.rate_limit_s >= 2.0
         junk = "not json" if cls is MotScraper else "<html></html>"
         assert cls().parse(junk) == []     # structural failure = loud (0)
@@ -251,7 +251,7 @@ def test_ring2_registry_flags_and_loud_failure():
         s = cls()
         assert resolve_venue(s.VENUE["venue_name"]) == s.source_id
         assert vclass_of(s.source_id) == "museum"
-        assert s.supports_detail is False
+        assert s.supports_detail is True   # admission detail pass
         assert s.rate_limit_s >= 2.0
         assert cls().parse("<html></html>") == []
 
@@ -355,7 +355,7 @@ def test_ring3_registry_flags_and_loud_failure():
         s = cls()
         assert resolve_venue(s.VENUE["venue_name"]) == s.source_id
         assert vclass_of(s.source_id) == "museum"
-        assert s.supports_detail is False
+        assert s.supports_detail is True   # admission detail pass
         assert s.rate_limit_s >= 2.0
         junk = "not json" if cls is ShozokanScraper else "<html></html>"
         assert cls().parse(junk) == []

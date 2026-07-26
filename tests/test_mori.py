@@ -125,6 +125,6 @@ def test_venue_registry_and_flags():
         s = MoriMuseumScraper(sid)
         assert resolve_venue(s.venue["venue_name"]) == sid
         assert vclass_of(sid) == "museum"
-        assert s.supports_detail is False
+        assert s.supports_detail is True   # admission-price detail pass
         assert s.rate_limit_s >= 2.0
     assert M._SITES.keys() == {"mori_art_museum", "mori_arts_center_gallery"}

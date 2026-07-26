@@ -146,7 +146,11 @@ def test_gallery_registry_flags_and_loud_failure():
         s = cls()
         assert resolve_venue(s.VENUE["venue_name"]) == s.source_id
         assert vclass_of(s.source_id) in ("museum", "gallery")
-        assert s.supports_detail is False
         assert s.rate_limit_s >= 2.0
         assert cls().parse("<html></html>") == []
     assert vclass_of("ggg") == "gallery"
+    # OCAG's detail.php pages are JS shells — it alone opts out of the
+    # admission detail pass
+    assert OcagScraper.supports_detail is False
+    assert WhatMuseumScraper.supports_detail is True
+    assert GggScraper.supports_detail is True

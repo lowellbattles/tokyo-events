@@ -48,6 +48,8 @@ _OCAG_IMG_ID_RE = re.compile(r"/images/exhibition/\d{4}/(\d+)/")
 class OcagScraper(_MuseumScraper):
     source_id = "opera_city_gallery"
     source_name = "Tokyo Opera City Art Gallery"
+    #: detail.php pages are JS shells — nothing there to price-parse
+    supports_detail = False
     BASE = "https://www.operacity.jp"
     ENDPOINTS = (
         "https://www.operacity.jp/contents/exhibition/current?lang=ja&home=0",

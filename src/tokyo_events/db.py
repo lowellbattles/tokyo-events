@@ -200,16 +200,24 @@ class EventStore:
         if limit <= 0:
             return []
         out: list[Event] = []
+        today = dt.date.today().isoformat()
         rows = self.conn.execute(
             "SELECT data FROM events WHERE source=? AND status!='rejected' "
-            "AND category!='other' "         # don't spend fetches on non-music
-            "AND start_date>=date('now') ORDER BY start_date", (source,))
+            "AND category!='other' "         # don't spend fetches on junk
+            "ORDER BY start_date", (source,))
         for row in rows:
             d = json.loads(row["data"])
+            # still running or upcoming: exhibitions (date RANGES) stay
+            # enrichable mid-run — their start_date is long past
+            if (d.get("end_date") or d.get("start_date") or "") < today:
+                continue
             if d.get("source_url") in exclude_urls:
                 continue
             if (not d.get("ticket_links") and d.get("start_time") is None
-                    and d.get("price_min") is None):
+                    and d.get("price_min") is None
+                    and d.get("is_free") is None):
+                # is_free counts as enrichment: a free museum show has no
+                # price to fetch, and retrying it would refetch daily forever
                 out.append(Event.from_json(d))
                 if len(out) >= limit:
                     break

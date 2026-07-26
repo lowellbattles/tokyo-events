@@ -1,10 +1,12 @@
 """Museum scrapers — ART phase build-out beyond the Mori pair (2026-07-26).
 
-Six museums, six independent operators, one module: each site gets a small
-class; they share only the kanji date-range parser. All yield Category.ART
-date-RANGE events (start..end), no genres, supports_detail=False (listing
-pages carry the full run facts). Facts only: title, dates, URL — imagery
-and curatorial prose stay on the source site.
+Museums, independent operators, one module: each site gets a small class;
+they share the kanji date-range parser and the admission detail pass. All
+yield Category.ART date-RANGE events (start..end). The pipeline's detail
+pass re-fetches each new exhibition's page once and parse_detail lifts the
+ADULT (一般) admission / 入場無料 (textutils.parse_admission). Facts only:
+title, dates, admission, URL — imagery and curatorial prose stay on the
+source site.
 
 Sources and shapes (all robots-checked 2026-07-26; Suntory Museum of Art
 excluded — its WAF 403s our honest UA, and per rule 2 we never bypass):
@@ -50,6 +52,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
+from . import textutils as tu
 from .base import BaseScraper
 from .mori import parse_date_range as _parse_dotted_range
 
@@ -95,13 +98,30 @@ def parse_any_date_range(text: str) -> tuple[Optional[str], Optional[str]]:
 
 
 class _MuseumScraper(BaseScraper):
-    """Shared skeleton: single listing page, pure parse, range events."""
-    supports_detail = False
+    """Shared skeleton: single listing page, pure parse, range events.
+
+    Detail pass (admission prices): the pipeline re-fetches each new
+    exhibition's source_url once and parse_detail lifts the ADULT (一般)
+    admission or an 入場無料 statement via textutils.parse_admission —
+    the generic music parse_detail (OPEN/START/playguides) must never
+    run against museum pages. Subclasses whose source_urls are not
+    content pages (OCAG's JS shells) opt back out."""
+    supports_detail = True
     LISTING: str = ""
     VENUE: dict = {}
 
     def scrape(self) -> Iterable[Event]:
         yield from self.parse(self.fetch(self.LISTING))
+
+    def parse_detail(self, html: str, ev: Event) -> Event:
+        if ev.price_min is None and ev.is_free is None:
+            soup = BeautifulSoup(html, "lxml")
+            price, text, free = tu.parse_admission(
+                soup.get_text(" ", strip=True))
+            ev.price_min, ev.price_text = price, text
+            if free:
+                ev.is_free = True
+        return ev
 
     def _event(self, url: str, title: str, start: str, end: Optional[str],
                title_en: Optional[str] = None) -> Event:

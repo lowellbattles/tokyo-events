@@ -736,6 +736,8 @@ function artCardHtml(ev){
       <div class="meta">
         <span class="venue-tag alink" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</span>
         <span class="area">${esc(V.area)}</span>
+        ${ev.is_free?`<span class="price">${L.free}</span>`
+          :ev.price_min?`<span class="price">¥${ev.price_min.toLocaleString()}</span>`:""}
         ${(ev.genres||[]).map(g=>`<span class="g-tag">${L.artGenres[g]||g}</span>`).join("")}
         ${closing?`<span class="closing">${L.closingSoon}</span>`:""}
         <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${L.detailsArt}</a>

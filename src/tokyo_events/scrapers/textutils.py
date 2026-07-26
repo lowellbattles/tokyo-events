@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import datetime as dt
 import re
+import unicodedata as _ud
 from urllib.parse import urlparse
 
 OPEN_START_COMBINED_RE = re.compile(r"OPEN\s*/\s*START[\]】\s]*(\d{1,2}:\d{2})", re.I)
@@ -209,3 +210,68 @@ def extract_ticket_links(soup, page_text: str = "") -> list[dict]:
     if lcode:
         links.append({"provider": "lawson", "url": None, "code": f"L{lcode}"})
     return links
+
+
+# --- museum/gallery admission (ART detail pass) ----------------------------
+# Admission blocks follow a label + tier-list convention: "入館料 一般
+# 1,500(1,200)円 大学生 1,000円 中学生以下 無料". The exported fact is the
+# ADULT (一般) admission — not the cheapest tier, which is usually a
+# discount/child price and would read as misleading. Free venues state
+# 入場無料/入館無料/観覧無料.
+_ADMISSION_LABEL_RE = re.compile(
+    r"(?:入館料|入場料|観覧料|チケット・料金|チケットの?料金|料金)")
+#: only these unambiguous admission words may use the no-一般 fallback
+_STRICT_LABEL_RE = re.compile(r"入館料|入場料|観覧料")
+#: both printing orders exist: "一般 1,500円" and "2,400円（一般）"
+_ADULT_PRICE_RE = re.compile(r"一般[^0-9]{0,12}([0-9][0-9,，]{2,6})\s*円?")
+_PRICE_THEN_ADULT_RE = re.compile(r"([0-9][0-9,，]{2,6})\s*円\s*[（(]\s*一般")
+_ANY_PRICE_RE = re.compile(r"([0-9][0-9,，]{2,6})\s*円")
+_FREE_RE = re.compile(r"(?:入場|入館|観覧)無料")
+
+
+def _adult_price_in(seg: str) -> int | None:
+    """Earliest adult-labeled amount in `seg`, either printing order."""
+    hits = [m for m in (_ADULT_PRICE_RE.search(seg),
+                        _PRICE_THEN_ADULT_RE.search(seg)) if m]
+    if not hits:
+        return None
+    m = min(hits, key=lambda h: h.start())
+    try:
+        return int(re.sub(r"[,，]", "", m.group(1)))
+    except ValueError:
+        return None
+
+
+def parse_admission(text: str) -> tuple[int | None, str | None, bool | None]:
+    """(price_min, price_text, is_free) from a museum page's flattened
+    text. price_min is the ADULT admission (see above). Returns
+    (None, None, None) when the page states nothing parseable — never a
+    guess. '中学生以下 無料' tier lines can't mark a paid show free
+    because the adult price wins first and the free pattern requires the
+    入場/入館/観覧 prefix."""
+    text = _ud.normalize("NFKC", text or "")
+    for m in _ADMISSION_LABEL_RE.finditer(text):
+        window = text[m.end():m.end() + 300]
+        # presale/day-of blocks: 当日 (day-of) is the headline admission —
+        # "前売 2,200円（一般）… 当日 2,400円（一般）" must yield 2,400
+        day = window.find("当日")
+        price = (_adult_price_in(window[day:]) if day >= 0 else None) \
+            or _adult_price_in(window)
+        if price is None and _STRICT_LABEL_RE.fullmatch(m.group(0)):
+            # unambiguous admission labels may omit 一般 and open with the
+            # price ("入館料 1,000円"); bare 料金 is too noisy for this
+            am = _ANY_PRICE_RE.search(window[:60])
+            if am is not None:
+                try:
+                    price = int(re.sub(r"[,，]", "", am.group(1)))
+                except ValueError:
+                    price = None
+        if price is not None:
+            if 100 <= price <= 30000:      # sanity: admission, not merch/sets
+                return price, f"一般 ¥{price:,}", None
+            continue
+        if re.match(r"[^0-9]{0,15}無料", window):
+            return None, None, True
+    if _FREE_RE.search(text):
+        return None, None, True
+    return None, None, None
