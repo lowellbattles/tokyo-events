@@ -132,6 +132,10 @@ def _apply(conn, events: list[dict]) -> None:
         elif len(k) >= 3:
             cjk_keys.append(k)
     for d in events:
+        # Title matching is a music-world heuristic: an art exhibition named
+        # after (or coinciding with) a band name must not join the gig graph.
+        if d.get("category", "music") not in ("music", "music_festival"):
+            continue
         hay = norm_key(f"{d.get('title_ja') or ''} {d.get('title_en') or ''}")
         if not hay:
             continue

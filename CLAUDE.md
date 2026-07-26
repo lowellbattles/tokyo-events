@@ -49,7 +49,7 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
   stored missing-details backlog, capped at DETAIL_CAP=40/source/run).
 - `cli.py` — scrape / list / approve / reject / export, `--auto`, `--report`.
 
-## Registered sources (58, all live-validated with fixture tests)
+## Registered sources (62, all live-validated with fixture tests)
 
 | Family / class | source_ids | Notes |
 |---|---|---|
@@ -65,6 +65,7 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
 | Halls / theaters | ex_theater line_cube_shibuya hulic_hall kanadevia_hall sgc_hall_ariake tokyo_intl_forum nhk_hall opera_city tachikawa_stage_garden orchard_hall | ex_theater + sgc_hall = TV-Asahi TDP JSON feeds; tokyo_intl_forum funnels the 8-hall complex to Hall A concerts via the detail pass; hulic = hulic-theater.com |
 | Arenas / domes / stadiums | yokohama_arena tokyo_dome tokyo_garden_theater ariake_arena toyota_arena_tokyo k_arena_yokohama yoyogi_gym1 kokuritsu_stadium makuhari_messe yokohama_buntai | tokyo_dome = one static full-year page, concert rows only; makuhari uses the site's own music-category filter (?c=2); kokuritsu = jns-e.com (MUFG naming) |
 | Promoters (2026-07-14/15) | sogo_tokyo creativeman smash_jpn udo_artists disk_garage livenation_jp | promoters' own calendars — a PRIMARY source for their productions; covers gap venues (Budokan, Kinema Club, 東京体育館, ZOZO Marine, KANDA SQUARE HALL, Belluna Dome, Pacifico, Suntory Hall...) and carries sold-out badges; venue strings stored RAW, resolved + deduped against venue sources at export (venues.py + promoters.py); unresolved venue strings skipped — extend venues.CANONICAL to admit new halls. disk_garage + livenation_jp were onboarded on explicit OWNER approval 2026-07-15 (rule 2's ticketing-page ban does not cover them per owner); livenation_jp = JSON API with CountryIds=110, sold-out from allTicketStatus==3. Skipped: Kyodo Tokyo (WAF 403s our UA — we don't bypass bot detection) |
+| Museums / galleries (ART phase start, 2026-07-26) | mori_art_museum mori_arts_center_gallery | Mori Building sites share one CMS template → one scraper family (scrapers/mori.py); /jp/ + /en/ exhibitions listings joined on slug for bilingual titles; own-site exhibitions have RELATIVE hrefs (cross-promos to sibling facilities are absolute → excluded); category "art", date-RANGE events (start..end); undated satellite programs (MAM Collection/Screen/Research) skipped until a detail pass; frontend has a music/art section toggle — art renders ranges (on view now sorted by closing date / upcoming), vclass museum |
 | Festivals (2026-07-14, expanded 07-26) | festivals | curated ACTIVE_EDITIONS config (dates = facts, lineups scraped): Fuji Rock, Summer Sonic Tokyo, Rock in Japan, Sweet Love Shower, Ultra Japan, Countdown Japan skeleton, @JAM EXPO (Nuxt SPA — lineup via its public JSON API, Live-Nation-style), a-nation + Local Green skeletons (lineups unannounced; extractor patterns documented in festivals.py); allow_empty=True (seasonal); category music_festival; the festival IS the venue identity (vclass festival); DORMANT_EDITIONS documents finished editions for next-season curation (incl. POP YOURS — JS shell, needs API recon; PUNKSPRING — 2026 never announced) |
 
 Checked and NOT scrapeable (2026-07-13): Budokan (official site
@@ -150,7 +151,16 @@ SALOON (saloon-tokyo.com, UNIT's sister floor), other TDP JSON feeds.
    more TDP feeds. `docs/venue-coverage-roadmap.md` has per-venue notes.
 4. LLM-assisted genre tagging in the pipeline (facets in models.GENRES) —
    rule+prior+cached-LLM tagging exists at export; extend as needed.
-5. Festivals as a curated source class (Fuji Rock, Summer Sonic, ...).
-6. Later: dedupe across sources (venue aliases: Kanadevia Hall ex-TDC
+5. ~~Festivals as a curated source class~~ DONE 2026-07-14, expanded
+   07-26 (@JAM EXPO + skeletons; see source table).
+6. **ART phase (started 2026-07-26, owner-confirmed next focus):**
+   museums/galleries as category "art" date-range events. Mori pair is
+   the model implementation (scraper family + frontend art section).
+   Next candidates: Tokyo National Museum, MOT, National Art Center,
+   Artizon, Suntory Museum of Art, teamLab, Ueno cluster — official
+   sites only, robots checked per source. Later within the phase:
+   art-facet taxonomy, gallery complexes (Roppongi/Tennoz), then other
+   categories (matsuri, fireworks, flowers).
+7. Later: dedupe across sources (venue aliases: Kanadevia Hall ex-TDC
    Hall, MUFG Stadium ex-国立競技場), iCal export, OGP/sitemap, custom
    domain. New-source AUTO promotion after a few clean daily runs.

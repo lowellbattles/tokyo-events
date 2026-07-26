@@ -68,6 +68,7 @@ from .scrapers.udo import UdoArtistsScraper
 from .scrapers.disk_garage import DiskGarageScraper
 from .scrapers.livenation import LiveNationScraper
 from .scrapers.festivals import FestivalsScraper
+from .scrapers.mori import MoriMuseumScraper
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -146,6 +147,12 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "livenation_jp":     (LiveNationScraper,                 ReviewStatus.PENDING),
     # --- festivals (curated editions; lineups scraped, dates are facts) ---
     "festivals":         (FestivalsScraper,                  ReviewStatus.PENDING),
+    # --- museums / galleries (ART phase; category art, date-range events) --
+    "mori_art_museum":   (lambda: MoriMuseumScraper("mori_art_museum"),
+                          ReviewStatus.PENDING),
+    "mori_arts_center_gallery":
+        (lambda: MoriMuseumScraper("mori_arts_center_gallery"),
+         ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the

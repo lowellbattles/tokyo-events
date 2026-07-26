@@ -171,6 +171,8 @@ def apply_genres(conn, events: list[dict]) -> None:
 
     uncertain: list[dict] = []
     for d in events:
+        if d.get("category", "music") not in ("music", "music_festival"):
+            continue                   # music facets don't apply to art etc.
         if d.get("genres"):            # scraper knew best (e.g. Billboard)
             continue
         if d["id"] in cache:
