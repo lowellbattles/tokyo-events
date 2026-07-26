@@ -49,7 +49,7 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
   stored missing-details backlog, capped at DETAIL_CAP=40/source/run).
 - `cli.py` — scrape / list / approve / reject / export, `--auto`, `--report`.
 
-## Registered sources (68, all live-validated with fixture tests)
+## Registered sources (72, all live-validated with fixture tests)
 
 | Family / class | source_ids | Notes |
 |---|---|---|
@@ -65,7 +65,7 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
 | Halls / theaters | ex_theater line_cube_shibuya hulic_hall kanadevia_hall sgc_hall_ariake tokyo_intl_forum nhk_hall opera_city tachikawa_stage_garden orchard_hall | ex_theater + sgc_hall = TV-Asahi TDP JSON feeds; tokyo_intl_forum funnels the 8-hall complex to Hall A concerts via the detail pass; hulic = hulic-theater.com |
 | Arenas / domes / stadiums | yokohama_arena tokyo_dome tokyo_garden_theater ariake_arena toyota_arena_tokyo k_arena_yokohama yoyogi_gym1 kokuritsu_stadium makuhari_messe yokohama_buntai | tokyo_dome = one static full-year page, concert rows only; makuhari uses the site's own music-category filter (?c=2); kokuritsu = jns-e.com (MUFG naming) |
 | Promoters (2026-07-14/15) | sogo_tokyo creativeman smash_jpn udo_artists disk_garage livenation_jp | promoters' own calendars — a PRIMARY source for their productions; covers gap venues (Budokan, Kinema Club, 東京体育館, ZOZO Marine, KANDA SQUARE HALL, Belluna Dome, Pacifico, Suntory Hall...) and carries sold-out badges; venue strings stored RAW, resolved + deduped against venue sources at export (venues.py + promoters.py); unresolved venue strings skipped — extend venues.CANONICAL to admit new halls. disk_garage + livenation_jp were onboarded on explicit OWNER approval 2026-07-15 (rule 2's ticketing-page ban does not cover them per owner); livenation_jp = JSON API with CountryIds=110, sold-out from allTicketStatus==3. Skipped: Kyodo Tokyo (WAF 403s our UA — we don't bypass bot detection) |
-| Museums / galleries (ART phase, 2026-07-26) | mori_art_museum mori_arts_center_gallery tnm mot nact artizon tobikan nmwa | category "art", date-RANGE events, vclass museum; frontend music/art section toggle renders ranges (on view now sorted by closing date / upcoming). Mori pair = one CMS template (scrapers/mori.py; /jp/+/en/ joined on slug → bilingual titles; relative href = own exhibition). Rest in scrapers/museums.py sharing parse_jp_date_range: tnm = top page (list controller redirects there; 展示/予告 labels; p.desc ejected from invalid h3 nesting), mot = public JSON feed /json/exhibitions/exhibitions.json (archive → today-filter), nact = time[datetime] attrs, artizon = linkBlockHover cards (concurrent floor shows normal), tobikan = full-archive listing (today-filter), nmwa = current.html + upcoming.html exb_info sections (permanent/fuzzy-end runs skipped). Undated MAM satellite programs await a detail pass |
+| Museums / galleries (ART phase, 2026-07-26) | mori_art_museum mori_arts_center_gallery tnm mot nact artizon tobikan nmwa nezu yamatane sompo design_sight_2121 | category "art", date-RANGE events, vclass museum; frontend music/art section toggle renders ranges (on view now sorted by closing date / upcoming). Mori pair = one CMS template (scrapers/mori.py; /jp/+/en/ joined on slug → bilingual titles; relative href = own exhibition). Rest in scrapers/museums.py sharing parse_jp_date_range (+dotted fallback via mori for yamatane/sompo): tnm = top page (list controller redirects there; 展示/予告 labels; p.desc ejected from invalid h3 nesting), mot = public JSON feed /json/exhibitions/exhibitions.json (archive → today-filter), nact = time[datetime] attrs, artizon = linkBlockHover cards (concurrent floor shows normal), tobikan = full-archive listing (today-filter), nmwa = current.html + upcoming.html exb_info sections (permanent/fuzzy-end runs skipped), nezu = year-schedule page (today-filter), yamatane = /exhibitions/ where -open cards have NO inline date → bounded detail fetches pull dt会期/dd (archive cards carry dotted dates), sompo = index top/next blocks (dotted dates), design_sight_2121 = /program/ summaryArea h4+h5. Undated MAM satellite programs await a detail pass |
 | Festivals (2026-07-14, expanded 07-26) | festivals | curated ACTIVE_EDITIONS config (dates = facts, lineups scraped): Fuji Rock, Summer Sonic Tokyo, Rock in Japan, Sweet Love Shower, Ultra Japan, Countdown Japan skeleton, @JAM EXPO (Nuxt SPA — lineup via its public JSON API, Live-Nation-style), a-nation + Local Green skeletons (lineups unannounced; extractor patterns documented in festivals.py); allow_empty=True (seasonal); category music_festival; the festival IS the venue identity (vclass festival); DORMANT_EDITIONS documents finished editions for next-season curation (incl. POP YOURS — JS shell, needs API recon; PUNKSPRING — 2026 never announced) |
 
 Checked and NOT scrapeable (2026-07-13): Budokan (official site
@@ -82,9 +82,13 @@ still shows 2025; watch for 2026 dates — scrapeable when announced),
 Knotfest Japan (hiatus since 2023), Download Japan (no own site; its
 Makuhari shows ride in via creativeman/livenation_jp promoters).
 Museums checked 2026-07-26: Suntory Museum of Art (suntory.co.jp WAF
-403s our honest UA — out per rule 2), Ueno Royal Museum (schedule is a
-JS calendar over article.cgi ids — revisit), teamLab (permanent
-installations, not date-range events).
+403s our honest UA — out per rule 2), Tokyo Station Gallery (ejrcf.or.jp
+WAF 403s too — out), Watari-um (TLS certificate broken on both hosts;
+we never disable verification — recheck later), Ueno Royal Museum
+(schedule is a JS calendar over article.cgi ids — revisit), Ghibli
+Museum (/exhibition/ is a blog-style archive: start dates only,
+years-old entries still listed — current-vs-ended not extractable as
+fact), teamLab (permanent installations, not date-range events).
 Future family leads: RUIDO group (Akabane/Yokohama ReNY...),
 SALOON (saloon-tokyo.com, UNIT's sister floor), other TDP JSON feeds.
 
@@ -158,13 +162,15 @@ SALOON (saloon-tokyo.com, UNIT's sister floor), other TDP JSON feeds.
 5. ~~Festivals as a curated source class~~ DONE 2026-07-14, expanded
    07-26 (@JAM EXPO + skeletons; see source table).
 6. **ART phase (started 2026-07-26, owner-confirmed next focus):**
-   museums/galleries as category "art" date-range events. 8 museums
-   live (Mori pair + tnm/mot/nact/artizon/tobikan/nmwa — see source
-   table). Later within the phase: art-facet taxonomy, admission-price
-   detail pass, more museums (Nezu, Yamatane, Sompo, Tokyo Station
-   Gallery, Watari-um, SOMPO, 21_21 DESIGN SIGHT, Ghibli), gallery
-   complexes (Roppongi/Tennoz), Ueno Royal + Suntory retries, then
-   other categories (matsuri, fireworks, flowers).
+   museums/galleries as category "art" date-range events. 12 museums
+   live (Mori pair, tnm, mot, nact, artizon, tobikan, nmwa, nezu,
+   yamatane, sompo, design_sight_2121 — see source table). Later within
+   the phase: art-facet taxonomy, admission-price detail pass, more
+   museums (Idemitsu, Mitsui Memorial, Panasonic Shiodome, Bunkamura
+   ザ・ミュージアム on reopening, Tokyo Photographic Art Museum,
+   Sannomaru Shozokan), gallery complexes (Roppongi/Tennoz), retries
+   for the WAF/TLS-blocked ones, then other categories (matsuri,
+   fireworks, flowers).
 7. Later: dedupe across sources (venue aliases: Kanadevia Hall ex-TDC
    Hall, MUFG Stadium ex-国立競技場), iCal export, OGP/sitemap, custom
    domain. New-source AUTO promotion after a few clean daily runs.

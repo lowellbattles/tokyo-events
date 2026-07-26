@@ -158,6 +158,10 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "artizon": ("アーティゾン美術館", "museum"),
     "tobikan": ("東京都美術館", "museum"),
     "nmwa": ("国立西洋美術館", "museum"),
+    "nezu": ("根津美術館", "museum"),
+    "yamatane": ("山種美術館", "museum"),
+    "sompo": ("SOMPO美術館", "museum"),
+    "design_sight_2121": ("21_21 DESIGN SIGHT", "museum"),
 }
 
 #: extra spellings seen in the wild -> venue_key (normalized at build time)

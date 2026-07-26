@@ -172,3 +172,85 @@ def test_all_sources_registry_flags_and_loud_failure():
         assert s.rate_limit_s >= 2.0
         junk = "not json" if cls is MotScraper else "<html></html>"
         assert cls().parse(junk) == []     # structural failure = loud (0)
+
+
+# ===========================================================================
+# Ring 2 (fixtures captured 2026-07-26): nezu_live.html (year schedule),
+# yamatane_live.html (+ yamatane_gyokudo_live.html detail), sompo_live.html,
+# design_sight_2121_live.html. Skipped ring-2 candidates: Tokyo Station
+# Gallery (WAF 403), Watari-um (broken TLS), Ghibli (archive page, no ends).
+# ===========================================================================
+from tokyo_events.scrapers.museums import (      # noqa: E402
+    DesignSightScraper, NezuScraper, SompoScraper, YamataneScraper)
+
+
+def test_nezu_schedule_filters_finished_runs():
+    evs = NezuScraper().parse(_load("nezu_live.html"), today=TODAY)
+    # the museum is BETWEEN exhibitions on capture day: two finished runs
+    # on the schedule page are dropped, one 予告 remains
+    assert len(evs) == 1
+    e = evs[0]
+    assert e.title_ja == "企画展 やきもの名品紀行 ―中国・日本・朝鮮半島―"
+    assert (e.start_date, e.end_date) == ("2026-08-15", "2026-10-12")
+    assert e.source_url == \
+        "https://www.nezu-muse.or.jp/jp/exhibitions/view-120.html"
+    assert e.venue_name == "根津美術館"
+
+
+def test_yamatane_open_cards_need_detail_pages():
+    html = _load("yamatane_live.html")
+    s = YamataneScraper()
+    targets = s.detail_targets(html)
+    # current (gyokudo) + next (togyu) cards carry no inline date
+    assert targets == [
+        "https://www.yamatane-museum.jp/exhibitions/2026/gyokudo.html",
+        "https://www.yamatane-museum.jp/exhibitions/2026/togyu.html"]
+    pages = {targets[0]: _load("yamatane_gyokudo_live.html")}
+    evs = s.parse(html, detail_pages=pages, today=TODAY)
+    # gyokudo resolves via its detail 会期; togyu (no page given) is skipped;
+    # every archive card is in the past
+    assert len(evs) == 1
+    e = evs[0]
+    assert e.title_ja == "川合玉堂 ―なつかしい日本の情景―"
+    assert (e.start_date, e.end_date) == ("2026-05-16", "2026-07-26")
+
+
+def test_yamatane_without_detail_pages_yields_nothing_current():
+    evs = YamataneScraper().parse(_load("yamatane_live.html"),
+                                  detail_pages={}, today=TODAY)
+    assert evs == []                       # archive-only, all past
+
+
+def test_sompo_current_and_next():
+    evs = SompoScraper().parse(_load("sompo_live.html"))
+    assert len(evs) == 2
+    by_url = {e.source_url: e for e in evs}
+    kayo = by_url["https://www.sompo-museum.org/exhibitions/2025/yamaguchikayo/"]
+    assert kayo.title_ja == "開館50周年記念 山口華楊展"   # subtitle prefix kept
+    assert (kayo.start_date, kayo.end_date) == ("2026-07-11", "2026-08-30")
+    marquet = by_url["https://www.sompo-museum.org/exhibitions/2025/albertmarquet/"]
+    assert (marquet.start_date, marquet.end_date) == \
+        ("2026-09-22", "2026-12-13")
+
+
+def test_design_sight_programs():
+    evs = DesignSightScraper().parse(_load("design_sight_2121_live.html"))
+    assert len(evs) == 2
+    by_url = {e.source_url: e for e in evs}
+    soup_ = by_url["https://www.2121designsight.jp/program/soup/"]
+    assert soup_.title_ja == "企画展「スープはいのち」"
+    assert (soup_.start_date, soup_.end_date) == ("2026-03-27", "2026-08-09")
+    hojoki = by_url["https://www.2121designsight.jp/program/hojoki/"]
+    # kanji range with padded day + cross-year explicit end
+    assert (hojoki.start_date, hojoki.end_date) == ("2026-08-28", "2027-01-11")
+
+
+def test_ring2_registry_flags_and_loud_failure():
+    for cls in (NezuScraper, YamataneScraper, SompoScraper,
+                DesignSightScraper):
+        s = cls()
+        assert resolve_venue(s.VENUE["venue_name"]) == s.source_id
+        assert vclass_of(s.source_id) == "museum"
+        assert s.supports_detail is False
+        assert s.rate_limit_s >= 2.0
+        assert cls().parse("<html></html>") == []

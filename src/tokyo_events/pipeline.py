@@ -70,7 +70,9 @@ from .scrapers.livenation import LiveNationScraper
 from .scrapers.festivals import FestivalsScraper
 from .scrapers.mori import MoriMuseumScraper
 from .scrapers.museums import (TnmScraper, MotScraper, NactScraper,
-                               ArtizonScraper, TobikanScraper, NmwaScraper)
+                               ArtizonScraper, TobikanScraper, NmwaScraper,
+                               NezuScraper, YamataneScraper, SompoScraper,
+                               DesignSightScraper)
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -161,6 +163,10 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "artizon":           (ArtizonScraper,                   ReviewStatus.PENDING),
     "tobikan":           (TobikanScraper,                   ReviewStatus.PENDING),
     "nmwa":              (NmwaScraper,                      ReviewStatus.PENDING),
+    "nezu":              (NezuScraper,                      ReviewStatus.PENDING),
+    "yamatane":          (YamataneScraper,                  ReviewStatus.PENDING),
+    "sompo":             (SompoScraper,                     ReviewStatus.PENDING),
+    "design_sight_2121": (DesignSightScraper,               ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the

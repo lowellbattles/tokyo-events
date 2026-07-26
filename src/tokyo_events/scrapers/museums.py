@@ -50,6 +50,7 @@ from bs4 import BeautifulSoup
 
 from ..models import Category, Event
 from .base import BaseScraper
+from .mori import parse_date_range as _parse_dotted_range
 
 # "2026年7月14日（火）～2026年9月6日（日）" / "2026年6月23日[火] - 10月4日[日]" /
 # "2026年9月 9日（水）" (NACT pads day with a space) — kanji-unit dates; the
@@ -81,6 +82,15 @@ def parse_jp_date_range(text: str) -> tuple[Optional[str], Optional[str]]:
 
 def _clean(s: str) -> str:
     return re.sub(r"\s+", " ", s or "").strip()
+
+
+def parse_any_date_range(text: str) -> tuple[Optional[str], Optional[str]]:
+    """Kanji range first; dotted mori-style ("2026.2.28 [土] —2026.5.10")
+    as fallback — Yamatane and Sompo print dotted dates."""
+    start, end = parse_jp_date_range(text)
+    if start:
+        return start, end
+    return _parse_dotted_range(text)
 
 
 class _MuseumScraper(BaseScraper):
@@ -372,6 +382,217 @@ class NmwaScraper(_MuseumScraper):
             if not title or a is None:
                 continue
             url = urljoin(page_url, a["href"])
+            if url not in events:
+                events[url] = self._event(url, title, start, end)
+        return list(events.values())
+
+
+# ===========================================================================
+# Ring 2 (2026-07-26): Nezu, Yamatane, Sompo, 21_21 DESIGN SIGHT.
+# Checked and out: Tokyo Station Gallery (ejrcf.or.jp WAF 403s our honest
+# UA), Watari-um (TLS certificate broken on both hosts — we never disable
+# verification), Ghibli Museum (/exhibition/ is a blog-style archive with
+# start dates only and years-old entries still listed — current-vs-ended
+# is not extractable as fact).
+# ===========================================================================
+class NezuScraper(_MuseumScraper):
+    source_id = "nezu"
+    source_name = "Nezu Museum"
+    BASE = "https://www.nezu-muse.or.jp"
+    #: the year-schedule page carries every run (finished/current/予告)
+    #: with per-exhibition view-NNN.html links
+    LISTING = "https://www.nezu-muse.or.jp/jp/exhibitions/schedule/"
+    VENUE = dict(
+        venue_name="根津美術館",
+        venue_area="Minami-Aoyama, Minato-ku",
+        address="6-5-1 Minami-Aoyama, Minato-ku, Tokyo",
+        lat=35.6622, lng=139.7175,
+    )
+
+    def parse(self, html: str, today: Optional[str] = None,
+              **context) -> list[Event]:
+        today = today or dt.date.today().isoformat()
+        soup = BeautifulSoup(html, "lxml")
+        events: dict[str, Event] = {}
+        for item in soup.select("section.item"):
+            term = item.select_one("p.term")
+            h4 = item.find("h4")
+            if term is None or h4 is None:
+                continue
+            start, end = parse_jp_date_range(term.get_text(" ", strip=True))
+            if not start or (end or start) < today:
+                continue                  # finished runs stay on the page
+            a = h4.find("a", href=True)
+            title = _clean(h4.get_text(" ", strip=True))
+            if a is None or not title:
+                continue
+            url = urljoin(self.BASE, a["href"])
+            if url not in events:
+                events[url] = self._event(url, title, start, end)
+        return list(events.values())
+
+
+class YamataneScraper(_MuseumScraper):
+    """The /exhibitions/ page mixes three card states: 開催中/次回開催 cards
+    (label -open) carry NO date element — their run lives only on the
+    detail page (dt 会期 -> dd kanji range) — while archive cards (-closed)
+    carry dotted dates inline. scrape() fetches the few -open detail pages
+    (bounded) and hands them to the pure parse as a {url: html} map."""
+    source_id = "yamatane"
+    source_name = "Yamatane Museum of Art"
+    LISTING = "https://www.yamatane-museum.jp/exhibitions/"
+    VENUE = dict(
+        venue_name="山種美術館",
+        venue_area="Hiroo, Shibuya-ku",
+        address="3-12-36 Hiroo, Shibuya-ku, Tokyo",
+        lat=35.6503, lng=139.7183,
+    )
+    #: politeness cap on -open detail fetches (current + next is 2 today)
+    DETAIL_FETCH_CAP = 4
+
+    def scrape(self) -> Iterable[Event]:
+        html = self.fetch(self.LISTING)
+        pages: dict[str, str] = {}
+        for url in self.detail_targets(html)[:self.DETAIL_FETCH_CAP]:
+            try:
+                pages[url] = self.fetch(url)
+            except Exception:
+                continue                  # dateless card just gets skipped
+        yield from self.parse(html, detail_pages=pages)
+
+    @staticmethod
+    def _card_url(card) -> Optional[str]:
+        a = card.find("a", href=re.compile(r"/exhibitions/\d{4}/"))
+        return a["href"].strip() if a else None
+
+    def detail_targets(self, html: str) -> list[str]:
+        """URLs of -open (current/next) cards that lack an inline date."""
+        soup = BeautifulSoup(html, "lxml")
+        out: list[str] = []
+        for card in soup.select("article.o-card-exhibition"):
+            if card.select_one(".c-label-category.-open") is None:
+                continue
+            if card.select_one(".o-card-exhibition__date") is not None:
+                continue
+            url = self._card_url(card)
+            if url and url not in out:
+                out.append(url)
+        return out
+
+    @staticmethod
+    def _kaiki_range(detail_html: str) -> tuple[Optional[str], Optional[str]]:
+        soup = BeautifulSoup(detail_html, "lxml")
+        for dt_el in soup.find_all("dt"):
+            if "会期" in dt_el.get_text():
+                dd = dt_el.find_next_sibling("dd")
+                if dd is not None:
+                    return parse_jp_date_range(dd.get_text(" ", strip=True))
+        return None, None
+
+    def parse(self, html: str, detail_pages: Optional[dict] = None,
+              today: Optional[str] = None, **context) -> list[Event]:
+        today = today or dt.date.today().isoformat()
+        detail_pages = detail_pages or {}
+        soup = BeautifulSoup(html, "lxml")
+        events: dict[str, Event] = {}
+        for card in soup.select("article.o-card-exhibition"):
+            title_el = card.select_one(".o-card-exhibition__title")
+            url = self._card_url(card)
+            if title_el is None or url is None:
+                continue
+            date_el = card.select_one(".o-card-exhibition__date")
+            if date_el is not None:
+                # archive card, dotted inline: "2026.2.28 [土] —2026.5.10"
+                start, end = parse_any_date_range(
+                    date_el.get_text(" ", strip=True))
+            elif url in detail_pages:
+                start, end = self._kaiki_range(detail_pages[url])
+            else:
+                continue
+            # the page doubles as the archive — current/future runs only
+            if not start or (end or start) < today:
+                continue
+            sub = card.select_one(".o-card-exhibition__title-after")
+            title = _clean(title_el.get_text(" ", strip=True))
+            if sub is not None:
+                title = _clean(f"{title} {sub.get_text(' ', strip=True)}")
+            if title and url not in events:
+                events[url] = self._event(url, title, start, end)
+        return list(events.values())
+
+
+class SompoScraper(_MuseumScraper):
+    source_id = "sompo"
+    source_name = "Sompo Museum of Art"
+    LISTING = "https://www.sompo-museum.org/exhibitions/"
+    VENUE = dict(
+        venue_name="SOMPO美術館",
+        venue_area="Nishi-Shinjuku, Shinjuku-ku",
+        address="1-26-1 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+        lat=35.6923, lng=139.6946,
+    )
+
+    def parse(self, html: str, **context) -> list[Event]:
+        soup = BeautifulSoup(html, "lxml")
+        events: dict[str, Event] = {}
+        # one "top" (current) block + "next" (upcoming) block(s), each with
+        # __subtitle (série prefix) / __title / __date + a detail link
+        for kind in ("top", "next"):
+            for block in soup.select(
+                    f"[class*='p-exhibitions-index-{kind}__inner'], "
+                    f"[class*='p-exhibitions-index-{kind}__body']"):
+                title_el = block.select_one(
+                    f".p-exhibitions-index-{kind}__title")
+                date_el = block.select_one(
+                    f".p-exhibitions-index-{kind}__date")
+                a = block.find("a", href=re.compile(r"/exhibitions/\d{4}/"))
+                if title_el is None or date_el is None or a is None:
+                    continue
+                # dotted dates: "2026.07.11（土） - 08.30（日）"
+                start, end = parse_any_date_range(
+                    date_el.get_text(" ", strip=True))
+                if not start:
+                    continue
+                sub = block.select_one(
+                    f".p-exhibitions-index-{kind}__subtitle")
+                title = _clean(title_el.get_text(" ", strip=True))
+                if sub is not None:
+                    title = _clean(
+                        f"{sub.get_text(' ', strip=True)} {title}")
+                url = urljoin(self.LISTING, a["href"])
+                if title and url not in events:
+                    events[url] = self._event(url, title, start, end)
+        return list(events.values())
+
+
+class DesignSightScraper(_MuseumScraper):
+    source_id = "design_sight_2121"
+    source_name = "21_21 DESIGN SIGHT"
+    BASE = "https://www.2121designsight.jp"
+    LISTING = "https://www.2121designsight.jp/program/"
+    VENUE = dict(
+        venue_name="21_21 DESIGN SIGHT",
+        venue_area="Tokyo Midtown, Akasaka, Minato-ku",
+        address="9-7-6 Akasaka, Minato-ku, Tokyo",
+        lat=35.6668, lng=139.7302,
+    )
+
+    def parse(self, html: str, **context) -> list[Event]:
+        soup = BeautifulSoup(html, "lxml")
+        events: dict[str, Event] = {}
+        # program cards: .summaryArea with an h4 title-link (/program/slug/)
+        # and the run as the h5 ("2026年3月27日 (金) - 2026年8月 9日 (日)")
+        for area in soup.select("div.summaryArea"):
+            h4 = area.find("h4")
+            h5 = area.find("h5")
+            if h4 is None or h5 is None:
+                continue
+            a = h4.find("a", href=re.compile(r"^/program/"))
+            start, end = parse_jp_date_range(h5.get_text(" ", strip=True))
+            title = _clean(h4.get_text(" ", strip=True))
+            if a is None or not title or not start:
+                continue
+            url = urljoin(self.BASE, a["href"])
             if url not in events:
                 events[url] = self._event(url, title, start, end)
         return list(events.values())
