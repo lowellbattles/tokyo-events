@@ -13,6 +13,7 @@ so we also enrich when key fields are missing.
 from __future__ import annotations
 
 import datetime as dt
+import json
 import traceback
 from typing import Callable
 
@@ -166,8 +167,10 @@ def run(store: EventStore, only: list[str] | None = None,
             continue
         default_status = force_status or registry_status
         report = {"source": source_id, "found": 0, "new": 0, "changed": 0,
-                  "unchanged": 0, "details": 0, "error": None}
+                  "unchanged": 0, "details": 0, "error": None,
+                  "skipped_venues": []}
         started = dt.datetime.now().isoformat(timespec="seconds")
+        scraper: BaseScraper | None = None
         try:
             scraper = factory()
             to_enrich: list[Event] = []
@@ -223,12 +226,22 @@ def run(store: EventStore, only: list[str] | None = None,
         except Exception:
             report["error"] = traceback.format_exc(limit=3)
 
+        # Venue strings a scraper saw but couldn't resolve to venues.CANONICAL
+        # (promoter sources collect these) — surfaced even on a partial run so
+        # curation gaps show up in the report/health JSON, not just live
+        # sessions.
+        if scraper is not None and getattr(scraper, "skipped_venues", None):
+            report["skipped_venues"] = sorted(scraper.skipped_venues)
+
         store.conn.execute(
             "INSERT INTO scrape_runs (source, started_at, finished_at, found, "
-            "new, changed, details_fetched, error) VALUES (?,?,?,?,?,?,?,?)",
+            "new, changed, details_fetched, error, skipped_venues) "
+            "VALUES (?,?,?,?,?,?,?,?,?)",
             (source_id, started, dt.datetime.now().isoformat(timespec="seconds"),
              report["found"], report["new"], report["changed"],
-             report["details"], report["error"]))
+             report["details"], report["error"],
+             json.dumps(report["skipped_venues"], ensure_ascii=False)
+             if report["skipped_venues"] else None))
         store.conn.commit()
         reports.append(report)
     return reports

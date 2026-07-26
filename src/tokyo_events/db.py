@@ -50,7 +50,9 @@ CREATE TABLE IF NOT EXISTS scrape_runs (
     new         INTEGER DEFAULT 0,
     changed     INTEGER DEFAULT 0,
     details_fetched INTEGER DEFAULT 0,
-    error       TEXT
+    error       TEXT,
+    skipped_venues TEXT               -- JSON array: raw venue strings the
+                                      -- scraper saw but could not resolve
 );
 
 -- Artist cross-referencing (populated in a later phase)
@@ -85,6 +87,19 @@ class EventStore:
         self.conn = sqlite3.connect(str(path))
         self.conn.row_factory = sqlite3.Row
         self.conn.executescript(SCHEMA)
+        self._migrate()
+
+    def _migrate(self) -> None:
+        """Additive column migrations for DBs created before a schema grew.
+
+        CREATE TABLE IF NOT EXISTS never alters an existing table, so the
+        committed events.db needs ALTERs for columns added later."""
+        cols = {r["name"] for r in
+                self.conn.execute("PRAGMA table_info(scrape_runs)")}
+        if "skipped_venues" not in cols:
+            self.conn.execute(
+                "ALTER TABLE scrape_runs ADD COLUMN skipped_venues TEXT")
+            self.conn.commit()
 
     # --- ingestion ---------------------------------------------------------
     def upsert(self, ev: Event, default_status: ReviewStatus = ReviewStatus.PENDING
@@ -227,11 +242,17 @@ class EventStore:
     def source_health(self) -> list[dict]:
         """Latest scrape_runs row per source, for status display."""
         rows = self.conn.execute(
-            "SELECT source, started_at, found, new, changed, error "
-            "FROM scrape_runs WHERE id IN "
+            "SELECT source, started_at, found, new, changed, error, "
+            "skipped_venues FROM scrape_runs WHERE id IN "
             "(SELECT MAX(id) FROM scrape_runs GROUP BY source) "
             "ORDER BY source").fetchall()
-        return [dict(r) for r in rows]
+        out = []
+        for r in rows:
+            d = dict(r)
+            d["skipped_venues"] = (json.loads(d["skipped_venues"])
+                                   if d["skipped_venues"] else [])
+            out.append(d)
+        return out
 
     def export_public_json(self, path: str | Path) -> int:
         """Dump approved events + source health as the frontend feed."""
