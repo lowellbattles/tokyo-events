@@ -69,6 +69,8 @@ from .scrapers.disk_garage import DiskGarageScraper
 from .scrapers.livenation import LiveNationScraper
 from .scrapers.festivals import FestivalsScraper
 from .scrapers.mori import MoriMuseumScraper
+from .scrapers.museums import (TnmScraper, MotScraper, NactScraper,
+                               ArtizonScraper, TobikanScraper, NmwaScraper)
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -153,6 +155,12 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "mori_arts_center_gallery":
         (lambda: MoriMuseumScraper("mori_arts_center_gallery"),
          ReviewStatus.PENDING),
+    "tnm":               (TnmScraper,                       ReviewStatus.PENDING),
+    "mot":               (MotScraper,                       ReviewStatus.PENDING),
+    "nact":              (NactScraper,                      ReviewStatus.PENDING),
+    "artizon":           (ArtizonScraper,                   ReviewStatus.PENDING),
+    "tobikan":           (TobikanScraper,                   ReviewStatus.PENDING),
+    "nmwa":              (NmwaScraper,                      ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the
