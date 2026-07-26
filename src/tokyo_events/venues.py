@@ -143,6 +143,12 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "synchronicity_fes": ("SYNCHRONICITY", "festival"),
     "greenroom_fes": ("GREENROOM FESTIVAL", "festival"),
     "ultra_japan": ("ULTRA JAPAN", "festival"),
+    # onboarded 2026-07-26 (Aug+ Kanto editions + dormant leads)
+    "atjam_expo": ("@JAM EXPO", "festival"),
+    "a_nation": ("a-nation", "festival"),
+    "local_green": ("LOCAL GREEN FESTIVAL", "festival"),
+    "pop_yours": ("POP YOURS", "festival"),
+    "punkspring": ("PUNKSPRING", "festival"),
 }
 
 #: extra spellings seen in the wild -> venue_key (normalized at build time)

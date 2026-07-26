@@ -161,6 +161,36 @@ def extract_sweet_love_shower(html: str, edition: "Edition",
     return _clean_names(names)
 
 
+def extract_atjam_expo(payload: str, edition: "Edition",
+                       day: Optional[str] = None) -> dict[str, list[str]]:
+    """@JAM EXPO lineup API (atjam.jp/api/content/extra-lineup?...): JSON
+    {"data": [{performanceDate: ["YYYYMMDD", ...], artist: {name, isEnable},
+    ...}]}. One act can play both days (performanceDate carries two codes).
+    The page itself is a Nuxt SPA shell — this public API is what it renders
+    from (found 2026-07-26; robots.txt on atjam.jp is wide open)."""
+    try:
+        data = json.loads(payload)
+    except (ValueError, TypeError):
+        return {d: [] for d in edition.dates}
+    rows = data.get("data") if isinstance(data, dict) else None
+    if not isinstance(rows, list):
+        return {d: [] for d in edition.dates}
+    code_to_iso = {iso.replace("-", ""): iso for iso in edition.dates}
+    daymap: dict[str, list[str]] = {d: [] for d in edition.dates}
+    for row in rows:
+        if not isinstance(row, dict):
+            continue
+        artist = row.get("artist") or {}
+        name = (artist.get("name") or "").strip()
+        if not name or artist.get("isEnable") is False:
+            continue
+        for code in row.get("performanceDate") or []:
+            iso = code_to_iso.get(str(code))
+            if iso:
+                daymap[iso].append(name)
+    return {d: _clean_names(names) for d, names in daymap.items()}
+
+
 def extract_ultra_japan(html: str, edition: "Edition",
                         day: Optional[str] = None) -> list[str]:
     """ULTRA JAPAN /lineup — the lineup is delivered ONLY as a poster/flyer
@@ -297,6 +327,53 @@ ACTIVE_EDITIONS: tuple[Edition, ...] = (
         lineup_targets=(),
         extractor=None,
     ),
+    # --- onboarded 2026-07-26 (research pass: Aug+ Kanto editions) --------
+    Edition(
+        key="atjam_expo",
+        title_ja="@JAM EXPO 2026",
+        venue_area="Shin-Yokohama, Yokohama (Yokohama Arena)",
+        day_split=True,
+        dates=("2026-08-29", "2026-08-30"),
+        edition_url="https://atjam.jp/expo2026/lineup",
+        ticket_url="https://atjam.jp/expo2026/ticket",
+        genres=("idol",),         # multi-group idol festival — fixed prior
+        lineup_targets=((None,
+            "https://atjam.jp/api/content/extra-lineup?limit=0&option="
+            "%7B%22where%22:%7B%22extra%22:%22expo2026%22%7D,"
+            "%22withRelation%22:[%22artist%22]%7D"),),
+        extractor=extract_atjam_expo,
+    ),
+    Edition(
+        key="a_nation",
+        title_ja="a-nation 2026",
+        venue_area="Odaiba, Tokyo",
+        day_split=True,
+        dates=("2026-10-03", "2026-10-04"),
+        edition_url="https://a-nation.net/",
+        ticket_url=None,          # ticketing not announced yet
+        # Skeleton-only: dates/venue confirmed on the official site
+        # (2026-07-26, first Odaiba edition in 23 years) but the lineup is
+        # unannounced and the site is a placeholder page. Add lineup_targets
+        # + extractor once the artist page exists.
+        lineup_targets=(),
+        extractor=None,
+    ),
+    Edition(
+        key="local_green",
+        title_ja="LOCAL GREEN FESTIVAL'26",
+        venue_area="Yokohama Red Brick Warehouse, Yokohama",
+        day_split=True,
+        dates=("2026-11-07", "2026-11-08"),
+        edition_url="https://localgreen.jp/",
+        ticket_url="https://localgreen.jp/tickets",
+        # Skeleton-only: Nov dates confirmed on the official top page
+        # (2026-07-26) but the 2026 lineup is unannounced. Past-year pattern
+        # (history/{year}): div.day_N blocks with a <time> and one <p> of
+        # slash-separated act names — write the extractor against that shape
+        # when the 2026 lineup section appears on the top page.
+        lineup_targets=(),
+        extractor=None,
+    ),
 )
 
 
@@ -371,6 +448,37 @@ DORMANT_EDITIONS: tuple[dict, ...] = (
                          "carrying 'appearance_date-day1|day2'. Map day1/day2 "
                          "taxonomy to the real dates (from the homepage). "
                          "Homepage #t_lineup is an equivalent static fallback.",
+    },
+    # --- added 2026-07-26 (research pass) ---------------------------------
+    {
+        "key": "pop_yours",
+        "title": "POP YOURS",
+        "venue_area": "Makuhari, Chiba",
+        "day_split": True,
+        "last_run": "2026-04-03..2026-04-05",
+        "lineup_url": "https://popyours.jp/",
+        "parse_pattern": "Japan's largest hip-hop festival (Makuhari Messe, "
+                         "71 acts in 2026). Root page is a JS-heavy SPA shell "
+                         "— basic fetch returns no lineup markup. Before next "
+                         "edition: load in a browser, capture the XHR the "
+                         "lineup view calls (likely a public JSON API, same "
+                         "recon as @JAM 2026-07-26), verify robots (none "
+                         "found 2026-07-26), then key the extractor off that "
+                         "endpoint.",
+    },
+    {
+        "key": "punkspring",
+        "title": "PUNKSPRING",
+        "venue_area": "Makuhari, Chiba",
+        "day_split": True,
+        "last_run": "2025-03-29..2025-03-30 (no 2026 edition found)",
+        "lineup_url": "https://punkspring.com/",
+        "parse_pattern": "Punk/pop-punk, late March at Makuhari when it runs "
+                         "(2026 never announced — confirm a real edition "
+                         "before onboarding). Server-rendered WordPress with "
+                         "YEAR-VERSIONED paths (robots blocks /25/wp-admin/ "
+                         "-> content lives under /{yy}/); derive the lineup "
+                         "URL from the live nav each season.",
     },
 )
 

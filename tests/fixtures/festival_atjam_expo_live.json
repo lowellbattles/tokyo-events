@@ -1,0 +1,3104 @@
+{
+ "data": [
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "TENRIN",
+    "kana": "てんりん",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「ここで死んでここで蘇れ」",
+    "link": "https://x.com/TENRIN_official",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "zKSlYP9Xy8jEOHlxunFu",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Ill",
+    "kana": "いる",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2024.12.23お披露目💉「アナタがみてイル、ワタシがワタシ。」",
+    "link": "https://x.com/Ill_Idol",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "yuwacp1s0QFheLAb4nkM",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "JAPANARIZM",
+    "kana": "じゃぱなりずむ",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "日本と海外のリズムを融合させたアップテンポな楽曲を武器に、\n観客と一体となるライブパフォーマンスを展開、\n国内外のイベントを通じてジャパンカルチャーの魅力を発信していく。",
+    "link": "https://x.com/JAPANARIZM_info",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "xdMVTPk7heYFaAmgtZeI",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "alma",
+    "kana": "あるま",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "\"生\"の音を届けるリアルサウンドグループ\n",
+    "link": "https://x.com/alma___official",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "wY7VZeZYRbEceVRBUq4C",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "AdamLilith",
+    "kana": "あだむりりす",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ー 𝐿𝑒𝑎𝑑 𝑡𝑜 𝑝𝑎𝑟𝑎𝑑𝑖𝑠𝑒 ー ",
+    "link": "https://x.com/Adamth_official",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "w43fPUXr4H585GQ5Jc8j",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "お願い!!フルハウス",
+    "kana": "おねがいふるはうす",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "《北川綾巴プロデュースアイドルグループ》",
+    "link": "https://onegai-fullhouse.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "pOvs8zl933iVYax70Xu6",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "HelloYouth",
+    "kana": "はろーゆーす",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2018年7月29日九州出身のメンバーで結成。 キャッチコピーは「始まる青春」、等身大の青春をテーマに活動をスタート。サウンドプロデューサーは175R(イナゴライダー) のベーシストISAKICK。",
+    "link": "https://www.helloyouth.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "ldks52a0qMdrHm1mrNL0",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "いにしえ永遠？",
+    "kana": "いにしえとわ",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "『いにしえ永遠？(いにしえとわ？)』 いにしえから頑張ってきた大切な仲間と一緒に、アイドルの永遠を信じたい。",
+    "link": "https://x.com/inishietowa4",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "jrJUb6H7BKlMO5TyhdIP",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "STU48",
+    "kana": "えすてぃーゆーふぉーてぃえいと",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "国内6番目のAKB48姉妹グループとして2017年3月に誕生。\n「瀬戸内」エリアを本拠地とし、「１つの海、７つの県」を中心に活動するAKB48グループ初の広域アイドルグループ。\n\n瀬戸内（SeToUchi）の頭文字からSTU48（エスティーユー フォーティエイト）と命名される。\n\n瀬戸内7県を巡業公演しながら、全国に「瀬戸内の声」を届ける活動とパフォーマンスを展開中。",
+    "link": "https://sp.stu48.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "j0jTarjMYCyg8e8MpNp3",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "NMB48",
+    "kana": "えぬえむびーふぉーてぃえいと",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "大阪から世界へ!! - From OSAKA To the World!!-\n大阪・難波を拠点に活動するアイドルグループです！",
+    "link": "http://www.nmb48.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "i2GmY6JDFzGkhPOEgrNJ",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "WT☆Egret",
+    "kana": "ほわいといーぐれっと",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "WT☆Egret（ほわいと・いーぐれっと）は、2016年1月に結成。世界文化遺産 国宝 姫路城の別名「白鷺城」にちなんでチーム名をホワイトイーグレットとした。\nポップからエモいナンバーまでの幅広い楽曲が魅力で、ハーモニー曲や各楽曲にちりばめられたハモリが癖になり、楽曲重視のアイドルファンにも注目されている。\nまた、ライブパフォーマンスだけではなく、地元商店街やスキー場の公式アンバサダーにも就任し、兵庫県(特に姫路市・播磨エリア)の魅力を内外にPRする活動も行っている。",
+    "link": "https://wtegret.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "evFFpI2x5TBpJWtgpupT",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "OS☆U",
+    "kana": "おーえすゆー",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "東海地区最大の商店街であり、アイドル・アニメ・メイド・オタク文化が集結する若者文化発信の地「大須」。 その大須から「にぎわい創出！超絶元気発信！」をコンセプトに誕生したのがOsu Super Idol Unit「OS☆U」（オーエスユー）です。\nメンバーは名古屋エリア出身者が中心。全国でも最大の規模を誇る大須商店街のバックアップを受けながら、 超絶元気発信アイドルとして2010年8月に路上ライブデビューしました。",
+    "link": "https://osufan.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "cikQ222lDPfhcLf0IwxM",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "あかぎ団",
+    "kana": "あかぎだん",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「群馬から笑顔を発信！」――地域を元気にするご当地アイドル\n\n",
+    "link": "https://akagidan.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "XjOLaFhLTsedqkqe1BHQ",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "愛乙女★DOLL",
+    "kana": "らぶりーどーる",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "『愛乙女★DOLL（ラブリードール）』は「いつでもあなたのお人形♪」がキャッチフレーズ。側に置いておきたくなるようなキュートさと、見応えアリな本格派ライブでエンターテイメント溢れるステージを繰り広げます。\n2023年3月に体制（愛乙女☆DOLL）が一旦終了。同年10月に愛乙女☆DOLL（チームL）として新たに活動をスタート。\n2025年4月、グループ名から（チームL）が取れ、15周年を迎えるらぶどるのメモリアルイヤーに、★の「愛乙女★DOLL」として復活。",
+    "link": "https://lovelydoll.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "V6xByZYF1oBMAO5Ime0o",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ルージュブック",
+    "kana": "るーじゅぶっく",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "春乃梨々花と月森湖子の2人が作ったルージュブックを全面プロデュース。\n1ヶ月間のミクチャ配信審査&対面面接を経て誕生したプラチナムピクセル次世代ヒロインアイドル。\nコンセプトは「赤ずきんちゃん」\n“童話の世界に迷い込んだリトル。さぁ物語を覗いてみましょう”\n本の中で繰り広げられる成長の物語を一緒に作りませんか。。？\nひとつひとつの出来事を1ページ毎めくっていく。\n童話の世界に例えメンバーは主人公の赤ずきん。\nお客さんは話の中の登場人物。\nフランス語で「赤」を“ルージュ”、「本」“ブック”を読み進めていくという物語から“ルージュブック”と名付けました。\n楽曲イメージは、ポップな可愛さ、大人っぽさ、かっこよさを兼ね備えながらも童話らしいピアノの音や川の流れる音、スズメの鳴き声など、まるでおとぎ話の世界に入ったかのようなメロディーをイメージ。\n",
+    "link": "https://platinumpixel.jp/rougebook/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "SMrr6iu8ZMm65Ug3kObd",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "LumiDay",
+    "kana": "るみでぃ",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "LumiDay(ルミディ)👑あなたの日々に輝きを。 ",
+    "link": "https://x.com/LumiDay2025",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "SBJFymfBLoJPlFynoB1M",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Lumiétoile",
+    "kana": "るみえとわーる",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "畑美紗起プロデュースアイドル\n𝐋𝐮𝐦𝐢𝐞́𝐭𝐨𝐢𝐥𝐞 ❨ルミエトワール❩\n2026.6.27 神田明神ホール Debut 🪽❤︎\nまだ小さな光でも、誰かの夜空を照らせますように🌟",
+    "link": "https://www.marshmallowlab.jp/lumietoile",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "QyjnTkjWg80myxePx9wR",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "iON!",
+    "kana": "あいおん",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "iON!（アイオン）「私とあなたで、ひとつの時を。」 iLiFE! 妹ユニット。",
+    "link": "https://x.com/iON_idol_",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "QInzyMpxbsH9EpNqj40w",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "テンシンランマン",
+    "kana": "てんしんらんまん",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "沸かぬなら沸かせてみせよう。日本の真ん中で！ HEROINES初の名古屋拠点アイドルグループです🏯🍤",
+    "link": "https://x.com/tenran_official",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "M9eL6poaLvKOmoG02hUA",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "虹色の飛行少女",
+    "kana": "にじいろのひこうしょうじょ",
+    "initial": "5",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2022年11月12日に品川ザ・グランドホールにて新体制始動。\n2024年3月5日に rockfield Xコロムビアよりミニアルバム「君を謳え」をメジャーリリース、オリコンデイリーランキング1位を獲得し、さらなる高みを目指し活動中。\n2026年5月23日に「東莉央」「内藤桃子」7人体制となる。\n2026年10月13日(火)KT Zepp Yohohamaにて6thワンマンライブが決定している\n",
+    "link": "http://www.nijiironohikoshojo.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "LREmhWLd4jsrfrQE2iuo",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "RAViDAVi",
+    "kana": "らびだび",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「ほぼ悪意ある。」\n\"女の子の可愛くてちょっぴりダークなとこも好きでいて欲しい、私に振り回されて欲しい。 \" がコンセプト。\n\nグループ名の元となる「lovey-dovey」とは英語のスラングで\n\n\"二人が親密で愛情深い様子\" \"愛情表現が過度であると感じられる場合\"に用いられる言葉。\n\nそれと\"寂しいと死んでしまう\"と言われている兎、\"Rabbit\" ともかけている。\n\n可愛くてちょっぴり悪い子なメンバー達でどんどん皆を沼らせ、沢山の人を巻き込んで着実に階段を登っていくことを目指す。",
+    "link": "https://ravidavi.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "LFZ8dXqaTz9LHZYXDqzP",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ナナコロビヤオキ",
+    "kana": "ななころびやおき",
+    "initial": "5",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ヒロインズ初の大阪拠点アイドルグループ🐙♡ 8/12 新体制お披露目ワンマンライブ",
+    "link": "https://x.com/nanakoro_info",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "HULZB5dprqLOxenHkJOO",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ZUTTOMOTTO",
+    "kana": "ずっともっと",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「昨日よりずっと、今日よりもっと、明日は幸せな1日が訪れますように。」",
+    "link": "https://x.com/zuttomoofficial",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "GdtYrzQjo9x6EcwaHmdz",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "シオリベル",
+    "kana": "しおりべる",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "Task have Fun 熊澤風花プロデュース新グループ🔖🔔人生という物語の途中に、そっと鳴る小さなベルのように。青春の一瞬を知らせ、その時間に\"しおり\"を挟む。",
+    "link": "https://www.shioribell.net/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "GOewjOkPtQsl3A3Gwq5i",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "SEKAIE☆",
+    "kana": "せかいえ",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "FES☆TIVE公式妹グループ・SEKAIE☆\n\n合言葉は「世界をみんなの遊び場に」",
+    "link": "https://sekaie.rizepro.net/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "Dl5XS0TUJnZGUBBsLz0k",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "アキシブproject",
+    "kana": "あきしぶぷろじぇくと",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "秋葉原と渋谷の文化の融合をコンセプトに活動中の王道アイドルグループ。2018年キングレコードよりメジャーデビュー!\n中野サンプラザ/ZeppTokyo/ZeppDiverCityでのワンマンLIVEも大成功!!\n2023年12月よりHIROINSに加入。2024年12月新体制1周年を迎え、新たにメンバー2名を加え、9人で活動中。",
+    "link": "https://akishibup.net/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "BNBAYSj0vWc65tXDLtqd",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "WONDER*WHITE",
+    "kana": "わんだーほわいと",
+    "initial": "10",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "エモーショナルポップアイドル。\n北海道札幌市を拠点に活動する5人組女性アイドルグループ\n「一点の曇りもない奇跡の色 北海道の大地から全国へ …」をコンセプトに始動\n\nグループ名の「ワンダーホワイト」の由来は「北海道のイメージをもとに、雪、純白」ということを表現。真っ白で何もないところから大きく羽ばたいていくという希望が込められている。\nメンバー出身地である小樽、函館などでも積極的に活動中",
+    "link": "https://wonderwhite.net/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "8rm52mRmj8bVjLrqtBw5",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "世ノ果テデ人形ハ唯哂フ。",
+    "kana": "よのはてでにんぎょうはただわらう",
+    "initial": "8",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ゴミ山に住む少年がある人形（ヒトガタ）と出会う、\n\n「…ダレ？ワタシの名前を呼ぶのは」",
+    "link": "https://yonohate.ryzm.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "6p8OGiEzRT0j4qKBZp0F",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "SKE48",
+    "kana": "えすけーいーふぉーてぃえいと",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "東京・秋葉原を拠点に活動するAKB48の全国進出第一弾として、2008年7月に、名古屋・栄に誕生したアイドルグループ。本拠地の栄（SAKAE）の頭文字からSKE48（エスケーイー フォーティエイト）と命名される。のちに日本全国、そして世界に展開される48プロジェクトの先駆けとなった。\n\n名古屋の栄に建つ観覧車がシンボルのエンターテインメント発信ビルSUNSHINE SAKAEの2階にあるSKE48劇場（SKE48 THEATER）で、歌とダンス・トークから構成される公演をS・KⅡ・Eの各チームと研究生で日々開催している。\n2026年3月18日36枚目のシングル「サンダルだぜ」をリリース。\n",
+    "link": "https://ske48.co.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "6mqXv6AKcMB1TeXUEwq6",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Hey!Mommy!",
+    "kana": "へいまみー",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2021年1月1日より始動した「SACO PROJECT!」オーディションより、\n約1,000名の応募者から選ばれた6人グループ。\n「いつまでも子ども心を忘れずに」をテーマに、日常に大きなHAPPYを！\n2021年11月28日 豊洲PITのステージでデビュー！",
+    "link": "https://www.heymommy.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-24T03:00:00.000Z",
+   "id": "5KFDvMkv9ccUnRDNHnXM",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "KAWAII LAB. MATES",
+    "kana": "かわいいらぼめいつ",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "KAWAII LAB.でのアイドルデビューを目指してパフォーマンスを磨き、さらに個性を磨いていく、次世代メンバーの総称。",
+    "link": "https://kawaiilab.asobisystem.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "yBukTE2I0AsJ146YphUj",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "宵越しのアンサンブル",
+    "kana": "よいごしのあんさんぶる",
+    "initial": "8",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「宵越しのアンサンブル」は、時間を越えて心に残るハーモニーを届ける 人組王道アイドルグループ。 ひとりひとりの声と物語が集まり、ひとつの“アンサンブル”として、あなたの心に寄り添います。",
+    "link": "https://overnight-ensemble.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "xlAUhOCKupriOgLQNu3V",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "HzMe",
+    "kana": "へるつみー",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "7人組アイドルグループ HzMe（ヘルツミー）\n2026.05.10 Spotify O-WESTにてデビューライブ",
+    "link": "https://lit.link/hz_me",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "tOz7TiIpFmnnRexVpG75",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "高嶺のなでしこ",
+    "kana": "たかねのなでしこ",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "HoneyWorks サウンドプロデュースアイドルグループ🐈‍⬛🌸 | エースコックはるさめ×高嶺のなでしこ コラボキャンペーン タイアップ楽曲「生きてりゃいい」配信中🎧✌🏻",
+    "link": "https://takanenonadeshiko.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "shNckO4RpfNjqwwJKbXa",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "新井ひとみ",
+    "kana": "あらいひとみ",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "みんなの心におじゃま虫～  i❤️ I'm Japanese iDOL",
+    "link": "https://araihitomi.com/home",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "od9PC3tvy7C50kVVLBwE",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "櫻井優衣",
+    "kana": "さくらいゆい",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ASOBISYSTEMが手がける、日本のアイドル文化を世界に向けて発信するプロジェクト「KAWAII LAB.」に所属するFRUITS ZIPPERの“ミントグリーン担当”として2022年より活動。\n2024年2月に自身初となる写真集を発売した他、バラエティ番組やドラマへのゲスト出演など、その活躍は多岐にわたる。\n2025年9月、ユニバーサルミュージックよりソロメジャーデビュー。",
+    "link": "https://asobisystem.com/talent/sakuraiyui/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "oaEEavBy0AMlhdPtGFbA",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "透色ドロップ",
+    "kana": "すきいろどろっぷ",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "透色ドロップは、『この世界はきっと、透色に溢れている』をコンセプトに2020年06月18日にデビューしたアイドルグループ。メンバーは麻倉もな、有坂望由、卯野みこと、梅野心春、鎌房祐衣、佐藤詩乃、中嶋美瑠。",
+    "link": "https://sukiirodrop.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "oKGQ9DwXDEDHsPgfoqTB",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "おはキッズ",
+    "kana": "おはきっず",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "小学生のちょっぴり先輩的な存在としておはスタで活躍する5人組！\n話題のホビーや漫画を紹介したり、ゲームやスポーツなど様々なことに挑戦するよ！\nみんなの朝を盛り上げるべく明るく元気に頑張ります！",
+    "link": "https://www.ohast.jp/ohakids/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "jCZVltNkJl40TaS05iBA",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "NGT48",
+    "kana": "えぬじーてぃーふぉーてぃえいと",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "国内5つめの48グループとして新潟県に誕生したNGT48\n個性豊かなメンバーが、卒業生の想いも受け継ぎ、新潟を学び、その魅力や素晴らしさを全国に発信していくことを目標に活動していきます。",
+    "link": "https://ngt48.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "iUWUSVyMikJtr7gZJLIK",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "夜光性アミューズ",
+    "kana": "やこうせいあみゅーず",
+    "initial": "8",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "夜に煌く テーマパーク「夜光性アミューズ 」\n君の知らない夢のパレードへ\n眠れぬアナタをご招待\nit’s SHOW TIME?\n",
+    "link": "https://www.yakousei-amuse.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "g5gQYBa4GCKx8nAWGifd",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "diig",
+    "kana": "でぃぐ",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2024年デビュー株式会社ekoms所属、新アイドルグループ「diig」（読み : ディグ）。\n\nメンバーはekomsオーディション2024年より選ばれた、個性豊かな5人組となっており総合プロデュースを株式会社ekoms代表サクライケンタが担当。",
+    "link": "https://www.diig.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "fpWkBrJvQQtmNdPuk5oy",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "虜なるプレリュード ",
+    "kana": "とりこなるぷれりゅーど",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "虜なるプレリュード（とりこなるぷれりゅーど）は、王道のきらめきと高揚感を軸に、フロアをひとつにし、観る人の感情を呼び起こしながら物語を動かしていくことを目指す新ガールズグループです。\n\nグループ名には、ライブや楽曲、そしてその存在すべてを通して「気づけば虜になっている」そんな想いを込めています。\n\nまだ始まりに過ぎない。\nそれでも、気づけばもう虜。\n\n「Prelude（序章）」の名の通り、大きな物語の始まりとしてステージに立ちます。",
+    "link": "https://toripre-fc.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "dmSWkI1nt5iZhVurL4VX",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "zanka",
+    "kana": "ざんか",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "zanka -ザンカ-\n\n芹沢 まこ (セリザワマコ) / eve (イブ) / Miina (ミイナ) / 榛 ひかり (ハシバミヒカリ) / 三上 莉緑 (ミカミリミ)からなるアイドルユニット。",
+    "link": "https://zanka.ryzm.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "TnXfDVWn4LOeP5hzin5f",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ファントムシータ",
+    "kana": "ふぁんとむしーた",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "メンバー：もな / 美雨 / 凛花 / 灯翠 / 百花\nレトロホラーをコンセプトに活動する5人組のアイドル。\n歌い手Adoがプロデュースを手がける。\n\n『Phantom Siita』\n漢字表記は 『怪忌蝶』\n\n現代のアイドルを「蝶」とするのなら、ファントムシータはそんなアイドル業界にとっては異端な存在である「蛾」\n怖いとわかっていても手を伸ばしたくなるような、恐ろしくて、美しい。\n「アイドル」という言葉に相応しいアイドルになって欲しいという願いが込められている。\n誰かにとっては新しく、誰かにとっては懐かしい。本当の日本のアイドルがここにいる。",
+    "link": "https://phantomsiita.com/?lang=ja",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "TU7e3rgPCcG8Nia4Gz5V",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "【eN】",
+    "kana": "えん",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "【eN】のライブで『人生を豊かに』",
+    "link": "https://x.com/eN_11_11",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "TLDdWToNSGPB3VO1k1u0",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "COLOR of COLOR",
+    "kana": "からーおぶからー",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "カラー（デビュー日の誕生花）の花のように、乙女のしとやかさ、華やかな美しさで、誰からも愛されるグループへ。 新しい物語が始まる。",
+    "link": "https://color-of-color.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "TKuAtyPuOJ9bpkfrzesR",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "山﨑夢羽",
+    "kana": "やまざきゆめは",
+    "initial": "8",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ハロー！プロジェクト「BEYOOOOONDS」の元メンバーであり、2024年6月に卒業を発表。今後はソロアーティストとして活動。",
+    "link": "https://yamazakiyuhane.fanpla.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "Pf1ONROYcyVcPMsVX3iR",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ポラライト",
+    "kana": "ぽららいと",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2021年9月11日にデビューした王道系アイドルグループ！\n\nグループ名『ポラライト』は、「一生に一度は見てみたいと誰もが憧れるオーロラ」を英語にした際のpolar lightsが由来で、「オーロラのように光り輝くアイドルグループ」を目指している。",
+    "link": "https://polalight-official.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "OzVMWNBfHFHwYUPwpDZU",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "@onefive",
+    "kana": "わんふぁいぶ",
+    "initial": "10",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "Amuse×avex 新種アイドルKANO,SOYO,GUMI,MOMO 𝐽𝑎𝑝𝑎𝑛𝑒𝑠𝑒 𝐶𝑙𝑎𝑠𝑠𝑦 𝐶𝑟𝑢𝑠ℎ ㅤ",
+    "link": "https://onefive-web.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "N0Oa7HLXq36lcTBkuiiR",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "My_Stage",
+    "kana": "まいすてーじ",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "輝くステージを私たちのものに\n元アイドル2名による共同プロデュース事務所BeSwanEntertainmentが手掛ける第1弾アイドルグループ。\n音楽ジャンルに縛られず様々な楽曲を歌い、常に質の高いパフォーマンスで老若男女に愛されるグループを目指す。\nグループ名「My_Stage(マイステージ)」には、ステージは誰のものでもなく自分のものであり、夢のステージ全てを自分たちのものにして欲しいという思いが込められている。",
+    "link": "https://mystage.fanpla.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "MCPfjemyLRojuKtbU9Tk",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "kimikara（きみから)",
+    "kana": "きみから",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "こんなにも世界が輝くのは、君がいるから\nkimikara（きみから）",
+    "link": "https://kimikara.tokyo/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "G7UYfFT6yE8di7DrGRR7",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "HKT48",
+    "kana": "えいちけーてぃーふぉーてぃえいと",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "AKB48グループ第4弾として2011年に福岡に発足したHKT48は2013年3月20日、デビューシングル「スキ！スキ！スキップ！」でCDデビューし、昨年12月には最新シングル「バケツを被れ！」をリリース。今年5月に新しく第7期生16名が加入。福岡PayPayドーム隣、BOSS E･ZO FUKUOKA 1Fの常設劇場にて連日公演を開催しています。",
+    "link": "https://www.hkt48.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "Fq55GUQVG64qLttOT89O",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "SEVEN SENSES",
+    "kana": "せぶんせんしず",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2024年に結成しデビュー。\nダンス＆ボーカルでステージを魅了する\n北海道発のガールズグループ。\n\n地元北海道では\n札幌市で開催される北海道冬の最大級のお祭り\n「さっぽろ雪まつり」のステージや、各地の学園祭、\n旭川や名寄など数多くの道内イベントに出演！\n現在は月1回の東京遠征にも挑戦中。都内のライブハウスを駆け回っている。\n全国ツアー開催を目指し札幌市を拠点に全力活動中。",
+    "link": "https://www.sevensenses-7.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "ERCdEguu0PT8gj9fWoQH",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "MORE STAR",
+    "kana": "もあすたー",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "9人組アイドルグループ「 MORE STAR(モア スター)」\nメンバーは新井心菜、遠藤まりん、笹原なな花、鈴木花梨、高梨ゆな、中山こはく、萩田そら、森田あみ、山本るしあの 9名。\nアソビシステムが手掛ける、アイドル文化を世界に向けて発信する新プロジェクト「 KAWAII LAB.」より、誕生したアイドルグループ。\nグループのプロデューサーは、元むすびズムのリーダーとしてのアイドル活動を経て、「KAWAII LAB.」の総合プロデューサーを務め、モデル・タレントとして活動する木村ミサ。\n最年少16歳、最年長20歳、平均年齢は 18歳という若いメンバーで構成されており、グループ名には、そんな未熟で、未完成な彼女たちが、「もっと(MORE)」成長し、「輝き・憧れ (STAR)」の存在へなれるようにという想いが込められている。 ",
+    "link": "https://morestar.asobisystem.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "DqTiYjPOz5sVc5cyXEm0",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "フューチャーサイダー",
+    "kana": "ふゅーちゃーさいだー",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "◌𓈒𓐍キミのありふれた日常に、青春を、今。◌𓈒𓐍",
+    "link": "https://futurecider.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "CenyyOa47KJYxn4MPpfn",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "KAWAII LAB. SOUTH",
+    "kana": "かわいいらぼさうす",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "九州を中心にKAWAII LAB.でのアイドルデビューを目指してパフォーマンスを磨き、さらに個性を磨いていく、次世代メンバーの総称。",
+    "link": "https://kawaiilab.asobisystem.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "C609lfLtC5IfT6rTnYjc",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ROOKEY♡ROOKEYS",
+    "kana": "るーきーるーきー",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「ROOKEY♡ROOKEYS」は、樋口なづなプロデュースによる7人組のアイドルユニット。コンセプトは、強くてかわいい「つよカワ」。「アイドル戦国時代」と呼ばれていた約10年前、平成の日本で盛り上がりを見せたアイドルシーンを思い出すような楽曲を令和にアップデートして がむしゃらにお届け。アイドル界期待の「新生グループ」として、新たな扉の「鍵」を開けていけるようなグループになって欲しいという名前が込められている。",
+    "link": "https://x.com/ROOKEYROOKEYS",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "BdqNjAIZ0NZxGpQqQReM",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "MyDresscode",
+    "kana": "まいどれすこーど",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "⑅∙˚私なりのドレスコード˚∙⑅",
+    "link": "https://mydresscode-official.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "6zhF2EBPo1zF0AVZ4UUi",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "FOKALITE",
+    "kana": "ふぉーからいと",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "フォーカライト",
+    "link": "https://fokalite.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "5alKnpqk4tABQYjrIwcH",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "君と見るそら",
+    "kana": "きみとみるそら",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "⊹ ࣪ ˖この空の続きを、君と。⊹ ࣪ ˖\n超十代から誕生したアイドルグループ［君と見るそら］",
+    "link": "https://kimisora.love/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "4RPIXytb77pdCbOAOfyn",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "のんふぃく！",
+    "kana": "のんふぃく",
+    "initial": "5",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "\n「貴方の愛した私はノンフィクションですか？」\n",
+    "link": "https://x.com/Nonfic_official",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-13T03:00:00.000Z",
+   "id": "1u9lDVVVLnQHTM8UlP6G",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ideal peco",
+    "kana": "あいでぃーるぺこ",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ideal= 理想的なpeco= 結果「All for ideal\"すべては 理想のために\"」をコンセプトに2023年9月にデビューしたアイドルグループ!",
+    "link": "https://idealpeco.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "ypbvqlhlfUsNABHXmMys",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "きゅ～くる",
+    "kana": "きゅーくる",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "金澤有希総合プロデュース　Cute&Coolをコンセプトにした王道アイドルグループ\n2023年2月にプロジェクト始動！4月30日にメンバー発表し誕生。\n5月6日～7日新宿歌舞伎町初の大型サーキットアイドルフェス『歌舞伎町UP GATE↑↑』にてステージデビュー！\n\n2023年9月 2期生2人、2024年10月 3期生1人が加入。\n\n2024年12月新メンバー鹿野こはるの加入を発表。\n2025年4月にはArcJewelへ移籍し、現体制となった。\n\n楽曲『Pa la la』がTikTokで流行中！\n",
+    "link": "https://cute-cool.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "rfld7vg3g3PLhe0g8nTl",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "セカイシティ",
+    "kana": "せかいしてぃ",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "朱里、瑞希の「世界」をテーマにした2人組。束の間の世界旅行を一緒に楽しみましょう！",
+    "link": "https://sekaicity.themedia.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "rdkKVAqCgOINFNAOpPOL",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "RiNCENT♯",
+    "kana": "りんせんと",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「今よりも＃（半音）上がり続けて行く」",
+    "link": "https://rincent-official.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "nuMXpAfj32lJKeUnMfV1",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "まねきケチャ",
+    "kana": "まねきけちゃ",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "この世界に『福』を招くために、人間界に降り立った見習い天使まねきケチャ。デビュー時より完全生歌にこだわり、歌唱力の高さとハイレベルなルックスにより注目される。\n\n2026.05.01に新体制となり現在、凪咲楓、三井いろは、早瀬結実、堀内すず、そして日高里緒の5名で活動中。",
+    "link": "https://www.maneki-kecak.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "mTkB2AXa3RSdcGAN3eH5",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Sophià la Mode",
+    "kana": "そふぃあらもーど",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2026.2.6 debut Sophià la Mode（ソフィアラモード)\n世界をデコれ！をコンセプトに活動中🍓\nあなたの人生をキラキラデコレーション✨",
+    "link": "https://lit.link/sophilamode",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "k0HRl1hWPsyXOkO418pR",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ラフ×ラフ",
+    "kana": "らふらふ",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "様々な人気バラエティー番組を世に送り出しているテレビプロデューサー佐久間宣行が総合プロデュースを手掛ける8人組のアイドルグループ。\n2022年にオーディションが開催され、結成日は2022年12月8日、デビュー日は2023年3月9日。\n佐久間Pが命名した「ラフ×ラフ」（英語表記：rough×laugh）は、粗削りの〝ラフ“と笑いの〝ラフ“を掛け合わせており、成長を続けるメンバー達が色々な人を笑顔にしたいという気持ちが込められています。\n歌とダンスにバラエティー、面白くて楽しい、関わると元気になる、そんなグループを目指しています。ぜひ、個性あふれるメンバーの応援をよろしくお願いします！",
+    "link": "https://roughlaugh-official.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "cQSbbHMH3Cg40iS6RVxI",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "GANGDEMIC",
+    "kana": "ぎゃんでみっく",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2021年5月19日結成。\n一度 聴いたら、踊らずにはいられない、独自の音楽性「Party Dance ElectRock」を掲げるギャングガールズユニット。\nフロアがぶち上がる超攻撃的なサウンドに、類まれないスタイルから繰り出される圧倒的なパフォーマンスは見るものを魅了する。\n\nMTR、TOTALFAT、Another Story、FABLED NUMBERなど豪華なアーティストが楽曲を手掛けるなど、アイドルながらロックシーンでも名が知られる。\n2024年12月には自身初となる２DAYS ONEMANを開催する。",
+    "link": "https://www.gangdemic.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "Zo1GKRggP3ULFuI8DtMJ",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "シャルロット",
+    "kana": "しゃるろっと",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "🎀✨＂シャル・ウィ・ドリーム？＂💌🪽\n7人組アイドルグループ 【 シャルロット 】 🎀",
+    "link": "https://lit.link/charlotte0218",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "YvrsFVeF2wAHvgcwbtza",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "むーぷり",
+    "kana": "むーぷり",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "『 沸ける！王道アイドル🫧』\n",
+    "link": "https://x.com/mupuri_official",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "SqRGNNIxdEDy1cewPm2i",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "SAKURADOLL",
+    "kana": "さくらどーる",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "SAKURADOLLは、日本のアイドル文化に新たな風を吹き込み、音楽とパフォーマンスを通じて世界中に満開の桜を咲かせます。\n情熱と輝きでエンターテイメントの新たな歴史を刻み、日本が誇るアニメのように、国境を越えて愛される存在を目指しています。\n\n日本の魅力をグローバルステージへ発信し、未来へと続く架け橋として進化を続けるーー\nSAKURADOLLは、夢と感動を届ける唯一無二のアイドルとして、これからも挑戦していきます。",
+    "link": "https://www.sakuradoll.tokyo/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "SeVS91hwsyyFf4ZdUD4Z",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ミームトーキョー",
+    "kana": "みーむとーきょー",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2021年8月25日にトイズファクトリー内レーベルMEME TOKYOから、2019年に”でんぱ組.inc Jr.オーディション”を経て結成した「MEW」「RITO」「SAE」「SOLI」の4人組ユニット\n「ミーム」とは人から人へ伝染し、拡がっていく文化的な遺伝子のこと。様々なカルチャーを横断しながら自分たちのコンセプト、スタイルを世界中に拡散させ、次世代へバトンを繋いでいく令和世代の女性アイドルグループ。\n",
+    "link": "https://www.memetokyo.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "R6NMex3y5P9GtcOi38vu",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Brave Mental Orchestra",
+    "kana": "ぶれいゔめんたるおーけすとら",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "楽曲とライブを通して、メンバーそれぞれの魅力を届ける\n力強いサウンド、印象に残る衣装、個性の異なるメンバーによるパフォーマンス\n\n会場で一緒に楽しめるライブを大切にしながら活動しています",
+    "link": "https://bmo.tokyo/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "QSKHQjfUdGZUR5g2GuXT",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "PANDA CLUB",
+    "kana": "ぱんだくらぶ",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2026/4/4(土)Debut! ",
+    "link": "https://x.com/PANDACLUB04",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "QGtoLPS2qNVZE5MpgdgX",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "STAiNY",
+    "kana": "すていにー",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「カワイイ」×「沸ける」 7人組アイドル【STAiNY👾】 「何にも染まりたくない。僕らが世界を染めていく。」",
+    "link": "https://x.com/STAiNY_official",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "KyZKjFUlUGyXLZzEVBfV",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Rain Tree",
+    "kana": "れいんつりー",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "秋元康総合プロデュース『Rain Tree（レインツリー）』",
+    "link": "https://rt-official.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "IId6inFIzU7mvJ2n7rJE",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "SOMOSOMO",
+    "kana": "そもそも",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": " \"全身全霊ではしゃぎ倒す\"",
+    "link": "https://somo2.hasyagejp.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "GdNcwIQqNpDrC6G9nVro",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ChumToto",
+    "kana": "ちゃむとと",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「虹のコンキスタドール」「きゅるりんってしてみて」らが所属するディアステージから、2025年4月に新たにデビューした最年少ユニット・ChumToto（チャムトト）。\n\nグループ名は、”Chum(親友)” そして”Toto(小さなもの)” という意味をもつ言葉を掛け合わせた言葉。\n人生の主人公であるすべての人の隣に。毎日を一緒に生き抜くパートナーを目指して活動中。\n\n“ドリーム to リアリティー” 夢の中で広がる可能性を現実へ。\n\nChumToto と一緒にいろんな私たちを描こう。",
+    "link": "https://chumtoto.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "CRbxhuiu49v5FEiavoNt",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ワガママなラストノート",
+    "kana": "わがままならすとのーと",
+    "initial": "10",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "最後まで、心に残る “一瞬” を。\n\nグループ名の由来は香水用語の「ラストノート」。\n愛と絆を持ち、香りのように、見た人の心にふわっと余韻を残す、そして忘れられないステージを目指しています。",
+    "link": "https://lit.link/wgln",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "CO73tCjD84rrqI56yLbH",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "アップアップガールズ（仮）",
+    "kana": "あっぷあっぷがーるずかっこかり",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2011 年結成、アスリート系アイドルグループ。\nホノルル駅伝への参加や富士山山頂ライブなど前代未聞のライブを繰り広げ、2016 年に日本武道館単独公演を開催。メンバーの卒業・加入を経て2020年12月加入の⻘柳佑芽に「UP UP NEW AGEネオアゲ」出身の北川未奈、石川万鈴が加入、また2025 年 9 月に小野田あやさ、松永ちとせを加え5人組としてアップアップガールズ（仮）第3章の活動開始！\n\n",
+    "link": "http://www.upupgirlskakkokari.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-06T03:00:00.000Z",
+   "id": "94IWsdUdVR8vQ0iCPS6X",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "releasedAt": "2026-07-03T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "ライブレボルト",
+    "kana": "らいぶれぼると",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "What is LiveRevolt?\n\n『ライブレボルト』は、株式会社Blackboxによる 漫画・イラスト・楽曲・ライブを始めとした多次元メディアミックスエンターテイメント作品、および出演声優のユニット\n\n今回はFIREVOLT×REDROCK×ETERNAL BLUEが登場！\n",
+    "link": "https://liverevolt.jp/",
+    "isEnable": true
+   },
+   "id": "sbCXWBaPnNiUr273eTty",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "LINKL PLANET ",
+    "kana": "りんくるぷらねっと",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "プラモデルと世界を繋ぐアイドル🤖🌍💫",
+    "link": "https://bandai-hobby.net/site/plamogirlsproject/linklplanet/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-03T03:00:00.000Z",
+   "id": "qQHmrub4z8rwfAPTAVGq",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-07-03T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "上月せれな",
+    "kana": "こうづきせれな",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ソロアイドル。アニソン歌手。\nテレビアニメ『デュエル・マスターズ』や『爆丸』シリーズなど数々のアニメやゲームの主題歌に起用されるなど、アイドルとアニソンの垣根を越えてハイブリッドに活動中。\n2020年1月1日（元日）にはマイナビBLITZ赤坂にてワンマンライブを開催。Twitterハッシュタグがトレンド上位入りを果たすなど注目を浴びた。",
+    "link": "https://serechu.com/",
+    "isEnable": true
+   },
+   "id": "nPulWB2KWUdeaiILSct8",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "EGOEGG",
+    "kana": "えごえっぐ",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「DJ」をテーマにしたメディアミックスコンテンツ『D4DJ（ディーフォーディージェー）』の1グループ「EGOEGG」\n\n”衝突し、研磨される、未完成なエゴイズム”\n3年間の活動休止を経て再び動き出した、個性派DJユニット。全員DJ・全員ボーカルというトリッキーな編成で、メンバーたちがステージ上でマイクとターンテーブルを奪い合い、まるでけんかするように競い合う激しいライブは、聴衆を惹きつけて離さない。\n\n衝動に突き動かされるパフォーマンス、個性と個性がぶつかり合った果てに生まれるグルーヴ。\nひび割れを抱えたまま生きる等身大の雛たちは、殻を破った先にあるまだ見ぬ空を目指すー",
+    "link": "https://d4dj-pj.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-03T03:00:00.000Z",
+   "id": "mkLCHeJgwtSU4SltYJoR",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "releasedAt": "2026-07-03T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "ルミナスウィッチーズ",
+    "kana": "るみなすうぃっちーず",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ウィッチーズ10周年記念の目玉企画、異色の新ウィッチーズがここに発足！\n2018年に発表された「連盟空軍航空魔法音楽隊　ルミナスウィッチーズ」は\n2022年にアニメ化予定の「ワールドウィッチーズ」新シリーズ！\n戦ってみんなを守る統合戦闘航空団のウィッチ達とは違う、\n“歌と音楽”でみんなの笑顔を守るウィッチーズです。\n\nアニメ化に先行して、2019年3月より活動が開始！\nこれからの彼女たちの活躍にご期待ください！",
+    "link": "https://w-witch.jp/luminous/",
+    "isEnable": true
+   },
+   "id": "VfWup1gzxnpsXR3gyJ4x",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-07-03T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "ピュアリーモンスター",
+    "kana": "ぴゅありーもんすたー",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "数々のアイドルユニットを世に送り出して来たStand-Up!Records初の！声優だけのアイドルユニット──\nその名も『ピュアリーモンスター』が、2017年夏、モンスター級の新人としてデビュー！！\n「モンスター級のピュア」を武器に、声優としても、アイドルとしても、どちらも決して手を抜かず、本気で取り組む姿勢を、応援してくれる皆さんと共に体験していく、参加型ドキュメンタリーのようなプロジェクトです。\n2次元・3次元問わず、彼女達をヒロインへと推し上げるのは、何よりも皆さんの応援次第。メンバー達と一緒に最前列を駆け抜けてください！彼女達が夢見るモンスター級のサクセスストーリー。果たしてそのゆくえやいかに！？",
+    "link": "https://stand-up-project.jp/purelymonster/",
+    "isEnable": true
+   },
+   "id": "QuSxkQDY4UijLulfYpYn",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "releasedAt": "2026-07-03T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "前橋ウィッチーズ",
+    "kana": "まえばしうぃっちーず",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "心の花が咲きますように\nオリジナルTVアニメ『前橋ウィッチーズ』\n\n群馬県前橋市を舞台にした5人の歌う魔女見習いの物語。サンライズスタジオ制作による完全新作アニメーション。2026年秋、劇場総集編公開予定！",
+    "link": "https://www.maebashi-witches.com/",
+    "isEnable": true
+   },
+   "id": "NQ6encFV2trZFVL7mBYv",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-07-03T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "新田恵海",
+    "kana": "にったえみ",
+    "initial": "5",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "音楽大学声楽学科卒業後、2010年声優デビュー。\n主な出演は『ラブライブ！』高坂穂乃果役、NHK Eテレ『テストの花道 ニューベンゼミ』ナレーション、東宝ミュージカル『キューティ・ブロンド』ヴィヴィアン役、韓流ドラマ『たった一人の私の味方』キム・ドラン（吹替）など。",
+    "link": "https://emi-nitta.net/",
+    "isEnable": true
+   },
+   "id": "GeSQSTvBfYufpibaXa0F",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Ma’Scar’Piece",
+    "kana": "ますかーぴーす",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "Ma’Scar’Piece （電音部 シモキタザワエリア）困難と葛藤を経験しながらも、\"Scar”（傷跡）を持つことで\"piece\"（作品）としての存在価値を深め、“MasterPiece”（最高傑作）を目指す5人組の令和トランスアイドル",
+    "link": "https://mascarpiece-fc.com/#/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-07-03T03:00:00.000Z",
+   "id": "79NMEWT8QizGb4lgYmsK",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "モナキ",
+    "kana": "もなき",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "純烈・酒井一圭プロデュース「セカンドチャンスオーディション」経て、俳優・一級建築士・戦隊ヒーロー経験者など、\n異色の経歴を持つ4人で結成された純烈の弟分グループ。\nデビュー前からTikTokなどでバズり、4月8日にリリースされたデビュー曲「ほんまやで☆なんでやねん☆しらんけど」の\nSNS総再生回数は15億回を超えている。",
+    "link": "https://monaki.fanpla.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-29T03:00:00.000Z",
+   "id": "mYyL25rcyctYFPgvzQqv",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "美少女戦士セーラームーン -Shining Theater Shinagawa Tokyo-",
+    "kana": "びしょうじょせんしせーらーむーんしゃいにんぐしあたーしながわとうきょう",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "東京・品川プリンスホテル クラブeXにて現在上演中の『美少女戦士セーラームーン』の専用シアター、「美少女戦士セーラームーン -Shining Theater Shinagawa Tokyo-」。\n本作は、10人のセーラー戦士が登場し、『美少女戦士セーラームーン』ならではの世界観と本シアターでしか観られないオリジナルストーリーや演出を通して、作品の魅力をより深く体感していただける新たなエンターテインメント空間です。なお、本作に出演するキャストは「Team Gold Moon」と「Team Silver Moon」の2チームで構成され、登場キャラクターそれぞれをダブルキャストにて上演いたします。\nさらに、席種に応じた特別体験や、キャストとのグリーティング、オリジナルドリンクやスイーツ。ここでしか購入できないアイテムも取り扱う常設のグッズショップなど、あなただけの唯一無二の時間をお楽しみください。",
+    "link": "https://prettyguardiansailormoon-stst.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-29T03:00:00.000Z",
+   "id": "Mk7khi7GJwE3oVA2zPQF",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "unFinale Tokyo",
+    "kana": "あんふぃなーれとうきょう",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "サントリー ノンアルアンバサダーアイドル",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-26T03:00:00.000Z",
+   "id": "VxHT9GulpgcKiSA2sM6r",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "シュレーディンガーの犬",
+    "kana": "しゅれーでぃんがーのいぬ",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "『6人組最強美少女ロック』EDM ✖︎ ROCK",
+    "link": "https://x.com/schro_official",
+    "isEnable": true
+   },
+   "id": "sfFBTVKuxPtbJCBgqF9I",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "Finally",
+    "kana": "ふぁいなりー",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ロックバンドに負けず劣らずラウドなサウンドに乗せるハードでキャッチーなボーカルワークでファンを虜にする6人組ライブモンスター\"Finally(ファイナリー)\"\n数多のステージ経験を重ねた6人の放つ圧倒的なライブパフォーマンスで「このアイドルは只者じゃない」と気づいてしまった熱狂的なファンが急増し、いま知名度急拡大中の注目グループ!",
+    "link": "https://www.finally-official.com/",
+    "isEnable": true
+   },
+   "id": "ld1LZ6wySc4RbKyufxgk",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "Luce Twinkle Wink☆",
+    "kana": "るーちぇとぅうぃんくるうぃんく",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "『Luce Twinkle Wink☆ルーチェ トゥインクル ウィンク』は”輝く瞬間（とき）をトキメキに”をキャッチフレーズに可愛らしさと思いっきりのダンスでキラキラ輝くステージをお届け！\n2014年5月デビュー！2024年8月より宇佐美幸乃、板山紗織、咲本美桜、桧垣果穂、南雲芽依、一ノ瀬天音の6人体制始動！",
+    "link": "https://luce-twinkle-wink.com/",
+    "isEnable": true
+   },
+   "id": "h9hsjfHxXXh2qEy9eMKn",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "BLUEGOATS",
+    "kana": "ぶるーごーつ",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "BLUEGOATS（ブルーゴーツ）。2021年11月結成。愛称は『アオヤギ』 。\n\n「あなたと私でBLUEGOATS」をコンセプトに活動する女性アイドル。",
+    "link": "https://bluegoats.jp/biography",
+    "isEnable": true
+   },
+   "id": "gPtYKV41nR2IwZNeWN6k",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ウイバナ Webana.",
+    "kana": "ういばな",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "わたしたち「ウイバナ webana.」という名前は、\n以前のグループ名である「We=MUKASHIBANASHI」の\n略称から、はじまりました。\nPeace Pop Punk!!! つなごう、希望を。ダブルピースを。終わらない青春唄ってます、ウイバナ Webana.です✌️",
+    "link": "https://webana.me/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "id": "eI3VpJcv5H7KoCbleDks",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "BELLRING少女ハート",
+    "kana": "べるりんしょうじょはーと",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "BELLRING少女ハート 通称“ベルハー” 2012年デビュー〜2016年崩壊。2022年BELLRING少女ハート '22が期間限定で活動。2023年4月16日、新体制BELLRING少女ハートとして活動開始\n",
+    "link": "https://bellringgirlsheart.amebaownd.com/",
+    "isEnable": true
+   },
+   "id": "clNtmi8ckN8ahJ9v4bF8",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "すてねこキャッツ",
+    "kana": "すてねこきゃっつ",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "＼路地裏から世界を🌎駆け回る！💫🐾／\nひっかき注意⚠️気まぐれユニット\n",
+    "link": "https://lit.link/sutenekocats",
+    "isEnable": true
+   },
+   "id": "byRc9DiR6FHF9aqgmrGB",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "log you",
+    "kana": "ろぐゆー",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "log you（ログユー）\nアイドルプロジェクト「PEAK SPOT」3rdグループ。\n「log you」というグループ名は「あなた（you）との毎日を記録（log）する」、「みんなと一緒に歩んでいく」という想いが込められており、これから8人のメンバーがファンと一緒に成長していく。",
+    "link": "https://logyou.asobisystem.com/",
+    "isEnable": true
+   },
+   "id": "aQuBKIubj4CgdlBisfhJ",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "#Mooove!",
+    "kana": "むーぶ",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "『いつかこの世界を１mmムーブさせちゃうんだから。』笑顔も涙も声も汗も…全部空っぽになっても、私たちをみてくれる１人１人の心を動かせるまではステージに立ち続ける。",
+    "link": "https://mooove.world/",
+    "isEnable": true
+   },
+   "id": "a2I6QNnRml50fFgDi08n",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "Sweet Alley",
+    "kana": "すいーとあれい",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2TOKYO IDOL FESTIVAL × TWIN PLANETコラボレーション企画「TIF de Debut」にて結成された王道系アイドルグループ。\nTIF2019でのステージデビューから躍進を続け、昨年10月には国際フォーラムCホールでのワンマンライブを大成功させた！\n",
+    "link": "https://www.sweet-alley.com/",
+    "isEnable": true
+   },
+   "id": "ZiHKbAIIVYmScZBVSyVc",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "びっくえんじぇる",
+    "kana": "びっくえんじぇる",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "天使だったけど\n体重オーバーで落っこちた〜💦\n【総重量736kg】\n肥満落下系堕天使アイドルです！\n天界に戻るために歌って、踊って、痩せて！！？活動しています♪",
+    "link": "https://bigangel.jp/",
+    "isEnable": true
+   },
+   "id": "ZKPNyvo1lFdbM6iAltGJ",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "BOCCHI。",
+    "kana": "ぼっち",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「ぼっち」という⾔葉を聞くと誰もが「孤独」なイメージを持つ。\n\nそう、ひとはみんな孤独なんだ。\n\nでもずっと“ぼっち”ではない。“ぼっち”では⽣きていけない。\n\n『BOCCHI。』はぼっちの複数形。⾃分の夢に向かって未来を切り開く。\n弱くて、今はまだ⼩さくても“ファンのみんなと共に”\n⼤きく成⻑していくアイドルになる。\n\nみんな⾃分がぼっちだと思ったら『BOCCHI。』を聞いて！\n\n⼈と⼈との触れ合いが少なくなった今だからこそ。\n僕たちはみんなの笑顔守りたいんだ。\n",
+    "link": "https://bocchi.club/",
+    "isEnable": true
+   },
+   "id": "XpLOZvPGDpKBhBmulqNb",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "Toi Toi Toi",
+    "kana": "といといとい",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "発起人 朝倉未来、ABEMA、ASOBISYSTEMが手掛けるガールズグループオーディション「Dark Idol PROJECT」より誕生した新アイドルグループ。\n\nグループ名は「上手くいくよ」「大丈夫！しっかり！」と相手の成功や幸せを祈るときに唱える おまじない から命名。\n「Be Alright」をコンセプトに、これまで苦楽を経験してきた彼女たちだからこそできる表現で、勇気を与えられる存在を目指していく。",
+    "link": "https://toitoitoi.asobisystem.com/",
+    "isEnable": true
+   },
+   "id": "WunRtTk8AFbUJys0S5CN",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "さよならステイチューン",
+    "kana": "さよならすていちゅーん",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ニューレトロをコンセプトに活動する“最新型王道アイドル” 2020年11月結成のディアステージとパーフェクトミュージックによる共同プロジェクト「#DSPM」からデビュー。 愛宮歌梨、桃ノ井理子、城谷美温、根岸かのん、萌波あかり、日永陽咲による6人組みユニット。",
+    "link": "https://sayostay.dspm.jp/",
+    "isEnable": true
+   },
+   "id": "UT5RIYBsqa3Wg3EjLjZ4",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "テラテラ",
+    "kana": "てらてら",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "日に照らされる「テラス」のような暖かいグループをコンセプトに活動していく、アイドルグループ『テラテラ』",
+    "link": "https://terasuterasu.net/",
+    "isEnable": true
+   },
+   "id": "RmwnFKQe5UF7cRKxWBSn",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "himawari(船橋)",
+    "kana": "ひまわりかっこふなばし",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "自然豊かで魅力的な船橋を拠点とし活動　多方面でPR・発信していくアイドルです。\n\nサウンドプロデューサーは、柏原収史さん、ISAKICKさん",
+    "link": "https://funabashi-himawarimusume.amebaownd.com/",
+    "isEnable": true
+   },
+   "id": "M2YWRDSRsB9YndajIsFH",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "Bunny La Crew",
+    "kana": "ばにらくるー",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "”バニラ（風味）”という甘いイメージと、”バニー（うさぎ）”の可愛さを想起させる言葉が掛け合わさった、”甘くて可愛い女の子たち”という意味合いに加えて、一緒に応援してくださるファンの方々\"クルー（仲間）\"と共に大きなステージを目指していくという言葉がグループ名の由来。今後さらに勢いを付け、アイドルシーンでの高みを目指す!!\n\n\n",
+    "link": "https://bunnylacrew.updance-ent.com/",
+    "isEnable": true
+   },
+   "id": "KHULVUcuWNpHlllATurm",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "ルルネージュ",
+    "kana": "るるねーじゅ",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "この度、ルルネージュは新たなメンバー2名を加え\n新生”ルルネージュ”としてスタートします。\nひたむきに真っ直ぐ頑張る、純粋な眼差し、\nそんな真っ白な気持ちを胸に、\n私たちと一緒に楽しい未来を描きませんか？",
+    "link": "https://ruruneige.com/",
+    "isEnable": true
+   },
+   "id": "EoWj3mVu970Oe6lqqip7",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "終末のアンセム",
+    "kana": "しゅうまつのあんせむ",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "💎🧊〜例え世界が終わっても、私達は歌い続ける〜🧊💎",
+    "link": "https://owathem.com/",
+    "isEnable": true
+   },
+   "id": "E0SF4lK2e1JyqxkhiWXs",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "シンデレラ宣言！",
+    "kana": "しんでれらせんげん！",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "💿2021年11月17日(水)にポニーキャニオンよりメジャーデビュー‼️ / 🏰超王道💫 \n",
+    "link": "https://x.com/cinsen_official",
+    "isEnable": true
+   },
+   "id": "B92NOZbFirsrHIbKMyAX",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "INUWASI",
+    "kana": "いぬわし",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "Dogs that can't bite, eagle that can't fly.\nThe two species, unjustly despised, have united into black predators that hunt the world. Known as \"Hybrid Raptor\"\n\nINUWASI is the idol unit that speaks for it.",
+    "link": "https://inuwasi.jp/",
+    "isEnable": true
+   },
+   "id": "9TsJBVD51SGdJz1f3BVp",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "クマリデパート",
+    "kana": "くまりでぱーと",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「世界のこころのデパート」をコンセプトに活動するアイドルグループ。",
+    "link": "https://www.qumalidepart.com/",
+    "isEnable": true
+   },
+   "id": "6FKOflxhvJJxTnFUhinA",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "八木沙季",
+    "kana": "やぎさき",
+    "initial": "8",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "日々気になることを検証する「検証します！」動画が話題沸騰！\n2020年5月にTikTokアカウントを開設し、現在フォロワー数75万人超え。\n音声読み上げ機能「TikTokボイスライブラリー」に八木沙季ボイスが追加されました!",
+    "link": "https://x.com/sakipyon31",
+    "isEnable": true
+   },
+   "id": "3jduBUX2os6Y1iRoEbu8",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "Appare!",
+    "kana": "あっぱれ",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2025年日本武道館大成功🧅夢は横浜アリーナ！ビクターエンタテインメントにてメジャーデビュー",
+    "link": "https://appare-official.jp/",
+    "isEnable": true
+   },
+   "id": "1Bo9kUPAuj8fEOpkJVty",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-06-22T03:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "I'mew（あいみゅう）",
+    "kana": "あいみゅう",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "はじめまして、I'mewです。\n「I’m with you」をぎゅっとしてI’mew (あいみゅう)!\n\nIʼm with you には「君と共に在る、大丈夫だよ、わかってる、一緒だよ」という意味があり\n私たちは『君の心の支えになるアイドルで在りたい』と願って活動していきます。\n\n今はまだ支えられてばかりかもしれないですが、\n早く皆さんの心の支えになれるように頑張りたいと思います。\n\nこれから応援よろしくお願いします。",
+    "link": "https://imew.tokyo/",
+    "isEnable": true
+   },
+   "id": "0RBuiEwbBkbu7OJRbaKD",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "ハニースパイスRe.",
+    "kana": "はにーすぱいす",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "...",
+    "link": "https://lit.link/honeyspicere",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "zi6NsGPvbpHvF4QKePC3",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "アップアップガールズ（2）",
+    "kana": "あっぷあっぷがーるずかっこにき",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "全力で青春している王道7人組アイドルグループ アップアップガールズ（２） 通称\" #にきちゃん ",
+    "link": "https://upupgirls2.heteml.net/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "vsPMQPo8g7nRv4CkrFjm",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "CYNHN",
+    "kana": "すうぃーにー",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「CYNHN（スウィーニー）」とは「青色」の意味。\n\nDEARSTAGEとJOYSOUNDの共同オーディションで選ばれた綾瀬志希・月雲ねる・青柳透のメンバーに、2022春ディアステージ・パーフェクトミュージック合同VOCALIST AUDITIONにて選ばれた広瀬みのりで構成される。\n\n所属レーベルは\"I BLUE\"。\n\n”青”の世界観をイメージした楽曲制作、”蒼”にこだわったビジュアルや演出、\n\n楽曲の多くを手掛ける渡辺翔氏による”碧”く等身大の歌詞に彩られ、”青い未完のヴォーカルユニット”として歌を届けている。",
+    "link": "https://cynhn.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "vD3TCKwFXis1sABTZvad",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "SAI²Rium",
+    "kana": "さいさいりうむ",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "〜最強で最高な空間〜",
+    "link": "https://sai2rium.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "urBZ60kWvulBio0bl1oS",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "THE ENCORE",
+    "kana": "あんこーる",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "響き合うたび、また君に会いたくなる。\n\n歩む時間が、ただの“一瞬”で終わらないように。\n何度でも心に響く、何度でも帰ってきたくなる。\n“再会”と“再演”を紡ぐアイドルグループ。",
+    "link": "https://theencore.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "qmpD91RfUMJiH45OEtDm",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "artist": {
+    "name": "あまいものつめあわせ",
+    "kana": "あまいものつめあわせ",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "SPJ Entertainment アイドルグループ。\nちとせよしの、篠見星奈、高橋桃子、西緒りり、中村みずき、高島江梨奈の6人からなるグループ。",
+    "link": "https://www.spj-idol.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "qX5cEHymNN6N14wFKolt",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "fishbowl",
+    "kana": "ふぃっしゅぼうる",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "静岡発、2021年にスタートしたアイドルグループ。\n\nfishbowl（フィッシュボウル）とは「金魚鉢」という意味で、「金魚」のような形に見えるといわれる静岡県すべてを包み込めるアイドルになれるようにということで名付けられた。\n\n2021年開始当初からテレビ静岡で冠番組「アイドル観察バラエティ fishbowlのデビューしちゃってもいいですか？」をスタートさせ、楽曲ではゲストボーカルを迎えたモーショングラフィックによるMVをリリースするなど、デビュー前に県内外から多くの注目を集めている。\n\nサウンドプロデュースは静岡県出身の音楽プロデューサーであるヤマモトショウが担当。",
+    "link": "https://fishbowl.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "oAS0FEWfCw6jKRfG2ILp",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "マジカル・パンチライン",
+    "kana": "まじかるぱんちらいん",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "マジカル・パンチライン、略してマジパン リーダー兼衣装デザイン担当で水色担当の吉澤悠華、黄色担当の益田珠希、赤色担当の山本花奈、緑色担当の宇佐美空来の4人組アイドルグループ！  ",
+    "link": "https://magipun.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "lfz5XGFYgjeChIqOiJlb",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "点染テンセイ少女。",
+    "kana": "てんせんてんせいしょうじょ",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2021年4月23日デビュー。\nライトノベルの世界観をコンセプトにした\"誰か\"の物語を歌うアイドルグループ。疾走感あふれるエモーショナルオルタナティブロックが誰もが通った青春を彷彿とさせ、ノスタルジックな世界に染め上げる。\n\n毎月開催される「超早朝ワンマン」は180名以上 動員する他、富士山から都内までの道程をメンバーでつなぐ、100km駅伝など様々な企画で話題を呼んでいる。\n\nメディアでは、2022年4月からは千葉テレビ・テレビ神奈川・テレビ埼玉の3局同時放送される朝の情報番組にて冠レギュラーコーナー担当する他、キー局でのタイアップを多数担当し、音楽番組にも出演する。\n\n2027年春、EX THEATER ROPPONGIにて、ワンマンライブを開催！\n\n​",
+    "link": "https://www.tensentenseisyoujo.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "lcYB4lldE97L3TI7hm5c",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "LinQ",
+    "kana": "りんく",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "九州/福岡を拠点に活動する⼥性アイドルグループLinQ(よみ︓リンク)。\nLinQ＝「Love in 九州」の頭⽂字から発想した造語で、アイドル活動を通じて⾊々な⼈やもの、地域や国などを繋ぐ事の出来るグループに、そして「笑顔の架け橋」になれるようにとの思いを込めて命名。2011年のデビューから15年―。変⾰と進化を繰り返し、常に新たな姿へと変貌を遂げたLinQは今年4⽉で結成15年、現在7名体制で活動中。\n九州各県の企業様とのコラボや、最近では、「福岡マラソン」⼤会アンバサダーを務めるなど、「笑顔の架け橋︕」の旗印のもと、九州を代表するアイドルグループ。",
+    "link": "https://www.loveinq.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "lT0FfPeQAj3DfTfZNBuu",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "純情のアフィリア",
+    "kana": "じゅんじょうのあふぃりあ",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "\n全国展開中のカフェ&レストラン\n｢アフィリアグループ｣を代表するメンバーから構成された学院型ガールズ・ボーカルユニット。\n萌え業界の2大メーカー、志倉千代丸と、桃井はるこのダブルプロデュース。\nヒットメーカー、つんく♂や大島こうすけなどからも楽曲提供を受けている。\nまた、ダンスの振り付けをラッキィ池田が担当。ユニークな振り付けも特徴的。\n2017年6月｢アフィリア・サーガ｣から改名、新メンバー加入など大改革を発表。\nTVアニメ｢はじめてのギャル｣のオープニングテーマと\nTVアニメ｢俺が好きなのは妹だけど妹じゃない｣のエンディングテーマ、\nTVアニメ｢痛いのは嫌なので防御力に極振りしたいと思います。』のオープニングテーマ!担当し、\n最新シングルオリコンデイリーチャート5位、ウィークリーチャート8位獲得。\nいま、｢もっとも近い、会えるアイドル｣として活躍中!",
+    "link": "https://stand-up-project.jp/j-afilia/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "gokfdirhlAVe5pgNtRD5",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "開歌-かいか-",
+    "kana": "かいか",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2019年4月結成。\n髙橋里穂・廣川大華・青木眞歩・渡邉陽・岩永紗菜子・山村伶那からなるボーカルグループ。\n2023.8.27より、髙橋・岩永が、2026.4.10より廣川が加わり新体制となる。\nメンバーの鮮やかに咲くような歌声を届けることがコンセプト。\n2019年5月5日、タワーレコードが運営するレーベル「T-Palette Records」より「歌の咲く島-蕾盤-」をリリース。\nデビュー曲『歌の咲く島』の作詞・作曲は、タカハシヒョウリ（オワリカラ）が手掛け、編曲はサクライケンタが担当。\nメンバーの透き通った歌声が際立つメロディーと、色とりどりな花の美しさを演出するトラックが印象的。",
+    "link": "https://oano-et.jp/talent/caeca/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "dV4NFWwKlBZfq7cmrLoW",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "可憐なアイボリー",
+    "kana": "かれんなあいぼりー",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "可憐なアイボリーは、日本最大級のアイドルフェス「TOKYO IDOL FESTIVAL 2021」と合同で企画されたオーディション 「TIF de Debut 2021 by TWIN PLANET」にて応募総数3,167名の中から勝ち抜いた、メンバーからなる女性アイドルユニット。\n関連動画総再生回数10億回を超えるクリエイターユニット HoneyWorks がサウンドプロデュースを務めている。\n「アイドルの常識を突き破る」ような新しいアイドルユニットを目指し活動している。\n",
+    "link": "https://karennaivory.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "YyrT89Kt9SOubEkqs8Mi",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "DREAMING MONSTER",
+    "kana": "どりーみんぐもんすたー",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "『夢の続きをもう一度』というコンセプトを掲げ、『何かを始めることはいくつになっても遅くはない』ということを活動を通じて体現させていく\n\n平均年齢30歳の大人アイドルグループ",
+    "link": "https://www.dreaming-monster.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "WGfvBEj02WqXONS5rq9i",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Gran☆Ciel",
+    "kana": "ぐらんしえる",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "@JAM総合プロデューサーの橋元恵一を迎え、ArcJewelとタッグを組んだグループGran☆Cielが、\n2026年1月2日、新メンバーと新体制となる最新ビジュアルを公開。\nあわせて、1月16日（金）に新メンバーお披露目ライブを開催することが決定した。\n\n今回公開された新ビジュアルは、Gran☆Cielがこれまで培ってきた世界観を踏襲しつつ、新章の幕開けを感じさせるビジュアルとなっており、グループのさらなる進化を感じさせる内容となっている。\n\n新メンバーお披露目ライブでは、新たに加入する4名のメンバーが初めてステージに立ち、現メンバーとともに新体制Gran☆Cielとしての第一歩を踏み出す。\n\nライブの詳細およびチケット情報は、Gran☆Ciel公式サイトならびに公式SNSにて順次発表予定。\n\n26年、新たにスタートするGran☆Cielの2ndシーズンどうぞお楽しみに！",
+    "link": "https://gran-ciel.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "TdmjpQAWfBQrpkqt8Mo5",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "バンドじゃないもん！MAXX NAKAYOSHI",
+    "kana": "ばんどじゃないもんまっくすなかよし",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ノーリミットラブアンドピース 「バンドじゃないもん！MAXX NAKAYOSHI」 《女の子は好きなことをしている時が一番かわいい》 をテーマに可愛さを更新中！8月12日ミニアルバム『TЯATƧИOM（ #モンスタート ）』リリース！",
+    "link": "https://banmon.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "RITX2s8k9gh8RjGiytYf",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "カラフルスクリーム",
+    "kana": "からふるすくりーむ",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "関西を中心に活動中！2017年1月デビュー。\n「あなたのココロに彩りを！」なつかしいのに新しい。\nキュートなのにエモーショナル。 楽しいだけでは終わらせない。\nドラマティックでココロに残るステージを展開中！",
+    "link": "https://ntrecords.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "NiDAi6S2lNlM07hsGbTE",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Task have Fun",
+    "kana": "たすくはぶふぁん",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "人生は課題（Task）だらけ、だったらそんなTaskを楽しみながらクリアしちゃおう！ をコンセプトにしたアイドルユニット。\n容姿からは想像のつかないパワフルなパフォーマンスでオーディエンスを魅了するライブが話題となっている。",
+    "link": "https://taskhavefun.net/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "NOijzYTmP6vjYcIP9Ynn",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "二丁目の魅力カミングアウト",
+    "kana": "にちょうめのみりょくかみんぐあうと",
+    "initial": "5",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「ゲイだから」を理由に諦めたくない気持ちから\n「ゲイでもアイドルになれる」をコンセプトに活動しているゲイアイドル。\n\n メンバーはミキティー本物/ぺいにゃむにゃむ/筆村栄心/日が紅の4名。グループ名には、新宿二丁目から先駆けて「ゲイアイドル」というジャンルをカミングアウト(公言)していきたい という思いが込められている。2026年5月1日で結成15周年を迎えたゲイアイドルグループ。",
+    "link": "http://www.comingout.jp/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "K6SR8NbTxid6nDg9K5BT",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "SAISON",
+    "kana": "せぞん",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「燃え尽きるほど、輝きたい。」\n2021年11月20日より1年限定アイドルとして「私たちの全てをこの一年に」というコンセプトを掲げて、活動を開始した\"SAISON\"は限られた1年を全力で駆け抜けた。そんなSAISONが新コンセプトを掲げて再始動した。\n2024年11月25日に新メンバー3人を加え、新たな時代の幕開けに。\nそして2026年3月20日に新メンバー日向春菜を迎え入れ8人体制へ。\n燃え尽きるまで走り続ける先には、一体何が見えるのか。",
+    "link": "https://saison.site/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "BOQmXhEuKUurmWKYysLF",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "NUANCE",
+    "kana": "ぬゅあんす",
+    "initial": "5",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "横浜の商店街から誕生したアイドル。2年後に横アリを目指してます！",
+    "link": "https://lit.link/nuance",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "AXN0PQ7fUvkLVKpRSCeW",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "KRD8",
+    "kana": "けーあーるでぃーえいと",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "姫路ふるさと大使、国土交通省「C to Sea プロジェクト」ご当地アンバサダー(神戸)、ハチ・ハチ北スキー場公式アンバサダー、e-Sports『HADO』公式アンバサダーに就任中！",
+    "link": "https://lit.link/himejiKRD8",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "ABI3aRYVg5NQEnG4oELq",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Peel the Apple",
+    "kana": "ぴーるじあっぷる",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "26時のマスカレイド新メンバーオーディションから誕生!!\n2019年末より半年という長い時間をかけて行われた 26時のマスカレイド新メンバーオーディション 、\n数千人ものオーディション参加者から、10名のファイナリストが決定。\n26時のマスカレイドには1名が選ばれました。ニジマスオーディションこそ受からなかったが、\nアイドルになりたい気持ちを捨てきれない 7人で立ち上げるアイドルグループ 。\n\nオーディション直後に新プロジェクトを立ち上げることを知らされた彼女たちは、\n30分以内にプロジェクトへの参加可否の決断を強いられながらも、\n悔しさをバネにプロジェクトへの参加を表明。\n\n失うものは何一つない彼女たちが巻き起こす 『林檎旋風』 見逃せない!!",
+    "link": "https://peel-the-apple.com/#/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "90kthHotOiRpZ1KoBCH0",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "かすみ草とステラ",
+    "kana": "かすみそうとすてら",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2021年6月結成の女性アイドルグループ。略称は「かすテラ」。\n\n\nコンセプトは『普通の女の子が、アイドル活動を通じてあなたに幸せを届けるまでの物語を紡ぎます。』\n\n「君と夢が重なる場所 アイドルグループオーディション」参加者より選ばれたメンバーで結成され、現在は1期生・2期生・3期生が在籍。\n\n青春をテーマにした楽曲と、ファンとの距離の近いライブパフォーマンスが魅力です。",
+    "link": "https://x.com/Kastella_OFC",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "5QgaUJ22FBpVkR2xRlRG",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "Palette Parade",
+    "kana": "ぱれっとぱれーど",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2021年7月に結成された女性アイドルグループ『Palette Parade』通称『パレパレ』\nメンバーは葵うた・比嘉ゆめの・中野小陽・白川千尋・山﨑悠楓・夏目志穂・髙橋來都葉の7名。",
+    "link": "https://paletteparade-idol.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-06-11T03:00:00.000Z",
+   "id": "1s0O7Xpz8klqJTYJN3Nx",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "artist": {
+    "name": "Root mimi",
+    "kana": "るーとみみ",
+    "initial": "9",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "黒嵜菜々子がプロデューサーを務める\n7人組アイドルグループ。\nグループ名の由来は「根・根源」の「√」と\nフランス語で「かわいい」を意味する「mimi」が由来で、\n「根っからかわいいの道を突き進んでいく」というコンセプト。",
+    "link": "https://rootmimi.com/profile",
+    "isEnable": true
+   },
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "id": "yu0jybHwyTql9QCAtcmg",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829",
+    "20260830"
+   ],
+   "debut": true,
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "Move Next Knot",
+    "kana": "むーぶねくすとのっと",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "EXPOを盛り上げるべく、今年もアットジャムナビゲーターとして期間限定ユニットを結成！\n注目のメンバーは、fav meから阿部かれん FES☆TIVEから仁科茉彩 MyDearDarlin’から濱田菜々の3名！\nそれぞれの名前をキーワードに「Move Next Knot（ムーブ ネクスト ノット）」として活動！\n\nグループ名は「これまでの絆を結びながら次なる未来へ！解けない想いを抱えて進み続ける」という意味を込めて名付けられました。過去も未来も大切に抱きしめ、応援してくれるたくさんのファンの皆様と一緒に、EXPOと今夏のアイドルシーン全体を熱く熱く盛り上げていきます！",
+    "link": "",
+    "isEnable": true
+   },
+   "id": "xyLBwI8xudF9QNRGNQXB",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": true,
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "MORE*",
+    "kana": "もあ",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "〜私達と一緒に素敵な海の冒険へ〜\n\n「王道×マリン」をコンセプトに活動する6人組アイドルグループ。",
+    "link": "https://more.bitfan.id/",
+    "isEnable": true
+   },
+   "id": "lYhPq7JIEpSG59bK59xX",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "I MY ME MINE",
+    "kana": "あいまいみーまいん",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "I MY ME MINE（あいまいみーまいん）通称「アイマイ」は、パレードのように人々をワクワクさせることをコンセプトに活動している8人組の女性アイドル ",
+    "link": "https://immm.rizepro.net/#/",
+    "isEnable": true
+   },
+   "id": "iVKaquAKINYR0DLU6Kwf",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829",
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "fav me",
+    "kana": "ふぁぼみー",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "【頂点を目指す場所】 ASOBISYSTEM の新アイドルプロジェクト「PEAK SPOT」より2025年4月22日デビュー。\nコンセプトは《私を(me)お気に入り(fav)にしてください》",
+    "link": "https://favme.asobisystem.com/",
+    "isEnable": true
+   },
+   "id": "eve5yCW4dEfmWKHGZLxF",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "artist": {
+    "name": "PinkySpice",
+    "kana": "ぴんきーすぱいす",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ピンキーリング(チャンス、変化の象徴)のような存在でいながら、 スパイス(刺激)を与え続ける💍",
+    "link": "http://www.pinkyspice.com//index.html",
+    "isEnable": true
+   },
+   "extra": "expo2026",
+   "id": "ebryyK7lCfbswKXaH9N8",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "artist": {
+    "name": "Jams Collection",
+    "kana": "じゃむずこれくしょん",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "デビュー1年未満でメジャーデビューを果たし、数々の大舞台でワンマンLIVEを開催するなど、名実共に成長し続けている新世代の王道アイドルグループ\"Jams Collection(ジャムズコレクション※呼称:ジャムズ)\"。\nグループ名は “大好きな曲、大好きな人、可愛い、カッコいい、みんなの大好きなものが詰まってる” という意味。",
+    "link": "https://jamscollection.jp/#/",
+    "isEnable": true
+   },
+   "id": "bM6ZihDiYhr6Qw8PfwNX",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829",
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "artist": {
+    "name": "MyDearDarlin'",
+    "kana": "まいでぃあだーりん",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2020年1月26日に人気アイドルグループ『FES☆TIVE』の姉妹ユニットとして誕生し、王道の枠組みに収まらないエモーショナルなライブパフォーマンスで注目を集めているアイドルグループ『MyDearDarlin’（マイディアダーリン／通称：マイディア』。\n\nグループ名には「応援してくれる一人ひとりを大切にし、応援してくれる人にとって一番大切な存在となれるように」という想いが込められている。",
+    "link": "https://mydeardarlin.com/",
+    "isEnable": true
+   },
+   "id": "aolsWeZW7AbesTggZn8D",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "artist": {
+    "name": "手羽先センセーション",
+    "kana": "てばさきせんせーしょん",
+    "initial": "4",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "名前に反して意外と王道！名古屋を拠点に活動🐓",
+    "link": "https://lit.link/tebasen",
+    "isEnable": true
+   },
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "id": "aaWQUcGKrLGUarZPTNLl",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "artist": {
+    "name": "わーすた",
+    "kana": "わーすた",
+    "initial": "10",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2015年に結成のデジタルネイティブ世代アイドル。\nグループ名は「The World Standard」の略。\n現在まで、12か国の国でライブ出演するなど世界に照準を合わせ活動している。\nアニメ「アイドルタイムプリパラ」「キラッとプリ☆チャン」など多数のアニメの楽曲を担当。\n2019年10月にわーすた初となる生バンドでのフリーライブを代々木公園野外ステージにて実施し、3000人以上のファンを集めた。\nLINE CUBE SHIBUYA・豊洲 PIT・TOKYO DOME CITY HALL など多数の会場でワンマンライブを開催。",
+    "link": "https://wa-suta.world/",
+    "isEnable": true
+   },
+   "id": "Yanooo1C50N3vB8ewq2a",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "artist": {
+    "name": "CiON",
+    "kana": "しーおん",
+    "initial": "3",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ブラス×アイドル＝“ブラドル” CiON（シーオン）。2025年4月「avex」よりメジャーデビュー。",
+    "link": "https://lit.link/con0426",
+    "isEnable": true
+   },
+   "id": "X3Q9eZxtdv1cewj2FIUv",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "artist": {
+    "name": "虹のコンキスタドール",
+    "kana": "にじのこんきすたどーる",
+    "initial": "5",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "自分たちが思う「かわいい！」や「好き！」を追い求めるインドア系・正統派アイドルグループ。\n通称“虹コン”。\n自称アイドル界イチ夏曲の多さを誇るも、実は直射日光が苦手な室内派……でも本当はやればできる子。\n虹コンなりのアツいライブでみんなの心を征服ちゅう！",
+    "link": "https://2zicon.tokyo/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "id": "QcijRrw14KHFaiufmwdL",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829"
+   ],
+   "debut": false,
+   "artist": {
+    "name": "なみだ色の消しごむ",
+    "kana": "なみだいろのけしごむ",
+    "initial": "5",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "なみだ色ってどんな色？\nキャッチーな楽曲と一体感のあるパフォーマンスで、みんなのなみだを消し去ります。",
+    "link": "https://www.namikeshi.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "id": "PhYU9rhSb7w8H1BbeVul",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260829",
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "artist": {
+    "name": "FES☆TIVE",
+    "kana": "ふぇすてぃぶ",
+    "initial": "6",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "「日本を元気に！」をテーマに活動している6人組「お祭り系」女性アイドルグループ ",
+    "link": "https://fstv.rizepro.net/#/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "id": "IsZf6gKW3amOTaOvq50v",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "artist": {
+    "name": "メイビーME",
+    "kana": "めいびーみー",
+    "initial": "7",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "自信がなくても、言葉にできなくても、\n\n「たぶん、これがわたし」\n\nそんな未完成な感情を歌いながら、少しずつ“わたしらしさ”を見つけていく──\n今を生きるリアルな歌詞とキュートなビジュアルが魅力の王道アイドルグループ\n\nたぶん、だけど…これが メイビーME♡",
+    "link": "https://x.com/MAYBEME0707?lang=ja",
+    "isEnable": true
+   },
+   "extra": "expo2026",
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "id": "I8iWwlKyM9CheYvU9vsC",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "extra": "expo2026",
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "artist": {
+    "name": " 会心ノ一撃",
+    "kana": "かいしんのいちげき",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "待雪 アイリ、轟姫 める、みっく、夏川こもも、夢衣エマ、優雨澪 純白の衣装を纏った6人組正統派アイドル。",
+    "link": "https://www.kaishinnoichigeki.com/",
+    "isEnable": true
+   },
+   "id": "GveTfXLGZS7GNOycF7qa",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "extra": "expo2026",
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "artist": {
+    "name": "きゅるりんってしてみて",
+    "kana": "きゅるりんってしてみて",
+    "initial": "2",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "女の子の「カワイイ・リアリズム」を追求する島村嬉唄、環やね、チバゆな、逃げ水あむの4人からなるアイドルグループ。\n2021年1月お披露目。",
+    "link": "https://www.kyurushite.com/",
+    "isEnable": true
+   },
+   "id": "9c0JBGaHcknRq3oF9s1j",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "artist": {
+    "name": "アイドルカレッジ",
+    "kana": "あいどるかれっじ",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "2009年2月1日結成。アイドル文化の繁栄を願い、王道とファンの皆様を守り続けるアイドルグループ。TARO☆Records所属。\n\"未来のアイドルをみんなと育てていこう\"を テーマに、将来のアイドルを育成するために開校されたアイドルカレッジ。\nメンバー1人ひとりがアイドル活動だけでなく、女優業や声優業、ソロアーティスト活動、モデル業、衣装製作など様々な分野でも活動中。2023年9月3日、100周年を迎える日比谷公園大音楽堂にて主催ワンマンライブを成功させた",
+    "link": "https://idolcollege.com/",
+    "isEnable": true
+   },
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "id": "8MSuEcSVAs5Gk4Db7DTb",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": true,
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "artist": {
+    "name": "Lって何のLですか？",
+    "kana": "えるってなんのえるですか",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "会える？叶える？何のL？『Lって何のLですか？』(Lなん)というチーム名の東京拠点6人組女性アイドルグループです。2023年10月29日プレデビュー",
+    "link": "https://x.com/lnan_idol",
+    "isEnable": true
+   },
+   "extra": "expo2026",
+   "id": "7VCGReUsHRYj2IdOHApu",
+   "sealedAt": null
+  },
+  {
+   "performanceDate": [
+    "20260830"
+   ],
+   "debut": false,
+   "releasedAt": "2026-05-31T12:00:00.000Z",
+   "extra": "expo2026",
+   "artist": {
+    "name": "AsIs",
+    "kana": "あずいず",
+    "initial": "1",
+    "image": "https://storage.googleapis.com/...-REDACTED",
+    "profile": "ありのままの姿でいい。\n私たちは「君の好きを否定なんかしない」をコンセプトに\n",
+    "link": "https://asis-official.com/about/",
+    "isEnable": true
+   },
+   "id": "2jHZocmdna9KTjkhsQmE",
+   "sealedAt": null
+  }
+ ]
+}

@@ -44,6 +44,9 @@ FIXTURE_FOR = {
     "https://2026.sweetloveshower.com/contents/artist/lineup":
         "festival_sweet_love_shower_live.html",
     "https://ultrajapan.com/lineup": "festival_ultra_japan_live.html",
+    ("https://atjam.jp/api/content/extra-lineup?limit=0&option="
+     "%7B%22where%22:%7B%22extra%22:%22expo2026%22%7D,"
+     "%22withRelation%22:[%22artist%22]%7D"): "festival_atjam_expo_live.json",
 }
 
 
@@ -126,6 +129,20 @@ def test_sweet_love_shower_extractor_counts_and_spotchecks():
     assert "あいみょん" in names and "KANA-BOON" in names
 
 
+def test_atjam_expo_extractor_counts_and_spotchecks():
+    daymap = F.extract_atjam_expo(_load("festival_atjam_expo_live.json"),
+                                  EDITIONS["atjam_expo"])
+    # 163 acts; 4 play both days (80 on day1, 87 on day2)
+    assert {k: len(v) for k, v in daymap.items()} == {
+        "2026-08-29": 80, "2026-08-30": 87}
+    assert "Appare!" in daymap["2026-08-29"]
+    assert "@onefive" in daymap["2026-08-30"]
+    assert all("FES☆TIVE" in daymap[d] for d in daymap)   # both-days act
+    # leading-space artifact in the feed (" 会心ノ一撃") must come out clean
+    assert "会心ノ一撃" in daymap["2026-08-30"]
+    assert not any(n != n.strip() for v in daymap.values() for n in v)
+
+
 def test_ultra_japan_lineup_is_poster_only():
     # Lineup is a poster image; extractor must yield NO names (never OCR/garbage).
     assert F.extract_ultra_japan(_load("festival_ultra_japan_live.html"),
@@ -197,6 +214,28 @@ def test_countdown_japan_skeletons_with_dark_day():
     assert ed.lineup_targets == () and ed.extractor is None
 
 
+def test_atjam_expo_two_day_events():
+    evs = _events("atjam_expo")
+    assert len(evs) == 2
+    by_date = {e.start_date: e for e in evs}
+    assert [len(by_date[d].lineup) for d in
+            ("2026-08-29", "2026-08-30")] == [80, 87]
+    e0 = by_date["2026-08-29"]
+    assert e0.genres == ["idol"]                  # fixed prior
+    # no per-day pages -> edition_url + "#" + iso
+    assert e0.source_url == "https://atjam.jp/expo2026/lineup#2026-08-29"
+
+
+def test_a_nation_and_local_green_are_pure_skeletons():
+    for key, dates in (("a_nation", ["2026-10-03", "2026-10-04"]),
+                       ("local_green", ["2026-11-07", "2026-11-08"])):
+        ed = EDITIONS[key]
+        assert ed.lineup_targets == () and ed.extractor is None, key
+        evs = FestivalsScraper().build_edition(ed, {}, today=TODAY)
+        assert sorted(e.start_date for e in evs) == dates, key
+        assert all(e.lineup == [] for e in evs), key
+
+
 # ------------------------------------------------------- venue resolution
 def test_every_edition_venue_name_resolves_to_its_key():
     for ed in ACTIVE_EDITIONS:
@@ -217,11 +256,13 @@ def test_every_event_is_music_festival_from_festivals_source():
 def test_scrape_yields_all_active_editions():
     evs = list(_StubScraper().scrape(today=TODAY))
     # fuji 3 + summer 3 + rij 5 + sls 1 + ultra 1 + countdown 5
-    assert len(evs) == 18
+    # + atjam 2 + a-nation 2 + local green 2
+    assert len(evs) == 24
     from collections import Counter
     per_title = Counter(e.title_ja for e in evs)
     assert per_title["FUJI ROCK FESTIVAL '26"] == 3
     assert per_title["COUNTDOWN JAPAN 26/27"] == 5
+    assert per_title["@JAM EXPO 2026"] == 2
 
 
 # ------------------------------------------------------- resilience
@@ -229,7 +270,7 @@ def test_broken_lineup_fetch_still_yields_curated_skeletons():
     # Every extractor is fed "<html></html>" (via scrape's fetch): curated
     # facts (dates/title/venue) survive, lineups fall back to empty.
     evs = list(_GarbageScraper().scrape(today=TODAY))
-    assert len(evs) == 18                          # same skeleton count
+    assert len(evs) == 24                          # same skeleton count
     assert all(e.lineup == [] for e in evs)        # no garbage names
     assert all(e.title_ja and e.venue_name and e.start_date for e in evs)
 
@@ -242,6 +283,8 @@ def test_extractors_fail_toward_empty_not_garbage():
     assert F.extract_rock_in_japan("not json", EDITIONS["rock_in_japan"]) == {
         d: [] for d in EDITIONS["rock_in_japan"].dates}
     assert F.extract_sweet_love_shower(junk, EDITIONS["sweet_love_shower"]) == []
+    assert F.extract_atjam_expo("not json", EDITIONS["atjam_expo"]) == {
+        "2026-08-29": [], "2026-08-30": []}
 
 
 def test_finished_editions_are_skipped_offseason():
@@ -261,5 +304,6 @@ def test_scraper_flags_for_pipeline():
 def test_dormant_editions_documented():
     keys = {d["key"] for d in DORMANT_EDITIONS}
     assert keys == {"japan_jam", "metrock_tokyo", "viva_la_rock",
-                    "synchronicity_fes", "greenroom_fes"}
+                    "synchronicity_fes", "greenroom_fes",
+                    "pop_yours", "punkspring"}
     assert all(d.get("parse_pattern") for d in DORMANT_EDITIONS)
