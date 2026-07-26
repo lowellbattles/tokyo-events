@@ -42,6 +42,13 @@ GENRES = [
     "classical", "hiphop-rnb", "electronic", "anime-seiyu",
 ]
 
+#: art facets (category "art" events reuse the genres[] field with these
+#: keys; tagged at export by genres.apply_genres — rules then venue prior)
+ART_GENRES = [
+    "contemporary", "photography", "design", "craft",
+    "manga-anime", "nihonga-classical", "western-art",
+]
+
 
 @dataclass
 class Event:

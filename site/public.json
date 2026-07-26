@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-26T17:09:46.893132",
+  "generated_at": "2026-07-26T17:31:09.750397",
   "sources": [
     {
       "source": "ariake_arena",
@@ -140,6 +140,15 @@
       "source": "fever_shindaita",
       "started_at": "2026-07-25T06:53:09",
       "found": 86,
+      "new": 1,
+      "changed": 0,
+      "error": null,
+      "skipped_venues": []
+    },
+    {
+      "source": "ggg",
+      "started_at": "2026-07-26T17:29:15",
+      "found": 1,
       "new": 1,
       "changed": 0,
       "error": null,
@@ -339,6 +348,15 @@
       "started_at": "2026-07-25T06:57:40",
       "found": 151,
       "new": 0,
+      "changed": 0,
+      "error": null,
+      "skipped_venues": []
+    },
+    {
+      "source": "opera_city_gallery",
+      "started_at": "2026-07-26T17:28:54",
+      "found": 9,
+      "new": 9,
       "changed": 0,
       "error": null,
       "skipped_venues": []
@@ -587,6 +605,15 @@
       "skipped_venues": []
     },
     {
+      "source": "what_museum",
+      "started_at": "2026-07-26T17:30:26",
+      "found": 4,
+      "new": 3,
+      "changed": 0,
+      "error": null,
+      "skipped_venues": []
+    },
+    {
       "source": "www",
       "started_at": "2026-07-25T06:44:38",
       "found": 74,
@@ -694,7 +721,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "design"
+      ],
       "start_date": "2026-03-27",
       "end_date": "2026-08-09",
       "open_time": null,
@@ -756,13 +785,111 @@
       "artists": []
     },
     {
+      "source": "what_museum",
+      "source_url": "https://what.warehouseofart.org/exhibitions/corrugatedcoral",
+      "title_ja": "波板と珊瑚礁 ー 建築を遠くに投げる八の実践",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "design"
+      ],
+      "start_date": "2026-04-21",
+      "end_date": "2026-09-13",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "WHAT MUSEUM",
+      "venue_area": "Tennoz, Shinagawa-ku",
+      "address": "2-6-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo",
+      "lat": 35.6221,
+      "lng": 139.75,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "1dfefe17124422c7",
+      "status": "approved",
+      "venue_key": "what_museum",
+      "artists": []
+    },
+    {
+      "source": "what_museum",
+      "source_url": "https://what.warehouseofart.org/exhibitions/corrugatedcoral_relatedexhibition",
+      "title_ja": "出展建築家8組の実作紹介展示［建築倉庫］",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "design"
+      ],
+      "start_date": "2026-04-21",
+      "end_date": "2026-09-13",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "WHAT MUSEUM",
+      "venue_area": "Tennoz, Shinagawa-ku",
+      "address": "2-6-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo",
+      "lat": 35.6221,
+      "lng": 139.75,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "ad55cf078c4c5e6a",
+      "status": "approved",
+      "venue_key": "what_museum",
+      "artists": []
+    },
+    {
+      "source": "what_museum",
+      "source_url": "https://what.warehouseofart.org/exhibitions/archi-depot",
+      "title_ja": "展示／建築 建築倉庫",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "design"
+      ],
+      "start_date": "2026-04-21",
+      "end_date": "2026-09-13",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "WHAT MUSEUM",
+      "venue_area": "Tennoz, Shinagawa-ku",
+      "address": "2-6-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo",
+      "lat": 35.6221,
+      "lng": 139.75,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "d76d154645fe1466",
+      "status": "approved",
+      "venue_key": "what_museum",
+      "artists": []
+    },
+    {
       "source": "mot",
       "source_url": "https://www.mot-art-museum.jp/exhibitions/ericcarle2026-27/",
       "title_ja": "エリック・カール展",
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2026-04-25",
       "end_date": "2026-07-26",
       "open_time": null,
@@ -792,7 +919,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2026-04-28",
       "end_date": "2026-08-16",
       "open_time": null,
@@ -822,7 +951,9 @@
       "title_en": "Ron Mueck",
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2026-04-29",
       "end_date": "2026-09-23",
       "open_time": null,
@@ -852,7 +983,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "nihonga-classical"
+      ],
       "start_date": "2026-05-16",
       "end_date": "2026-07-26",
       "open_time": null,
@@ -882,7 +1015,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2026-05-26",
       "end_date": "2026-07-26",
       "open_time": null,
@@ -912,7 +1047,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-06-10",
       "end_date": "2026-09-21",
       "open_time": null,
@@ -942,7 +1079,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "nihonga-classical"
+      ],
       "start_date": "2026-06-16",
       "end_date": "2026-08-23",
       "open_time": null,
@@ -972,7 +1111,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "photography"
+      ],
       "start_date": "2026-06-18",
       "end_date": "2026-09-21",
       "open_time": null,
@@ -1002,7 +1143,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "nihonga-classical"
+      ],
       "start_date": "2026-06-23",
       "end_date": "2026-08-30",
       "open_time": null,
@@ -1032,7 +1175,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "design"
+      ],
       "start_date": "2026-06-23",
       "end_date": "2026-10-04",
       "open_time": null,
@@ -1062,7 +1207,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-06-23",
       "end_date": "2026-10-04",
       "open_time": null,
@@ -1164,7 +1311,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-06-30",
       "end_date": "2027-01-11",
       "open_time": null,
@@ -1194,7 +1343,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-06-30",
       "end_date": "2026-10-12",
       "open_time": null,
@@ -3320,7 +3471,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "photography"
+      ],
       "start_date": "2026-07-02",
       "end_date": "2026-09-21",
       "open_time": null,
@@ -5935,7 +6088,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "nihonga-classical"
+      ],
       "start_date": "2026-07-04",
       "end_date": "2026-08-30",
       "open_time": null,
@@ -9835,7 +9990,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-07-07",
       "end_date": "2026-09-23",
       "open_time": null,
@@ -14932,7 +15089,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-07-11",
       "end_date": "2026-08-30",
       "open_time": null,
@@ -14962,7 +15121,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-07-11",
       "end_date": "2026-09-23",
       "open_time": null,
@@ -18871,7 +19032,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "nihonga-classical"
+      ],
       "start_date": "2026-07-14",
       "end_date": "2026-09-06",
       "open_time": null,
@@ -18892,6 +19055,38 @@
       "id": "f5a4ad32c1a1de7c",
       "status": "approved",
       "venue_key": "tnm",
+      "artists": []
+    },
+    {
+      "source": "ggg",
+      "source_url": "https://www.dnpfcp.jp/CGI/gallery/schedule/detail.cgi?l=1&t=1&seq=00000860",
+      "title_ja": "ダフィ・クーネ：ポスターを構築する ―形をつくる、版をつくる、表現をつくる―",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "design"
+      ],
+      "start_date": "2026-07-14",
+      "end_date": "2026-08-26",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "ギンザ・グラフィック・ギャラリー",
+      "venue_area": "Ginza, Chuo-ku",
+      "address": "DNP Ginza Bldg. 1F/B1F, 7-7-2 Ginza, Chuo-ku, Tokyo",
+      "lat": 35.669,
+      "lng": 139.7625,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "46250b461d064313",
+      "status": "approved",
+      "venue_key": "ggg",
       "artists": []
     },
     {
@@ -23381,7 +23576,9 @@
       "title_en": "Fate/Grand Order exhibition -stargazer-",
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "manga-anime"
+      ],
       "start_date": "2026-07-17",
       "end_date": "2026-09-14",
       "open_time": null,
@@ -25118,6 +25315,102 @@
       "artists": [
         "黒夢"
       ]
+    },
+    {
+      "source": "opera_city_gallery",
+      "source_url": "https://www.operacity.jp/ag/exh/detail.php?id=325",
+      "title_ja": "ほぼ、空：青木淳 + リチャード・タトル",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "contemporary"
+      ],
+      "start_date": "2026-07-18",
+      "end_date": "2026-09-23",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京オペラシティ アートギャラリー",
+      "venue_area": "Hatsudai, Shinjuku-ku",
+      "address": "Tokyo Opera City Tower 3F, 3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "lat": 35.6835,
+      "lng": 139.6863,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "fa8de83354811840",
+      "status": "approved",
+      "venue_key": "opera_city_gallery",
+      "artists": []
+    },
+    {
+      "source": "opera_city_gallery",
+      "source_url": "https://www.operacity.jp/ag/exh/detail.php?id=326",
+      "title_ja": "青木淳が選ぶコレクション 収蔵品展087 寺田コレクションより",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "contemporary"
+      ],
+      "start_date": "2026-07-18",
+      "end_date": "2026-09-23",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京オペラシティ アートギャラリー",
+      "venue_area": "Hatsudai, Shinjuku-ku",
+      "address": "Tokyo Opera City Tower 3F, 3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "lat": 35.6835,
+      "lng": 139.6863,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "c54c6d9a45960800",
+      "status": "approved",
+      "venue_key": "opera_city_gallery",
+      "artists": []
+    },
+    {
+      "source": "opera_city_gallery",
+      "source_url": "https://www.operacity.jp/ag/exh/detail.php?id=327",
+      "title_ja": "project N 103 東山詩織",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "contemporary"
+      ],
+      "start_date": "2026-07-18",
+      "end_date": "2026-09-23",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京オペラシティ アートギャラリー",
+      "venue_area": "Hatsudai, Shinjuku-ku",
+      "address": "Tokyo Opera City Tower 3F, 3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "lat": 35.6835,
+      "lng": 139.6863,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "31047ad053a19eff",
+      "status": "approved",
+      "venue_key": "opera_city_gallery",
+      "artists": []
     },
     {
       "source": "oeast",
@@ -32022,7 +32315,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-07-22",
       "end_date": "2026-09-23",
       "open_time": null,
@@ -37116,7 +37411,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "nihonga-classical"
+      ],
       "start_date": "2026-07-25",
       "end_date": "2026-10-18",
       "open_time": null,
@@ -37146,7 +37443,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "photography"
+      ],
       "start_date": "2026-07-25",
       "end_date": "2026-08-23",
       "open_time": null,
@@ -52108,6 +52407,38 @@
       ]
     },
     {
+      "source": "what_museum",
+      "source_url": "https://what.warehouseofart.org/exhibitions/corrugatedcoral_competition-awards",
+      "title_ja": "「波板と珊瑚礁 ー 建築を遠くに投げる八の実践」 関連模型コンペティション 受賞作品展",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "design"
+      ],
+      "start_date": "2026-08-04",
+      "end_date": "2026-09-13",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "WHAT MUSEUM",
+      "venue_area": "Tennoz, Shinagawa-ku",
+      "address": "2-6-10 Higashi-Shinagawa, Shinagawa-ku, Tokyo",
+      "lat": 35.6221,
+      "lng": 139.75,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "388091917b83a99b",
+      "status": "approved",
+      "venue_key": "what_museum",
+      "artists": []
+    },
+    {
       "source": "www",
       "source_url": "https://www-shibuya.jp/schedule/019776.php",
       "title_ja": "POLYPLUS / H ZETTRIO with YUCCO MILLER",
@@ -56444,7 +56775,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "nihonga-classical"
+      ],
       "start_date": "2026-08-08",
       "end_date": "2026-10-04",
       "open_time": null,
@@ -64294,7 +64627,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "craft"
+      ],
       "start_date": "2026-08-15",
       "end_date": "2026-10-12",
       "open_time": null,
@@ -76578,7 +76913,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "design"
+      ],
       "start_date": "2026-08-28",
       "end_date": "2027-01-11",
       "open_time": null,
@@ -77830,7 +78167,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2026-08-29",
       "end_date": "2026-12-06",
       "open_time": null,
@@ -82857,7 +83196,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2026-09-05",
       "end_date": "2026-12-13",
       "open_time": null,
@@ -82887,7 +83228,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "photography"
+      ],
       "start_date": "2026-09-05",
       "end_date": "2026-10-18",
       "open_time": null,
@@ -85177,7 +85520,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-09-09",
       "end_date": "2026-12-13",
       "open_time": null,
@@ -87130,7 +87475,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "craft"
+      ],
       "start_date": "2026-09-12",
       "end_date": "2026-11-23",
       "open_time": null,
@@ -91022,7 +91369,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2026-09-19",
       "end_date": "2027-01-06",
       "open_time": null,
@@ -93430,7 +93779,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-09-22",
       "end_date": "2026-12-13",
       "open_time": null,
@@ -97570,7 +97921,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "nihonga-classical"
+      ],
       "start_date": "2026-09-29",
       "end_date": "2026-12-20",
       "open_time": null,
@@ -97998,7 +98351,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "photography"
+      ],
       "start_date": "2026-09-30",
       "end_date": "2027-01-17",
       "open_time": null,
@@ -98028,7 +98383,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2026-09-30",
       "end_date": "2027-01-17",
       "open_time": null,
@@ -102061,7 +102418,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "design"
+      ],
       "start_date": "2026-10-15",
       "end_date": "2026-12-20",
       "open_time": null,
@@ -102766,6 +103125,102 @@
       "artists": [
         "KENNY G"
       ]
+    },
+    {
+      "source": "opera_city_gallery",
+      "source_url": "https://www.operacity.jp/ag/exh/detail.php?id=334",
+      "title_ja": "種と根っこ ─ 都市の耕し方",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "contemporary"
+      ],
+      "start_date": "2026-10-17",
+      "end_date": "2026-12-20",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京オペラシティ アートギャラリー",
+      "venue_area": "Hatsudai, Shinjuku-ku",
+      "address": "Tokyo Opera City Tower 3F, 3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "lat": 35.6835,
+      "lng": 139.6863,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "6fcddd38f0608bda",
+      "status": "approved",
+      "venue_key": "opera_city_gallery",
+      "artists": []
+    },
+    {
+      "source": "opera_city_gallery",
+      "source_url": "https://www.operacity.jp/ag/exh/detail.php?id=329",
+      "title_ja": "秋の風景 収蔵品展088 寺田コレクションより",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "contemporary"
+      ],
+      "start_date": "2026-10-17",
+      "end_date": "2026-12-20",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京オペラシティ アートギャラリー",
+      "venue_area": "Hatsudai, Shinjuku-ku",
+      "address": "Tokyo Opera City Tower 3F, 3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "lat": 35.6835,
+      "lng": 139.6863,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "89bc4475abb450f8",
+      "status": "approved",
+      "venue_key": "opera_city_gallery",
+      "artists": []
+    },
+    {
+      "source": "opera_city_gallery",
+      "source_url": "https://www.operacity.jp/ag/exh/detail.php?id=330",
+      "title_ja": "project N 104 田中藍衣",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "contemporary"
+      ],
+      "start_date": "2026-10-17",
+      "end_date": "2026-12-20",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京オペラシティ アートギャラリー",
+      "venue_area": "Hatsudai, Shinjuku-ku",
+      "address": "Tokyo Opera City Tower 3F, 3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "lat": 35.6835,
+      "lng": 139.6863,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "556c09c06845483b",
+      "status": "approved",
+      "venue_key": "opera_city_gallery",
+      "artists": []
     },
     {
       "source": "ex_theater",
@@ -104583,7 +105038,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-10-24",
       "end_date": "2027-01-31",
       "open_time": null,
@@ -104613,7 +105070,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-10-24",
       "end_date": "2027-01-31",
       "open_time": null,
@@ -104643,7 +105102,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-10-24",
       "end_date": "2027-02-21",
       "open_time": null,
@@ -105105,7 +105566,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "manga-anime"
+      ],
       "start_date": "2026-10-28",
       "end_date": "2027-02-08",
       "open_time": null,
@@ -105333,7 +105796,9 @@
       "title_en": "Exhibition: Haruichi Furudate “HAIKYU!!” Challengers",
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "manga-anime"
+      ],
       "start_date": "2026-10-30",
       "end_date": "2027-01-11",
       "open_time": null,
@@ -105659,7 +106124,9 @@
       "title_en": "Mariko Mori: All That Shines",
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2026-10-31",
       "end_date": "2027-03-28",
       "open_time": null,
@@ -107587,7 +108054,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "western-art"
+      ],
       "start_date": "2026-11-14",
       "end_date": "2027-03-28",
       "open_time": null,
@@ -112774,7 +113243,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "craft"
+      ],
       "start_date": "2027-01-16",
       "end_date": "2027-03-22",
       "open_time": null,
@@ -112795,6 +113266,102 @@
       "id": "a74babf7d4f73f81",
       "status": "approved",
       "venue_key": "panasonic_shiodome",
+      "artists": []
+    },
+    {
+      "source": "opera_city_gallery",
+      "source_url": "https://www.operacity.jp/ag/exh/detail.php?id=331",
+      "title_ja": "カイ・フランク展 時代を超えるフィンランド・デザイン",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "design"
+      ],
+      "start_date": "2027-01-16",
+      "end_date": "2027-03-22",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京オペラシティ アートギャラリー",
+      "venue_area": "Hatsudai, Shinjuku-ku",
+      "address": "Tokyo Opera City Tower 3F, 3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "lat": 35.6835,
+      "lng": 139.6863,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "71b257ef7583b5a0",
+      "status": "approved",
+      "venue_key": "opera_city_gallery",
+      "artists": []
+    },
+    {
+      "source": "opera_city_gallery",
+      "source_url": "https://www.operacity.jp/ag/exh/detail.php?id=332",
+      "title_ja": "物質的恍惚 収蔵品展089 寺田コレクションより",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "contemporary"
+      ],
+      "start_date": "2027-01-16",
+      "end_date": "2027-03-22",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京オペラシティ アートギャラリー",
+      "venue_area": "Hatsudai, Shinjuku-ku",
+      "address": "Tokyo Opera City Tower 3F, 3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "lat": 35.6835,
+      "lng": 139.6863,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "64c0917ba169a539",
+      "status": "approved",
+      "venue_key": "opera_city_gallery",
+      "artists": []
+    },
+    {
+      "source": "opera_city_gallery",
+      "source_url": "https://www.operacity.jp/ag/exh/detail.php?id=333",
+      "title_ja": "project N 105 菅原果歩",
+      "title_en": null,
+      "subtitle": null,
+      "category": "art",
+      "genres": [
+        "contemporary"
+      ],
+      "start_date": "2027-01-16",
+      "end_date": "2027-03-22",
+      "open_time": null,
+      "start_time": null,
+      "venue_name": "東京オペラシティ アートギャラリー",
+      "venue_area": "Hatsudai, Shinjuku-ku",
+      "address": "Tokyo Opera City Tower 3F, 3-20-2 Nishi-Shinjuku, Shinjuku-ku, Tokyo",
+      "lat": 35.6835,
+      "lng": 139.6863,
+      "price_text": null,
+      "price_min": null,
+      "is_free": null,
+      "is_sold_out": false,
+      "ticket_url": null,
+      "ticket_links": [],
+      "lineup": [],
+      "tags": [],
+      "id": "bb8526eb186de320",
+      "status": "approved",
+      "venue_key": "opera_city_gallery",
       "artists": []
     },
     {
@@ -112973,7 +113540,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "nihonga-classical"
+      ],
       "start_date": "2027-01-19",
       "end_date": "2027-03-14",
       "open_time": null,
@@ -113037,7 +113606,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2027-01-21",
       "end_date": "2027-01-31",
       "open_time": null,
@@ -113414,7 +113985,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2027-02-06",
       "end_date": "2027-05-16",
       "open_time": null,
@@ -113444,7 +114017,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2027-02-06",
       "end_date": "2027-05-16",
       "open_time": null,
@@ -113834,7 +114409,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2027-02-20",
       "end_date": "2027-05-30",
       "open_time": null,
@@ -113864,7 +114441,9 @@
       "title_en": null,
       "subtitle": null,
       "category": "art",
-      "genres": [],
+      "genres": [
+        "contemporary"
+      ],
       "start_date": "2027-02-20",
       "end_date": "2027-05-30",
       "open_time": null,

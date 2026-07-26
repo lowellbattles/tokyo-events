@@ -75,6 +75,7 @@ from .scrapers.museums import (TnmScraper, MotScraper, NactScraper,
                                DesignSightScraper, MitsuiScraper,
                                PanasonicShiodomeScraper, TopMuseumScraper,
                                ShozokanScraper)
+from .scrapers.galleries import OcagScraper, WhatMuseumScraper, GggScraper
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -173,6 +174,10 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "panasonic_shiodome": (PanasonicShiodomeScraper,        ReviewStatus.PENDING),
     "top_museum":        (TopMuseumScraper,                 ReviewStatus.PENDING),
     "shozokan":          (ShozokanScraper,                  ReviewStatus.PENDING),
+    # --- galleries / art spaces (ART phase gallery ring) ------------------
+    "opera_city_gallery": (OcagScraper,                     ReviewStatus.PENDING),
+    "what_museum":       (WhatMuseumScraper,                ReviewStatus.PENDING),
+    "ggg":               (GggScraper,                       ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the

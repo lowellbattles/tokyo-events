@@ -21,7 +21,7 @@ import json
 import os
 import re
 
-from .models import GENRES
+from .models import ART_GENRES, GENRES
 
 # --- rules ---------------------------------------------------------------
 
@@ -51,6 +51,61 @@ _RULES: list[tuple[str, re.Pattern]] = [
 # All-night DJ events are electronic even without an explicit genre word.
 _ALLNIGHT_RE = re.compile(r"オールナイト|ALL ?NIGHT", re.I)
 _DJ_RE = re.compile(r"\bDJ\b|ＤＪ", re.I)
+
+# --- art facets (category "art") -----------------------------------------
+# Deterministic only: title-keyword rules FIRST (a design show at a
+# nihonga museum must win as design), then the venue's collection prior.
+# No LLM pass — museum programs are far more predictable than gig titles.
+
+_ART_RULES: list[tuple[str, re.Pattern]] = [
+    ("photography", re.compile(r"写真|フォト|PHOTOGRAPH|PHOTO", re.I)),
+    ("manga-anime", re.compile(
+        r"マンガ|漫画|アニメ|コミック|ジブリ|Fate/Grand ?Order|ハイキュー", re.I)),
+    ("design", re.compile(r"デザイン|DESIGN|建築|ARCHITECT|ポスター|グラフィック", re.I)),
+    ("craft", re.compile(
+        r"工芸|陶磁|陶芸|やきもの|茶碗|七宝|民藝|民芸|うつわ|ガラス|漆|染織", re.I)),
+    ("nihonga-classical", re.compile(
+        r"日本画|古美術|浮世絵|琳派|仏教|国宝|茶の湯|刀剣|皇室|書跡|水墨|"
+        r"江戸絵画|日本美術|真言|縄文|広重|源氏物語", re.I)),
+    ("western-art", re.compile(
+        r"西洋|印象派|ルーヴル|オルセー|ルネサンス|バロック|ゴッホ|モネ|"
+        r"ピカソ|レンブラント|ターナー|大英博物館", re.I)),
+    ("contemporary", re.compile(r"現代美術|現代アート|コンテンポラリー", re.I)),
+]
+
+#: what an untagged exhibition at this venue most likely is (collection
+#: character). Mixed-program halls (tobikan, NACT) stay out on purpose.
+_ART_VENUE_PRIOR = {
+    "top_museum": "photography",
+    "design_sight_2121": "design",
+    "ggg": "design",
+    "mot": "contemporary",
+    "mori_art_museum": "contemporary",
+    "opera_city_gallery": "contemporary",
+    "what_museum": "contemporary",
+    "nmwa": "western-art",
+    "sompo": "western-art",
+    "artizon": "western-art",
+    "panasonic_shiodome": "western-art",
+    "nezu": "nihonga-classical",
+    "yamatane": "nihonga-classical",
+    "mitsui": "nihonga-classical",
+    "tnm": "nihonga-classical",
+    "shozokan": "nihonga-classical",
+    "mori_arts_center_gallery": "manga-anime",
+}
+
+
+def art_genres(d: dict) -> list[str]:
+    """Facet(s) for one exported art event — rules first, venue prior after.
+    Returns [] when neither speaks; every result is in models.ART_GENRES."""
+    hay = f"{d.get('title_ja') or ''} {d.get('title_en') or ''}"
+    for g, rx in _ART_RULES:
+        if rx.search(hay):
+            return [g]
+    prior = _ART_VENUE_PRIOR.get(d.get("venue_key") or d.get("source"))
+    assert prior is None or prior in ART_GENRES
+    return [prior] if prior else []
 
 #: venue prior: what an untagged music event at this source most likely is.
 #: Only sources with a genuine lean get an entry — mixed venues stay out and
@@ -171,8 +226,12 @@ def apply_genres(conn, events: list[dict]) -> None:
 
     uncertain: list[dict] = []
     for d in events:
+        if d.get("category") == "art":
+            if not d.get("genres"):
+                d["genres"] = art_genres(d)
+            continue
         if d.get("category", "music") not in ("music", "music_festival"):
-            continue                   # music facets don't apply to art etc.
+            continue                   # music facets don't apply elsewhere
         if d.get("genres"):            # scraper knew best (e.g. Billboard)
             continue
         if d["id"] in cache:

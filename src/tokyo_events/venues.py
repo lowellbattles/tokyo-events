@@ -11,7 +11,8 @@ slug for known gap venues we only see through promoters (日本武道館...).
 Resolution runs at EXPORT time so alias updates apply without re-scraping.
 
 Venue classes (vclass) mirror the frontend filter:
-livehouse / jazz / hall / arena / festival / museum (art view).
+livehouse / jazz / hall / arena / festival / museum / gallery
+(museum + gallery populate the art view).
 
 Festivals are venue identities too — a festival's "venue" is the festival
 itself (FUJI ROCK, not 苗場スキー場), giving each its own chip and page.
@@ -166,6 +167,10 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "panasonic_shiodome": ("パナソニック汐留美術館", "museum"),
     "top_museum": ("東京都写真美術館", "museum"),
     "shozokan": ("皇居三の丸尚蔵館", "museum"),
+    # --- galleries / art spaces (2026-07-26) ------------------------------
+    "opera_city_gallery": ("東京オペラシティ アートギャラリー", "museum"),
+    "what_museum": ("WHAT MUSEUM", "museum"),
+    "ggg": ("ギンザ・グラフィック・ギャラリー", "gallery"),
 }
 
 #: extra spellings seen in the wild -> venue_key (normalized at build time)

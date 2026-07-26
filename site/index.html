@@ -12,7 +12,7 @@
     --f-billboard:#8f2d56; --f-pia:#e4007f; --f-other:#6b7280;
     --f-quattro:#d97706; --f-www:#7c3aed; --f-duo:#0d9488; --f-loft:#b91c1c;
     --f-indie:#84cc16; --f-jazz:#78350f; --f-hall:#546e7a; --f-arena:#5b21b6;
-    --f-festival:#059669; --f-museum:#b45309;
+    --f-festival:#059669; --f-museum:#b45309; --f-gallery:#a21caf;
     --radius:10px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -304,6 +304,9 @@ const VENUE_META = {
   panasonic_shiodome:{fam:"museum",   letter:"P"},
   top_museum:        {fam:"museum",   letter:"T"},
   shozokan:          {fam:"museum",   letter:"S"},
+  opera_city_gallery:{fam:"museum",   letter:"O"},
+  what_museum:       {fam:"museum",   letter:"W"},
+  ggg:               {fam:"gallery",  letter:"G"},
 };
 /* promoter events carry venue_key (canonical venue id from the export
    merge); venue-scraped events keep their source id as identity */
@@ -313,19 +316,21 @@ const FAM_COLOR = {liquid:"var(--f-liquid)",ogroup:"var(--f-ogroup)",
   quattro:"var(--f-quattro)",www:"var(--f-www)",duo:"var(--f-duo)",
   loft:"var(--f-loft)",indie:"var(--f-indie)",jazz:"var(--f-jazz)",
   hall:"var(--f-hall)",arena:"var(--f-arena)",festival:"var(--f-festival)",
-  museum:"var(--f-museum)",other:"var(--f-other)"};
+  museum:"var(--f-museum)",gallery:"var(--f-gallery)",other:"var(--f-other)"};
 /* venue class (会場タイプ): derived from the scraper family, with the two
    Pia venues split (a live house and an arena share that family). */
 const VCLASS_KEYS=["livehouse","jazz","hall","arena","festival"];
 const FAM_CLASS={liquid:"livehouse",ogroup:"livehouse",zepp:"livehouse",
   quattro:"livehouse",www:"livehouse",duo:"livehouse",loft:"livehouse",
   indie:"livehouse",billboard:"jazz",jazz:"jazz",hall:"hall",arena:"arena",
-  festival:"festival",museum:"museum"};
+  festival:"festival",museum:"museum",gallery:"gallery"};
 const VCLASS_OVERRIDE={toyosu_pit:"livehouse",pia_arena_mm:"arena"};
 const vclassOf=id=>VCLASS_OVERRIDE[id]||
   FAM_CLASS[(VENUE_META[id]||{}).fam]||"livehouse";
 const GENRE_KEYS = ["idol","j-rock","international","k-pop","jazz-soul",
                     "classical","hiphop-rnb","electronic","anime-seiyu"];
+const ART_GENRE_KEYS = ["contemporary","photography","design","craft",
+                        "manga-anime","nihonga-classical","western-art"];
 
 const I18N = {
   ja:{
@@ -361,6 +366,9 @@ const I18N = {
     playsAt:"出演会場",
     onView:"開催中",upcomingArt:"開催予定",
     detailsArt:"展覧会ページ →",
+    artGenres:{all:"すべて",contemporary:"現代アート",photography:"写真",
+      design:"デザイン・建築",craft:"工芸","manga-anime":"マンガ・アニメ",
+      "nihonga-classical":"日本・東洋美術","western-art":"西洋美術"},
     range:(a,b)=>`${a} 〜 ${b}`,
     daysLeft:n=>n===0?"本日最終日":`あと${n}日`,
     opensIn:n=>n===1?"明日開幕":`${n}日後に開幕`,
@@ -400,6 +408,9 @@ const I18N = {
     playsAt:"Venues",
     onView:"NOW ON VIEW",upcomingArt:"UPCOMING",
     detailsArt:"Exhibition page →",
+    artGenres:{all:"All",contemporary:"Contemporary",photography:"Photography",
+      design:"Design / Architecture",craft:"Craft","manga-anime":"Manga / Anime",
+      "nihonga-classical":"Japanese & Asian art","western-art":"Western art"},
     range:(a,b)=>`${a} – ${b}`,
     daysLeft:n=>n===0?"Last day today":`${n} day${n===1?"":"s"} left`,
     opensIn:n=>n===1?"Opens tomorrow":`Opens in ${n} days`,
@@ -528,10 +539,14 @@ function renderGenreChips(){
   const row=document.getElementById("genre-row");
   row.querySelectorAll(".chip").forEach(n=>n.remove());
   const L=I18N[lang];
-  const present=new Set(DATA.events.flatMap(e=>e.genres||[]));
-  for(const g of ["all",...GENRE_KEYS.filter(g=>present.has(g))]){
+  /* section-aware: art facets label the same genres[] field */
+  const keys=section==="art"?ART_GENRE_KEYS:GENRE_KEYS;
+  const labels=section==="art"?L.artGenres:L.genres;
+  const present=new Set(DATA.events.filter(inSection)
+    .flatMap(e=>e.genres||[]));
+  for(const g of ["all",...keys.filter(g=>present.has(g))]){
     const b=document.createElement("button");
-    b.className="chip";b.textContent=L.genres[g]||g;
+    b.className="chip";b.textContent=labels[g]||g;
     b.setAttribute("aria-pressed",genre===g);
     b.onclick=()=>{genre=g;render();};
     row.appendChild(b);
@@ -570,14 +585,14 @@ function renderVenueChips(){
      venues show until the "+N more" chip expands the rest. */
   let shown, hidden=0;
   if(section==="art"){
-    shown=Object.keys(VENUES).filter(id=>vclassOf(id)==="museum")
-      .sort(byClassThenName);
+    shown=Object.keys(VENUES).filter(id=>
+      ["museum","gallery"].includes(vclassOf(id))).sort(byClassThenName);
   }else if(vclass!=="all"){
     shown=Object.keys(VENUES).filter(id=>vclassOf(id)===vclass)
       .sort(byClassThenName);
   }else{
     const pool=Object.keys(VENUES).filter(id=>
-      vclassOf(id)!=="festival"&&vclassOf(id)!=="museum");
+      !["festival","museum","gallery"].includes(vclassOf(id)));
     if(venuesExpanded){
       shown=pool.sort(byClassThenName);
     }else{
@@ -721,6 +736,7 @@ function artCardHtml(ev){
       <div class="meta">
         <span class="venue-tag alink" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</span>
         <span class="area">${esc(V.area)}</span>
+        ${(ev.genres||[]).map(g=>`<span class="g-tag">${L.artGenres[g]||g}</span>`).join("")}
         ${closing?`<span class="closing">${L.closingSoon}</span>`:""}
         <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${L.detailsArt}</a>
       </div>
@@ -802,7 +818,7 @@ function renderVenuePage(id){
   const list=document.getElementById("list");
   const V=VENUES[id];
   if(!V){list.innerHTML=`<div class="empty">${L.empty}</div>`;return;}
-  const museum=vclassOf(id)==="museum";
+  const museum=["museum","gallery"].includes(vclassOf(id));
   const evs=DATA.events.filter(ev=>venueIdOf(ev)===id&&ev.start_date&&
       (museum?isArt(ev):isMusic(ev)))
     .sort((a,b)=>a.start_date.localeCompare(b.start_date));
@@ -834,9 +850,9 @@ function render(){
     b.textContent=L.sections[b.dataset.section];
     b.setAttribute("aria-pressed",b.dataset.section===section);
   });
-  /* music-only filter rows are meaningless for exhibitions */
+  /* venue-type row is music-only; the genre row serves both sections
+     (music genres vs art facets) */
   document.getElementById("vclass-row").style.display=section==="art"?"none":"";
-  document.getElementById("genre-row").style.display=section==="art"?"none":"";
   document.getElementById("search").placeholder=L.search;
   document.getElementById("expand-all").textContent=L.expandAll;
   document.getElementById("collapse-all").textContent=L.collapseAll;
