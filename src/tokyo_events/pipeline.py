@@ -76,6 +76,7 @@ from .scrapers.museums import (TnmScraper, MotScraper, NactScraper,
                                PanasonicShiodomeScraper, TopMuseumScraper,
                                ShozokanScraper)
 from .scrapers.galleries import OcagScraper, WhatMuseumScraper, GggScraper
+from .scrapers.matsuri import CuratedSeasonalScraper
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -178,6 +179,11 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "opera_city_gallery": (OcagScraper,                     ReviewStatus.PENDING),
     "what_museum":       (WhatMuseumScraper,                ReviewStatus.PENDING),
     "ggg":               (GggScraper,                       ReviewStatus.PENDING),
+    # --- seasonal curated (matsuri + fireworks; dates are facts) ----------
+    "matsuri":           (lambda: CuratedSeasonalScraper("matsuri"),
+                          ReviewStatus.PENDING),
+    "hanabi":            (lambda: CuratedSeasonalScraper("hanabi"),
+                          ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the

@@ -29,6 +29,9 @@ from .venues import resolve_venue
 PROMOTER_SOURCES = {"sogo_tokyo", "creativeman", "smash_jpn", "udo_artists",
                     "disk_garage", "livenation_jp"}
 FESTIVAL_SOURCE = "festivals"
+#: curated seasonal sources — like festivals, each event's venue_name IS a
+#: canonical identity that must become its venue_key
+SEASONAL_SOURCES = {"matsuri", "hanabi"}
 
 #: venue keys that HOST a festival we cover — only rows at these venues are
 #: candidates for festival dedupe (an after-party at a club with the
@@ -137,9 +140,9 @@ def _is_festival_duplicate(d: dict,
 def _apply(events: list[dict]) -> list[dict]:
     by_date_venue: dict[tuple[str, str], list[dict]] = {}
     for d in events:
-        if d["source"] == FESTIVAL_SOURCE:
+        if d["source"] == FESTIVAL_SOURCE or d["source"] in SEASONAL_SOURCES:
             d["venue_key"] = (resolve_venue(d.get("venue_name"))
-                              or FESTIVAL_SOURCE)
+                              or d["source"])
         elif d["source"] in PROMOTER_SOURCES:
             # None marks a promoter row with no displayable venue: either a
             # listing-level placeholder awaiting detail enrichment

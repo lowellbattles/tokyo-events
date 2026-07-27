@@ -13,6 +13,7 @@
     --f-quattro:#d97706; --f-www:#7c3aed; --f-duo:#0d9488; --f-loft:#b91c1c;
     --f-indie:#84cc16; --f-jazz:#78350f; --f-hall:#546e7a; --f-arena:#5b21b6;
     --f-festival:#059669; --f-museum:#b45309; --f-gallery:#a21caf;
+    --f-matsuri:#e11d48;
     --radius:10px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -139,6 +140,7 @@
     <span class="f-label" data-i18n="l_section"></span>
     <button class="chip" data-section="music"></button>
     <button class="chip" data-section="art"></button>
+    <button class="chip" data-section="matsuri"></button>
   </div>
   <div class="f-row">
     <span class="f-label" data-i18n="l_when"></span>
@@ -324,6 +326,30 @@ const VENUE_META = {
   opera_city_gallery:{fam:"museum",   letter:"O"},
   what_museum:       {fam:"museum",   letter:"W"},
   ggg:               {fam:"gallery",  letter:"G"},
+  /* seasonal curated — matsuri + fireworks sites */
+  fukagawa_hachiman: {fam:"matsuri",  letter:"深"},
+  azabujuban_matsuri:{fam:"matsuri",  letter:"麻"},
+  otsuka_awaodori:   {fam:"matsuri",  letter:"大"},
+  koenji_awaodori:   {fam:"matsuri",  letter:"高"},
+  super_yosakoi:     {fam:"matsuri",  letter:"よ"},
+  asakusa_samba:     {fam:"matsuri",  letter:"サ"},
+  fukuro_matsuri:    {fam:"matsuri",  letter:"ふ"},
+  tokyo_yosakoi:     {fam:"matsuri",  letter:"よ"},
+  kawagoe_matsuri:   {fam:"matsuri",  letter:"川"},
+  tori_no_ichi:      {fam:"matsuri",  letter:"酉"},
+  chichibu_yomatsuri:{fam:"matsuri",  letter:"秩"},
+  edogawa_hanabi:    {fam:"matsuri",  letter:"花"},
+  itabashi_hanabi:   {fam:"matsuri",  letter:"花"},
+  hachioji_hanabi:   {fam:"matsuri",  letter:"花"},
+  makuhari_beach_hanabi:{fam:"matsuri", letter:"花"},
+  jingu_gaien_hanabi:{fam:"matsuri",  letter:"花"},
+  yokohama_night_flowers:{fam:"matsuri", letter:"花"},
+  minatomirai_festival:{fam:"matsuri", letter:"花"},
+  chofu_hanabi:      {fam:"matsuri",  letter:"花"},
+  setagaya_tamagawa_hanabi:{fam:"matsuri", letter:"花"},
+  kawasaki_tamagawa_hanabi:{fam:"matsuri", letter:"花"},
+  konosu_hanabi:     {fam:"matsuri",  letter:"花"},
+  atsugi_ayu_hanabi: {fam:"matsuri",  letter:"花"},
 };
 /* promoter events carry venue_key (canonical venue id from the export
    merge); venue-scraped events keep their source id as identity */
@@ -333,14 +359,15 @@ const FAM_COLOR = {liquid:"var(--f-liquid)",ogroup:"var(--f-ogroup)",
   quattro:"var(--f-quattro)",www:"var(--f-www)",duo:"var(--f-duo)",
   loft:"var(--f-loft)",indie:"var(--f-indie)",jazz:"var(--f-jazz)",
   hall:"var(--f-hall)",arena:"var(--f-arena)",festival:"var(--f-festival)",
-  museum:"var(--f-museum)",gallery:"var(--f-gallery)",other:"var(--f-other)"};
+  museum:"var(--f-museum)",gallery:"var(--f-gallery)",
+  matsuri:"var(--f-matsuri)",other:"var(--f-other)"};
 /* venue class (会場タイプ): derived from the scraper family, with the two
    Pia venues split (a live house and an arena share that family). */
 const VCLASS_KEYS=["livehouse","jazz","hall","arena","festival"];
 const FAM_CLASS={liquid:"livehouse",ogroup:"livehouse",zepp:"livehouse",
   quattro:"livehouse",www:"livehouse",duo:"livehouse",loft:"livehouse",
   indie:"livehouse",billboard:"jazz",jazz:"jazz",hall:"hall",arena:"arena",
-  festival:"festival",museum:"museum",gallery:"gallery"};
+  festival:"festival",museum:"museum",gallery:"gallery",matsuri:"matsuri"};
 const VCLASS_OVERRIDE={toyosu_pit:"livehouse",pia_arena_mm:"arena"};
 const vclassOf=id=>VCLASS_OVERRIDE[id]||
   FAM_CLASS[(VENUE_META[id]||{}).fam]||"livehouse";
@@ -348,11 +375,15 @@ const GENRE_KEYS = ["idol","j-rock","international","k-pop","jazz-soul",
                     "classical","hiphop-rnb","electronic","anime-seiyu"];
 const ART_GENRE_KEYS = ["contemporary","photography","design","craft",
                         "manga-anime","nihonga-classical","western-art"];
+const SEASONAL_GENRE_KEYS = ["matsuri","hanabi"];
 
 const I18N = {
   ja:{
     tagline:"都内ライブハウスからアリーナ、美術館まで、ひとつに。",
-    l_section:"カテゴリ",sections:{music:"音楽",art:"アート・展覧会"},
+    l_section:"カテゴリ",
+    sections:{music:"音楽",art:"アート・展覧会",matsuri:"まつり・花火"},
+    seasonalGenres:{all:"すべて",matsuri:"祭り",hanabi:"花火大会"},
+    detailsSeasonal:"公式サイト →",
     l_when:"日付",l_genre:"ジャンル",l_venue:"会場",l_vclass:"会場タイプ",
     vclasses:{all:"すべて",livehouse:"ライブハウス・クラブ",jazz:"ジャズクラブ",
       hall:"ホール・劇場",arena:"アリーナ・スタジアム",festival:"フェス"},
@@ -393,7 +424,11 @@ const I18N = {
   },
   en:{
     tagline:"Every live house, arena, and museum. One schedule.",
-    l_section:"Category",sections:{music:"Music",art:"Art / Exhibitions"},
+    l_section:"Category",
+    sections:{music:"Music",art:"Art / Exhibitions",
+      matsuri:"Matsuri / Fireworks"},
+    seasonalGenres:{all:"All",matsuri:"Matsuri",hanabi:"Fireworks"},
+    detailsSeasonal:"Official site →",
     l_when:"When",l_genre:"Genre",l_venue:"Venue",l_vclass:"Venue type",
     vclasses:{all:"All",livehouse:"Live houses / clubs",jazz:"Jazz clubs",
       hall:"Halls / theaters",arena:"Arenas / stadiums",festival:"Festivals"},
@@ -503,7 +538,11 @@ function inWindow(ev){
    music. The art section is category:"art" (museums/galleries). */
 const isMusic=ev=>["music","music_festival"].includes(ev.category||"music");
 const isArt=ev=>ev.category==="art";
-const inSection=ev=>section==="art"?isArt(ev):isMusic(ev);
+/* matsuri section = traditional festivals + fireworks (category
+   "festival" is matsuri; music festivals are "music_festival") */
+const isSeasonal=ev=>["festival","fireworks"].includes(ev.category);
+const inSection=ev=>section==="art"?isArt(ev)
+  :section==="matsuri"?isSeasonal(ev):isMusic(ev);
 function matches(ev){
   if(!ev.start_date) return false;
   if(!inSection(ev)) return false;
@@ -556,9 +595,11 @@ function renderGenreChips(){
   const row=document.getElementById("genre-row");
   row.querySelectorAll(".chip").forEach(n=>n.remove());
   const L=I18N[lang];
-  /* section-aware: art facets label the same genres[] field */
-  const keys=section==="art"?ART_GENRE_KEYS:GENRE_KEYS;
-  const labels=section==="art"?L.artGenres:L.genres;
+  /* section-aware: art facets / seasonal types label the same genres[] */
+  const keys=section==="art"?ART_GENRE_KEYS
+    :section==="matsuri"?SEASONAL_GENRE_KEYS:GENRE_KEYS;
+  const labels=section==="art"?L.artGenres
+    :section==="matsuri"?L.seasonalGenres:L.genres;
   const present=new Set(DATA.events.filter(inSection)
     .flatMap(e=>e.genres||[]));
   for(const g of ["all",...keys.filter(g=>present.has(g))]){
@@ -604,12 +645,15 @@ function renderVenueChips(){
   if(section==="art"){
     shown=Object.keys(VENUES).filter(id=>
       ["museum","gallery"].includes(vclassOf(id))).sort(byClassThenName);
+  }else if(section==="matsuri"){
+    shown=Object.keys(VENUES).filter(id=>vclassOf(id)==="matsuri")
+      .sort(byClassThenName);
   }else if(vclass!=="all"){
     shown=Object.keys(VENUES).filter(id=>vclassOf(id)===vclass)
       .sort(byClassThenName);
   }else{
     const pool=Object.keys(VENUES).filter(id=>
-      !["festival","museum","gallery"].includes(vclassOf(id)));
+      !["festival","museum","gallery","matsuri"].includes(vclassOf(id)));
     if(venuesExpanded){
       shown=pool.sort(byClassThenName);
     }else{
@@ -700,7 +744,8 @@ function dayGroupsHtml(evs){
         :`<div class="t-none">${L.tbd}</div>`;
       const price=ev.is_free?`<span class="price">${L.free}</span>`
         :ev.price_min?`<span class="price">${L.from(ev.price_min)}</span>`:"";
-      const gtags=(ev.genres||[]).map(g=>`<span class="g-tag">${L.genres[g]||g}</span>`).join("");
+      const glabels=isSeasonal(ev)?L.seasonalGenres:L.genres;
+      const gtags=(ev.genres||[]).map(g=>`<span class="g-tag">${glabels[g]||g}</span>`).join("");
       const multi=ev.end_date&&ev.end_date!==ev.start_date
         ?`<div class="multiday">${L.multi(L.dayfmt(P(ev.start_date)),L.dayfmt(P(ev.end_date)))}</div>`:"";
       const title=lang==="en"?(ev.title_en||ev.title_ja):(ev.title_ja||ev.title_en);
@@ -716,7 +761,7 @@ function dayGroupsHtml(evs){
             <span class="venue-tag alink" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</span>
             <span class="area">${esc(V.area)}</span>
             ${price}${gtags}
-            <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${L.details}</a>
+            <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${isSeasonal(ev)?L.detailsSeasonal:L.details}</a>
           </div>
           ${lineupHtml?`<div class="lineup">${lineupHtml}</div>`:""}
           ${ticketBadges(ev)}
@@ -838,8 +883,9 @@ function renderVenuePage(id){
   const V=VENUES[id];
   if(!V){list.innerHTML=`<div class="empty">${L.empty}</div>`;return;}
   const museum=["museum","gallery"].includes(vclassOf(id));
+  const seasonal=vclassOf(id)==="matsuri";
   const evs=DATA.events.filter(ev=>venueIdOf(ev)===id&&ev.start_date&&
-      (museum?isArt(ev):isMusic(ev)))
+      (museum?isArt(ev):seasonal?isSeasonal(ev):isMusic(ev)))
     .sort((a,b)=>a.start_date.localeCompare(b.start_date));
   const upcoming=evs.filter(ev=>P(ev.end_date||ev.start_date)>=TODAY);
   const sample=evs.find(e=>e.address);
@@ -869,9 +915,10 @@ function render(){
     b.textContent=L.sections[b.dataset.section];
     b.setAttribute("aria-pressed",b.dataset.section===section);
   });
-  /* venue-type row is music-only; the genre row serves both sections
-     (music genres vs art facets) */
-  document.getElementById("vclass-row").style.display=section==="art"?"none":"";
+  /* venue-type row is music-only; the genre row serves every section
+     (music genres / art facets / seasonal types) */
+  document.getElementById("vclass-row").style.display=
+    section==="music"?"":"none";
   document.getElementById("search").placeholder=L.search;
   document.getElementById("expand-all").textContent=L.expandAll;
   document.getElementById("collapse-all").textContent=L.collapseAll;
@@ -898,10 +945,11 @@ document.querySelectorAll("[data-section]").forEach(b=>{
   b.onclick=()=>{
     if(section===b.dataset.section) return;
     section=b.dataset.section;
-    /* mode change: reset music-side filters; exhibitions run for months,
-       so the art list defaults to the full window */
+    /* mode change: reset music-side filters; exhibitions and seasonal
+       events spread over months, so those lists default to the full
+       window */
     genre="all";vclass="all";activeVenues=new Set(Object.keys(VENUES));
-    when=section==="art"?"all":"week";
+    when=section==="music"?"week":"all";
     render();
   };
 });

@@ -49,6 +49,10 @@ ART_GENRES = [
     "manga-anime", "nihonga-classical", "western-art",
 ]
 
+#: seasonal-section type facets (categories festival/fireworks reuse the
+#: genres[] field; set by the curated scraper, never re-tagged at export)
+SEASONAL_GENRES = ["matsuri", "hanabi"]
+
 
 @dataclass
 class Event:

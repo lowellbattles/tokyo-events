@@ -11,8 +11,9 @@ slug for known gap venues we only see through promoters (日本武道館...).
 Resolution runs at EXPORT time so alias updates apply without re-scraping.
 
 Venue classes (vclass) mirror the frontend filter:
-livehouse / jazz / hall / arena / festival / museum / gallery
-(museum + gallery populate the art view).
+livehouse / jazz / hall / arena / festival / museum / gallery / matsuri
+(museum + gallery populate the art view; matsuri covers both traditional
+festival sites and fireworks sites in the まつり・花火 view).
 
 Festivals are venue identities too — a festival's "venue" is the festival
 itself (FUJI ROCK, not 苗場スキー場), giving each its own chip and page.
@@ -171,6 +172,30 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "opera_city_gallery": ("東京オペラシティ アートギャラリー", "museum"),
     "what_museum": ("WHAT MUSEUM", "museum"),
     "ggg": ("ギンザ・グラフィック・ギャラリー", "gallery"),
+    # --- seasonal curated: matsuri + fireworks sites (2026-07-27) ---------
+    "fukagawa_hachiman": ("深川八幡祭り", "matsuri"),
+    "azabujuban_matsuri": ("麻布十番納涼まつり", "matsuri"),
+    "otsuka_awaodori": ("東京大塚阿波おどり", "matsuri"),
+    "koenji_awaodori": ("東京高円寺阿波おどり", "matsuri"),
+    "super_yosakoi": ("スーパーよさこい", "matsuri"),
+    "asakusa_samba": ("浅草サンバカーニバル", "matsuri"),
+    "fukuro_matsuri": ("ふくろ祭り", "matsuri"),
+    "tokyo_yosakoi": ("東京よさこい", "matsuri"),
+    "kawagoe_matsuri": ("川越まつり", "matsuri"),
+    "tori_no_ichi": ("酉の市（浅草）", "matsuri"),
+    "chichibu_yomatsuri": ("秩父夜祭", "matsuri"),
+    "edogawa_hanabi": ("江戸川区花火大会", "matsuri"),
+    "itabashi_hanabi": ("いたばし花火大会", "matsuri"),
+    "hachioji_hanabi": ("八王子花火大会", "matsuri"),
+    "makuhari_beach_hanabi": ("幕張ビーチ花火フェスタ", "matsuri"),
+    "jingu_gaien_hanabi": ("神宮外苑花火大会", "matsuri"),
+    "yokohama_night_flowers": ("ヨコハマナイトフラワーズ", "matsuri"),
+    "minatomirai_festival": ("みなとみらいフェスティバル", "matsuri"),
+    "chofu_hanabi": ("映画のまち調布花火", "matsuri"),
+    "setagaya_tamagawa_hanabi": ("世田谷区たまがわ花火大会", "matsuri"),
+    "kawasaki_tamagawa_hanabi": ("川崎市制記念多摩川花火大会", "matsuri"),
+    "konosu_hanabi": ("こうのす花火大会", "matsuri"),
+    "atsugi_ayu_hanabi": ("あつぎ鮎まつり大花火大会", "matsuri"),
     # --- promoter-gap curation (skipped_venues sweep, 2026-07-26) ---------
     "daikanyama_space_odd": ("代官山 SPACE ODD", "livehouse"),
     "blaze_gotanda": ("BLAZE GOTANDA", "livehouse"),
