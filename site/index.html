@@ -170,8 +170,11 @@
 <script>
 /* ============================================================
    Data contract: ./public.json produced by `cli.py export`
-   { generated_at, sources:[{source,started_at,found,error}],
-     events:[Event.to_json()...] }
+   { generated_at,                    // tz-aware UTC ISO string
+     sources:[{source,found,error}],
+     events:[Event.to_json() minus db.EXPORT_DROP_FIELDS] }
+   Only upcoming (JST) events are exported; past/other-category
+   rows never reach the feed (roadmap R3).
    ============================================================ */
 const VENUE_META = {
   liquidroom:        {fam:"liquid",   letter:"L"},

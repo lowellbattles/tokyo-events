@@ -248,23 +248,28 @@ keep resolving until they age out; CLAUDE.md documents the revisit
 trigger (next art-phase pass). Rolling issue #5 closes automatically on
 the next clean daily run.
 
-**R3. Slim the public feed (one export change).** *(EXP-1/2/3/4 · M)*
-In `export_public_json`: (1) filter to `(end_date or start_date) ≥`
-JST-today — export-only, the DB keeps full history; (2) drop category
-`other`; (3) compact JSON (`separators=(",",":")`); (4) stop exporting
-fields the frontend never reads — `price_text`, `id`, `status`,
-`ticket_url`, `lat`, `lng`, `tags` — and strip `skipped_venues` +
-run-internals from `sources[]`; (5) write `generated_at` timezone-aware
-UTC (fixes the footer for every viewer). Add the contract tests (EXP-5):
-past-event exclusion, other-exclusion, exact exported field set.
-Expected: **3.58 MB → ~1.1 MB (-70%)** and the growth curve flattens to
-true forward-looking volume.
-*Note:* `id` verified unused by index.html today (artist/venue routes key
-on names/venue_key); if a future feature needs stable ids, re-add
-deliberately. If the owner would rather *show* price tiers than drop
-them, keep `price_text` and render it — decide, don't ship it unread.
-*Accept:* feed ≤ 1.3 MB; site renders identically (all three sections,
-artist pages, ticket badges); new tests pin the contract.
+**R3. Slim the public feed (one export change).** *(EXP-1/2/3/4 · M)* ✅ **shipped 2026-07-27**
+As implemented in `export_public_json` (+ `textutils.jst_today()`, added
+early for R4 to adopt): (1) only events with `(end_date or start_date)
+≥` JST-today export — the DB keeps full history; (2) category `other`
+and undated events excluded; (3) compact JSON; (4) internal fields
+stripped after the genre/artist passes (`db.EXPORT_DROP_FIELDS`:
+price_text, id, status, ticket_url, lat, lng, tags — re-add one
+deliberately if a feature needs it, e.g. a map or rendered price
+tiers); (5) `sources[]` slimmed to `{source, found, error}` and
+filtered to currently-registered sources, so retired sources (mot,
+what_museum) don't show a stale error in the footer forever;
+(6) `generated_at` is tz-aware UTC — the footer now renders the true
+JST time for every viewer (verified in-browser: 12:34:18+00:00 →
+データ更新 21:34:18). index.html's data-contract comment updated in
+lockstep (CLAUDE.md rule 5).
+**Measured: 3,749,463 → 1,313,449 bytes (-65%)**, 3,121 → 2,094 events
+(all forward-looking). Contract pinned by `tests/test_export.py` (3
+tests: pruning, field set, sources/timestamp/compactness). Site
+verified rendering identically on the slim feed via local preview:
+music (275 cards/7 days), art (68 cards incl. long-running ranges kept
+via end_date), matsuri (28), artist pages + back-nav, zero console
+errors.
 
 **R4. JST-correct "today" across the scrape layer.** *(SCR-1 · M)*
 Add `textutils.jst_today()` (zoneinfo Asia/Tokyo; Japan has no DST) and

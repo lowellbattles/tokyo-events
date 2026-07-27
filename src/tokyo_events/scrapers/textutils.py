@@ -147,6 +147,19 @@ def parse_prices(text: str) -> tuple[str | None, int | None, bool | None]:
     return cleaned[:300], pmin, pmin == 0
 
 
+#: Japan Standard Time. A fixed +9 offset on purpose: Japan has no DST,
+#: and zoneinfo("Asia/Tokyo") would require the tzdata package on the
+#: owner's Windows machine for a constant we can state directly.
+JST = dt.timezone(dt.timedelta(hours=9), "JST")
+
+
+def jst_today() -> dt.date:
+    """Today's date in JST — the only 'today' this project should use.
+    The CI runner's clock is UTC: at the daily 07:00 JST run, naive
+    date.today() is still *yesterday* in Japan (roadmap R4/SCR-1)."""
+    return dt.datetime.now(JST).date()
+
+
 def infer_year(month: int, day: int, today: dt.date | None = None) -> str | None:
     """Given a month/day with no year, pick the year that makes the date fall
     within [today - 60d, today + ~10 months]. Venue schedules are

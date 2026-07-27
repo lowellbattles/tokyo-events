@@ -192,6 +192,7 @@ def test_export_applies_genres(tmp_path):
     import json as _json
     store = EventStore(tmp_path / "g.db")
     ev = _lq()["betaband_20260609"]         # subtitle "JAPAN TOUR 2026"
+    ev.start_date = "2099-06-09"            # export prunes past events (R3)
     store.upsert(ev, ReviewStatus.AUTO)
     out = tmp_path / "pub.json"
     store.export_public_json(out)

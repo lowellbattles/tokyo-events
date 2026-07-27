@@ -81,6 +81,14 @@ CREATE TABLE IF NOT EXISTS event_artists (
 DETAIL_FILL_FIELDS = ("open_time", "start_time", "price_text", "price_min",
                       "is_free", "ticket_url", "ticket_links")
 
+#: internal / never-rendered fields stripped from the public feed
+#: (roadmap R3): they stay in events.db, so re-add one deliberately if
+#: the frontend grows a feature that needs it (map -> lat/lng, price
+#: tiers -> price_text). index.html's data-contract comment mirrors
+#: this list — the feed and frontend move together (CLAUDE.md rule 5).
+EXPORT_DROP_FIELDS = ("price_text", "id", "status", "ticket_url",
+                      "lat", "lng", "tags")
+
 
 class EventStore:
     def __init__(self, path: str | Path = "events.db"):
@@ -263,17 +271,40 @@ class EventStore:
         return out
 
     def export_public_json(self, path: str | Path) -> int:
-        """Dump approved events + source health as the frontend feed."""
+        """Dump upcoming approved events + source health as the frontend
+        feed. The feed is a forward-looking view, not an archive
+        (roadmap R3): events already over (JST), category "other" rows
+        the UI never shows, undated events, and internal-only fields all
+        stay in events.db but out of the payload."""
         from .genres import apply_genres
         from .artists import apply_artists
         from .promoters import apply_promoter_merge
-        events = self.list_events(public_only=True)
+        from .scrapers.textutils import jst_today
+        today = jst_today().isoformat()
+        events = [d for d in self.list_events(public_only=True)
+                  if (d.get("end_date") or d.get("start_date") or "") >= today
+                  and d.get("category") != "other"]
         events = apply_promoter_merge(events)   # before genre/artist passes
         apply_genres(self.conn, events)
         apply_artists(self.conn, events)
+        for d in events:            # the passes above need id/status
+            for f in EXPORT_DROP_FIELDS:
+                d.pop(f, None)
+        # frontend reads source/found/error; run internals and raw
+        # skipped-venue strings are curation data, not feed data. Retired
+        # sources keep their scrape_runs history but leave the footer —
+        # their last row would show a stale error forever. Lazy import:
+        # pipeline imports this module at load time.
+        from .pipeline import SCRAPERS
+        sources = [{"source": s["source"], "found": s["found"],
+                    "error": s["error"]} for s in self.source_health()
+                   if s["source"] in SCRAPERS]
         Path(path).write_text(
-            json.dumps({"generated_at": dt.datetime.now().isoformat(),
-                        "sources": self.source_health(),
-                        "events": events}, ensure_ascii=False, indent=2),
+            json.dumps({"generated_at":
+                        dt.datetime.now(dt.timezone.utc).isoformat(
+                            timespec="seconds"),
+                        "sources": sources,
+                        "events": events},
+                       ensure_ascii=False, separators=(",", ":")),
             encoding="utf-8")
         return len(events)
