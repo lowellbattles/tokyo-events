@@ -49,20 +49,22 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}   # optional: LLM genre tagging
         run: python cli.py export site/public.json
 
+      # The data files are pure outputs of this run — rebuild the data
+      # commit on top of the current remote tip instead of rebasing
+      # (binary events.db conflicts killed the 2026-07-26 run when a
+      # manual push landed mid-scrape). See scripts/commit_data.sh.
       - name: Commit updated data back to repo
         if: github.event_name != 'push'
         run: |
           git config user.name "tokyo-events-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add events.db site/public.json
-          git diff --cached --quiet || git commit -m "data: daily scrape $(date -u +%F)"
-          # main may have moved during the (long) scrape — rebase our
-          # data commit on top instead of failing the push
-          git pull --rebase origin main
-          git push
+          bash scripts/commit_data.sh
 
+      # !cancelled(): a failed data push must not suppress error
+      # reporting (report_errors.py exits 0 when the report is missing,
+      # so early failures stay safe).
       - name: File issue if any scraper errored
-        if: github.event_name != 'push'
+        if: ${{ !cancelled() && github.event_name != 'push' }}
         env:
           GH_TOKEN: ${{ github.token }}
           GH_REPO: ${{ github.repository }}

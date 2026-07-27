@@ -217,16 +217,24 @@ the recommended order; items don't block each other unless noted.
 
 ### Phase 0 — stop the bleeding (ops + feed)
 
-**R1. Make the daily data commit un-loseable.** *(OPS-1 · S)*
-Replace the `pull --rebase` dance: on conflict, `git rebase --abort`,
-then `git fetch && git reset --hard origin/main`, restore the two data
-files from the scrape commit (`git checkout <scrape-sha> -- events.db
-site/public.json`), re-commit, push; retry ×3. Add `if: always()` to the
-issue-filing and upload-pages steps so a push failure can no longer
-suppress error reporting or the deploy.
-*Accept:* a push landed mid-scrape no longer fails the run (simulate by
-pushing during a manual dispatch); the issue step runs even when the
-commit step fails.
+**R1. Make the daily data commit un-loseable.** *(OPS-1 · S)* ✅ **shipped 2026-07-27**
+As implemented (`scripts/commit_data.sh`, called by the workflow): the
+data files are pure outputs of the run, so instead of rebasing (which
+conflicts on binary events.db), the script stashes the fresh files,
+`fetch` + `reset --hard origin/main`, restores them, commits, pushes —
+retrying the whole cycle ×3 on a pure push race. Conflicts are
+impossible by construction; untracked `scrape_report.json` survives the
+reset. The issue-filing step is guarded `!cancelled()` so even an
+exhausted-retries failure (exit 1, red run) can't suppress error
+reporting. *Deliberate deviation from the original sketch:* the
+upload-pages/deploy steps stay success-gated rather than `always()` —
+on push-triggered runs the pytest step is the deploy gate, and
+`always()` there would deploy untested code; with the commit step no
+longer able to fail on conflicts, the gate costs nothing.
+*Accept:* a push landed mid-scrape no longer fails the run; the issue
+step runs even when the commit step fails. (Verified by local git
+simulation of the 07-26 conflict, the no-change case, and a rejected-
+push race; see tests in the R1 commit.)
 
 **R2. Triage the mot / what_museum 403s.** *(OPS-2 · S)*
 Run both scrapers from the owner's machine. If they succeed locally, the
