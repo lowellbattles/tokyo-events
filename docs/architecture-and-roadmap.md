@@ -236,15 +236,17 @@ step runs even when the commit step fails. (Verified by local git
 simulation of the 07-26 conflict, the no-change case, and a rejected-
 push race; see tests in the R1 commit.)
 
-**R2. Triage the mot / what_museum 403s.** *(OPS-2 · S)*
-Run both scrapers from the owner's machine. If they succeed locally, the
-WAF is blocking Actions IPs → per hard rule 2 we don't evade; options are
-(a) retire both to the "checked, not scrapeable" list, or (b) keep them
-registered only if the errors stay loud and the owner accepts a
-permanently red source. If they 403 locally too, retire per rule 2.
-Either way update CLAUDE.md's source table.
-*Accept:* rolling issue #5 closes; the sources' status is deliberate, not
-an open error.
+**R2. Triage the mot / what_museum 403s.** *(OPS-2 · S)* ✅ **shipped 2026-07-27**
+Triage result: both sites work from a residential IP with the same
+honest UA (mot's JSON feed parses 9 shows; what_museum full scrape
+yields 4 events end-to-end) — the WAFs block GitHub's datacenter IPs
+specifically, starting one day after validation. Per hard rule 2 we
+don't evade, and the pipeline lives on Actions → both **retired from
+pipeline.SCRAPERS** (registered sources 82 → 80). Scraper classes,
+fixtures, tests, and venues.py/genres.py entries kept so stored events
+keep resolving until they age out; CLAUDE.md documents the revisit
+trigger (next art-phase pass). Rolling issue #5 closes automatically on
+the next clean daily run.
 
 **R3. Slim the public feed (one export change).** *(EXP-1/2/3/4 · M)*
 In `export_public_json`: (1) filter to `(end_date or start_date) ≥`

@@ -69,13 +69,13 @@ from .scrapers.disk_garage import DiskGarageScraper
 from .scrapers.livenation import LiveNationScraper
 from .scrapers.festivals import FestivalsScraper
 from .scrapers.mori import MoriMuseumScraper
-from .scrapers.museums import (TnmScraper, MotScraper, NactScraper,
+from .scrapers.museums import (TnmScraper, NactScraper,
                                ArtizonScraper, TobikanScraper, NmwaScraper,
                                NezuScraper, YamataneScraper, SompoScraper,
                                DesignSightScraper, MitsuiScraper,
                                PanasonicShiodomeScraper, TopMuseumScraper,
                                ShozokanScraper)
-from .scrapers.galleries import OcagScraper, WhatMuseumScraper, GggScraper
+from .scrapers.galleries import OcagScraper, GggScraper
 from .scrapers.matsuri import CuratedSeasonalScraper
 
 # source_id -> (factory, default review status)
@@ -162,7 +162,10 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
         (lambda: MoriMuseumScraper("mori_arts_center_gallery"),
          ReviewStatus.PENDING),
     "tnm":               (TnmScraper,                       ReviewStatus.PENDING),
-    "mot":               (MotScraper,                       ReviewStatus.PENDING),
+    # mot retired 2026-07-27: its WAF started 403ing GitHub-runner IPs
+    # (works fine from residential IPs with our honest UA — rule 2, no
+    # evasion). Scraper class + fixtures + venues/genres entries kept
+    # for a revisit; stored events age out naturally. See CLAUDE.md.
     "nact":              (NactScraper,                      ReviewStatus.PENDING),
     "artizon":           (ArtizonScraper,                   ReviewStatus.PENDING),
     "tobikan":           (TobikanScraper,                   ReviewStatus.PENDING),
@@ -177,7 +180,7 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "shozokan":          (ShozokanScraper,                  ReviewStatus.PENDING),
     # --- galleries / art spaces (ART phase gallery ring) ------------------
     "opera_city_gallery": (OcagScraper,                     ReviewStatus.PENDING),
-    "what_museum":       (WhatMuseumScraper,                ReviewStatus.PENDING),
+    # what_museum retired 2026-07-27 with mot (same runner-IP WAF story).
     "ggg":               (GggScraper,                       ReviewStatus.PENDING),
     # --- seasonal curated (matsuri + fireworks; dates are facts) ----------
     "matsuri":           (lambda: CuratedSeasonalScraper("matsuri"),
