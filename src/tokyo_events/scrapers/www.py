@@ -55,7 +55,7 @@ class WWWScraper(BaseScraper):
         self.months_ahead = months_ahead
 
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         yield from self.parse(self.fetch(f"{self.BASE}/schedule/"),
                               month=first)
         for i in range(1, self.months_ahead):
@@ -108,7 +108,7 @@ class WWWScraper(BaseScraper):
             except ValueError:
                 return None
         else:
-            date = tu.infer_year(dt.date.today().month, day, today)
+            date = tu.infer_year(tu.jst_today().month, day, today)
         if not date:
             return None
 

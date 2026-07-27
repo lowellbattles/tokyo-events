@@ -49,6 +49,7 @@ from bs4 import BeautifulSoup
 
 from ..models import Category, Event
 from ..venues import display_of
+from . import textutils as tu
 from .base import BaseScraper
 
 
@@ -502,7 +503,7 @@ class FestivalsScraper(BaseScraper):
     supports_detail = False
 
     def scrape(self, today: Optional[str] = None) -> Iterable[Event]:
-        today = today or dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         for ed in ACTIVE_EDITIONS:
             if ed.end_of_run() < today:      # sunset: run already finished
                 continue

@@ -83,7 +83,7 @@ class GardenTheaterScraper(BaseScraper):
         deduping the cross-month event that a multi-day run appears under in
         both its start and end month."""
         base = self.BASE + self.SCHEDULE
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         seen: set[str] = set()
         empty_streak = 0
         for i in range(self.months_ahead):

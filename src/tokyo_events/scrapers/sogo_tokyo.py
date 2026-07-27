@@ -91,7 +91,7 @@ class SogoTokyoScraper(BaseScraper):
 
     # ---------------------------------------------------------------- fetch
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         base = f"{self.BASE}/live_information/calendar/"
         seen: set[str] = set()
         for i in range(self.months_ahead):

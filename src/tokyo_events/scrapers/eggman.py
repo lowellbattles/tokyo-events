@@ -93,7 +93,7 @@ class EggmanScraper(BaseScraper):
 
     # --- fetching ---------------------------------------------------------
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         seen: set[str] = set()
         for cat in self.CATEGORIES:
             base = f"{self.BASE}/schedule-cat/{cat}/"

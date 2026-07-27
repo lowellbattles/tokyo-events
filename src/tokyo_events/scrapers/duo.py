@@ -49,7 +49,7 @@ class DuoScraper(BaseScraper):
                 f"index_{m.year}-{m.month:02d}.html")
 
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         for i in range(self.months_ahead):
             m = tu.add_months(first, i)
             try:
@@ -77,7 +77,7 @@ class DuoScraper(BaseScraper):
                 except ValueError:
                     continue
             else:
-                date = tu.infer_year(dt.date.today().month, day, today)
+                date = tu.infer_year(tu.jst_today().month, day, today)
             if not date:
                 continue
 

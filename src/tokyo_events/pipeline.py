@@ -212,7 +212,7 @@ def run(store: EventStore, only: list[str] | None = None,
         report = {"source": source_id, "found": 0, "new": 0, "changed": 0,
                   "unchanged": 0, "details": 0, "error": None,
                   "skipped_venues": []}
-        started = dt.datetime.now().isoformat(timespec="seconds")
+        started = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
         scraper: BaseScraper | None = None
         try:
             scraper = factory()
@@ -280,7 +280,8 @@ def run(store: EventStore, only: list[str] | None = None,
             "INSERT INTO scrape_runs (source, started_at, finished_at, found, "
             "new, changed, details_fetched, error, skipped_venues) "
             "VALUES (?,?,?,?,?,?,?,?,?)",
-            (source_id, started, dt.datetime.now().isoformat(timespec="seconds"),
+            (source_id, started,
+             dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"),
              report["found"], report["new"], report["changed"],
              report["details"], report["error"],
              json.dumps(report["skipped_venues"], ensure_ascii=False)

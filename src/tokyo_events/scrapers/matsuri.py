@@ -44,6 +44,7 @@ from dataclasses import dataclass, field
 from typing import Iterable, Optional
 
 from ..models import Category, Event
+from . import textutils as tu
 from .base import BaseScraper
 
 
@@ -112,7 +113,7 @@ class CuratedSeasonalScraper(BaseScraper):
 
     def scrape(self, today: Optional[str] = None) -> Iterable[Event]:
         from ..venues import display_of
-        today = today or dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         for ed in self._editions():
             venue_name = display_of(ed.key) or ed.title_ja
             yield from _events_for(ed, self.source_id, venue_name, today)

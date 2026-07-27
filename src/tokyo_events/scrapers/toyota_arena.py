@@ -139,7 +139,7 @@ class ToyotaArenaScraper(BaseScraper):
         self.months_ahead = months_ahead
 
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         # bare /events/ defaults to the current calendar month
         yield from self.parse(self.fetch(f"{self.BASE}/events/"), today=first)
         for i in range(1, self.months_ahead):

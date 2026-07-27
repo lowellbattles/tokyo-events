@@ -61,7 +61,7 @@ class UnitScraper(BaseScraper):
 
     # ------------------------------------------------------------- fetching
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         seen: set[str] = set()
         # current month is served by the bare /schedule/ page
         for ev in self.parse(self.fetch(f"{self.BASE}/schedule/"), month=first):

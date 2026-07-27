@@ -39,6 +39,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Event
+from . import textutils as tu
 from .museums import (_MuseumScraper, _clean, parse_any_date_range,
                       parse_jp_date_range)
 
@@ -177,8 +178,7 @@ class WhatMuseumScraper(_MuseumScraper):
 
     def parse(self, html: str, detail_pages: Optional[dict] = None,
               today: Optional[str] = None, **context) -> list[Event]:
-        import datetime as _dt
-        today = today or _dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         detail_pages = detail_pages or {}
         soup = BeautifulSoup(html, "lxml")
         events: dict[str, Event] = {}

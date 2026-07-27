@@ -271,16 +271,22 @@ music (275 cards/7 days), art (68 cards incl. long-running ranges kept
 via end_date), matsuri (28), artist pages + back-nav, zero console
 errors.
 
-**R4. JST-correct "today" across the scrape layer.** *(SCR-1 · M)*
-Add `textutils.jst_today()` (zoneinfo Asia/Tokyo; Japan has no DST) and
-replace all 57 scraper call sites + `db.events_needing_detail` + the
-sold-out sweep's SQL `date('now')` (pass the JST date as a bound
-parameter) + `infer_year`'s default. Make pipeline/db row timestamps
-timezone-aware UTC ISO strings (they currently mix owner-local JST and
-runner UTC in the same columns).
-*Accept:* grep shows no naive `date.today()`/`datetime.now()` left in
-`src/`; a test freezes UTC 22:05 and asserts `jst_today()` is the next
-calendar day; month-walk start and museum today-filter tests updated.
+**R4. JST-correct "today" across the scrape layer.** *(SCR-1 · M)* ✅ **shipped 2026-07-27**
+`textutils.jst_today()` (fixed UTC+9 — no tzdata dependency on Windows;
+added in R3) now backs every "today" in the system: all 57 scraper call
+sites across 38 files, `db.events_needing_detail`, the sold-out sweep
+(bound JST params replace SQL `date('now')`, whose clock was the UTC
+runner's), and `infer_year`'s default. festivals/matsuri/galleries
+gained the textutils import (galleries' function-scoped datetime import
+removed with it). All pipeline/db row timestamps are now tz-aware UTC
+ISO strings — previously `first_seen`/`last_seen` mixed owner-local JST
+and runner-UTC wall clocks in the same columns.
+*Verified:* grep for naive `date.today()`/`datetime.now()` in `src/` is
+empty; `test_jst_today_boundary` pins the cron instant (22:05 UTC → the
+NEXT JST calendar day); 544 tests green. Effects: month walks no longer
+start a month early on JST 1sts, just-closed exhibitions drop at JST
+midnight not UTC midnight, and the Dec→Jan year-inference window is
+anchored correctly.
 
 ### Phase 1 — visible data quality
 

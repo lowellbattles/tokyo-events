@@ -84,17 +84,17 @@ class ExTheaterScraper(BaseScraper):
     # -- fetch + delegate only -------------------------------------------
     def scrape(self) -> Iterable[Event]:
         raw = self.fetch(self.SCHEDULE_URL)
-        yield from self.parse(raw, today=dt.date.today().isoformat(),
+        yield from self.parse(raw, today=tu.jst_today().isoformat(),
                               months_ahead=self.months_ahead)
 
     # -- pure listing parse ----------------------------------------------
     def parse(self, raw: str, today: str | None = None,
               months_ahead: int = 12, **context) -> list[Event]:
-        today = today or dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         try:
             td = dt.date.fromisoformat(today)
         except ValueError:
-            td = dt.date.today()
+            td = tu.jst_today()
             today = td.isoformat()
         horizon = tu.add_months(td.replace(day=1), months_ahead).isoformat()
 

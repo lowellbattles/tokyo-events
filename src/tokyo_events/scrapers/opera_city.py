@@ -101,7 +101,7 @@ class OperaCityScraper(BaseScraper):
                 f"&month={month}&presented_only=0&calendar=0&past=0")
 
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         empty_streak = 0
         for i in range(self.months_ahead):
             m = tu.add_months(first, i)

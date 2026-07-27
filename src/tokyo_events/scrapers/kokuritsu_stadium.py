@@ -78,7 +78,7 @@ class KokuritsuStadiumScraper(BaseScraper):
         self.months_ahead = months_ahead
 
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         seen: set[str] = set()
         # current month lives at the bare /event/ ...
         yield from self._emit(self.fetch(f"{self.BASE}/event/"), seen)

@@ -60,7 +60,7 @@ class ZeppScraper(BaseScraper):
         # or clamped page can't mis-date anything, and interior empty months
         # (hall maintenance) must not hide later bookings.
         base = f"{self.BASE}/hall/{self.hall['slug']}/schedule/"
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         seen: set[str] = set()
         for i in range(self.months_ahead):
             m = tu.add_months(first, i)

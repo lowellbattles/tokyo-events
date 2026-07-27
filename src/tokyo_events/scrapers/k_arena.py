@@ -100,7 +100,7 @@ class KArenaScraper(BaseScraper):
 
     def scrape(self) -> Iterable[Event]:
         base = f"{self.BASE}/schedule/"
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         seen: set[str] = set()
         for i in range(self.months_ahead):
             m = tu.add_months(first, i)

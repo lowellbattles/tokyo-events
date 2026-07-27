@@ -56,7 +56,7 @@ class ToyosuPitScraper(BaseScraper):
         # Future months live at /schedule-list/{YYYY}/{M}/index.html
         # (month not zero-padded). A missing far-future page is normal,
         # not a structure failure — stop quietly there.
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         for i in range(1, self.months_ahead):
             m = tu.add_months(first, i)
             url = f"{self.BASE}/schedule-list/{m.year}/{m.month}/index.html"
@@ -132,7 +132,7 @@ class PiaArenaMMScraper(BaseScraper):
         self.months_ahead = months_ahead
 
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         for i in range(self.months_ahead):
             month = tu.add_months(first, i)
             url = f"{self.BASE}/event@p1={month.year}&p2={month:%m}.html"

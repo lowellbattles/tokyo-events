@@ -207,6 +207,19 @@ def test_infer_year_rolls_forward():
     assert tu.infer_year(7, 3, dt.date(2026, 7, 2)) == "2026-07-03"
 
 
+def test_jst_today_boundary():
+    # 22:05 UTC — the daily cron's exact window — is already 07:05 the
+    # NEXT calendar day in Japan; naive date.today() on the UTC runner
+    # was a day behind for the whole run (roadmap R4/SCR-1)
+    cron = dt.datetime(2026, 7, 27, 22, 5, tzinfo=dt.timezone.utc)
+    assert cron.astimezone(tu.JST).date() == dt.date(2026, 7, 28)
+    # jst_today() is the JST calendar date right now (race-free bounds)
+    a = dt.datetime.now(tu.JST).date()
+    b = tu.jst_today()
+    c = dt.datetime.now(tu.JST).date()
+    assert a <= b <= c
+
+
 # ------------------------------------------------------------------- store
 def test_store_staging_workflow(tmp_path):
     store = EventStore(tmp_path / "test.db")

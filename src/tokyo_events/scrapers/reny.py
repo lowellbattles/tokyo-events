@@ -94,7 +94,7 @@ class RenyScraper(BaseScraper):
         # Walk month-index pages: /reny/{YYYY}/{M}/index.html (M unpadded).
         # These carry only href+date, so they're cheap; the detail pass does
         # the heavy lifting. Stop after two consecutive empty months.
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         seen: set[str] = set()
         empty_streak = 0
         for i in range(self.months_ahead):
@@ -125,7 +125,7 @@ class RenyScraper(BaseScraper):
         detail href. Absolute detail URLs are joined against the month
         directory so multi-suffix same-day events stay distinct."""
         if month is None:
-            month = (today or dt.date.today()).replace(day=1)
+            month = (today or tu.jst_today()).replace(day=1)
         base_dir = f"{self.BASE}/{self.hall['slug']}/{month.year}/{month.month}/"
         soup = BeautifulSoup(html, "lxml")
         events: dict[str, Event] = {}

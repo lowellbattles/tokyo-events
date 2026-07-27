@@ -21,6 +21,7 @@ import sqlite3
 from pathlib import Path
 
 from .models import Event, ReviewStatus
+from .scrapers.textutils import jst_today
 
 SCHEMA = """
 CREATE TABLE IF NOT EXISTS events (
@@ -117,7 +118,7 @@ class EventStore:
         On update, detail-pass fields the incoming listing event lacks are
         merged back in from the stored version (mutating ev), so transient
         listing gaps neither count as changes nor erase enrichment."""
-        now = dt.datetime.now().isoformat(timespec="seconds")
+        now = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
         eid, chash = ev.dedupe_key(), ev.content_hash()
         row = self.conn.execute(
             "SELECT content_hash, status, data FROM events WHERE id=?", (eid,)
@@ -170,7 +171,9 @@ class EventStore:
     # --- review ------------------------------------------------------------
     def set_status(self, event_id: str, status: ReviewStatus) -> None:
         self.conn.execute("UPDATE events SET status=?, updated_at=? WHERE id=?",
-                          (status.value, dt.datetime.now().isoformat(), event_id))
+                          (status.value,
+                           dt.datetime.now(dt.timezone.utc).isoformat(
+                               timespec="seconds"), event_id))
         self.conn.commit()
 
     # --- queries -----------------------------------------------------------
@@ -208,7 +211,7 @@ class EventStore:
         if limit <= 0:
             return []
         out: list[Event] = []
-        today = dt.date.today().isoformat()
+        today = jst_today().isoformat()
         rows = self.conn.execute(
             "SELECT data FROM events WHERE source=? AND status!='rejected' "
             "AND category!='other' "         # don't spend fetches on junk
@@ -241,11 +244,15 @@ class EventStore:
         if limit <= 0:
             return []
         out: list[Event] = []
+        # bound params, not SQL date('now'): sqlite's clock is the
+        # runner's (UTC) — the window must be JST like everything else
+        today = jst_today()
         rows = self.conn.execute(
             "SELECT data FROM events WHERE source=? AND status!='rejected' "
-            "AND category='music' AND start_date>=date('now') "
-            "AND start_date<=date('now', ?) ORDER BY start_date",
-            (source, f"+{window_days} days"))
+            "AND category='music' AND start_date>=? "
+            "AND start_date<=? ORDER BY start_date",
+            (source, today.isoformat(),
+             (today + dt.timedelta(days=window_days)).isoformat()))
         for row in rows:
             d = json.loads(row["data"])
             if d.get("is_sold_out") or d.get("source_url") in exclude_urls:
@@ -279,7 +286,6 @@ class EventStore:
         from .genres import apply_genres
         from .artists import apply_artists
         from .promoters import apply_promoter_merge
-        from .scrapers.textutils import jst_today
         today = jst_today().isoformat()
         events = [d for d in self.list_events(public_only=True)
                   if (d.get("end_date") or d.get("start_date") or "") >= today

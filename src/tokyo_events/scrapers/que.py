@@ -91,7 +91,7 @@ class QueScraper(BaseScraper):
         months exist in the archive dropdown even when empty, so stop after
         the first month that yields nothing (live houses fill forward
         contiguously)."""
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         seen: set[str] = set()
         for i in range(self.months_ahead):
             m = tu.add_months(first, i)
@@ -199,7 +199,7 @@ class QueScraper(BaseScraper):
                     return dt.date(month.year, month.month, day).isoformat()
                 except ValueError:
                     return None
-            return tu.infer_year(dt.date.today().month, day, today)
+            return tu.infer_year(tu.jst_today().month, day, today)
         return None
 
     # --------------------------------------------------------------- detail

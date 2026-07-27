@@ -92,7 +92,7 @@ class BayHallScraper(BaseScraper):
 
     # ------------------------------------------------------------------ fetch
     def scrape(self) -> Iterable[Event]:
-        first = dt.date.today().replace(day=1)
+        first = tu.jst_today().replace(day=1)
         # Bare /schedule/ renders the current month.
         yield from self.parse(self.fetch(f"{self.BASE}/schedule/"), month=first)
         # Forward months live at /{YYYY}/{MM}/ date archives.
@@ -160,7 +160,7 @@ class BayHallScraper(BaseScraper):
             except ValueError:
                 date = None
         if date is None:            # heading missing -> weak year inference
-            date = tu.infer_year(mon or dt.date.today().month, day, today)
+            date = tu.infer_year(mon or tu.jst_today().month, day, today)
         if not date:
             return None
 

@@ -210,7 +210,7 @@ class MotScraper(_MuseumScraper):
 
     def parse(self, payload: str, today: Optional[str] = None,
               **context) -> list[Event]:
-        today = today or dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         try:
             rows = json.loads(payload)
         except (ValueError, TypeError):
@@ -326,7 +326,7 @@ class TobikanScraper(_MuseumScraper):
 
     def parse(self, html: str, today: Optional[str] = None,
               **context) -> list[Event]:
-        today = today or dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         soup = BeautifulSoup(html, "lxml")
         events: dict[str, Event] = {}
         for a in soup.select("a.exhibition-item[href]"):
@@ -432,7 +432,7 @@ class NezuScraper(_MuseumScraper):
 
     def parse(self, html: str, today: Optional[str] = None,
               **context) -> list[Event]:
-        today = today or dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         soup = BeautifulSoup(html, "lxml")
         events: dict[str, Event] = {}
         for item in soup.select("section.item"):
@@ -512,7 +512,7 @@ class YamataneScraper(_MuseumScraper):
 
     def parse(self, html: str, detail_pages: Optional[dict] = None,
               today: Optional[str] = None, **context) -> list[Event]:
-        today = today or dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         detail_pages = detail_pages or {}
         soup = BeautifulSoup(html, "lxml")
         events: dict[str, Event] = {}
@@ -736,7 +736,7 @@ class PanasonicShiodomeScraper(_MuseumScraper):
     def parse(self, html: str, page_url: Optional[str] = None,
               today: Optional[str] = None, **context) -> list[Event]:
         page_url = page_url or self.HUB
-        today = today or dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         soup = BeautifulSoup(html, "lxml")
         events: dict[str, Event] = {}
         for h3 in soup.select("h3.exhibition-title"):
@@ -838,7 +838,7 @@ class ShozokanScraper(_MuseumScraper):
 
     def parse(self, payload: str, today: Optional[str] = None,
               **context) -> list[Event]:
-        today = today or dt.date.today().isoformat()
+        today = today or tu.jst_today().isoformat()
         try:
             rows = json.loads(payload)
         except (ValueError, TypeError):

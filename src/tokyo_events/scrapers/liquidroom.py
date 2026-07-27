@@ -41,7 +41,7 @@ class LiquidroomScraper(BaseScraper):
         self.months_ahead = months_ahead
 
     def scrape(self) -> Iterable[Event]:
-        today = dt.date.today().replace(day=1)
+        today = tu.jst_today().replace(day=1)
         for i in range(self.months_ahead):
             month = tu.add_months(today, i)
             html = self.fetch(f"{self.BASE}/schedule/{month:%Y/%m}")
