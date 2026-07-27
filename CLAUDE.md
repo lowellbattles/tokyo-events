@@ -182,9 +182,11 @@ SALOON (saloon-tokyo.com, UNIT's sister floor), other TDP JSON feeds.
    Later within the phase: more spaces
    (Shiseido Gallery when fall dates publish, Tokyo Station Gallery +
    Suntory + Watari-um + TERRADA + POLA Annex retries, Bunkamura +
-   Idemitsu on reopening). Matsuri + fireworks DONE 2026-07-27 as
-   curated seasonal sources (see source table); still open: flowers
-   (sakura/ajisai season pages) as the last CLAUDE.md category.
+   Idemitsu on reopening). Matsuri + fireworks + flowers DONE
+   2026-07-27 as curated seasonal sources (see source table) — every
+   category from the original CLAUDE.md list is now live. Flowers
+   grows via the seasonal watch list (autumn announcements Aug-Oct;
+   spring research pass ~Feb).
 7. Later: dedupe across sources (venue aliases: Kanadevia Hall ex-TDC
    Hall, MUFG Stadium ex-国立競技場), iCal export, OGP/sitemap, custom
    domain. New-source AUTO promotion after a few clean daily runs.
