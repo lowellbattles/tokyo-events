@@ -350,15 +350,23 @@ normal walk termination previously burned 2 extra requests + 12 s of
 backoff sleeps; now 1 request, 0 sleep — ~60 requests and several
 minutes off every daily run.
 
-**R8. Stale-upcoming (cancellation-shaped) surfacing.** *(GLAY case · S-M)*
-An approved/auto event with upcoming `start_date` whose `last_seen` is
-≥3 runs old *while its source's latest run succeeded* is suspicious
-(removed listing = possible cancellation). Add a section to the run
-report + a rolling issue (venue-gap style) listing these; do **not**
-auto-hide (month-window scrapers legitimately drop far-future events).
-*Accept:* the two GLAY rows (udo_artists, last_seen 07-23) appear in the
-next report; doc note tells the owner how to reject a confirmed
-cancellation.
+**R8. Stale-upcoming (cancellation-shaped) surfacing.** *(GLAY case · S-M)* ✅ **shipped 2026-07-27**
+As implemented: `db.stale_upcoming(days=3)` finds approved/auto events
+still upcoming/running (JST) with `last_seen` older than 3 days;
+`pipeline.run` attaches the rows **only to sources whose run just
+succeeded** (a broken scraper's staleness is the error report's
+problem); `report_errors.py` maintains a third rolling issue,
+`stale-upcoming`, body edited in place, listing each row with start
+date, last-seen date and the event id plus the triage instruction
+(verify on the source page; confirmed cancellation →
+`python cli.py reject <id>`; window artifacts re-freshen on their own).
+The CLI scrape summary appends "N stale upcoming" per source. Nothing
+is auto-hidden, by design.
+*Verified:* on the live DB the query surfaces exactly the two GLAY rows
+(udo_artists, last seen 07-23) plus three more candidates (que,
+bay_hall, and a Buntai concert unseen since 07-24 — worth checking); 4
+new tests pin query semantics, healthy-source gating, and the issue
+body.
 
 **R9. Sold-out latch + churn audit.** *(SCR-2 · S-M)*
 In `upsert`, preserve stored `is_sold_out=True` when the incoming listing

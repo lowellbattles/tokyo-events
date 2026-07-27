@@ -55,6 +55,9 @@ def main() -> None:
                 json.dump(reports, f, ensure_ascii=False, indent=2)
         for rep in reports:
             status = f"ERROR: {rep['error']}" if rep["error"] else "ok"
+            stale = len(rep.get("stale_upcoming") or [])
+            if stale:
+                status += f" — {stale} stale upcoming"
             print(f"[{rep['source']:>18}] found={rep['found']:>3} "
                   f"new={rep['new']:>3} changed={rep['changed']:>3} "
                   f"details={rep['details']:>3} — {status}")

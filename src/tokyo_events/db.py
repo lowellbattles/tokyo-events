@@ -262,6 +262,35 @@ class EventStore:
                 break
         return out
 
+    def stale_upcoming(self, days: int = 3) -> list[dict]:
+        """Approved/auto events still upcoming or running (JST) whose
+        last_seen is older than `days` days — their source stopped
+        listing them (possible CANCELLATION) or they sit beyond its
+        month-walk window (harmless; re-freshens when the window
+        arrives). Report-only (R8): nothing is auto-hidden, a human
+        checks the source page and rejects confirmed cancellations.
+        Callers gate on source health — the pipeline only attaches
+        these to sources whose run just succeeded."""
+        today = jst_today().isoformat()
+        # substr(…,1,19) tolerates the historical mix of naive and
+        # tz-aware timestamps in last_seen; 9h of skew is nothing at a
+        # multi-day threshold
+        cutoff = (dt.datetime.now(dt.timezone.utc)
+                  - dt.timedelta(days=days)).isoformat(timespec="seconds")[:19]
+        out = []
+        for r in self.conn.execute(
+                "SELECT id, source, start_date, last_seen, data FROM events "
+                "WHERE status IN ('approved','auto') "
+                "AND COALESCE(end_date, start_date) >= ? "
+                "AND substr(last_seen, 1, 19) < ? "
+                "ORDER BY start_date", (today, cutoff)):
+            d = json.loads(r["data"])
+            out.append({"id": r["id"], "source": r["source"],
+                        "start_date": r["start_date"],
+                        "last_seen": (r["last_seen"] or "")[:10],
+                        "title": d.get("title_ja") or d.get("title_en") or ""})
+        return out
+
     def source_health(self) -> list[dict]:
         """Latest scrape_runs row per source, for status display."""
         rows = self.conn.execute(

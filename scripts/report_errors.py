@@ -11,6 +11,9 @@ Behavior:
   rolling issue labeled 'venue-gap' whose BODY is edited in place to the
   current gap list (edits don't notify, so a persistent gap costs one
   issue, not daily spam). No gaps -> close it.
+- Stale upcoming events (roadmap R8: approved events a HEALTHY source
+  stopped listing — possible cancellations) -> one rolling issue
+  labeled 'stale-upcoming', body edited in place. None -> close it.
 - Never fails the workflow (exit 0 always) — a broken scraper shouldn't
   block deploying the sources that worked.
 """
@@ -22,6 +25,7 @@ from datetime import date
 
 LABEL = "scraper-error"
 GAP_LABEL = "venue-gap"
+STALE_LABEL = "stale-upcoming"
 
 
 def gh(*args, capture=False):
@@ -137,6 +141,62 @@ def handle_gaps(reports: list[dict]) -> None:
         print("created gap issue")
 
 
+def build_stale_body(reports: list[dict]) -> str | None:
+    """Markdown body for the rolling stale-upcoming issue, or None."""
+    by_src: dict[str, list[dict]] = {}
+    for r in reports:
+        for e in r.get("stale_upcoming") or []:
+            by_src.setdefault(r["source"], []).append(e)
+    if not by_src:
+        return None
+    total = sum(len(v) for v in by_src.values())
+    lines = [f"Approved upcoming events their (healthy) source stopped "
+             f"listing, as of {date.today().isoformat()} — {total} across "
+             f"{len(by_src)} source(s).",
+             "",
+             "Each row is either a possible CANCELLATION or an event "
+             "sitting beyond the source's month-walk window (harmless — "
+             "it re-freshens when the window reaches it). Check the "
+             "soonest start dates first, against the source's own page. "
+             "Confirmed cancellation: `python cli.py reject <id>`.",
+             ""]
+    for source in sorted(by_src):
+        lines.append(f"### `{source}`")
+        for e in sorted(by_src[source],
+                        key=lambda x: x.get("start_date") or ""):
+            lines.append(f"- {e['start_date']} **{e['title']}** — last "
+                         f"seen {e['last_seen']}, id `{e['id']}`")
+        lines.append("")
+    lines.append("_This body is rewritten by each daily run "
+                 "(`scripts/report_errors.py`)._")
+    return "\n".join(lines)
+
+
+def handle_stale(reports: list[dict]) -> None:
+    body = build_stale_body(reports)
+    num = find_open_issue(STALE_LABEL)
+    if body is None:
+        print("no stale upcoming events")
+        if num:
+            gh("issue", "close", num, "--comment",
+               f"No stale upcoming events on {date.today().isoformat()} "
+               "— closing.")
+            print(f"closed stale issue #{num}")
+        return
+
+    gh("label", "create", STALE_LABEL, "--color", "e99695",
+       "--description",
+       "Upcoming events a healthy source stopped listing", "--force")
+    if num:
+        gh("issue", "edit", num, "--body", body)
+        print(f"updated stale issue #{num}")
+    else:
+        gh("issue", "create", "--title",
+           "Stale upcoming events (possible cancellations)",
+           "--body", body, "--label", STALE_LABEL)
+        print("created stale issue")
+
+
 def main():
     if len(sys.argv) < 2:
         sys.exit(0)
@@ -147,6 +207,7 @@ def main():
 
     handle_errors(reports)
     handle_gaps(reports)
+    handle_stale(reports)
     sys.exit(0)
 
 

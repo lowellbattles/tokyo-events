@@ -211,7 +211,7 @@ def run(store: EventStore, only: list[str] | None = None,
         default_status = force_status or registry_status
         report = {"source": source_id, "found": 0, "new": 0, "changed": 0,
                   "unchanged": 0, "details": 0, "error": None,
-                  "skipped_venues": []}
+                  "skipped_venues": [], "stale_upcoming": []}
         started = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
         scraper: BaseScraper | None = None
         try:
@@ -288,4 +288,17 @@ def run(store: EventStore, only: list[str] | None = None,
              if report["skipped_venues"] else None))
         store.conn.commit()
         reports.append(report)
+
+    # Stale-upcoming surfacing (R8): approved events still upcoming whose
+    # last_seen predates the last few runs — the source stopped listing
+    # them (possible cancellation) or they sit beyond its walk window.
+    # Attached only to sources whose run JUST succeeded: a broken
+    # scraper's events are stale for a reason the error report already
+    # covers. Report-only; nothing is auto-hidden.
+    by_src: dict[str, list[dict]] = {}
+    for row in store.stale_upcoming():
+        by_src.setdefault(row["source"], []).append(row)
+    for rep in reports:
+        if rep["error"] is None:
+            rep["stale_upcoming"] = by_src.get(rep["source"], [])
     return reports
