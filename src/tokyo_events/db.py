@@ -129,6 +129,15 @@ class EventStore:
             for f in DETAIL_FILL_FIELDS:
                 if getattr(ev, f) in (None, []) and stored.get(f) not in (None, []):
                     setattr(ev, f, stored[f])
+            # Sold-out latch (R9): many venues only mark SOLD OUT on the
+            # event's own page, so every listing re-parse said False and
+            # the sweep flipped it back True — two spurious "changed"
+            # writes plus a wasted detail fetch per event per day.
+            # Sticky until the event passes (the sweep never un-marks
+            # either); a venue genuinely re-opening sales is the rare
+            # case we accept losing.
+            if stored.get("is_sold_out") and not ev.is_sold_out:
+                ev.is_sold_out = True
             chash = ev.content_hash()
 
         if row is None:

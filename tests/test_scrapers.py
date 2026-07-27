@@ -6,7 +6,7 @@ from pathlib import Path
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from tokyo_events.db import EventStore
-from tokyo_events.models import Event, ReviewStatus
+from tokyo_events.models import Category, Event, ReviewStatus
 from tokyo_events.scrapers.liquidroom import LiquidroomScraper
 from tokyo_events.scrapers.zepp import ZeppScraper
 from tokyo_events.scrapers.ogroup import OGroupScraper
@@ -205,6 +205,29 @@ def test_infer_year_rolls_forward():
     # Jan 15 seen in July 2026 -> must be Jan 2027, not 6 months ago
     assert tu.infer_year(1, 15, dt.date(2026, 7, 2)) == "2027-01-15"
     assert tu.infer_year(7, 3, dt.date(2026, 7, 2)) == "2026-07-03"
+
+
+def test_sold_out_latch_survives_listing_reparse(tmp_path):
+    # R9: the sweep marks an event sold out on its detail page; the next
+    # listing re-parse (which carries no badge) must neither clear the
+    # flag nor count as a change — that loop was two spurious writes and
+    # a wasted detail fetch per sold-out event per day.
+    from tokyo_events.db import EventStore
+    import json as _json
+    store = EventStore(tmp_path / "latch.db")
+
+    def _listing():
+        return Event(source="x", source_url="https://x/1", title_ja="SHOW",
+                     start_date="2099-01-01", category=Category.MUSIC)
+
+    assert store.upsert(_listing(), ReviewStatus.AUTO) == "new"
+    swept = _listing()
+    swept.is_sold_out = True                # detail-page sweep result
+    assert store.upsert(swept, ReviewStatus.AUTO) == "changed"
+    assert store.upsert(_listing(), ReviewStatus.AUTO) == "unchanged"
+    d = _json.loads(store.conn.execute(
+        "SELECT data FROM events").fetchone()[0])
+    assert d["is_sold_out"] is True
 
 
 def test_jst_today_boundary():

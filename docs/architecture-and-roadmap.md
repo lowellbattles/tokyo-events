@@ -368,14 +368,21 @@ bay_hall, and a Buntai concert unseen since 07-24 — worth checking); 4
 new tests pin query semantics, healthy-source gating, and the issue
 body.
 
-**R9. Sold-out latch + churn audit.** *(SCR-2 · S-M)*
-In `upsert`, preserve stored `is_sold_out=True` when the incoming listing
-row says False (sold-out is sticky until the event passes; the sweep
-never un-marks anyway). Then re-measure daily `changed` counts; chase
-what remains (bluenote's steady 6–8/day predates this — verify its parse
-output is order-stable).
-*Accept:* changed/day drops materially; test: listing upsert after a
-detail-pass sold-out mark keeps True and reports "unchanged".
+**R9. Sold-out latch + churn audit.** *(SCR-2 · S-M)* ✅ **shipped 2026-07-27**
+`upsert` now latches `is_sold_out`: a stored True survives a listing
+re-parse that carries no badge, and the write reports "unchanged" —
+ending the two-spurious-writes-plus-one-wasted-detail-fetch daily loop
+per sold-out event (the sweep also stops re-visiting latched events).
+Sticky until the event passes; a venue genuinely re-opening sales is
+the accepted rare loss. Pinned by the exact acceptance test (listing →
+sweep-marks-True → listing again = "unchanged", flag intact).
+*Churn audit verdict:* bluenote's parse is **order-stable** — two
+back-to-back live scrapes: first changed=7 (12 h of genuine drift since
+the morning run), second **changed=0**. Its daily 6–8 are real
+reservation-page evolution, not parser instability; no fix needed
+there. The remaining daily `changed` totals should drop materially
+once the latch is live in CI — re-check `scrape_runs` after a few
+daily runs to confirm.
 
 **R10. Artist-index pollution guard.** *(DUP-3 · S)*
 In `artists._apply`, skip lineup entries whose normalized form equals the
