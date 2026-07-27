@@ -196,6 +196,10 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "kawasaki_tamagawa_hanabi": ("川崎市制記念多摩川花火大会", "matsuri"),
     "konosu_hanabi": ("こうのす花火大会", "matsuri"),
     "atsugi_ayu_hanabi": ("あつぎ鮎まつり大花火大会", "matsuri"),
+    # flower-event venues: the GARDEN is the identity (multiple dated
+    # events per year share it)
+    "mukojima_hyakkaen": ("向島百花園", "matsuri"),
+    "hibiya_park": ("日比谷公園", "matsuri"),
     # --- promoter-gap curation (skipped_venues sweep, 2026-07-26) ---------
     "daikanyama_space_odd": ("代官山 SPACE ODD", "livehouse"),
     "blaze_gotanda": ("BLAZE GOTANDA", "livehouse"),

@@ -350,6 +350,8 @@ const VENUE_META = {
   kawasaki_tamagawa_hanabi:{fam:"matsuri", letter:"花"},
   konosu_hanabi:     {fam:"matsuri",  letter:"花"},
   atsugi_ayu_hanabi: {fam:"matsuri",  letter:"花"},
+  mukojima_hyakkaen: {fam:"matsuri",  letter:"萩"},
+  hibiya_park:       {fam:"matsuri",  letter:"日"},
 };
 /* promoter events carry venue_key (canonical venue id from the export
    merge); venue-scraped events keep their source id as identity */
@@ -375,14 +377,15 @@ const GENRE_KEYS = ["idol","j-rock","international","k-pop","jazz-soul",
                     "classical","hiphop-rnb","electronic","anime-seiyu"];
 const ART_GENRE_KEYS = ["contemporary","photography","design","craft",
                         "manga-anime","nihonga-classical","western-art"];
-const SEASONAL_GENRE_KEYS = ["matsuri","hanabi"];
+const SEASONAL_GENRE_KEYS = ["matsuri","hanabi","flowers"];
 
 const I18N = {
   ja:{
     tagline:"都内ライブハウスからアリーナ、美術館まで、ひとつに。",
     l_section:"カテゴリ",
     sections:{music:"音楽",art:"アート・展覧会",matsuri:"まつり・花火"},
-    seasonalGenres:{all:"すべて",matsuri:"祭り",hanabi:"花火大会"},
+    seasonalGenres:{all:"すべて",matsuri:"祭り",hanabi:"花火大会",
+      flowers:"花・庭園"},
     detailsSeasonal:"公式サイト →",
     l_when:"日付",l_genre:"ジャンル",l_venue:"会場",l_vclass:"会場タイプ",
     vclasses:{all:"すべて",livehouse:"ライブハウス・クラブ",jazz:"ジャズクラブ",
@@ -427,7 +430,8 @@ const I18N = {
     l_section:"Category",
     sections:{music:"Music",art:"Art / Exhibitions",
       matsuri:"Matsuri / Fireworks"},
-    seasonalGenres:{all:"All",matsuri:"Matsuri",hanabi:"Fireworks"},
+    seasonalGenres:{all:"All",matsuri:"Matsuri",hanabi:"Fireworks",
+      flowers:"Flowers / Gardens"},
     detailsSeasonal:"Official site →",
     l_when:"When",l_genre:"Genre",l_venue:"Venue",l_vclass:"Venue type",
     vclasses:{all:"All",livehouse:"Live houses / clubs",jazz:"Jazz clubs",
@@ -540,7 +544,7 @@ const isMusic=ev=>["music","music_festival"].includes(ev.category||"music");
 const isArt=ev=>ev.category==="art";
 /* matsuri section = traditional festivals + fireworks (category
    "festival" is matsuri; music festivals are "music_festival") */
-const isSeasonal=ev=>["festival","fireworks"].includes(ev.category);
+const isSeasonal=ev=>["festival","fireworks","flowers"].includes(ev.category);
 const inSection=ev=>section==="art"?isArt(ev)
   :section==="matsuri"?isSeasonal(ev):isMusic(ev);
 function matches(ev){

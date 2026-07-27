@@ -11,6 +11,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from tokyo_events.models import Category, SEASONAL_GENRES
 from tokyo_events.scrapers.matsuri import (CuratedSeasonalScraper,
+                                           FLOWER_EDITIONS,
                                            HANABI_EDITIONS,
                                            MATSURI_EDITIONS,
                                            SeasonalEdition, _events_for)
@@ -21,7 +22,7 @@ _ISO = re.compile(r"^\d{4}-\d{2}-\d{2}$")
 
 # ------------------------------------------------------------ config sanity
 def test_every_edition_is_well_formed():
-    for ed in MATSURI_EDITIONS + HANABI_EDITIONS:
+    for ed in MATSURI_EDITIONS + HANABI_EDITIONS + FLOWER_EDITIONS:
         assert ed.dates and all(_ISO.match(d) for d in ed.dates), ed.key
         assert list(ed.dates) == sorted(ed.dates), ed.key
         assert ed.url.startswith("http"), ed.key
@@ -36,10 +37,13 @@ def test_every_edition_is_well_formed():
         # one evening — or an explicit non-contiguous series of evenings
         # (Yokohama Night Flowers short-burst series)
         assert len(ed.dates) == 1 or not ed.contiguous, ed.key
+    for ed in FLOWER_EDITIONS:
+        assert ed.category is Category.FLOWERS, ed.key
 
 
-def test_keys_unique_across_both_configs():
-    keys = [e.key for e in MATSURI_EDITIONS + HANABI_EDITIONS]
+def test_keys_unique_across_all_configs():
+    keys = [e.key for e in
+            MATSURI_EDITIONS + HANABI_EDITIONS + FLOWER_EDITIONS]
     assert len(keys) == len(set(keys))
 
 
@@ -94,8 +98,16 @@ def test_fireworks_carry_launch_time_and_genre():
     assert evs[0].genres[0] in SEASONAL_GENRES
 
 
+def test_flower_events_carry_flowers_genre():
+    evs = list(_events_for(
+        _ed(category=Category.FLOWERS, dates=("2026-11-01", "2026-11-15")),
+        "flowers", "V", today="2026-07-27"))
+    assert evs[0].genres == ["flowers"]
+    assert evs[0].genres[0] in SEASONAL_GENRES
+
+
 def test_scraper_flags():
-    for sid in ("matsuri", "hanabi"):
+    for sid in ("matsuri", "hanabi", "flowers"):
         s = CuratedSeasonalScraper(sid)
         assert s.source_id == sid
         assert s.allow_empty is True      # off-season quiet is legitimate

@@ -1,8 +1,14 @@
-"""Curated seasonal events — matsuri (category "festival") and fireworks
-(category "fireworks"). Two registry sources, one module:
+"""Curated seasonal events — matsuri (category "festival"), fireworks
+(category "fireworks") and flower/garden events (category "flowers").
+Three registry sources, one module:
 
   - matsuri : traditional festivals (阿波おどり, 例大祭, よさこい, 酉の市…)
   - hanabi  : fireworks displays (花火大会)
+  - flowers : OFFICIAL dated flower/garden events (菊まつり, バラフェスタ,
+              紅葉ライトアップ…). Deliberately NOT bloom forecasts: "best
+              time to see X" is a weather-dependent prediction, not a
+              fact — only organizer-announced dated events belong here.
+              The festival entry itself carries the season signal.
 
 Like the music-festival source, these are CURATED EDITIONS: the dates are
 annually-announced facts verified against each event's official site when
@@ -53,9 +59,13 @@ class SeasonalEdition:
     contiguous: bool = True
 
 
+_GENRE_FOR = {Category.FIREWORKS: "hanabi", Category.FLOWERS: "flowers",
+              Category.FESTIVAL: "matsuri"}
+
+
 def _events_for(ed: SeasonalEdition, source: str, venue_name: str,
                 today: str) -> Iterable[Event]:
-    genre = "hanabi" if ed.category is Category.FIREWORKS else "matsuri"
+    genre = _GENRE_FOR.get(ed.category, "matsuri")
     if ed.contiguous:
         runs = [(ed.dates[0], ed.dates[-1])]
     else:
@@ -82,16 +92,19 @@ class CuratedSeasonalScraper(BaseScraper):
     supports_detail = False
     allow_empty = True               # deep winter legitimately has none
 
+    _NAMES = {"matsuri": "Tokyo matsuri (curated)",
+              "hanabi": "Tokyo hanabi (curated)",
+              "flowers": "Tokyo flower events (curated)"}
+
     def __init__(self, source_id: str, **kw):
         self.source_id = source_id
-        self.source_name = ("Tokyo matsuri (curated)"
-                            if source_id == "matsuri"
-                            else "Tokyo hanabi (curated)")
+        self.source_name = self._NAMES[source_id]
         super().__init__(**kw)
 
     def _editions(self) -> tuple[SeasonalEdition, ...]:
-        return (MATSURI_EDITIONS if self.source_id == "matsuri"
-                else HANABI_EDITIONS)
+        return {"matsuri": MATSURI_EDITIONS,
+                "hanabi": HANABI_EDITIONS,
+                "flowers": FLOWER_EDITIONS}[self.source_id]
 
     def scrape(self, today: Optional[str] = None) -> Iterable[Event]:
         from ..venues import display_of
@@ -190,6 +203,42 @@ MATSURI_EDITIONS: tuple[SeasonalEdition, ...] = (
         category=Category.FESTIVAL, dates=("2026-12-02", "2026-12-03"),
         venue_area="Chichibu Shrine, Chichibu, Saitama",
         url="https://www.chichibu-jinja.or.jp/"),
+)
+
+# Flowers: only ORGANIZER-DATED events (never bloom forecasts). Unlike
+# matsuri/hanabi, the venue identity is the GARDEN, not the event — the
+# same garden hosts several dated events a year (萩まつり, 月見の会, …).
+# Verified 2026-07-27. WATCH LIST — official 2026 dates not yet posted,
+# with each venue's typical announcement lead (research pass 2026-07-27;
+# 2025 runs noted for expectation-setting only, never publish as 2026):
+#   湯島天満宮 菊まつり (fixed pattern Nov 1-23; page updates ~Oct),
+#   新宿御苑 菊花壇展 (Nov 1-15 pattern; fng.or.jp announces ~2 weeks out
+#   — revisit LAST, mid-Oct), 昭和記念公園 コスモスまつり (2025: Sep 6-
+#   Oct 26; showakinen-koen.jp), 旧古河庭園 秋のバラフェスティバル (2025:
+#   Oct 11-Nov 7; announced late Sep), 神代植物公園 秋のバラフェスタ
+#   (2025: Oct 7-Nov 24; announced late Aug), 六義園 紅葉ライトアップ
+#   (2025: Nov 28-Dec 9; announced late Aug), 昭和記念公園 秋の夜散歩
+#   (2025: Oct 30-Nov 30), 大田黒公園 紅葉ライトアップ (2025: Nov 28-
+#   Dec 7), 高幡不動尊 もみじまつり (2025: Nov 18-30). Beware: web-search
+#   AI summaries have already been caught relabeling these 2025 runs as
+#   "2026" — confirm on the venue's own page before seeding.
+
+FLOWER_EDITIONS: tuple[SeasonalEdition, ...] = (
+    SeasonalEdition(
+        key="mukojima_hyakkaen", title_ja="向島百花園 萩まつり",
+        title_en="Hagi (bush clover) Festival at Mukojima-Hyakkaen",
+        category=Category.FLOWERS, dates=("2026-09-19", "2026-10-12"),
+        venue_area="Mukojima-Hyakkaen, Sumida-ku",
+        # dates stated by the Tokyo Metropolitan Government press release
+        # (2026-06-24); the garden's own news index republishes later
+        url="https://www.metro.tokyo.lg.jp/information/press/2026/06/"
+            "2026062412"),
+    SeasonalEdition(
+        key="hibiya_park", title_ja="日比谷公園ガーデニングショー2026",
+        title_en="Hibiya Park Gardening Show",
+        category=Category.FLOWERS, dates=("2026-10-17", "2026-10-25"),
+        venue_area="Hibiya Park, Chiyoda-ku",
+        url="https://www.hibiya-gardening-show.com/"),
 )
 
 HANABI_EDITIONS: tuple[SeasonalEdition, ...] = (

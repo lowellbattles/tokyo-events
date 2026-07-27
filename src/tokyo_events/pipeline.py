@@ -184,6 +184,8 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
                           ReviewStatus.PENDING),
     "hanabi":            (lambda: CuratedSeasonalScraper("hanabi"),
                           ReviewStatus.PENDING),
+    "flowers":           (lambda: CuratedSeasonalScraper("flowers"),
+                          ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the

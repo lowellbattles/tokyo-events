@@ -31,7 +31,7 @@ PROMOTER_SOURCES = {"sogo_tokyo", "creativeman", "smash_jpn", "udo_artists",
 FESTIVAL_SOURCE = "festivals"
 #: curated seasonal sources — like festivals, each event's venue_name IS a
 #: canonical identity that must become its venue_key
-SEASONAL_SOURCES = {"matsuri", "hanabi"}
+SEASONAL_SOURCES = {"matsuri", "hanabi", "flowers"}
 
 #: venue keys that HOST a festival we cover — only rows at these venues are
 #: candidates for festival dedupe (an after-party at a club with the
