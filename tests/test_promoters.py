@@ -79,6 +79,66 @@ def test_unresolved_promoter_venue_is_skipped_from_export():
     assert out == []
 
 
+# ---- R5: match-time folding (register DUP-1) -----------------------------
+# Each case reproduces a pair that was live-duplicated on the site on
+# 2026-07-27 because the old matcher compared unfolded strings.
+
+def test_merge_survives_spacing_and_wave_dash_variants():
+    # Monster Hunter orchestra: venue prints ～ (FF5E), promoter 〜 (301C)
+    venue = _venue_ev(
+        source="tokyo_intl_forum", venue_name="東京国際フォーラム",
+        title_ja="モンスターハンターオーケストラコンサート ～狩猟音楽祭2026～",
+        lineup=[])
+    promo = _promo_ev(
+        source="disk_garage", venue_name="東京国際フォーラム ホールA",
+        title_ja="モンスターハンターオーケストラコンサート 〜狩猟音楽祭2026〜",
+        lineup=["モンスターハンターオーケストラコンサート 〜狩猟音楽祭2026〜"])
+    out = apply_promoter_merge([venue, promo])
+    assert out == [venue]
+
+
+def test_merge_when_promoter_title_is_a_superset_of_venue_title():
+    # 超特急 (venue row) vs 超特急 東京ドーム公演 (promoter row): the old
+    # matcher never tested the venue TITLE against the promoter's text
+    venue = _venue_ev(source="tokyo_dome", venue_name="東京ドーム",
+                      title_ja="超特急", lineup=[])
+    promo = _promo_ev(source="livenation_jp", venue_name="東京ドーム",
+                      title_ja="超特急 東京ドーム公演",
+                      lineup=["超特急 東京ドーム公演"])
+    out = apply_promoter_merge([venue, promo])
+    assert out == [venue]
+    assert venue["is_sold_out"] is True         # promoter badge carried
+
+
+def test_merge_strips_paren_reading_aids():
+    # ローレン・イロアス（にじさんじ） must match the venue's own title —
+    # parenthesized segments are annotations, never identity
+    venue = _venue_ev(source="tokyo_intl_forum",
+                      venue_name="東京国際フォーラム",
+                      title_ja="ローレン・イロアス 1st LIVE “FACE”",
+                      lineup=[])
+    promo = _promo_ev(source="disk_garage",
+                      venue_name="東京国際フォーラム ホールA",
+                      title_ja="ローレン・イロアス（にじさんじ）",
+                      lineup=["ローレン・イロアス（にじさんじ）"])
+    out = apply_promoter_merge([venue, promo])
+    assert out == [venue]
+
+
+def test_folding_does_not_merge_distinct_same_day_events():
+    # the same hall complex hosts a trade fair AND a concert on one day —
+    # aggressive folding must not glue unrelated rows together
+    venue = _venue_ev(source="tokyo_intl_forum",
+                      venue_name="東京国際フォーラム",
+                      title_ja="ものづくり・匠の技の祭典2026", lineup=[])
+    promo = _promo_ev(source="sogo_tokyo",
+                      venue_name="東京国際フォーラム ホールA",
+                      title_ja="Kiramune Presents Hiroshi Kamiya Live Tour",
+                      lineup=["神谷浩史"])
+    out = apply_promoter_merge([venue, promo])
+    assert len(out) == 2
+
+
 def _fest_ev(**kw):
     d = {"source": "festivals", "source_url": "https://fes/#2026-08-15",
          "title_ja": "SUMMER SONIC 2026", "title_en": None,

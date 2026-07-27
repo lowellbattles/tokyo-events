@@ -22,6 +22,7 @@ per-source facts and alias updates re-resolve without re-scraping.
 from __future__ import annotations
 
 import datetime as dt
+import re
 
 from .artists import norm_key
 from .venues import resolve_venue
@@ -42,23 +43,64 @@ FESTIVAL_HOSTS = {
 }
 
 
+#: after norm_key's NFKC every paren is ASCII — parenthesized segments
+#: are reading aids / annotations, never identity (same rule as
+#: venues.norm_venue): 高城れに(ももいろクローバーZ), Snugs(スナッグス)
+_PAREN_SEG_RE = re.compile(r"\([^()]*\)")
+#: decorative characters the two sides of a merge disagree on. NFKC
+#: folds ～(FF5E) to ~ but leaves 〜(U+301C) alone — fold both to one
+#: form; middle dots, curly/corner quotes and ®-class marks just drop.
+_FOLD_TABLE = str.maketrans({
+    "〜": "~", "・": None, "®": None, "™": None, "©": None,
+    "“": None, "”": None, "‘": None, "’": None, '"': None, "'": None,
+    "「": None, "」": None, "『": None, "』": None})
+_WS_RE = re.compile(r"\s+")
+_CJK_RE = re.compile(r"[぀-ヿ㐀-鿿]")   # kana + ideographs
+
+
+def _match_norm(s: str | None) -> str:
+    """Aggressive fold for overlap TESTING only — never for storage or
+    display. Venue and promoter spell the same show differently in
+    exactly these ways: internal spacing, 〜/～ variants, decorative
+    punctuation, parenthesized reading aids (roadmap R5 / DUP-1)."""
+    s = norm_key(s or "")
+    s = _PAREN_SEG_RE.sub("", s)
+    s = s.translate(_FOLD_TABLE)
+    return _WS_RE.sub("", s)
+
+
+def _min_needle(n: str) -> int:
+    """CJK is dense — 3 chars is already a name (超特急); Latin needs 4
+    to stay safe as a substring needle."""
+    return 3 if _CJK_RE.search(n) else 4
+
+
 def _artist_overlap(promo: dict, venue_ev: dict) -> bool:
     """True when the promoter row and the venue row plausibly describe the
-    same show: any promoter act appears in the venue event's title/lineup
-    (or vice versa)."""
-    v_hay = norm_key(" ".join(filter(None, (
-        venue_ev.get("title_ja"), venue_ev.get("title_en"),
-        *(venue_ev.get("lineup") or [])))))
+    same show: any promoter act/title appears in the venue event's
+    title/lineup, any venue lineup act in the promoter's text, or the
+    venue's own title inside the promoter's text (promoter rows are
+    often "<venue title> + suffix" supersets: 超特急 東京ドーム公演).
+    All comparisons happen in _match_norm space; the \\x00 joins keep a
+    needle from matching across two fields' boundary."""
+    v_titles = [venue_ev.get("title_ja"), venue_ev.get("title_en")]
+    v_hay = "\x00".join(_match_norm(p) for p in (
+        *v_titles, *(venue_ev.get("lineup") or [])) if p)
     p_names = [n for n in (promo.get("lineup") or []) if n]
-    p_names += [t for t in (promo.get("title_ja"), promo.get("title_en")) if t]
-    p_hay = norm_key(" ".join(p_names))
-    for name in p_names:
-        n = norm_key(name)
+    p_titles = [t for t in (promo.get("title_ja"), promo.get("title_en")) if t]
+    p_hay = "\x00".join(_match_norm(p) for p in (*p_names, *p_titles))
+
+    for name in p_names + p_titles:
+        n = _match_norm(name)
         if len(n) >= 3 and n in v_hay:
             return True
     for name in (venue_ev.get("lineup") or []):
-        n = norm_key(name)
+        n = _match_norm(name)
         if len(n) >= 3 and n in p_hay:
+            return True
+    for title in v_titles:
+        n = _match_norm(title)
+        if n and len(n) >= _min_needle(n) and n in p_hay:
             return True
     return False
 

@@ -291,16 +291,25 @@ anchored correctly.
 ### Phase 1 — visible data quality
 
 **R5. Fix the promoter-merge matcher (kills most of the 26 live dupes).**
-*(DUP-1 · M)*
-Introduce a match-normalization used only for overlap testing: `norm_key`
-+ strip *all* whitespace + fold `〜/～/~`, curly/corner quotes, `・`, and
-`®`-class symbols. Add the missing symmetric check (venue title contained
-in promoter haystack, ≥4 chars). Keep the ≥3-char CJK guard. Commit the
-audit's dupe-detector as `scripts/find_dupes.py` and diff before/after.
-*Accept:* the Disney Sea, Kiramune, Monster Hunter, 超特急, a子, GRe4N
-BOYZ, Snugs pairs merge; no previously-merged pair regresses (fixtures
-both directions); remaining groups are genuinely distinct events or
-cross-script cases (→ R24).
+*(DUP-1 · M)* ✅ **shipped 2026-07-27**
+As implemented: `promoters._match_norm` — used for overlap testing only,
+never storage/display — is `norm_key` + drop parenthesized reading-aids
+(ローレン・イロアス（にじさんじ）; same rule as `venues.norm_venue`) +
+fold `〜/～`, drop `・`, curly/corner quotes and ®-class marks + strip
+all whitespace. `_artist_overlap` gained the missing symmetric check
+(venue title inside promoter text; CJK needles ≥3 chars, Latin ≥4) and
+joins hay fields with `\x00` so needles can't match across field
+boundaries. `scripts/find_dupes.py` committed as the standing report.
+**Measured: cross-source dupe groups 27 → 14** on the live feed;
+promoter merge folds 176 → 190 rows. All audit pairs verified merged
+(Disney Sea, Kiramune, Monster Hunter, 超特急, a子, GRe4N BOYZ, Snugs,
+高城れに, シンガーズハイ, 甲斐田晴, ローレン・イロアス); zero
+regressions (all prior promoter tests pass; 4 new fixture tests, both
+directions). Remaining 14 groups are the honest residue: cross-script
+pairs (ANN WILSON/アン・ウィルソン → R24), venue placeholder titles
+(新宿ReNY "8/1公演" rows carry no artist text to match), genuinely
+distinct same-day events (マジカルミライ ライブ vs 企画展), and 15
+same-source double-rows (R6 scope).
 
 **R6. Promoter↔promoter fold at gap venues.** *(DUP-2 · S-M)*
 After R5, extend `_apply` to fold promoter rows against already-emitted
