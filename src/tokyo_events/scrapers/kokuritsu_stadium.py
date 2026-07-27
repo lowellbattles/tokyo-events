@@ -43,7 +43,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 VENUE = dict(
@@ -89,7 +89,7 @@ class KokuritsuStadiumScraper(BaseScraper):
             url = f"{self.BASE}/event/page/{m.year}{m.month:02d}/"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 break
             yield from self._emit(html, seen)
 

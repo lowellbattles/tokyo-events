@@ -52,7 +52,7 @@ from typing import Iterable
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 VENUE = dict(
@@ -96,7 +96,7 @@ class AriakeArenaScraper(BaseScraper):
             url = f"{self.BASE}/event/{slug}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 continue    # a future-month slug failing must not drop earlier data

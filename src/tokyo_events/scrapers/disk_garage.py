@@ -98,7 +98,7 @@ from bs4 import BeautifulSoup, Tag
 from ..models import Category, Event
 from ..venues import resolve_venue
 from . import textutils as tu
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 
 # Detail permalink: /ticket/detail/<numeric id> — the structural key for
 # both the listing scan and the fixture URL shape.
@@ -155,7 +155,7 @@ class DiskGarageScraper(BaseScraper):
             url = f"{self.BASE}/artist/date/{m.year}-{m.month:02d}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 break            # far-future months eventually error out

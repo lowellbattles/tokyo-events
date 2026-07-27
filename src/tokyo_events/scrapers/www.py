@@ -23,7 +23,7 @@ from typing import Iterable
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 HALLS = {
@@ -63,7 +63,7 @@ class WWWScraper(BaseScraper):
             try:
                 html = self.fetch(
                     f"{self.BASE}/schedule/{m.year}{m.month:02d}.php")
-            except RuntimeError:
+            except NotFoundError:
                 break
             yield from self.parse(html, month=m)
 

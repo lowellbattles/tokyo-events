@@ -43,7 +43,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 MONTH_ABBR = ["Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -106,7 +106,7 @@ class ClubCittaScraper(BaseScraper):
                 url = f"{self.BASE}/schedule?year={m.year}&month={MONTH_ABBR[m.month - 1]}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 break
             fresh = [e for e in self.parse(html, month=m)
                      if e.source_url not in seen]

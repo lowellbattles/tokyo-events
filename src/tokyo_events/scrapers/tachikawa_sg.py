@@ -69,7 +69,7 @@ from bs4 import BeautifulSoup
 
 from ..models import Category, Event
 from . import textutils as tu
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 
 # Detail permalink: /events/YYYY/MM/<zero-padded id>.php. Anchored on the
 # URL shape so nav links (/events/, /about/, index.php?…) never match — this
@@ -119,7 +119,7 @@ class TachikawaStageGardenScraper(BaseScraper):
                 url = f"{self.BASE}/events/index.php?y={m.year}&m={m.month:02d}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 break            # far-future months eventually 404 / error

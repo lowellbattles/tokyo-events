@@ -61,7 +61,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 # Whole-complex metadata; every hall shares this building. venue_name is
@@ -125,7 +125,7 @@ class TokyoIntlForumScraper(BaseScraper):
             url = f"{self.EVENT_BASE}?year={m.year}&month={m.month}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise          # the current month must be reachable
                 break              # far-future month not published yet

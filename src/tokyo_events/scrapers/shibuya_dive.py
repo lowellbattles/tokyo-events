@@ -31,7 +31,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 VENUE = dict(
@@ -64,7 +64,7 @@ class ShibuyaDiveScraper(BaseScraper):
         for url in self._month_links(html)[: self.months_ahead]:
             try:
                 yield from self.parse(self.fetch(url))
-            except RuntimeError:
+            except NotFoundError:
                 break   # a listed month that 404s: stop walking further out
 
     def _month_links(self, html: str) -> list[str]:

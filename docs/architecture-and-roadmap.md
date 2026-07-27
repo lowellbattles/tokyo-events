@@ -331,17 +331,24 @@ links + OR'd sold-out; per-performance pages stay; live/exhibition
 stays). `scripts/find_dupes.py` now classifies groups — its
 "UNEXPLAINED (fold bug if >0)" counter reads 0.
 
-**R7. Typed fetch errors + correct month-walk termination.** *(SCR-4 · M)*
-In `base.fetch()`: don't retry 4xx (only timeouts/connection errors/5xx),
-and raise `NotFoundError` (404/410) distinctly from `FetchError`
-(everything else), chaining the original exception. Sweep the ~30
-month-walking scrapers: `break` only on `NotFoundError`; let
-`FetchError` propagate so a partial 403/429 block surfaces as a loud
-per-source error instead of silent coverage truncation. Add a pipeline
-test: month 1 OK + month 2 403 ⇒ report error; month 1 OK + month 2 404
-⇒ clean stop.
-*Accept:* the simulated partial-block test fails loud; normal walk
-termination no longer costs 2 retry requests + 6 s per source per day.
+**R7. Typed fetch errors + correct month-walk termination.** *(SCR-4 · M)* ✅ **shipped 2026-07-27**
+`base.fetch()` now types its failures: 404/410 → `NotFoundError`
+immediately; any other 4xx → `FetchError` immediately (an answer, not
+an outage — no retry, for politeness and loudness); 5xx/network trouble
+retried then `FetchError`; originals chained via `raise … from`. Both
+subclass RuntimeError so untouched callers keep working. Swept all 32
+month-walk terminators to `except NotFoundError:` — a partial WAF block
+(month 1 OK, month 2 403) now propagates as a loud per-source error
+with month 1's data intact, instead of silently truncating coverage.
+creativeman's per-tour-page and udo's per-show-page best-effort skips
+narrowed to `FetchError` for intent clarity (same behavior).
+*Verified by `tests/test_fetch.py`* (7 tests): 403 = 1 request +
+FetchError; 404 = 1 request + NotFoundError; 5xx retried ×3; recovery
+on retry; and the two pipeline scenarios from the acceptance (404 ⇒
+clean stop, 403 ⇒ loud with partial data). Politeness dividend: a
+normal walk termination previously burned 2 extra requests + 12 s of
+backoff sleeps; now 1 request, 0 sleep — ~60 requests and several
+minutes off every daily run.
 
 **R8. Stale-upcoming (cancellation-shaped) surfacing.** *(GLAY case · S-M)*
 An approved/auto event with upcoming `start_date` whose `last_seen` is

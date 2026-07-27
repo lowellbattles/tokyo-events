@@ -51,7 +51,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 #: listing anchor -> detail page: /schedule/{numeric_id}/
@@ -99,7 +99,7 @@ class QueScraper(BaseScraper):
                    else f"{self.BASE}/schedule/date/{m.year}/{m.month:02d}")
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 break
             fresh = [e for e in self.parse(html, month=m)
                      if e.source_url not in seen]

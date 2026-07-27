@@ -56,7 +56,7 @@ from bs4 import BeautifulSoup
 
 from ..models import Category, Event
 from . import textutils as tu
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 
 # Detail permalink: /event/<numeric post id>. Anchored so month-archive and
 # nav links (/category/event/…) never match — this is the structural key.
@@ -104,7 +104,7 @@ class LineCubeShibuyaScraper(BaseScraper):
             url = f"{self.BASE}/category/event/event{m.year}{m.month:02d}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 break

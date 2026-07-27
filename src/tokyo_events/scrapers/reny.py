@@ -43,7 +43,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 HALLS = {
@@ -102,7 +102,7 @@ class RenyScraper(BaseScraper):
             url = self._index_url(m)
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 break

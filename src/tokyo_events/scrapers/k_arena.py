@@ -62,7 +62,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 VENUE = dict(
@@ -108,7 +108,7 @@ class KArenaScraper(BaseScraper):
             url = base if i == 0 else f"{base}?y={m.year}&m={m.month}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise            # current month must be reachable
                 break

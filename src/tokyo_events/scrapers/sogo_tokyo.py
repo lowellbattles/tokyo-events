@@ -59,7 +59,7 @@ from bs4 import BeautifulSoup
 from ..models import Category, Event
 from ..venues import resolve_venue
 from . import textutils as tu
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 
 # Detail permalink: /live_information/detail/<numeric id> — the structural
 # key. Anchored on the URL shape, not markup classes, so a template change
@@ -99,7 +99,7 @@ class SogoTokyoScraper(BaseScraper):
             url = base if i == 0 else f"{base}?year={m.year}&month={m.month:02d}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 break            # far-future months eventually error out

@@ -24,7 +24,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 HALLS = {
@@ -63,7 +63,7 @@ class QuattroScraper(BaseScraper):
             m = tu.add_months(first, i)
             try:
                 html = self.fetch(f"{base}?ym={m.year}{m.month:02d}")
-            except RuntimeError:
+            except NotFoundError:
                 break   # months that far out often don't exist yet
             yield from self.parse(html, month=m)
 

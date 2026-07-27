@@ -60,7 +60,7 @@ from bs4 import BeautifulSoup
 
 from ..models import Category, Event
 from . import textutils as tu
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 
 VENUE_AREA = "Hatsudai"
 # Tokyo Opera City is a major, fixed Tokyo landmark (Nishi-Shinjuku 3-20-2);
@@ -107,7 +107,7 @@ class OperaCityScraper(BaseScraper):
             m = tu.add_months(first, i)
             try:
                 html = self.fetch(self._month_url(m.year, m.month))
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise                 # month 0 must work; else fail loud
                 break                     # far-future months may 404 — stop

@@ -62,7 +62,7 @@ from bs4 import BeautifulSoup
 from ..models import Category, Event
 from ..venues import resolve_venue
 from . import textutils as tu
-from .base import BaseScraper
+from .base import BaseScraper, FetchError
 
 SOURCE_ID = "udo_artists"
 BASE = "https://www.udo.jp"
@@ -259,7 +259,7 @@ class UdoArtistsScraper(BaseScraper):
         for show_url in self.parse(html):
             try:
                 detail_html = self.fetch(show_url)
-            except RuntimeError:
+            except FetchError:
                 continue        # one bad show page never kills the run
             for ev in parse_show(detail_html, show_url,
                                  skipped=self.skipped_venues):

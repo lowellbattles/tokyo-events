@@ -81,7 +81,7 @@ from bs4 import BeautifulSoup, NavigableString, Tag
 from ..models import Category, Event
 from ..venues import resolve_venue
 from . import textutils as tu
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 
 # Detail permalink: /live/?id=<numeric id> — the structural key for both
 # the listing scan and the fixture URL shape.
@@ -134,7 +134,7 @@ class SmashScraper(BaseScraper):
             url = f"{self.BASE}/calendar/?year={m.year}&month={m.month}&p=3"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 break            # far-future months eventually error out

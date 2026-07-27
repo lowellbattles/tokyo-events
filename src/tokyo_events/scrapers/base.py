@@ -39,6 +39,19 @@ USER_AGENT = (
     "python-requests"
 )
 
+
+class FetchError(RuntimeError):
+    """A page could not be fetched (network trouble, 5xx, 4xx block).
+    Subclasses RuntimeError so callers written before the errors were
+    typed keep working unchanged."""
+
+
+class NotFoundError(FetchError):
+    """The server says the page does not exist (404/410) — the normal
+    end-of-calendar signal month-walking scrapers stop on. Everything
+    else (403/429/5xx/timeouts) must stay LOUD: a WAF block that starts
+    at month 2 must never read as "no more months" (roadmap R7)."""
+
 _META_CHARSET_RE = re.compile(rb"charset=[\"']?([A-Za-z0-9_.:-]+)", re.I)
 
 
@@ -75,7 +88,12 @@ class BaseScraper(ABC):
         self._last_request = 0.0
 
     def fetch(self, url: str, retries: int = 2) -> str:
-        """Rate-limited GET returning response text."""
+        """Rate-limited GET returning response text. Retries only what
+        can heal in seconds (timeouts, connection drops, 5xx). A 4xx is
+        an answer, not an outage: 404/410 raise NotFoundError, any other
+        4xx raises FetchError immediately — no retry, both for
+        politeness and so a 403 surfaces as a block instead of burning
+        backoff requests (roadmap R7/SCR-4)."""
         wait = self.rate_limit_s - (time.time() - self._last_request)
         if wait > 0:
             time.sleep(wait)
@@ -90,10 +108,21 @@ class BaseScraper(ABC):
                     resp.content[:4096],
                     resp.apparent_encoding, resp.encoding)
                 return resp.text
-            except requests.RequestException as e:  # pragma: no cover
-                last_err = e
+            except requests.HTTPError as e:
+                status = getattr(e.response, "status_code", None)
+                if status in (404, 410):
+                    raise NotFoundError(
+                        f"[{self.source_id}] {url}: HTTP {status}") from e
+                if status is not None and 400 <= status < 500:
+                    raise FetchError(f"[{self.source_id}] failed to fetch "
+                                     f"{url}: HTTP {status}") from e
+                last_err = e                    # 5xx — worth a retry
+            except requests.RequestException as e:
+                last_err = e                    # timeout / connection drop
+            if attempt < retries:
                 time.sleep(2 * (attempt + 1))
-        raise RuntimeError(f"[{self.source_id}] failed to fetch {url}: {last_err}")
+        raise FetchError(f"[{self.source_id}] failed to fetch {url}: "
+                         f"{last_err}") from last_err
 
     @abstractmethod
     def scrape(self) -> Iterable[Event]:

@@ -20,7 +20,7 @@ from typing import Iterable
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 DETAIL_HREF_RE = re.compile(r"/schedule/single/\?rid=\d+")
@@ -67,7 +67,7 @@ class ZeppScraper(BaseScraper):
             url = base if i == 0 else f"{base}?_y={m.year}&_m={m.month}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 break
             fresh = [e for e in self.parse(html)
                      if e.source_url not in seen]

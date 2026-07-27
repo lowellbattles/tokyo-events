@@ -57,7 +57,7 @@ from bs4 import BeautifulSoup
 
 from ..models import Category, Event
 from ..venues import resolve_venue
-from .base import BaseScraper
+from .base import BaseScraper, FetchError, NotFoundError
 from . import textutils as tu
 
 BASE = "https://www.creativeman.co.jp"
@@ -200,7 +200,7 @@ class CreativemanScraper(BaseScraper):
             url = f"{EVENT_BASE}?cmy={m.year}&cmm={m.month}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise                  # the current month must be reachable
                 break                      # far-future month not published yet
@@ -245,7 +245,7 @@ class CreativemanScraper(BaseScraper):
                         cache[tour_url] = self.fetch(tour_url)
                         fetched += 1
                     page = parse_tour(cache[tour_url], tour_url=tour_url)
-                except RuntimeError:
+                except FetchError:
                     yield from self._deferred(tour_rows)   # fetch failed
                     continue
                 yield from self._legs_to_events(

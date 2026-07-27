@@ -33,7 +33,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 # Month header text, e.g. "2026.07".
@@ -109,7 +109,7 @@ class EggmanScraper(BaseScraper):
                 url = f"{base}?syear={m.year}&smonth={m.month:02d}"
                 try:
                     html = self.fetch(url)
-                except RuntimeError:
+                except NotFoundError:
                     break
                 fresh = [ev for ev in self.parse(html, month=m)
                          if ev.source_url not in seen]

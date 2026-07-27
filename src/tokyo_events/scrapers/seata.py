@@ -55,7 +55,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 # Detail links: /schedule/detail/<numeric id> (opaque CMS auto-increment).
@@ -145,7 +145,7 @@ class SeataScraper(BaseScraper):
             url = f"{self.BASE}/schedule/calendar/{m.year}/{m.month:02d}/"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 break
             fresh = [e for e in self.parse(html, month=m)
                      if e.source_url not in seen]

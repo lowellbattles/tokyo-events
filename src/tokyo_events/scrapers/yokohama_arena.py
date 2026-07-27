@@ -19,7 +19,7 @@ import re
 from typing import Iterable
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 VENUE = dict(venue_name="横浜アリーナ", venue_area="Shin-Yokohama",
@@ -47,7 +47,7 @@ class YokohamaArenaScraper(BaseScraper):
             url = f"{self.BASE}/event/{m.year}{m.month:02d}?_format=json"
             try:
                 raw = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 break

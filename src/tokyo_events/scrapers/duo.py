@@ -20,7 +20,7 @@ from typing import Iterable
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 VENUE = dict(venue_name="duo MUSIC EXCHANGE", venue_area="Shibuya",
@@ -54,7 +54,7 @@ class DuoScraper(BaseScraper):
             m = tu.add_months(first, i)
             try:
                 html = self.fetch(self.month_url(m))
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise           # current month missing = loud failure
                 break

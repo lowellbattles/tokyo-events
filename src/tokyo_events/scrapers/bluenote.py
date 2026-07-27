@@ -37,7 +37,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 # --- English am/pm showtimes, shared by both venues -------------------------
@@ -253,7 +253,7 @@ class CottonClubScraper(BaseScraper):
             url = f"{self.RESERVE}/reserve/schedule/move/{m.year}{m.month:02d}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 break

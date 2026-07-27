@@ -45,7 +45,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 # "26.07.01 (Wed) ..." at the head of the event title -> (yy, mm, dd)
@@ -99,7 +99,7 @@ class FeverScraper(BaseScraper):
             url = f"{self.BASE}/schedule/{m.year}/{m.month:02d}/"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 break   # month page not published yet -> stop walking
             events = self.parse(html, month=m)
             if not events:

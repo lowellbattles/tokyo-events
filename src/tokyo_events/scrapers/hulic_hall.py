@@ -45,7 +45,7 @@ from bs4 import BeautifulSoup
 
 from ..models import Category, Event
 from . import textutils as tu
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 
 VENUE = dict(
     venue_name="ヒューリックホール東京",
@@ -84,7 +84,7 @@ class HulicHallScraper(BaseScraper):
                    else f"{self.SCHEDULE_URL}?d={m.year}{m.month:02d}")
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 if i == 0:
                     raise
                 break

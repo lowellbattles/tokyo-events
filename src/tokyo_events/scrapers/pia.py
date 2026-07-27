@@ -28,7 +28,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 _MMDD_DAY_RE = re.compile(
@@ -62,7 +62,7 @@ class ToyosuPitScraper(BaseScraper):
             url = f"{self.BASE}/schedule-list/{m.year}/{m.month}/index.html"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 break
             yield from self.parse(html, page_url=url)
 

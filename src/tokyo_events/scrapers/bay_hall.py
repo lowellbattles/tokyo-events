@@ -44,7 +44,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 VENUE = dict(
@@ -101,7 +101,7 @@ class BayHallScraper(BaseScraper):
             url = f"{self.BASE}/{m.year}/{m.month:02d}/"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 break   # ran off the end of the live runway
             yield from self.parse(html, month=m)
 

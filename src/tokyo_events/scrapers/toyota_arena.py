@@ -45,7 +45,7 @@ from typing import Iterable
 from urllib.parse import urljoin
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 VENUE = dict(
@@ -147,7 +147,7 @@ class ToyotaArenaScraper(BaseScraper):
             url = f"{self.BASE}/events/?year={m.year}&month={m.month:02d}"
             try:
                 html = self.fetch(url)
-            except RuntimeError:
+            except NotFoundError:
                 break               # months that far out may not exist yet
             # A sporadically-booked arena has normal interior empty months —
             # card dates are absolute (YYYY.M.D), so walking the full window
