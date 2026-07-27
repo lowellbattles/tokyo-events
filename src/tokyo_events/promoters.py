@@ -13,7 +13,10 @@ schedule, but the promoter often knows things the venue page doesn't
    ticket-link union, gap-fill for times/prices) and dropped from the
    feed.
 3. promoter events at gap venues (日本武道館 ...) stay standalone, giving
-   the site coverage no venue scraper can.
+   the site coverage no venue scraper can. Duplicate promoter rows for
+   the SAME show fold together first (R6): co-promotions merge on artist
+   overlap; one promoter's per-performance pages merge only when their
+   titles align and their start times don't disagree.
 
 Like genres/artists, this runs at export only — the DB keeps pure
 per-source facts and alias updates re-resolve without re-scraping.
@@ -102,6 +105,33 @@ def _artist_overlap(promo: dict, venue_ev: dict) -> bool:
         n = _match_norm(title)
         if n and len(n) >= _min_needle(n) and n in p_hay:
             return True
+    return False
+
+
+def _times_compatible(a: dict, b: dict) -> bool:
+    """Two-performances guard (R6): same-day rows with two DIFFERENT
+    stated start times are two shows (昼/夜公演), never duplicates. A
+    missing time on either side is treated as compatible — venue sources
+    model one row per day, so per-day folding matches their granularity."""
+    ta, tb = a.get("start_time"), b.get("start_time")
+    return ta is None or tb is None or ta == tb
+
+
+def _titles_overlap(a: dict, b: dict) -> bool:
+    """Same-source fold guard (R6): one promoter's two rows are one show
+    only when their TITLES align (identical or one contains the other).
+    A promoter knows its own catalog — two distinct titles for the same
+    artist/venue/day are two distinct things (初音ミク's マジカルミライ
+    ＜ライブ＞ vs ＜企画展＞ at Makuhari), where artist overlap alone
+    would wrongly glue them."""
+    ta = [_match_norm(t) for t in (a.get("title_ja"), a.get("title_en")) if t]
+    tb = [_match_norm(t) for t in (b.get("title_ja"), b.get("title_en")) if t]
+    for x in ta:
+        for y in tb:
+            needle, hay = (x, y) if len(x) <= len(y) else (y, x)
+            if needle and len(needle) >= _min_needle(needle) \
+                    and needle in hay:
+                return True
     return False
 
 
@@ -198,7 +228,12 @@ def _apply(events: list[dict]) -> list[dict]:
 
     wins = _festival_windows(events)
     out: list[dict] = []
-    merged = fest_folded = unresolved = 0
+    #: promoter rows already kept, by (start_date, venue_key) — the fold
+    #: targets for later promoter rows describing the same show (R6):
+    #: two promoters co-listing one gap-venue show, or one promoter's
+    #: two detail pages for a single performance.
+    promo_kept: dict[tuple[str, str], list[dict]] = {}
+    merged = fest_folded = promo_folded = unresolved = 0
     for d in events:
         if d["source"] == FESTIVAL_SOURCE:
             out.append(d)
@@ -218,10 +253,23 @@ def _apply(events: list[dict]) -> list[dict]:
         if hit is not None:
             _merge(hit, d)
             merged += 1
-        else:
-            out.append(d)
-    if merged or fest_folded or unresolved:
+            continue
+        key = (d.get("start_date"), d["venue_key"])
+        prior = next(
+            (k for k in promo_kept.get(key, [])
+             if _times_compatible(k, d)
+             and (_titles_overlap(k, d) if k["source"] == d["source"]
+                  else _artist_overlap(d, k))),
+            None)
+        if prior is not None:
+            _merge(prior, d)
+            promo_folded += 1
+            continue
+        out.append(d)
+        promo_kept.setdefault(key, []).append(d)
+    if merged or fest_folded or promo_folded or unresolved:
         print(f"promoter merge: folded {merged} duplicate rows into venue "
-              f"records, {fest_folded} into festival records; skipped "
+              f"records, {fest_folded} into festival records, "
+              f"{promo_folded} promoter-vs-promoter; skipped "
               f"{unresolved} promoter rows with no resolved venue")
     return out

@@ -139,6 +139,76 @@ def test_folding_does_not_merge_distinct_same_day_events():
     assert len(out) == 2
 
 
+# ---- R6: promoter-vs-promoter fold (register DUP-2) -----------------------
+
+def test_same_source_double_row_folds_with_ticket_union():
+    # one promoter, two detail pages for one show (disk_garage's
+    # フリーレン film concert) — one event exports with BOTH pages' links
+    a = _promo_ev(source="disk_garage", source_url="https://dg/freeren-1",
+                  title_ja="『葬送のフリーレン』フィルムコンサート2026",
+                  lineup=[], venue_name="パシフィコ横浜",
+                  ticket_links=[{"provider": "eplus",
+                                 "url": "https://eplus.jp/f1", "code": None}])
+    b = _promo_ev(source="disk_garage", source_url="https://dg/freeren-2",
+                  title_ja="『葬送のフリーレン』フィルムコンサート2026",
+                  lineup=[], venue_name="パシフィコ横浜",
+                  ticket_links=[{"provider": "pia",
+                                 "url": "https://w.pia.jp/f2", "code": None}])
+    out = apply_promoter_merge([a, b])
+    assert out == [a]
+    assert {t["provider"] for t in a["ticket_links"]} == {"eplus", "pia"}
+    assert a["venue_key"] == "pacifico_yokohama"
+
+
+def test_copromoted_gap_venue_show_exports_once():
+    cm = _promo_ev(source="creativeman", source_url="https://cm/artistx",
+                   title_ja="ARTIST X JAPAN TOUR 2026", lineup=["ARTIST X"],
+                   venue_name="日本武道館", is_sold_out=False,
+                   price_min=None, price_text=None, open_time=None,
+                   start_time="18:00", ticket_links=[])
+    ln = _promo_ev(source="livenation_jp", source_url="https://ln/artistx",
+                   title_ja="ARTIST X", lineup=["ARTIST X"],
+                   venue_name="日本武道館", is_sold_out=True,
+                   start_time=None, open_time="17:00", price_min=9800,
+                   ticket_links=[{"provider": "ticketmaster",
+                                  "url": "https://tm/x", "code": None}])
+    out = apply_promoter_merge([cm, ln])
+    assert out == [cm]                      # first-kept row is the base
+    assert cm["is_sold_out"] is True        # OR'd from the co-promoter
+    assert cm["price_min"] == 9800          # gap-filled
+    assert cm["open_time"] == "17:00"
+    assert cm["start_time"] == "18:00"      # never overwritten
+    assert any(t["provider"] == "ticketmaster" for t in cm["ticket_links"])
+    assert cm["venue_key"] == "budokan"
+
+
+def test_two_performances_same_day_stay_separate():
+    mat = _promo_ev(source="disk_garage", source_url="https://dg/prec-mat",
+                    title_ja="プリキュアシンガーズ Premium LIVE",
+                    lineup=[], venue_name="日本武道館", start_time="13:00")
+    eve = _promo_ev(source="disk_garage", source_url="https://dg/prec-eve",
+                    title_ja="プリキュアシンガーズ Premium LIVE",
+                    lineup=[], venue_name="日本武道館", start_time="18:00")
+    out = apply_promoter_merge([mat, eve])
+    assert len(out) == 2                    # 昼/夜公演 are two shows
+
+
+def test_same_source_distinct_titles_same_artist_stay_separate():
+    # sogo lists マジカルミライ's LIVE and its EXHIBITION as two rows —
+    # same artist, venue and day, two real things; artist overlap alone
+    # must not glue them (titles-align rule for same-source folds)
+    live = _promo_ev(source="sogo_tokyo", source_url="https://so/mm-live",
+                     title_ja="初音ミク「マジカルミライ 2026」＜ライブ＞",
+                     lineup=["初音ミク"], venue_name="幕張メッセ",
+                     start_time=None, open_time=None)
+    expo = _promo_ev(source="sogo_tokyo", source_url="https://so/mm-expo",
+                     title_ja="初音ミク「マジカルミライ 2026」＜企画展＞",
+                     lineup=["初音ミク"], venue_name="幕張メッセ",
+                     start_time=None, open_time=None)
+    out = apply_promoter_merge([live, expo])
+    assert len(out) == 2
+
+
 def _fest_ev(**kw):
     d = {"source": "festivals", "source_url": "https://fes/#2026-08-15",
          "title_ja": "SUMMER SONIC 2026", "title_en": None,

@@ -311,14 +311,25 @@ pairs (ANN WILSON/アン・ウィルソン → R24), venue placeholder titles
 distinct same-day events (マジカルミライ ライブ vs 企画展), and 15
 same-source double-rows (R6 scope).
 
-**R6. Promoter↔promoter fold at gap venues.** *(DUP-2 · S-M)*
-After R5, extend `_apply` to fold promoter rows against already-emitted
-promoter rows at the same (date, venue_key) with the same overlap test —
-keep the richer row, union ticket links, OR sold-out. Guard the
-two-performances case: only fold when start_times are equal or one side
-is missing. Same-source double rows fold under the same rule.
-*Accept:* co-promoted gap-venue shows export once; a fixture reproduces
-the disk_garage double-row and asserts one event with both ticket links.
+**R6. Promoter↔promoter fold at gap venues.** *(DUP-2 · S-M)* ✅ **shipped 2026-07-27**
+As implemented in `_apply`: a promoter row with no venue-source
+counterpart folds into an already-kept promoter row at the same
+(date, venue_key). Cross-source pairs (co-promotions) merge on
+`_artist_overlap`; same-source pairs merge only when their **titles**
+align (`_titles_overlap` — a promoter knows its own catalog: 初音ミク's
+＜ライブ＞ vs ＜企画展＞ must never glue); nothing merges when both
+rows state different start times (`_times_compatible`). Fold = ticket
+union + sold-out OR + gap-fill, first-kept row as base.
+**Measured — and the audit's assumption corrected:** the fold takes 0
+rows on the current feed, because inspection showed every one of the
+"15 same-source double-rows" is a genuine two-performances day
+(フリーレン 13:00+18:00, プリキュア 14:00+19:00, …), each row with its
+own ticket page — exactly what the guard exists to protect. The
+mechanism stands ready for real co-promotions at gap venues, pinned by
+4 fixture tests (co-promoted Budokan show exports once with union'd
+links + OR'd sold-out; per-performance pages stay; live/exhibition
+stays). `scripts/find_dupes.py` now classifies groups — its
+"UNEXPLAINED (fold bug if >0)" counter reads 0.
 
 **R7. Typed fetch errors + correct month-walk termination.** *(SCR-4 · M)*
 In `base.fetch()`: don't retry 4xx (only timeouts/connection errors/5xx),
