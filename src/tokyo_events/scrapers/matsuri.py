@@ -9,6 +9,10 @@ Three registry sources, one module:
               time to see X" is a weather-dependent prediction, not a
               fact — only organizer-announced dated events belong here.
               The festival entry itself carries the season signal.
+              (Owner note 2026-07-27: this no-forecast scope is the
+              current preference and may be revisited — if best-time/
+              famous-spots guidance is added later, keep it clearly
+              separated from the factual event feed.)
 
 Like the music-festival source, these are CURATED EDITIONS: the dates are
 annually-announced facts verified against each event's official site when
