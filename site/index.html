@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TOKYO EVENTS — 東京イベント</title>
+<meta name="description" content="東京のライブハウス・アリーナから美術館、まつり・花火まで。公式サイトの情報だけを集めたバイリンガル(日英)イベント一覧。">
+<meta property="og:title" content="TOKYO EVENTS — 東京イベント">
+<meta property="og:description" content="東京のライブハウス・アリーナから美術館、まつり・花火まで。公式サイトの情報だけを集めたバイリンガル(日英)イベント一覧。">
+<meta property="og:url" content="https://lowellbattles.github.io/tokyo-events/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="TOKYO EVENTS">
+<meta property="og:locale" content="ja_JP">
+<meta name="twitter:card" content="summary">
 <style>
   :root{
     --paper:#f5f5f2; --card:#ffffff; --ink:#15171c; --ink-2:#5b606b; --ink-3:#9aa0ac;
@@ -21,7 +29,7 @@
   body{background:var(--paper);color:var(--ink);
     font-family:"Helvetica Neue",Arial,"Hiragino Kaku Gothic ProN","Hiragino Sans","Noto Sans JP",Meiryo,sans-serif;
     font-size:15px;line-height:1.5}
-  a{color:inherit}
+  a{color:inherit;text-decoration:none}
   button{font:inherit;cursor:pointer;background:none;border:none;color:inherit}
   :focus-visible{outline:2px solid var(--ink);outline-offset:2px;border-radius:4px}
 
@@ -56,7 +64,7 @@
   .day-rel{font-size:10.5px;color:var(--ink-3);margin-top:2px}
   .cards{display:flex;flex-direction:column;gap:10px;border-left:1px solid var(--line);padding-left:18px}
 
-  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);display:flex;overflow:hidden;position:relative;transition:transform .12s ease,box-shadow .12s ease}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);display:flex;overflow:hidden;position:relative;transition:transform .12s ease,box-shadow .12s ease;content-visibility:auto;contain-intrinsic-size:auto 150px}
   .card:hover{transform:translateY(-1px);box-shadow:0 3px 14px rgba(21,23,28,.08)}
   @media (prefers-reduced-motion:reduce){.card,.chip{transition:none}.card:hover{transform:none}}
   .stub{flex:none;width:74px;padding:12px 8px;border-right:2px dashed var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;position:relative}
@@ -67,6 +75,7 @@
   .stub .t-none{font-size:11px;color:var(--ink-3);text-align:center}
   .body{padding:12px 15px;flex:1;min-width:0}
   .title{font-size:15.5px;font-weight:750;line-height:1.35;overflow-wrap:anywhere}
+  .mt{font-size:9px;font-weight:700;color:var(--ink-3);margin-left:2px}
   .subtitle{font-size:12.5px;color:var(--ink-2);margin-top:2px;overflow-wrap:anywhere}
   .meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:9px;font-size:12px}
   .venue-tag{display:inline-flex;align-items:center;gap:6px;font-weight:700}
@@ -175,6 +184,9 @@
      events:[Event.to_json() minus db.EXPORT_DROP_FIELDS] }
    Only upcoming (JST) events are exported; past/other-category
    rows never reach the feed (roadmap R3).
+   Events may optionally carry title_en_mt:true, meaning title_en
+   is a machine translation rather than a venue-sourced string; the
+   frontend badges it wherever a title_en is actually rendered (R12).
    ============================================================ */
 const VENUE_META = {
   liquidroom:        {fam:"liquid",   letter:"L"},
@@ -484,6 +496,8 @@ let section="music";   /* "music" | "art" — top-level category toggle */
 let venuesExpanded=false;
 let activeVenues=new Set();
 let collapsedDays=new Set();
+let renderGen=0;   /* bumped whenever #list is about to be rewritten; an
+   in-flight chunked render (FE-3) checks this to know it's been superseded */
 /* route: null = main list; {artist:name} or {venue:sourceId} = detail page */
 function parseRoute(){
   const h=decodeURIComponent(location.hash||"");
@@ -492,6 +506,7 @@ function parseRoute(){
   return null;
 }
 const TODAY=new Date(new Date().toLocaleDateString("en-CA",{timeZone:"Asia/Tokyo"})+"T00:00:00+09:00");
+const BASE_TITLE=document.title;   /* list-view document.title; routes restore this on back (R25) */
 
 /* ============================================================ load */
 async function load(){
@@ -519,6 +534,7 @@ async function load(){
   }
   activeVenues=new Set(Object.keys(VENUES));
   document.getElementById("filters").hidden=false;
+  injectJsonLd();
   render();
 }
 
@@ -565,6 +581,10 @@ function matches(ev){
   return true;
 }
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+/* href allowlist (FE-1): only http(s) scraped URLs may become anchors —
+   javascript:/data:/empty/etc are dropped rather than rendered as a
+   dead or unsafe link. Returns "" (falsy) for anything unsafe. */
+const safeUrl=u=>/^https?:\/\//i.test(String(u||""))?u:"";
 /* Narrowing to one venue/class from a short date window often lands on an
    empty list even though the venue has upcoming shows — silently widen the
    window to "all dates" when (and only when) that rescues the result. */
@@ -576,7 +596,7 @@ function widenWhenIfEmpty(){
   if(!DATA.events.some(matches)) when=saved;   /* truly nothing — keep window */
 }
 const dot=(src)=>{const v=VENUES[src];
-  return `<span class="v-dot" style="background:${FAM_COLOR[v.fam]}">${v.letter}</span>`;};
+  return `<span class="v-dot" style="background:${FAM_COLOR[v.fam]}">${esc(v.letter)}</span>`;};
 /* --- artist cross-linking (client-side, computed from the feed) --- */
 const norm=s=>String(s||"").normalize("NFKC").toLowerCase().replace(/\s+/g," ").trim();
 function evMatchesArtist(ev,name){
@@ -587,15 +607,55 @@ function evMatchesArtist(ev,name){
   if((ev.artists||[]).some(a=>norm(a)===n)) return true;   /* server index */
   return (ev.lineup||[]).some(a=>norm(a)===n);
 }
+/* EN-mode prefers title_en; flags whether the shown text is the (possibly
+   machine-translated) EN field so card renderers can show the MT badge
+   (R12) — never fires for JA titles or genuine-EN art titles (e.g. the
+   Mori pair) that don't carry title_en_mt. */
+function pickTitle(ev){
+  const title=lang==="en"?(ev.title_en||ev.title_ja):(ev.title_ja||ev.title_en);
+  return {title, mt:!!(ev.title_en_mt&&title&&title===ev.title_en)};
+}
 /* Titles are often "A / B" multi-act bills — make each act clickable. */
 function titleSegments(title){
   const parts=String(title).split(/\s\/\s|／/).map(s=>s.trim()).filter(Boolean);
   return (parts.length>1?parts:[title]).map(p=>
-    `<span class="alink" data-artist="${esc(p)}">${esc(p)}</span>`
+    `<a class="alink" href="${artistHash(p)}" data-artist="${esc(p)}">${esc(p)}</a>`
   ).join(` <span style="color:var(--ink-3)">/</span> `);
 }
 const artistHash=n=>`#/artist/${encodeURIComponent(n)}`;
 const venueHash=id=>`#/venue/${encodeURIComponent(id)}`;
+
+/* --- SEO: one-time JSON-LD snapshot of the first ~10 upcoming music
+   events, injected after the feed loads (R25/FE-4). Fields are omitted
+   rather than fabricated when the source data doesn't have them. --- */
+function musicEventLd(ev){
+  const item={"@type":"MusicEvent"};
+  const name=ev.title_ja||ev.title_en;
+  if(name) item.name=name;
+  if(ev.start_date) item.startDate=ev.start_time
+    ?`${ev.start_date}T${ev.start_time}:00+09:00`:ev.start_date;
+  const venueName=(VENUES[venueIdOf(ev)]||{}).name;
+  if(venueName) item.location={"@type":"Place",name:venueName};
+  const url=safeUrl(ev.source_url);
+  if(url) item.url=url;
+  return item;
+}
+function injectJsonLd(){
+  const upcoming=DATA.events.filter(ev=>ev.start_date&&isMusic(ev)&&
+      P(ev.end_date||ev.start_date)>=TODAY)
+    .sort((a,b)=>a.start_date.localeCompare(b.start_date))
+    .slice(0,10);
+  if(!upcoming.length) return;
+  const ld={"@context":"https://schema.org","@type":"ItemList",
+    itemListElement:upcoming.map(musicEventLd)};
+  const s=document.createElement("script");
+  s.type="application/ld+json";
+  /* belt-and-suspenders: textContent already bypasses HTML parsing, but
+     escape a literal closing-script-tag sequence anyway in case this is
+     ever refactored to use innerHTML */
+  s.textContent=JSON.stringify(ld).replace(/<\//g,"<\\/");
+  document.head.appendChild(s);
+}
 
 /* ============================================================ render */
 function renderGenreChips(){
@@ -718,26 +778,31 @@ function ticketBadges(ev){
   const label={eplus:"e+",pia:"ぴあ",lawson:"ローチケ",rakuten:"楽天",
     zaiko:"ZAIKO",livepocket:"LivePocket",tiget:"TIGET",ticketmaster:"TM"};
   return `<div class="tickets"><span class="tix-label">${I18N[lang].tickets}</span>`+
-    links.map(t=>
-      `<a href="${esc(t.url)}" target="_blank" rel="noopener">${label[t.provider]||t.provider}</a>`
-    ).join("")+`</div>`;
+    links.map(t=>{
+      const u=safeUrl(t.url), text=label[t.provider]||t.provider;
+      return u?`<a href="${esc(u)}" target="_blank" rel="noopener">${text}</a>`
+             :`<span>${text}</span>`;
+    }).join("")+`</div>`;
 }
-function dayGroupsHtml(evs){
+/* Builds one HTML string per day-group instead of a single monolithic
+   string, so renderList() can append them across animation frames
+   (FE-3) instead of forcing one giant synchronous layout. */
+function dayGroupsArray(evs){
   const L=I18N[lang];
   const groups=new Map();
   for(const ev of evs){
     if(!groups.has(ev.start_date)) groups.set(ev.start_date,[]);
     groups.get(ev.start_date).push(ev);
   }
-  let html="";
+  const out=[];
   for(const [d,dayEvents] of groups){
     const dd=P(d),dow=dd.getDay();
     const isPast=P(dayEvents[0].end_date||d)<TODAY;
     const collapsed=collapsedDays.has(d);
     const rel=sameDay(dd,TODAY)?`<div class="day-rel">${L.todayTag}</div>`
             :isPast?`<div class="day-rel">${L.ended}</div>`:"";
-    html+=`<section class="day ${collapsed?"collapsed":""}" data-day="${d}">
-    <div class="day-head" data-toggle-day="${d}" role="button" aria-expanded="${!collapsed}">
+    let html=`<section class="day ${collapsed?"collapsed":""}" data-day="${d}">
+    <div class="day-head" data-toggle-day="${d}" role="button" tabindex="0" aria-expanded="${!collapsed}">
       <div class="day-num">${dd.getMonth()+1}.${dd.getDate()}</div>
       <div class="day-dow ${dow===6?"sat":dow===0?"sun":""}">${L.dow[dow]}${lang==="ja"?"曜日":""}</div>${rel}
       <div class="day-count">${L.count(dayEvents.length)}</div>
@@ -755,20 +820,23 @@ function dayGroupsHtml(evs){
       const gtags=(ev.genres||[]).map(g=>`<span class="g-tag">${glabels[g]||g}</span>`).join("");
       const multi=ev.end_date&&ev.end_date!==ev.start_date
         ?`<div class="multiday">${L.multi(L.dayfmt(P(ev.start_date)),L.dayfmt(P(ev.end_date)))}</div>`:"";
-      const title=lang==="en"?(ev.title_en||ev.title_ja):(ev.title_ja||ev.title_en);
+      const {title,mt}=pickTitle(ev);
+      const mtBadge=mt?`<sup class="mt" title="machine translated">MT</sup>`:"";
       const lineupHtml=(ev.lineup||[]).map(a=>
-        `<span class="alink" data-artist="${esc(a)}">${esc(a)}</span>`).join(" / ");
+        `<a class="alink" href="${artistHash(a)}" data-artist="${esc(a)}">${esc(a)}</a>`).join(" / ");
+      const srcUrl=safeUrl(ev.source_url);
+      const srcHtml=srcUrl?`<a class="srclink" href="${esc(srcUrl)}" target="_blank" rel="noopener">${isSeasonal(ev)?L.detailsSeasonal:L.details}</a>`:"";
       html+=`<article class="card ${past?"past":""}">
         <div class="stub">${times}</div>
         <div class="body">
-          <div class="title">${titleSegments(title||"")}</div>
+          <div class="title">${titleSegments(title||"")}${mtBadge}</div>
           ${ev.subtitle?`<div class="subtitle">${esc(ev.subtitle)}</div>`:""}
           ${multi}
           <div class="meta">
-            <span class="venue-tag alink" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</span>
+            <a class="venue-tag alink" href="${venueHash(venueIdOf(ev))}" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</a>
             <span class="area">${esc(V.area)}</span>
             ${price}${gtags}
-            <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${isSeasonal(ev)?L.detailsSeasonal:L.details}</a>
+            ${srcHtml}
           </div>
           ${lineupHtml?`<div class="lineup">${lineupHtml}</div>`:""}
           ${ticketBadges(ev)}
@@ -777,9 +845,11 @@ function dayGroupsHtml(evs){
       </article>`;
     }
     html+=`</div></section>`;
+    out.push(html);
   }
-  return html;
+  return out;
 }
+const dayGroupsHtml=evs=>dayGroupsArray(evs).join("");
 /* Exhibitions are RANGES, not day-groups: two bands (on view / upcoming).
    Current shows sort by closing date (soonest first); upcoming by opening. */
 function artCardHtml(ev){
@@ -789,7 +859,8 @@ function artCardHtml(ev){
   const onView=s<=TODAY&&TODAY<=e;
   const days=Math.round((onView?e-TODAY:s-TODAY)/864e5);
   const closing=onView&&days<=14;
-  const title=lang==="en"?(ev.title_en||ev.title_ja):(ev.title_ja||ev.title_en);
+  const {title,mt}=pickTitle(ev);
+  const mtBadge=mt?`<sup class="mt" title="machine translated">MT</sup>`:"";
   /* multi-month runs cross years: show the year whenever it isn't this one */
   const fmt=d=>d.getFullYear()===TODAY.getFullYear()?L.dayfmt(d)
     :lang==="ja"?`${d.getFullYear()}年${L.dayfmt(d)}`
@@ -797,19 +868,21 @@ function artCardHtml(ev){
   const stub=onView
     ?`<div class="t-label">${L.onView}</div><div class="t-time">${closing?`<span class="closing">${L.daysLeft(days)}</span>`:L.daysLeft(days)}</div>`
     :`<div class="t-label">${L.upcomingArt}</div><div class="t-time" style="font-size:12px">${L.opensIn(days)}</div>`;
+  const srcUrl=safeUrl(ev.source_url);
+  const srcHtml=srcUrl?`<a class="srclink" href="${esc(srcUrl)}" target="_blank" rel="noopener">${L.detailsArt}</a>`:"";
   return `<article class="card">
     <div class="stub">${stub}</div>
     <div class="body">
-      <div class="title">${esc(title||"")}</div>
+      <div class="title">${esc(title||"")}${mtBadge}</div>
       <div class="multiday">${L.range(fmt(s),fmt(e))}</div>
       <div class="meta">
-        <span class="venue-tag alink" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</span>
+        <a class="venue-tag alink" href="${venueHash(venueIdOf(ev))}" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</a>
         <span class="area">${esc(V.area)}</span>
         ${ev.is_free?`<span class="price">${L.free}</span>`
           :ev.price_min?`<span class="price">¥${ev.price_min.toLocaleString()}</span>`:""}
         ${(ev.genres||[]).map(g=>`<span class="g-tag">${L.artGenres[g]||g}</span>`).join("")}
         ${closing?`<span class="closing">${L.closingSoon}</span>`:""}
-        <a class="srclink" href="${esc(ev.source_url)}" target="_blank" rel="noopener">${L.detailsArt}</a>
+        ${srcHtml}
       </div>
     </div>
   </article>`;
@@ -830,6 +903,9 @@ function artListHtml(evs){
 function renderList(){
   const L=I18N[lang];
   const list=document.getElementById("list");
+  /* fresh generation: invalidates any chunked render loop still appending
+     from a previous call (FE-3) — checked in the step() closure below */
+  const myGen=++renderGen;
   const evs=DATA.events.filter(matches).sort((a,b)=>
     a.start_date.localeCompare(b.start_date)||
     (a.start_time||"99").localeCompare(b.start_time||"99"));
@@ -843,7 +919,22 @@ function renderList(){
     };
     return;
   }
-  list.innerHTML=section==="art"?artListHtml(evs):dayGroupsHtml(evs);
+  if(section==="art"){ list.innerHTML=artListHtml(evs); return; }
+  /* Chunk the day-group render across rAF batches so "All dates" (~2000
+     cards across many day-groups) doesn't force one giant synchronous
+     layout on first paint. insertAdjacentHTML appends without re-parsing
+     what's already in the list (unlike list.innerHTML+=). */
+  list.innerHTML="";
+  const chunks=dayGroupsArray(evs);
+  let i=0;
+  (function step(){
+    if(myGen!==renderGen) return;   /* superseded by a newer render */
+    const end=Math.min(i+15,chunks.length);
+    let html="";
+    for(;i<end;i++) html+=chunks[i];
+    if(html) list.insertAdjacentHTML("beforeend",html);
+    if(i<chunks.length) requestAnimationFrame(step);
+  })();
 }
 function renderStrip(){
   const L=I18N[lang];
@@ -865,8 +956,10 @@ function renderStrip(){
 }
 /* ============================================================ detail pages */
 function renderArtistPage(name){
+  ++renderGen;   /* invalidate any chunked list render still in flight */
   const L=I18N[lang];
   const list=document.getElementById("list");
+  document.title=`${name} — TOKYO EVENTS`;
   const evs=DATA.events.filter(ev=>ev.start_date&&isMusic(ev)&&evMatchesArtist(ev,name))
     .sort((a,b)=>a.start_date.localeCompare(b.start_date));
   const upcoming=evs.filter(ev=>P(ev.end_date||ev.start_date)>=TODAY);
@@ -878,17 +971,19 @@ function renderArtistPage(name){
         ${genres.map(g=>`<span class="g-tag">${L.genres[g]||g}</span>`).join("")}
         <span>${L.artistShows(upcoming.length)}</span>
         <span>${L.playsAt}:</span>
-        ${venues.map(id=>`<span class="venue-tag alink" data-venue-link="${esc(id)}" style="font-size:12px">${dot(id)}${esc(VENUES[id].name)}</span>`).join("")}
+        ${venues.map(id=>`<a class="venue-tag alink" href="${venueHash(id)}" data-venue-link="${esc(id)}" style="font-size:12px">${dot(id)}${esc(VENUES[id].name)}</a>`).join("")}
       </div>
-      <a class="back-btn alink" data-back="1">${L.back}</a>
+      <a class="back-btn alink" href="#" data-back="1">${L.back}</a>
     </div>`+dayGroupsHtml(upcoming.length?upcoming:evs);
   document.getElementById("count").textContent=L.count(evs.length);
 }
 function renderVenuePage(id){
+  ++renderGen;   /* invalidate any chunked list render still in flight */
   const L=I18N[lang];
   const list=document.getElementById("list");
   const V=VENUES[id];
-  if(!V){list.innerHTML=`<div class="empty">${L.empty}</div>`;return;}
+  if(!V){document.title=BASE_TITLE;list.innerHTML=`<div class="empty">${L.empty}</div>`;return;}
+  document.title=`${V.name} — TOKYO EVENTS`;
   const museum=["museum","gallery"].includes(vclassOf(id));
   const seasonal=vclassOf(id)==="matsuri";
   const evs=DATA.events.filter(ev=>venueIdOf(ev)===id&&ev.start_date&&
@@ -903,7 +998,7 @@ function renderVenuePage(id){
         ${sample?`<span>${esc(sample.address)}</span>`:""}
         <span>${L.venueShows(upcoming.length)}</span>
       </div>
-      <a class="back-btn alink" data-back="1">${L.back}</a>
+      <a class="back-btn alink" href="#" data-back="1">${L.back}</a>
     </div>`+(museum?artListHtml(upcoming):dayGroupsHtml(upcoming));
   document.getElementById("count").textContent=L.count(upcoming.length);
 }
@@ -937,6 +1032,7 @@ function render(){
   document.getElementById("filters").hidden=!!route;
   if(route&&route.artist){renderArtistPage(route.artist);return;}
   if(route&&route.venue){renderVenuePage(route.venue);return;}
+  document.title=BASE_TITLE;
   renderVclassChips();
   renderGenreChips();
   renderVenueChips();
@@ -971,7 +1067,7 @@ document.getElementById("collapse-all").onclick=()=>{
 /* delegation: artist links, venue links, day collapse, back buttons */
 document.getElementById("list").addEventListener("click",e=>{
   const back=e.target.closest("[data-back]");
-  if(back){history.length>1?history.back():(location.hash="");return;}
+  if(back){e.preventDefault();history.length>1?history.back():(location.hash="");return;}
   const a=e.target.closest("[data-artist]");
   if(a){location.hash=artistHash(a.dataset.artist);return;}
   const v=e.target.closest("[data-venue-link]");
@@ -982,6 +1078,16 @@ document.getElementById("list").addEventListener("click",e=>{
     d.closest(".day").classList.toggle("collapsed");
     d.setAttribute("aria-expanded",!collapsedDays.has(day));
   }
+});
+/* day-head is a div[role=button] (tabindex added in dayGroupsArray) — give
+   it the Enter/Space activation real buttons get for free, reusing the
+   click handler above instead of duplicating the toggle logic (FE-2) */
+document.getElementById("list").addEventListener("keydown",e=>{
+  if(e.key!=="Enter"&&e.key!==" ") return;
+  const d=e.target.closest("[data-toggle-day]");
+  if(!d) return;
+  e.preventDefault();
+  d.click();
 });
 window.addEventListener("hashchange",render);
 
