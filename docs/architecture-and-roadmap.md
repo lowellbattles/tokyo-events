@@ -1,5 +1,43 @@
 # Architecture audit & engineering roadmap
 
+> **Status addendum — 2026-08-03 batch.** Shipped since the R1–R9 wave
+> (suite now at 619 tests):
+> **R10** billing-string artist guard · **R13** 円-suffixed prices +
+> eggman detail override · **R14** `nearest_year` month-anchor guard +
+> pia walk parity · **R15** one date-range parser · **R16** the four
+> core-gap tests + 7 per-hall fixtures (owest/ocrest/onest,
+> zepp_shinjuku/yokohama/haneda, billboard_yokohama — capture found 4
+> real data quirks incl. a split-markup ¥30,000→¥30 mis-parse at
+> zepp_haneda, noted for a future pass) · **R17** detail-attempt memory ·
+> **R18** CLI QoL (utf-8 report fix, loud `--only`, `approve
+> --all-pending [--source]`) · **R19** hygiene (README rewrite, stray
+> `=` removed, .gitignore, CSRF fixture scrub, conftest.py, job-level
+> workflow permissions, checkout@v5 + setup-python@v6; deliberately
+> skipped: requirements.lock (fiddly, low value), shozokan fixture trim
+> (would break pinned tests), export push-guard (the gitignored .ics
+> artifacts must regenerate on every deploy)) · **R21+R22+R25** frontend
+> batch (URL scheme allowlist, escaped dot letter, keyboard-reachable
+> links/day-heads/back, content-visibility + chunked all-dates render,
+> OGP/meta/JSON-LD/robots.txt/sitemap.xml, per-route titles) · **R24**
+> aliases now also bridge the event-level merge (`_match_norm` folds via
+> `canonical_spelling`; ANN WILSON pair merges) · **R26** iCal fan-out
+> (`site/events.ics` + 117 per-venue calendars at export) · **R12**
+> title_en machine translation shipped end-to-end (cached, flagged,
+> MT badge) — **inert until the owner sets `ANTHROPIC_API_KEY`**, same
+> secret that activates R11's genre refinement.
+> **Festivals went NATIONWIDE** (owner request): LuckyFes + Rising Sun
+> onboarded with live lineup extractors (40 + 103 acts), 8 verified-date
+> skeletons (WILD BUNCH, Sky Jamboree, MONSTER baSH, RUSH BALL,
+> りんご音楽祭, FFKT, GMO SONIC 2027, JOIN ALIVE 2027), 5 dormant
+> archives, 5 documented non-onboardables — see CLAUDE.md's festivals
+> row.
+> **Post-R9 measurements:** changed/day ~150 → ~110 (latch working);
+> six clean cron runs; stale-upcoming issue live in production.
+> **Still open:** R11 (owner sets the secret), R20 (scraper
+> consolidation sweep), R23/R27 (decide-later), R28 + seasonal watch
+> lists (standing curation), plus the new zepp_haneda price-markup
+> quirk above.
+
 Audited **2026-07-27** against commit `d9e537f` (all 540 tests green). This
 document maps the system as actually built, records every bug/risk found
 with evidence, and lays out fixes and adds as discrete items that can be
