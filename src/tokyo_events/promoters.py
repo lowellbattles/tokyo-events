@@ -27,7 +27,7 @@ from __future__ import annotations
 import datetime as dt
 import re
 
-from .artists import norm_key
+from .artists import canonical_spelling, norm_key
 from .venues import resolve_venue
 
 PROMOTER_SOURCES = {"sogo_tokyo", "creativeman", "smash_jpn", "udo_artists",
@@ -65,8 +65,11 @@ def _match_norm(s: str | None) -> str:
     """Aggressive fold for overlap TESTING only — never for storage or
     display. Venue and promoter spell the same show differently in
     exactly these ways: internal spacing, 〜/～ variants, decorative
-    punctuation, parenthesized reading aids (roadmap R5 / DUP-1)."""
-    s = norm_key(s or "")
+    punctuation, parenthesized reading aids (roadmap R5 / DUP-1).
+    Curated JA↔EN aliases fold first (R24): a venue's アン・ウィルソン
+    and a promoter's ANN WILSON are the same needle."""
+    s = canonical_spelling((s or "").strip())
+    s = norm_key(s)
     s = _PAREN_SEG_RE.sub("", s)
     s = s.translate(_FOLD_TABLE)
     return _WS_RE.sub("", s)

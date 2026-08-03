@@ -125,6 +125,19 @@ def test_merge_strips_paren_reading_aids():
     assert out == [venue]
 
 
+def test_curated_alias_bridges_cross_script_merge():
+    # R24: venue katakana-izes, promoter romanizes — CURATED_ALIASES
+    # folds both to one needle inside _match_norm
+    venue = _venue_ev(source="zepp_yokohama",
+                      venue_name="KT Zepp Yokohama",
+                      title_ja="アン・ウィルソン", lineup=[])
+    promo = _promo_ev(source="udo_artists",
+                      venue_name="KT Zepp Yokohama",
+                      title_ja="ANN WILSON", lineup=["ANN WILSON"])
+    out = apply_promoter_merge([venue, promo])
+    assert out == [venue]
+
+
 def test_folding_does_not_merge_distinct_same_day_events():
     # the same hall complex hosts a trade fair AND a concert on one day —
     # aggressive folding must not glue unrelated rows together

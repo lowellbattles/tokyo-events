@@ -28,6 +28,26 @@ def _ev(eid, title, lineup=()):
             "lineup": list(lineup)}
 
 
+def test_billing_string_lineup_entries_stay_out_of_the_index(tmp_path):
+    # R10/DUP-3: promoters copy the full billing into lineup when no act
+    # parses — a LONG lineup entry equal to the event title is a title,
+    # not an artist. Short title-equal entries survive (a one-man's
+    # title often IS the act: 清春).
+    store = EventStore(tmp_path / "b.db")
+    billing = "東京ディズニーシー25周年スパークリング・ジュビリー イン・コンサート"
+    events = [
+        _ev("e1", billing, [billing]),
+        _ev("e2", "清春", ["清春"]),
+    ]
+    apply_artists(store.conn, events)
+    names = {r["name"] for r in
+             store.conn.execute("SELECT name FROM artists")}
+    assert billing not in names
+    assert "清春" in names
+    assert events[0]["artists"] == []
+    assert events[1]["artists"] == ["清春"]
+
+
 def test_apply_artists_lineup_titles_and_guards(tmp_path):
     store = EventStore(tmp_path / "a.db")
     events = [

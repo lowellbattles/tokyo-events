@@ -54,6 +54,9 @@ CURATED_ALIASES: dict[str, str] = {
     "tatsuro yamashita": "山下達郎",
     "utada hikaru": "宇多田ヒカル",
     "hikaru utada": "宇多田ヒカル",
+    # Western acts promoters romanize but venues katakana-ize (R24 —
+    # surfaced by scripts/find_dupes.py; canonical = headline spelling)
+    "アン・ウィルソン": "ANN WILSON",
 }
 
 
@@ -137,9 +140,19 @@ def _apply(conn, events: list[dict]) -> None:
     links: dict[str, set[str]] = {}             # norm key -> event ids
     aliases: dict[str, set[str]] = {}           # norm key -> raw variants
     for d in events:
+        title_norms = {norm_key(d.get("title_ja") or ""),
+                       norm_key(d.get("title_en") or "")} - {""}
         for raw in d.get("lineup") or []:
             cleaned = clean_artist(raw)
             if not cleaned:
+                continue
+            # A LONG lineup entry that IS the event's own title is a
+            # billing string, not an act — promoters copy the title into
+            # lineup when no act parses, and 49 such "artists" polluted
+            # the index (R10/DUP-3). Short title-equal entries survive:
+            # a one-man's title often IS the artist name (清春).
+            key0 = norm_key(cleaned)
+            if key0 in title_norms and len(key0) >= 20:
                 continue
             name = canonical_spelling(cleaned)   # JA/EN merge (curated)
             key = norm_key(name)
