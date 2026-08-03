@@ -1,109 +1,171 @@
 # Tokyo Events Aggregator
 
-A bilingual (JA/EN) aggregator for Tokyo events, starting with live music.
-Pulls from the accurate sources (venue websites) rather than lagging
-third-party aggregators.
+A bilingual (Japanese / English) aggregator for Tokyo events — live music
+first, now also art exhibitions, festivals, matsuri, fireworks, and flower
+shows. It scrapes venues', promoters', and museums' **official sites**
+directly, instead of the third-party aggregators that tend to run stale.
+The result is a static, self-updating GitHub Pages site: a daily GitHub
+Actions run scrapes, stages everything into a SQLite database committed to
+the repo, and republishes.
 
-## Current coverage — 13 sources, 5 scraper families
+**Live site:** https://lowellbattles.github.io/tokyo-events/
 
-| Family | Sources | Scraper |
+## Coverage
+
+80 registered sources across roughly 56 scraper modules — many modules
+cover several halls sharing one operator's site. Full per-source registry,
+live-validation status, and the "checked but not scrapeable" list
+(robots.txt disallows, WAF blocks) live in [`CLAUDE.md`](CLAUDE.md).
+
+| Class | Sources | Examples |
 |---|---|---|
-| LIQUIDROOM | liquidroom (Ebisu) | `scrapers/liquidroom.py` |
-| Shibuya O-Group | oeast, owest, ocrest, onest | `scrapers/ogroup.py` |
-| Zepp chain | zepp_divercity, zepp_haneda, zepp_shinjuku, zepp_yokohama | `scrapers/zepp.py` |
-| Billboard Live | billboard_tokyo, billboard_yokohama | `scrapers/billboard.py` |
-| Pia venues | toyosu_pit, pia_arena_mm | `scrapers/pia.py` |
+| Live houses & clubs | 31 | LIQUIDROOM, Shibuya O-East/West/Crest/Nest, Zepp ×4, WWW/WWW X, Club Quattro, duo, Loft/Shelter/Loft Heaven, UNIT, Club Citta', eggman, Billboard Live... |
+| Jazz clubs | 2 | Blue Note Tokyo, Cotton Club |
+| Concert halls & theaters | 10 | EX THEATER Roppongi, Tokyo International Forum, NHK Hall, Orchard Hall... |
+| Arenas, domes & stadiums | 10 | Tokyo Dome, Yokohama Arena, Ariake Arena, K-Arena Yokohama, Kokuritsu Stadium... |
+| Promoters (own calendars) | 6 | SOGO TOKYO, CREATIVEMAN, SMASH, UDO ARTISTS, DISK GARAGE, Live Nation Japan |
+| Museums & galleries (art) | 17 | Mori Art Museum, Tokyo National Museum, National Art Center, Artizon, Nezu Museum... |
+| Curated seasonal (matsuri/hanabi/flowers) | 3 | 11 matsuri + 12 hanabi editions live; flowers grows via a curated watch list |
+| Curated festivals | 1 | Fuji Rock, Summer Sonic Tokyo, Rock in Japan, @JAM EXPO... |
 
-Adding a hall within an existing family = one registry line in
-`pipeline.py`. See `docs/venue-coverage-roadmap.md` for the full rollout plan.
+Promoters' calendars count as a *primary* source for their own productions
+and are the only way to cover "gap venues" with no schedule of their own
+(Nippon Budokan and similar); their raw venue strings are resolved and
+deduplicated against the venue registry at export time, and whatever can't
+be resolved is dropped and reported, not guessed at.
 
 ## Architecture
 
-**Two-stage scraping.** Listing pages give the event inventory cheaply;
-the pipeline then fetches each NEW or CHANGED event's own page once
-(`parse_detail`) to fill missing times/prices and collect **ticket links**
-(e+/Pia/Lawson URLs plus Pコード/Lコード), capped per run for politeness.
-After initial backfill this is only a handful of requests per venue per day
-thanks to content-hash change detection.
+```
+scrapers (per source, grouped into families)
+  → SQLite staging (events.db, committed to the repo — "git scraping" pattern)
+  → export-time derivation: promoter/venue merge, genre tagging, artist index
+  → site/public.json (slim, forward-looking-only feed, ~1.3 MB)
+  → static frontend (site/index.html reads ./public.json directly)
 
-**Scrape → stage → review → publish.** Everything lands as `pending`;
-humans approve via CLI (web admin later). Changed events are automatically
-re-staged. Trusted sources can be promoted to AUTO in the registry.
-A scraper returning zero events is flagged as a probable site redesign.
+GitHub Actions, daily 07:00 JST:
+  pytest gate → scrape → export → commit data → deploy to Pages
+  on trouble: rolling issues — scraper-error / venue-gap / stale-upcoming
+```
 
-**Facts only.** Titles, dates, times, prices, venue, lineup, source URL,
-ticket links. Descriptions and images stay at the source; we link out.
+- **Two-stage scraping.** A listing pass finds the event inventory cheaply;
+  a capped detail pass (40 fetches/source/run) visits new/changed events'
+  own pages to fill in times, prices, and ticket links. Content-hash
+  change detection keeps a steady-state source down to a few pages a day.
+- **Stage, don't publish blind.** Events land `pending` by default; a
+  human approves via the CLI, or a run can be force-published with
+  `AUTO_PUBLISH=true` / `--auto` (how the live deployment runs). A source
+  can also default to `AUTO` status in the `pipeline.py` registry once
+  it's proven reliable, independent of that global switch.
+- **Export-time derivation, not scrape-time.** Venue de-duplication
+  (`promoters.py`), genre tagging (`genres.py`), and the artist index
+  (`artists.py`) are computed when `cli.py export` runs, from per-source
+  facts in SQLite — alias/curation fixes take effect on the next export
+  with no re-scraping.
+- **JST-anchored, always.** Every "is this today / upcoming" check runs
+  off a fixed UTC+9 clock (`textutils.jst_today()`), independent of the
+  scraping machine's own timezone — GitHub's runners are UTC.
 
-**Schema highlights** (`models.py`): bilingual title fields, `genres[]`
-facets (idol / j-rock / international / k-pop / jazz-soul / classical /
-hiphop-rnb / electronic / anime-seiyu), `ticket_links[]`, multi-day
-`end_date`, and artist tables ready in SQLite for the cross-referencing
-phase.
+## Principles
+
+1. **Facts only, link out.** Titles, dates, times, prices, venue, lineup,
+   ticket links, source URL — never descriptions or images. That stays on
+   the source's own site; we link to it.
+2. **Politeness, and no bypassing bot detection.** 2-second-minimum
+   per-host rate limits, an identifiable User-Agent, capped detail-fetch
+   volume, and a robots.txt check before any source is added. A site that
+   disallows us, or whose WAF 403s our honest UA, stays out permanently —
+   not "until we find a workaround" (two museum sources were retired the
+   day their WAF started blocking GitHub's runner IPs specifically). We
+   never scrape ticketing companies' own listing pages (e+, Pia) either —
+   only official sites, promoters' own calendars, and a couple of
+   owner-approved platforms. `CLAUDE.md` tracks everything checked and
+   skipped this way.
+3. **Structural failure is loud, not silent.** Parsers key off URL
+   patterns and text conventions (OPEN/START, ¥ tiers) rather than CSS
+   class names, so redesigns rarely break them — and when a page's
+   structure really changes, the scraper returns `found=0` or a typed
+   fetch error instead of quietly parsing garbage.
+4. **Every parser is fixture-tested.** Each scraper has HTML captured from
+   the live site under `tests/fixtures/` (scrubbed of embedded API keys)
+   and pure, offline-testable parse functions. `python -m pytest tests/
+   -q` must stay green before anything is committed.
+5. Schema changes move `models.py`, `to_json()`, and `site/index.html`'s
+   read side together — the feed contract is one thing, not two things
+   that happen to currently agree.
 
 ## Usage
 
 ```bash
 pip install -r requirements.txt
-python cli.py scrape                        # all sources -> staging
+
+python cli.py scrape                          # all sources -> staging
 python cli.py scrape --only zepp_divercity oeast
-python cli.py scrape --no-details           # listing pass only
+python cli.py scrape --no-details             # listing pass only, faster
+python cli.py scrape --auto                   # publish straight to AUTO status
+python cli.py scrape --report run.json        # machine-readable run report
 python cli.py list --status pending
-python cli.py approve <id> [<id>...]
-python cli.py export public.json            # feed for the frontend
-python -m pytest tests/                     # offline, fixture-based
+python cli.py approve <id> [<id> ...]
+python cli.py reject <id> [<id> ...]
+python cli.py export site/public.json         # feed for the frontend
+
+python -m pytest tests/ -q                    # offline, fixture-based
+python scripts/find_dupes.py site/public.json # duplicate-event report
 ```
 
-## ⚠ First-run validation required
+## Adding a source
 
-The Liquidroom parser was built against near-raw page structure; the Zepp
-and O-Group parsers were built from **rendered-text captures**
-(2026-07-02) and the Billboard parser from a live HTML fetch. On your
-first real run per source:
+1. Check the target's robots.txt — if it disallows us, or its WAF 403s our
+   honest UA, that's the end of it, no workarounds.
+2. `python cli.py scrape --only <source> --no-details --report r.json`
+3. `python cli.py list --status pending` — spot-check ~5 events against
+   the venue's own page (title, date, times, price, sold-out flag).
+4. If `found=0` or fields look wrong: save the raw listing HTML into
+   `tests/fixtures/<source>_live.html` (UTF-8), write/adjust tests against
+   it, fix the parser, re-run `pytest`, re-scrape.
+5. Drop `--no-details` and validate the detail pass: ticket links
+   populate, prices don't pick up merch or drink-charge amounts.
+6. Once a source runs clean for a few daily cycles, consider giving it
+   `ReviewStatus.AUTO` in `pipeline.py`'s registry.
 
-1. `python cli.py scrape --only <source> --no-details`
-2. If `found=0` or fields look wrong, save the raw listing HTML into
-   `tests/fixtures/` and adjust that scraper's block-walking/regexes —
-   the parse step is pure and fixture-tested, so iterate offline.
-3. Spot-check 5 events against the venue site before approving.
+See [`CLAUDE.md`](CLAUDE.md) for the full architecture and hard rules, and
+[`docs/venue-coverage-roadmap.md`](docs/venue-coverage-roadmap.md) for
+per-family expansion notes and venues already ruled out.
 
-All parsers deliberately key off URL patterns and text conventions
-(OPEN/START/¥) rather than CSS class names, so theme tweaks rarely break
-them — and structural changes fail loudly as `found=0`.
+## Deployment & automation
 
-## Automation & deployment (GitHub Pages)
+[`.github/workflows/scrape-and-deploy.yml`](.github/workflows/scrape-and-deploy.yml)
+runs on a **schedule** (22:00 UTC daily = 07:00 JST, plus a manual "Run
+workflow" button) and on **push to `main`** touching `site/`, `src/`,
+`cli.py`, or the workflow itself (redeploys without re-scraping).
 
-The repo is a self-updating site. `.github/workflows/scrape-and-deploy.yml`:
+A scheduled/manual run: tests → scrape → export → commit `events.db` +
+`site/public.json` back to the repo → deploy to Pages. The data commit
+(`scripts/commit_data.sh`) rebuilds itself on top of whatever the remote
+currently holds rather than rebasing, so a push landing mid-scrape can't
+produce a binary merge conflict on `events.db`. `scripts/report_errors.py`
+then files or updates up to three rolling, labeled issues —
+`scraper-error`, `venue-gap` (unresolved promoter venues), and
+`stale-upcoming` (approved events their source stopped listing — possibly
+cancelled) — and never fails the workflow itself, so one broken source
+never blocks deploying the ones that worked.
 
-- **07:00 JST daily** (+ manual "Run workflow" button): runs tests, scrapes
-  all 13 sources, commits `events.db` + `site/public.json` back to the repo,
-  and deploys `site/` to GitHub Pages.
-- **On push to main** (site/src changes): redeploys without scraping.
-- **On scraper failure**: files/updates a rolling GitHub issue labeled
-  `scraper-error` with the traceback (`scripts/report_errors.py`). A broken
-  source never blocks deploying the ones that worked.
+- **`AUTO_PUBLISH`** repo variable (`true`/`false`) — true runs the scrape
+  with `--auto` so new events publish immediately instead of waiting for
+  review. Currently `true` on the live deployment.
+- **`ANTHROPIC_API_KEY`** (optional secret) — enables cached LLM genre
+  refinement at export (`genres.py`); without it, rule-based and
+  venue-prior tagging still run.
 
-One-time setup after pushing to GitHub:
-1. Repo **Settings → Pages → Source: "GitHub Actions"**.
-2. **Settings → Actions → General → Workflow permissions:
-   "Read and write permissions"** (the bot commits data).
-3. Optional repo **variable** `AUTO_PUBLISH=true` to skip human review and
-   publish scrapes directly (recommended only after a source has proven
-   reliable; default keeps the pending→approve flow, in which you approve
-   locally via `python cli.py approve` and push).
-4. Run the workflow once manually; the site goes live at your Pages URL.
+One-time setup on a fork: repo **Settings → Pages → Source: GitHub
+Actions**, and **Settings → Actions → General → Workflow permissions: Read
+and write permissions** (the bot commits data and files issues).
 
-`site/` ships with a fixture-built demo feed
-(`python scripts/build_demo_feed.py`) so the page renders before the first
-real scrape. The frontend (`site/index.html`) reads `./public.json`,
-renders the JA/EN UI, genre/venue/date filters, ticket-provider badges
-from `ticket_links`, and a source-health footer from the feed's
-`sources` block.
+## Docs
 
-## Roadmap
-
-1. Live-validate the 13 sources; promote stable ones to AUTO.
-2. Next families: Club Quattro, WWW, Loft group.
-3. Artist entity population from lineups -> artist pages (cross-referencing).
-4. LLM-assisted genre tagging in the review step.
-5. Festivals (Fuji Rock, Summer Sonic, ...) as a curated source class.
-6. Custom domain + OGP/sitemap for search discoverability.
+- [`CLAUDE.md`](CLAUDE.md) — architecture contract, hard rules, the full
+  80-source registry, environment notes.
+- [`docs/architecture-and-roadmap.md`](docs/architecture-and-roadmap.md) —
+  as-built architecture audit and the current engineering roadmap.
+- [`docs/venue-coverage-roadmap.md`](docs/venue-coverage-roadmap.md) —
+  per-venue-family source expansion notes.

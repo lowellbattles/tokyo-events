@@ -743,3 +743,15 @@ def test_generic_playguide_links_are_dropped():
     links = tu.extract_ticket_links(soup)
     urls = {l["url"] for l in links}
     assert urls == {"https://eplus.jp/chakra/", "https://w.pia.jp/t/oneandonly/"}
+
+
+def test_parse_prices_understands_yen_suffix():
+    # R13/SCR-5: 円-suffixed amounts are the other half of the pricing
+    # convention; guards keep discounts/coupons/drink charges out.
+    assert tu.parse_prices("前売 3,500円 / 当日 4,000円")[1] == 3500
+    assert tu.parse_prices("¥4,000 スタンディング 3,500円")[1] == 3500
+    assert tu.parse_prices("通常より500円引にてご案内")[1] is None
+    assert tu.parse_prices("ご購入で500円分クーポン進呈")[1] is None
+    assert tu.parse_prices(
+        tu.strip_drink_charges("スタンディング3,500円 別途ドリンク代600円")
+    )[1] == 3500

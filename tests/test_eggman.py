@@ -131,3 +131,27 @@ def test_nonmusic_row_downgraded_to_other():
     evs = EggmanScraper().parse(html)
     assert len(evs) == 1
     assert evs[0].category == Category.OTHER
+
+
+def test_detail_pass_reads_eggman_price_formats():
+    # R13/SCR-5: eggman prints detail prices as "4400yen" — invisible to
+    # the generic ¥/円 zone parser this class previously inherited.
+    from tokyo_events.models import Event
+    html = ("<html><body><p>OPEN 17:30 / START 18:00</p>"
+            "<p>ADV 4400yen +1D / DOOR 4900yen</p></body></html>")
+    ev = Event(source="eggman", source_url="http://eggman.jp/x",
+               title_ja="X", category=Category.MUSIC)
+    out = EggmanScraper().parse_detail(html, ev)
+    assert out.price_min == 4400
+    assert (out.open_time, out.start_time) == ("17:30", "18:00")
+
+
+def test_detail_pass_bare_digits_stay_off_in_free_text():
+    # a year in the zone must not become a price (bare branch disabled)
+    from tokyo_events.models import Event
+    html = ("<html><body><p>TICKET 発売中 2026.9.1より</p>"
+            "<p>お問い合わせ eggman</p></body></html>")
+    ev = Event(source="eggman", source_url="http://eggman.jp/y",
+               title_ja="Y", category=Category.MUSIC)
+    out = EggmanScraper().parse_detail(html, ev)
+    assert out.price_min is None

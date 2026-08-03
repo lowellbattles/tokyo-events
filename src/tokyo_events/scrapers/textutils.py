@@ -17,6 +17,13 @@ OPEN_START_COMBINED_RE = re.compile(r"OPEN\s*/\s*START[\]】\s]*(\d{1,2}:\d{2})"
 OPEN_RE = re.compile(r"\[?OPEN[\]】\s:]*(\d{1,2}:\d{2})", re.I)
 START_RE = re.compile(r"\[?START[\]】\s:]*(\d{1,2}:\d{2})", re.I)
 YEN_RE = re.compile(r"[¥￥]\s*([\d,，]+)")
+#: 円-suffixed amounts ("前売 3,500円") — the other half of the pricing
+#: convention YEN_RE misses (R13/SCR-5). Guards: no digit/¥/comma before
+#: the match (so ¥3,500円 isn't double-counted), and no 引/OFF/オフ/分
+#: after (discount and coupon phrasing, not admission).
+YEN_SUFFIX_RE = re.compile(
+    r"(?<![¥￥\d,，.])(\d{1,3}(?:[,，]\d{3})+|\d{3,5})\s*円"
+    r"(?!\s*(?:引|OFF|オフ|分))", re.I)
 FULL_DATE_RE = re.compile(r"(20\d{2})[./年\s]{1,2}(\d{1,2})[./月\s]{1,2}(\d{1,2})")
 MONTH_DAY_RE = re.compile(
     r"(\d{1,2})\s*[./]\s*(\d{1,2})\s*[(（]?(sun|mon|tue|wed|thu|fri|sat|日|月|火|水|木|金|土)",
@@ -138,8 +145,14 @@ def strip_drink_charges(text: str) -> str:
 
 
 def parse_prices(text: str) -> tuple[str | None, int | None, bool | None]:
-    """Return (price_text, price_min, is_free) from a block of price tiers."""
+    """Return (price_text, price_min, is_free) from a block of price
+    tiers. Callers pass label-scoped zones and strip drink charges first
+    (strip_drink_charges) — this function stays context-naive. Both
+    pricing conventions count: ¥-prefixed and 円-suffixed (≥300 for the
+    suffix form, so stray small numbers can't undercut a real floor)."""
     yen = [int(x.replace(",", "").replace("，", "")) for x in YEN_RE.findall(text)]
+    yen += [v for x in YEN_SUFFIX_RE.findall(text)
+            if (v := int(re.sub(r"[,，]", "", x))) >= 300]
     if not yen:
         return None, None, None
     pmin = min(yen)

@@ -55,10 +55,15 @@ FREE_RE = re.compile(r"入場無料|無料|FREE\s*(?:ENTRY|LIVE)?", re.I)
 GROUP_LABEL_RE = re.compile(r"^[【\[][^】\]]*[】\]]$")
 
 
-def _amounts(text: str) -> list[int]:
+def _amounts(text: str, include_bare: bool = True) -> list[int]:
+    """Amounts in eggman's formats. ``include_bare=False`` drops the
+    plain-digit branch — safe only inside the tight listing cells; on a
+    free-text detail zone a bare year ("2026") would read as a price."""
     out: list[int] = []
     for m in PRICE_NUM_RE.finditer(text):
-        g = m.group(1) or m.group(2) or m.group(3) or m.group(4)
+        g = m.group(1) or m.group(2) or m.group(3)
+        if g is None and include_bare:
+            g = m.group(4)
         if g:
             try:
                 out.append(int(g.replace(",", "")))
@@ -79,6 +84,33 @@ class EggmanScraper(BaseScraper):
     source_name = "Shibuya eggman"
     BASE = "http://eggman.jp"
     CATEGORIES = ("daytime", "nighttime")
+
+    def parse_detail(self, html: str, ev: Event) -> Event:
+        """Generic enrichment first; then eggman's own price formats.
+        The venue prints amounts as "4400yen", "一般3,400" or bare
+        digits — the generic zone parser reads ¥/円 only, so a
+        detail-only price could never enrich here (R13/SCR-5). The
+        bare-digit branch stays OFF in this free-text context (a year
+        like 2026 would read as a price)."""
+        ev = super().parse_detail(html, ev)
+        if ev.price_min is None and ev.is_free is None:
+            text = BeautifulSoup(html, "lxml").get_text(" ", strip=True)
+            m = re.search(r"(?:ADV|前売|料金|TICKET|チケット|DOOR)(.{0,250})",
+                          text, re.I | re.S)
+            if m:
+                zone = m.group(1)
+                cut = re.search(r"GOODS|グッズ|物販|INFO|お問い合わせ",
+                                zone, re.I)
+                if cut:
+                    zone = zone[:cut.start()]
+                zone = tu.strip_drink_charges(zone)
+                amounts = _amounts(zone, include_bare=False)
+                if amounts:
+                    ev.price_min = min(amounts)
+                    ev.price_text = re.sub(r"\s+", " ", zone).strip()[:300]
+                elif FREE_RE.search(zone):
+                    ev.is_free = True
+        return ev
 
     VENUE = dict(
         venue_name="Shibuya eggman",
