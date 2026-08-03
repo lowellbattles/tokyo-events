@@ -75,23 +75,10 @@ _SITES = {
 
 def parse_date_range(text: str) -> tuple[Optional[str], Optional[str]]:
     """'2026.4.29（水）〜 9.23（水）' -> ('2026-04-29', '2026-09-23').
-    Returns (None, None) unless a start WITH a year and an end are found.
-    An omitted end year inherits the start's; if that puts the end before
-    the start, the run wrapped a year boundary -> end year + 1."""
-    hits = _DOTTED_DATE_RE.findall(text or "")
-    if len(hits) < 2 or not hits[0][0]:
-        return None, None
-    try:
-        start = dt.date(int(hits[0][0]), int(hits[0][1]), int(hits[0][2]))
-        ey = int(hits[1][0]) if hits[1][0] else start.year
-        end = dt.date(ey, int(hits[1][1]), int(hits[1][2]))
-        if not hits[1][0] and end < start:
-            end = end.replace(year=ey + 1)
-    except ValueError:
-        return None, None
-    if end < start:
-        return None, None
-    return start.isoformat(), end.isoformat()
+    Delegates to tu.range_from_hits — which also closes the gap this
+    copy had (R15/SCR-9): it lacked the >3-year sanity guard while being
+    the production fallback for yamatane/sompo/top_museum/OCAG."""
+    return tu.range_from_hits(_DOTTED_DATE_RE.findall(text or ""))
 
 
 def parse_items(html: str) -> dict[str, dict]:

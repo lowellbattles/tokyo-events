@@ -359,3 +359,12 @@ def test_ring3_registry_flags_and_loud_failure():
         assert s.rate_limit_s >= 2.0
         junk = "not json" if cls is ShozokanScraper else "<html></html>"
         assert cls().parse(junk) == []
+
+
+def test_dotted_fallback_rejects_multiyear_garbage():
+    # R15/SCR-9: the dotted-date fallback (yamatane/sompo/top_museum/OCAG
+    # path) previously lacked the >3-year sanity guard the kanji parser
+    # had — a garbled two-date match could mint a multi-year "run".
+    from tokyo_events.scrapers.mori import parse_date_range
+    assert parse_date_range("2026.4.29〜9.23") == ("2026-04-29", "2026-09-23")
+    assert parse_date_range("2020.1.1 ... 2026.5.10") == (None, None)

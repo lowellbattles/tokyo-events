@@ -205,6 +205,30 @@ def nearest_year(month: int, day: int, anchor: dt.date) -> str | None:
     return best.isoformat() if best else None
 
 
+def range_from_hits(hits: list, max_days: int = 3 * 365
+                    ) -> tuple[str | None, str | None]:
+    """First two (year, month, day) regex hits -> (start_iso, end_iso).
+    The start must carry an explicit year; a year-less end inherits it
+    (+1 when that would put the end before the start — a year-boundary
+    run). Inverted or longer-than-``max_days`` ranges are garbage, not
+    exhibitions. One implementation for the kanji / slash / dotted date
+    conventions that previously had three drifting copies (R15/SCR-9 —
+    the dotted fallback had lost the sanity guard)."""
+    if len(hits) < 2 or not hits[0][0]:
+        return None, None
+    try:
+        start = dt.date(int(hits[0][0]), int(hits[0][1]), int(hits[0][2]))
+        ey = int(hits[1][0]) if hits[1][0] else start.year
+        end = dt.date(ey, int(hits[1][1]), int(hits[1][2]))
+        if not hits[1][0] and end < start:
+            end = end.replace(year=ey + 1)
+    except ValueError:
+        return None, None
+    if end < start or (end - start).days > max_days:
+        return None, None
+    return start.isoformat(), end.isoformat()
+
+
 def add_months(d: dt.date, n: int) -> dt.date:
     """Month arithmetic for month-page pagination (day preserved as d.day
     only when valid; callers normally pass a first-of-month date)."""

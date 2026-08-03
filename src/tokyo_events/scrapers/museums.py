@@ -64,24 +64,9 @@ _JP_DATE_RE = re.compile(r"(?:(20\d{2})\s*年)?\s*(\d{1,2})\s*月\s*(\d{1,2})\s*
 
 
 def parse_jp_date_range(text: str) -> tuple[Optional[str], Optional[str]]:
-    """First two kanji dates in `text` -> (start_iso, end_iso).
-    The start must carry an explicit year; an end without one inherits it
-    (+1 if that would put the end before the start — a year-boundary run).
-    Returns (None, None) for anything less than a full, sane range."""
-    hits = _JP_DATE_RE.findall(text or "")
-    if len(hits) < 2 or not hits[0][0]:
-        return None, None
-    try:
-        start = dt.date(int(hits[0][0]), int(hits[0][1]), int(hits[0][2]))
-        ey = int(hits[1][0]) if hits[1][0] else start.year
-        end = dt.date(ey, int(hits[1][1]), int(hits[1][2]))
-        if not hits[1][0] and end < start:
-            end = end.replace(year=ey + 1)
-    except ValueError:
-        return None, None
-    if end < start or (end - start).days > 3 * 365:
-        return None, None            # inverted or absurd = not a run
-    return start.isoformat(), end.isoformat()
+    """First two kanji dates in `text` -> (start_iso, end_iso); see
+    tu.range_from_hits for the shared year-inheritance/sanity rules."""
+    return tu.range_from_hits(_JP_DATE_RE.findall(text or ""))
 
 
 def _clean(s: str) -> str:
@@ -632,24 +617,8 @@ class DesignSightScraper(_MuseumScraper):
 _SLASH_DATE_RE = re.compile(r"(?:(20\d{2})/)?(\d{1,2})/(\d{1,2})")
 
 
-def _range_from_hits(hits) -> tuple[Optional[str], Optional[str]]:
-    if len(hits) < 2 or not hits[0][0]:
-        return None, None
-    try:
-        start = dt.date(int(hits[0][0]), int(hits[0][1]), int(hits[0][2]))
-        ey = int(hits[1][0]) if hits[1][0] else start.year
-        end = dt.date(ey, int(hits[1][1]), int(hits[1][2]))
-        if not hits[1][0] and end < start:
-            end = end.replace(year=ey + 1)
-    except ValueError:
-        return None, None
-    if end < start or (end - start).days > 3 * 365:
-        return None, None
-    return start.isoformat(), end.isoformat()
-
-
 def parse_slash_range(text: str) -> tuple[Optional[str], Optional[str]]:
-    return _range_from_hits(_SLASH_DATE_RE.findall(text or ""))
+    return tu.range_from_hits(_SLASH_DATE_RE.findall(text or ""))
 
 
 class MitsuiScraper(_MuseumScraper):
