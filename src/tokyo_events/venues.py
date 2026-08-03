@@ -151,6 +151,20 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "local_green": ("LOCAL GREEN FESTIVAL", "festival"),
     "pop_yours": ("POP YOURS", "festival"),
     "punkspring": ("PUNKSPRING", "festival"),
+    # onboarded 2026-08-03 (nationwide festivals research pass — owner
+    # request: festivals go nationwide, venue coverage stays Kanto)
+    "lucky_fes": ("LuckyFes", "festival"),
+    "rising_sun_ezo": ("RISING SUN ROCK FESTIVAL in EZO", "festival"),
+    "wild_bunch_fest": ("WILD BUNCH FEST.", "festival"),
+    "sky_jamboree": ("Sky Jamboree", "festival"),
+    "monster_bash": ("MONSTER baSH", "festival"),
+    "rush_ball": ("RUSH BALL", "festival"),
+    "ringo_ongakusai": ("りんご音楽祭", "festival"),
+    "ffkt": ("FFKT", "festival"),
+    "gmo_sonic": ("GMO SONIC", "festival"),
+    "join_alive": ("JOIN ALIVE", "festival"),
+    "osaka_gigantic": ("OSAKA GIGANTIC MUSIC FESTIVAL", "festival"),
+    "arabaki": ("ARABAKI ROCK FEST.", "festival"),
     # --- museums / galleries (art phase, 2026-07-26) ----------------------
     "mori_art_museum": ("森美術館", "museum"),
     "mori_arts_center_gallery": ("森アーツセンターギャラリー", "museum"),

@@ -202,6 +202,36 @@ def extract_ultra_japan(html: str, edition: "Edition",
     return []
 
 
+def extract_luckyfes(html: str, edition: "Edition", day: Optional[str] = None
+                     ) -> list[str]:
+    """One LuckyFes per-day lineup page (/lineup/M.D). SSR'd Next.js on
+    the fespli platform: each act is a div.fespli-card with the name in
+    .fespli-card__title (time+stage live in .fespli-card__text-below,
+    unused). Returns this page's flat list; scrape() assigns it to
+    ``day``."""
+    soup = BeautifulSoup(html, "lxml")
+    names = [n.get_text(" ", strip=True)
+             for n in soup.select(".fespli-card__title")]
+    return _clean_names(names)
+
+
+def extract_rising_sun(html: str, edition: "Edition",
+                       day: Optional[str] = None) -> dict[str, list[str]]:
+    """RSR /2026/artists/lineup/ — one div.lineup_stage_section per
+    stage; inside each, div.lineup_list_day1 / _day2 columns map
+    POSITIONALLY onto edition.dates (the visible day header is an image
+    with EMPTY alt text, so the class suffix is the only day identity —
+    same column-position trick as Fuji Rock). Acts are
+    li.lineup_list_item > .name > p (the second <p> is an empty slot)."""
+    soup = BeautifulSoup(html, "lxml")
+    daymap: dict[str, list[str]] = {d: [] for d in edition.dates}
+    for idx, iso in enumerate(edition.dates, start=1):
+        for col in soup.select(f"div.lineup_list_day{idx}"):
+            for p in col.select("li.lineup_list_item .name p"):
+                daymap[iso].append(p.get_text(" ", strip=True))
+    return {d: _clean_names(names) for d, names in daymap.items()}
+
+
 # --------------------------------------------------------------------------- #
 #  Edition config                                                             #
 # --------------------------------------------------------------------------- #
@@ -361,6 +391,161 @@ ACTIVE_EDITIONS: tuple[Edition, ...] = (
         # (history/{year}): div.day_N blocks with a <time> and one <p> of
         # slash-separated act names — write the extractor against that shape
         # when the 2026 lineup section appears on the top page.
+        # 2026-08-03 re-verify: dates unchanged; '26 relaunches as a FREE
+        # festival (入場無料) — ticket_url may become registration or die.
+        lineup_targets=(),
+        extractor=None,
+    ),
+    # --- onboarded 2026-08-03 (nationwide research pass, owner request:
+    #     festivals go nationwide; venue coverage stays Kanto) ------------
+    Edition(
+        key="lucky_fes",
+        title_ja="LuckyFes'26",
+        venue_area="Hitachi Seaside Park, Hitachinaka, Ibaraki",
+        day_split=True,
+        # Japan's first 4-consecutive-day summer fest (moved off its old
+        # mid-July slot) — dates from the official outline page.
+        dates=("2026-08-08", "2026-08-09", "2026-08-10", "2026-08-11"),
+        edition_url="https://luckyfes.com/lineup",
+        ticket_url="https://luckyfes.com/ticket",
+        lineup_targets=(
+            ("2026-08-08", "https://luckyfes.com/lineup/8.8"),
+            ("2026-08-09", "https://luckyfes.com/lineup/8.9"),
+            ("2026-08-10", "https://luckyfes.com/lineup/8.10"),
+            ("2026-08-11", "https://luckyfes.com/lineup/8.11"),
+        ),
+        day_urls={
+            "2026-08-08": "https://luckyfes.com/lineup/8.8",
+            "2026-08-09": "https://luckyfes.com/lineup/8.9",
+            "2026-08-10": "https://luckyfes.com/lineup/8.10",
+            "2026-08-11": "https://luckyfes.com/lineup/8.11",
+        },
+        extractor=extract_luckyfes,
+    ),
+    Edition(
+        key="rising_sun_ezo",
+        title_ja="RISING SUN ROCK FESTIVAL 2026 in EZO",
+        venue_area="Ishikari Bay New Port, Hokkaido",
+        day_split=True,
+        dates=("2026-08-14", "2026-08-15"),
+        edition_url="https://rsr.wess.co.jp/2026/",
+        ticket_url="https://rsr.wess.co.jp/2026/tickets/",
+        lineup_targets=(
+            (None, "https://rsr.wess.co.jp/2026/artists/lineup/"),),
+        extractor=extract_rising_sun,
+    ),
+    Edition(
+        key="wild_bunch_fest",
+        title_ja="WILD BUNCH FEST. 2026",
+        venue_area="Kirara Memorial Park, Yamaguchi",
+        day_split=True,
+        dates=("2026-08-21", "2026-08-22", "2026-08-23"),
+        edition_url="https://www.wildbunchfest.jp/",
+        ticket_url="https://www.wildbunchfest.jp/tickets/",
+        # Skeleton: /line-up/ is clean static HTML (artist cards under
+        # three day headers, ~26-28 acts/day; robots.txt open) — capture
+        # a fixture + extractor on the next curation pass.
+        lineup_targets=(),
+        extractor=None,
+    ),
+    Edition(
+        key="sky_jamboree",
+        title_ja="Sky Jamboree 2026",
+        venue_area="Inasayama Park, Nagasaki",
+        day_split=False,
+        dates=("2026-08-22",),
+        edition_url="https://skyj.jp/",
+        ticket_url="https://skyj.jp/ticket/",
+        # Skeleton: /artist/ is a static <li> card list (9 acts:
+        # 10-FEET, ELLEGARDEN, Straightener...; robots open).
+        lineup_targets=(),
+        extractor=None,
+    ),
+    Edition(
+        key="monster_bash",
+        title_ja="MONSTER baSH 2026",
+        venue_area="Sanuki Manno Park, Kagawa",
+        day_split=True,
+        dates=("2026-08-22", "2026-08-23"),
+        edition_url="https://www.monsterbash.jp/",
+        ticket_url="https://www.monsterbash.jp/tickets.html",
+        # Skeleton: /lineup.html static day-tab lists (no real
+        # robots.txt — soft-404s to the homepage).
+        lineup_targets=(),
+        extractor=None,
+    ),
+    Edition(
+        key="rush_ball",
+        title_ja="RUSH BALL 2026",
+        venue_area="Izumi-Otsu Phoenix, Osaka",
+        day_split=True,
+        dates=("2026-08-29", "2026-08-30"),
+        edition_url="https://www.rushball.com/",
+        ticket_url="https://www.rushball.com/ticket/",
+        # Skeleton: homepage ARTIST section, static per-day lists.
+        lineup_targets=(),
+        extractor=None,
+    ),
+    Edition(
+        key="ringo_ongakusai",
+        title_ja="りんご音楽祭2026",
+        venue_area="Alps Park, Matsumoto, Nagano",
+        day_split=True,
+        dates=("2026-09-26", "2026-09-27"),
+        edition_url="https://ringofes.info/fes2026/",
+        ticket_url="https://ringofes.info/fes2026/ticket/",
+        # Skeleton. TRAP (verified 2026-08-03): the year-less
+        # /artist/ URL serves an ORPHANED old lineup (day headers
+        # 9.23/9.24). Only the year-scoped /fes2026/artist/ is current —
+        # never point lineup_targets at the year-less path.
+        lineup_targets=(),
+        extractor=None,
+    ),
+    Edition(
+        key="ffkt",
+        title_ja="FFKT 2026",
+        venue_area="Izu Shirahama, Shimoda, Shizuoka",
+        day_split=False,
+        dates=("2026-09-26", "2026-09-27"),
+        edition_url="https://ffkt.jp/2026-izushirahama/",
+        ticket_url="https://ffkt-fest.zaiko.io/e/ffkt2026-izushirahama",
+        genres=("electronic",),   # Taicoclub successor — fixed prior
+        # Skeleton: lineup is an HTML table of linked names (Live/DJ
+        # labels, no day split, more TBA). Relocated from Nagano to Izu
+        # in 2024 — NOT on hiatus.
+        lineup_targets=(),
+        extractor=None,
+    ),
+    Edition(
+        key="gmo_sonic",
+        title_ja="GMO SONIC 2027",
+        venue_area="GMO Arena Saitama (ex-Saitama Super Arena)",
+        day_split=True,
+        # Moved from its usual January slot to April, and from Makuhari
+        # to the renamed SSA — dates from the official homepage.
+        dates=("2027-04-03", "2027-04-04"),
+        edition_url="https://sonic.gmo/",
+        ticket_url=None,          # "Coming Soon"
+        genres=("electronic",),
+        # Skeleton. TRAP (verified 2026-08-03): /lineup/ still serves
+        # the FINISHED Jan-2026 roster under a "GMO SONIC 2026" title —
+        # cross-check day labels against the homepage dates before ever
+        # pointing lineup_targets at it.
+        lineup_targets=(),
+        extractor=None,
+    ),
+    Edition(
+        key="join_alive",
+        title_ja="JOIN ALIVE 2027",
+        venue_area="Iwamizawa Park, Hokkaido",
+        day_split=True,
+        # "See You Again on July 17-18, 2027" on the official 2026 page.
+        dates=("2027-07-17", "2027-07-18"),
+        edition_url="https://joinalive.jp/",
+        ticket_url=None,
+        # Skeleton: 2026 pages had the cleanest structure of the whole
+        # research sweep (/{year}/artist/ with per-artist detail pages,
+        # day tabs) — build the extractor when /2027/ goes live.
         lineup_targets=(),
         extractor=None,
     ),
@@ -486,6 +671,79 @@ DORMANT_EDITIONS: tuple[dict, ...] = (
                          "-> content lives under /{yy}/); derive the lineup "
                          "URL from the live nav each season.",
     },
+    # --- added 2026-08-03 (nationwide research pass; finished editions
+    #     archived while their structure is fresh) -------------------------
+    {
+        "key": "osaka_gigantic",
+        "title": "OSAKA GIGANTIC MUSIC FESTIVAL",
+        "venue_area": "Maishima Sports Island, Osaka",
+        "day_split": True,
+        "last_run": "2026-07-25..2026-08-02 (4 days across two weekends, "
+                    "10th-anniversary format)",
+        "lineup_url": "https://giga-osaka.com/artist/",
+        "parse_pattern": "Very clean static HTML: one <article id='dayMMDD'> "
+                         "per show day (day0725...), acts as <h4 class='name'> "
+                         "inside div.list_1 li. No robots.txt. Year archives "
+                         "at /{YY}/ — re-verify whether 2027 overwrites root.",
+    },
+    {
+        "key": "arabaki",
+        "title": "ARABAKI ROCK FEST.",
+        "venue_area": "Eco-Camp Michinoku, Kawasaki-machi, Miyagi",
+        "day_split": True,
+        "last_run": "2026-04-25..2026-04-26",
+        "lineup_url": "https://arabaki.com/lineup/",
+        "parse_pattern": "Static HTML, DAY1/DAY2 headers with per-artist "
+                         "blocks; tickets carry camp tiers. No robots.txt. "
+                         "Historically announces in early winter — recheck "
+                         "Nov/Dec 2026 for the 2027 edition.",
+    },
+    {
+        "key": "kyoto_daisakusen",
+        "title": "京都大作戦",
+        "venue_area": "Taiyogaoka Park, Uji, Kyoto",
+        "day_split": True,
+        "last_run": "2026-07-04..2026-07-05",
+        "lineup_url": "https://kyoto-daisakusen.kyoto/26/lineup/",
+        "parse_pattern": "10-FEET's fest. Lineup pages are poster images; act "
+                         "names exist ONLY in <img alt> attributes (facts, "
+                         "extractable) under year-scoped /{yy}/ paths. All "
+                         "2026 tickets sold out. No robots.txt.",
+    },
+    {
+        "key": "number_shot",
+        "title": "NUMBER SHOT",
+        "venue_area": "Mizuho PayPay Dome + Momochi Seaside Park, Fukuoka",
+        "day_split": True,
+        "last_run": "2026-08-01..2026-08-02",
+        "lineup_url": "https://numbershot.jp/2026/#artists",
+        "parse_pattern": "Single-page anchors; act names only in <img alt>, "
+                         "day tabs 8.1SAT/8.2SUN with stage subdivision. "
+                         "robots.txt disallows only /2026/X/. Year-scoped "
+                         "paths.",
+    },
+    {
+        "key": "fuji_and_sun",
+        "title": "FUJI & SUN",
+        "venue_area": "Fuji Children's World, Fuji City, Shizuoka",
+        "day_split": True,
+        "last_run": "2026-06-06..2026-06-07",
+        "lineup_url": "https://fjsn.jp/music.html",
+        "parse_pattern": "Static HTML on an evergreen (non-year) domain that "
+                         "gets overwritten each edition: <h3> act names under "
+                         "per-day headers (6.6 SAT / 6.7 SUN). Guard against "
+                         "reading last year's cached page — verify dates on "
+                         "/about.html first. No robots.txt.",
+    },
+    # NOT onboardable as things stand (research 2026-08-03): 森道市場
+    # (morimichiichiba.jp — timetable is image-only, zero extractable
+    # text), ONE MUSIC CAMP (postponed to 2027, no dates), Sunset Live
+    # (successor domain sunsetlive.jp 403s every fetch incl. robots.txt —
+    # rule 2; old domain ends at the 2024 '30th Final'), BAYCAMP
+    # (baycamp.net DNS does not resolve; no 2026 edition found anywhere —
+    # retry from a residential connection), OTODAMA音泉魂 (robots.txt
+    # itself 403s while content pages serve 200 — ambiguous crawl policy,
+    # owner call before onboarding).
 )
 
 

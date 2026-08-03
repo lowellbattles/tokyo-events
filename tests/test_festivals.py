@@ -56,6 +56,14 @@ FIXTURE_FOR = {
     ("https://atjam.jp/api/content/extra-lineup?limit=0&option="
      "%7B%22where%22:%7B%22extra%22:%22expo2026%22%7D,"
      "%22withRelation%22:[%22artist%22]%7D"): "festival_atjam_expo_live.json",
+    # nationwide onboarding 2026-08-03: one shared day-page fixture
+    # stands in for all four LuckyFes day URLs
+    "https://luckyfes.com/lineup/8.8": "festival_luckyfes_day_live.html",
+    "https://luckyfes.com/lineup/8.9": "festival_luckyfes_day_live.html",
+    "https://luckyfes.com/lineup/8.10": "festival_luckyfes_day_live.html",
+    "https://luckyfes.com/lineup/8.11": "festival_luckyfes_day_live.html",
+    "https://rsr.wess.co.jp/2026/artists/lineup/":
+        "festival_rsr_lineup_live.html",
 }
 
 
@@ -271,7 +279,10 @@ def test_scrape_yields_all_active_editions():
     evs = list(_StubScraper().scrape(today=TODAY))
     # summer 3 + rij 5 + sls 1 + ultra 1 + countdown 5
     # + atjam 2 + a-nation 2 + local green 2 (fuji '26 is dormant)
-    assert len(evs) == 21
+    # + nationwide 2026-08-03: luckyfes 4 + rsr 2 + wild bunch 3
+    #   + sky jamboree 1 + monster bash 2 + rush ball 2 + ringo 2
+    #   + ffkt 1 (no day split) + gmo sonic 2 + join alive 2
+    assert len(evs) == 42
     from collections import Counter
     per_title = Counter(e.title_ja for e in evs)
     assert per_title["COUNTDOWN JAPAN 26/27"] == 5
@@ -283,7 +294,7 @@ def test_broken_lineup_fetch_still_yields_curated_skeletons():
     # Every extractor is fed "<html></html>" (via scrape's fetch): curated
     # facts (dates/title/venue) survive, lineups fall back to empty.
     evs = list(_GarbageScraper().scrape(today=TODAY))
-    assert len(evs) == 21                          # same skeleton count
+    assert len(evs) == 42                          # same skeleton count
     assert all(e.lineup == [] for e in evs)        # no garbage names
     assert all(e.title_ja and e.venue_name and e.start_date for e in evs)
 
@@ -302,7 +313,8 @@ def test_extractors_fail_toward_empty_not_garbage():
 
 def test_finished_editions_are_skipped_offseason():
     # After the last run ends, scrape() yields nothing and never fetches.
-    assert list(_NoFetchScraper().scrape(today="2027-06-01")) == []
+    # (2027-08-01: past even JOIN ALIVE 2027, the latest-dated edition.)
+    assert list(_NoFetchScraper().scrape(today="2027-08-01")) == []
 
 
 # ------------------------------------------------------- config guards
@@ -318,5 +330,29 @@ def test_dormant_editions_documented():
     keys = {d["key"] for d in DORMANT_EDITIONS}
     assert keys == {"japan_jam", "metrock_tokyo", "viva_la_rock",
                     "synchronicity_fes", "greenroom_fes",
-                    "pop_yours", "punkspring", "fuji_rock"}
+                    "pop_yours", "punkspring", "fuji_rock",
+                    # nationwide research pass 2026-08-03
+                    "osaka_gigantic", "arabaki", "kyoto_daisakusen",
+                    "number_shot", "fuji_and_sun"}
     assert all(d.get("parse_pattern") for d in DORMANT_EDITIONS)
+
+
+# ---- nationwide onboarding 2026-08-03 (owner request) ---------------------
+
+def test_luckyfes_extractor_counts_and_spotchecks():
+    names = F.extract_luckyfes(_load("festival_luckyfes_day_live.html"),
+                               EDITIONS["lucky_fes"], day="2026-08-08")
+    assert len(names) == 40
+    assert "AKB48" in names
+    assert "相川七瀬" in names
+
+
+def test_rising_sun_extractor_positional_day_split():
+    # the day header is an image with EMPTY alt — day identity must come
+    # from the lineup_list_day1/2 class position, mapped onto dates
+    daymap = F.extract_rising_sun(_load("festival_rsr_lineup_live.html"),
+                                  EDITIONS["rising_sun_ezo"])
+    assert set(daymap) == {"2026-08-14", "2026-08-15"}
+    assert len(daymap["2026-08-14"]) == 43
+    assert len(daymap["2026-08-15"]) == 60
+    assert "Creepy Nuts" in daymap["2026-08-14"]
