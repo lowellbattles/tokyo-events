@@ -157,7 +157,9 @@ def rule_genres(d: dict) -> tuple[list[str], bool]:
 # --- LLM refinement --------------------------------------------------------
 
 _LLM_MODEL = "claude-haiku-4-5"
-_LLM_BATCH = 30
+#: 20×~50-token verdicts fit comfortably in max_tokens — 30 sometimes
+#: truncated the JSON reply, wasting the whole batch (R11 prep)
+_LLM_BATCH = 20
 _LLM_MAX_PER_RUN = 150
 
 _PROMPT = """You are tagging Tokyo concert listings with music genres.
@@ -180,7 +182,7 @@ def _llm_call(api_key: str, batch: list[dict]) -> dict[str, list[str]]:
     import requests
     payload = {
         "model": _LLM_MODEL,
-        "max_tokens": 1500,
+        "max_tokens": 2000,
         "messages": [{"role": "user", "content": _PROMPT.format(
             vocab=", ".join(GENRES),
             events=json.dumps(

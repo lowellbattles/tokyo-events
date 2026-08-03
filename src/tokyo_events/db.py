@@ -324,6 +324,7 @@ class EventStore:
         from .genres import apply_genres
         from .artists import apply_artists
         from .promoters import apply_promoter_merge
+        from .translate import apply_title_en
         today = jst_today().isoformat()
         events = [d for d in self.list_events(public_only=True)
                   if (d.get("end_date") or d.get("start_date") or "") >= today
@@ -331,6 +332,7 @@ class EventStore:
         events = apply_promoter_merge(events)   # before genre/artist passes
         apply_genres(self.conn, events)
         apply_artists(self.conn, events)
+        apply_title_en(self.conn, events)       # MT titles, flagged (R12)
         for d in events:            # the passes above need id/status
             for f in EXPORT_DROP_FIELDS:
                 d.pop(f, None)
