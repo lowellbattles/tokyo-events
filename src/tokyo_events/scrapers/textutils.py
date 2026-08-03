@@ -188,6 +188,23 @@ def infer_year(month: int, day: int, today: dt.date | None = None) -> str | None
     return None
 
 
+def nearest_year(month: int, day: int, anchor: dt.date) -> str | None:
+    """Resolve a month/day seen on a month-context page to the year that
+    puts it CLOSEST to ``anchor`` (the page's own month). Month pages
+    routinely show a few spillover rows from the adjacent month; pinning
+    them to anchor.year silently mis-years the Dec↔Jan boundary (R14 —
+    the same guard six scrapers had grown locally)."""
+    best: dt.date | None = None
+    for year in (anchor.year - 1, anchor.year, anchor.year + 1):
+        try:
+            cand = dt.date(year, month, day)
+        except ValueError:
+            continue
+        if best is None or abs((cand - anchor).days) < abs((best - anchor).days):
+            best = cand
+    return best.isoformat() if best else None
+
+
 def add_months(d: dt.date, n: int) -> dt.date:
     """Month arithmetic for month-page pagination (day preserved as d.day
     only when valid; callers normally pass a first-of-month date)."""

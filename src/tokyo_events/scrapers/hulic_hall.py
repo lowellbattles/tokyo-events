@@ -196,11 +196,14 @@ class HulicHallScraper(BaseScraper):
             day = int(sp_day.get_text(strip=True))
         except ValueError:
             return None
-        year = header_year if header_year else (month.year if month else None)
-        if year is None:
+        if month is not None:
+            # month-anchored: adjacent-month spillover keeps the right
+            # year across Dec/Jan (R14/SCR-8)
+            return tu.nearest_year(mo, day, month)
+        if header_year is None:
             return tu.infer_year(mo, day, today)
         try:
-            return dt.date(year, mo, day).isoformat()
+            return dt.date(header_year, mo, day).isoformat()
         except ValueError:
             return None
 

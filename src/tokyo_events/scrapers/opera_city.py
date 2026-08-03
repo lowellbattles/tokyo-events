@@ -154,10 +154,13 @@ class OperaCityScraper(BaseScraper):
         if not md:
             return None
         mo, day = int(md.group(1)), int(md.group(2))
-        y = year if year is not None else (month.year if month else None)
-        if y is not None:
+        if month is not None:
+            # month-anchored: spillover rows keep the right year across
+            # Dec/Jan (R14/SCR-8)
+            date = tu.nearest_year(mo, day, month)
+        elif year is not None:
             try:
-                date = dt.date(y, mo, day).isoformat()
+                date = dt.date(year, mo, day).isoformat()
             except ValueError:
                 return None
         else:

@@ -755,3 +755,38 @@ def test_parse_prices_understands_yen_suffix():
     assert tu.parse_prices(
         tu.strip_drink_charges("スタンディング3,500円 別途ドリンク代600円")
     )[1] == 3500
+
+
+def test_nearest_year_resolves_adjacent_month_spillover():
+    dec = dt.date(2026, 12, 1)
+    assert tu.nearest_year(1, 1, dec) == "2027-01-01"    # Jan row, Dec page
+    assert tu.nearest_year(12, 15, dec) == "2026-12-15"
+    jan = dt.date(2027, 1, 1)
+    assert tu.nearest_year(12, 31, jan) == "2026-12-31"  # Dec tail, Jan page
+    assert tu.nearest_year(2, 30, dec) is None
+
+
+def test_pia_arena_spillover_row_gets_next_year():
+    from tokyo_events.scrapers.pia import PiaArenaMMScraper
+    html = ('<a href="/event/9999.html">12.31 THU COUNTDOWN LIVE</a>'
+            '<a href="/event/10000.html">1.9 SAT NEW YEAR LIVE</a>')
+    evs = PiaArenaMMScraper().parse(html, month=dt.date(2026, 12, 1))
+    assert sorted(e.start_date for e in evs) == ["2026-12-31", "2027-01-09"]
+
+
+def test_pia_arena_walk_stops_cleanly_on_missing_month(monkeypatch):
+    from tokyo_events.scrapers.pia import PiaArenaMMScraper
+    from tokyo_events.scrapers.base import NotFoundError
+    s = PiaArenaMMScraper()
+    calls = []
+
+    def fake_fetch(url, retries=2):
+        calls.append(url)
+        if len(calls) == 1:
+            return '<a href="/event/1.html">8.15 SAT TEST LIVE</a>'
+        raise NotFoundError("gone")
+
+    monkeypatch.setattr(s, "fetch", fake_fetch)
+    evs = list(s.scrape())
+    assert len(evs) == 1
+    assert len(calls) == 2      # month-2 404 ended the walk, no error

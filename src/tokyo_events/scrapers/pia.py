@@ -136,7 +136,11 @@ class PiaArenaMMScraper(BaseScraper):
         for i in range(self.months_ahead):
             month = tu.add_months(first, i)
             url = f"{self.BASE}/event@p1={month.year}&p2={month:%m}.html"
-            yield from self.parse(self.fetch(url), month=month)
+            try:
+                html = self.fetch(url)
+            except NotFoundError:
+                break   # a missing far-future month page is normal (R14)
+            yield from self.parse(html, month=month)
 
     def parse(self, html: str, month: dt.date | None = None,
               today: dt.date | None = None, **context) -> list[Event]:
@@ -155,10 +159,9 @@ class PiaArenaMMScraper(BaseScraper):
                 continue   # hall rental day — not a public event
             mo, day = int(m.group(1)), int(m.group(2))
             if month is not None:
-                try:
-                    date = dt.date(month.year, mo, day).isoformat()
-                except ValueError:
-                    continue
+                # spillover rows from the adjacent month must not pin to
+                # the page's year across Dec/Jan (R14/SCR-8)
+                date = tu.nearest_year(mo, day, month)
             else:
                 date = tu.infer_year(mo, day, today)
             if not date:
