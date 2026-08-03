@@ -38,7 +38,11 @@ def main() -> None:
     l.add_argument("--from", dest="date_from")
     l.add_argument("--to", dest="date_to")
 
-    a = sub.add_parser("approve"); a.add_argument("ids", nargs="+")
+    a = sub.add_parser("approve")
+    a.add_argument("ids", nargs="*")
+    a.add_argument("--all-pending", action="store_true",
+                   help="approve every pending event")
+    a.add_argument("--source", help="with --all-pending: one source only")
     r = sub.add_parser("reject");  r.add_argument("ids", nargs="+")
     e = sub.add_parser("export");  e.add_argument("path")
 
@@ -46,12 +50,18 @@ def main() -> None:
     store = EventStore(args.db)
 
     if args.cmd == "scrape":
+        if args.only:
+            unknown = sorted(set(args.only) - set(pipeline.SCRAPERS))
+            if unknown:
+                p.error(f"unknown source id(s): {', '.join(unknown)}")
         reports = pipeline.run(
             store, only=args.only, fetch_details=not args.no_details,
             force_status=ReviewStatus.AUTO if args.auto else None)
         if args.report:
             import json
-            with open(args.report, "w") as f:
+            # reports carry Japanese venue strings — utf-8 explicitly,
+            # or Windows cp1252 default crashes the write
+            with open(args.report, "w", encoding="utf-8") as f:
                 json.dump(reports, f, ensure_ascii=False, indent=2)
         for rep in reports:
             status = f"ERROR: {rep['error']}" if rep["error"] else "ok"
@@ -69,11 +79,19 @@ def main() -> None:
                   f"{ev.get('title_ja') or ev.get('title_en')}"
                   f" @ {ev.get('venue_name')}{sold}")
     elif args.cmd in ("approve", "reject"):
-        status = (ReviewStatus.APPROVED if args.cmd == "approve"
-                  else ReviewStatus.REJECTED)
-        for eid in args.ids:
-            store.set_status(eid, status)
-        print(f"{args.cmd}: {len(args.ids)} event(s)")
+        if args.cmd == "approve" and args.all_pending:
+            n = store.approve_pending(args.source)
+            print(f"approved {n} pending event(s)"
+                  + (f" for {args.source}" if args.source else ""))
+        elif not args.ids:
+            p.error(f"{args.cmd}: give event ids"
+                    + (" or --all-pending" if args.cmd == "approve" else ""))
+        else:
+            status = (ReviewStatus.APPROVED if args.cmd == "approve"
+                      else ReviewStatus.REJECTED)
+            for eid in args.ids:
+                store.set_status(eid, status)
+            print(f"{args.cmd}: {len(args.ids)} event(s)")
     elif args.cmd == "export":
         n = store.export_public_json(args.path)
         print(f"exported {n} public events -> {args.path}")

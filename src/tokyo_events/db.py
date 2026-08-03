@@ -188,6 +188,22 @@ class EventStore:
         return "changed"
 
     # --- review ------------------------------------------------------------
+    def approve_pending(self, source: str | None = None) -> int:
+        """Bulk-approve pending events, optionally one source's (R18).
+        Closes the local-validation trap (roadmap §3.8): rows created
+        pending by a local scrape never publish on their own — CI's
+        --auto keeps existing statuses on change."""
+        q = ("UPDATE events SET status='approved', updated_at=? "
+             "WHERE status='pending'")
+        params: list = [dt.datetime.now(dt.timezone.utc).isoformat(
+            timespec="seconds")]
+        if source:
+            q += " AND source=?"
+            params.append(source)
+        cur = self.conn.execute(q, params)
+        self.conn.commit()
+        return cur.rowcount
+
     def set_status(self, event_id: str, status: ReviewStatus) -> None:
         self.conn.execute("UPDATE events SET status=?, updated_at=? WHERE id=?",
                           (status.value,
@@ -403,4 +419,15 @@ class EventStore:
                         "events": events},
                        ensure_ascii=False, separators=(",", ":")),
             encoding="utf-8")
+        # iCal fan-out (R26): events.ics + per-venue calendars, generated
+        # next to the feed. Build artifacts, not repo data — CI deploys
+        # them from the working tree; .gitignore keeps them out of git.
+        from .ical import build_all
+        base = Path(path).parent
+        for rel, ics in build_all(events).items():
+            target = base / rel
+            target.parent.mkdir(parents=True, exist_ok=True)
+            # newline='' — the text already carries RFC 5545 CRLF;
+            # newline translation would double the \r on Windows
+            target.write_text(ics, encoding="utf-8", newline="")
         return len(events)
