@@ -72,6 +72,16 @@ CREATE TABLE IF NOT EXISTS event_artists (
     artist_id  INTEGER NOT NULL REFERENCES artists(id),
     PRIMARY KEY (event_id, artist_id)
 );
+
+-- Detail-pass attempt memory (R17): events whose detail page yielded
+-- nothing parseable stop being refetched daily after 2 fruitless
+-- attempts, until their content changes again.
+CREATE TABLE IF NOT EXISTS detail_attempts (
+    event_id     TEXT PRIMARY KEY,
+    attempts     INTEGER NOT NULL,
+    content_hash TEXT NOT NULL,
+    last_attempt TEXT NOT NULL
+);
 """
 
 
@@ -222,10 +232,19 @@ class EventStore:
         out: list[Event] = []
         today = jst_today().isoformat()
         rows = self.conn.execute(
-            "SELECT data FROM events WHERE source=? AND status!='rejected' "
-            "AND category!='other' "         # don't spend fetches on junk
-            "ORDER BY start_date", (source,))
+            "SELECT e.data, a.attempts, a.content_hash AS tried_hash, "
+            "e.content_hash FROM events e LEFT JOIN detail_attempts a "
+            "ON a.event_id = e.id "
+            "WHERE e.source=? AND e.status!='rejected' "
+            "AND e.category!='other' "       # don't spend fetches on junk
+            "ORDER BY e.start_date", (source,))
         for row in rows:
+            # attempt memory (R17): two fruitless fetches of an
+            # unchanged event = its page has nothing; stop refetching
+            # daily until the content changes again
+            if (row["attempts"] or 0) >= 2 \
+                    and row["tried_hash"] == row["content_hash"]:
+                continue
             d = json.loads(row["data"])
             # still running or upcoming: exhibitions (date RANGES) stay
             # enrichable mid-run — their start_date is long past
@@ -242,6 +261,37 @@ class EventStore:
                 if len(out) >= limit:
                     break
         return out
+
+    def note_detail_attempt(self, ev: Event) -> None:
+        """Record a detail fetch that yielded no enrichment, so
+        events_needing_detail stops refetching a page that simply has
+        nothing (R17/SCR-3 — tokyo_intl_forum alone burned ~40 fetches
+        a day this way). The counter resets when the event's stored
+        content changes: a page that changed may have grown the data."""
+        eid = ev.dedupe_key()
+        row = self.conn.execute(
+            "SELECT content_hash FROM events WHERE id=?", (eid,)).fetchone()
+        chash = row["content_hash"] if row else ev.content_hash()
+        prev = self.conn.execute(
+            "SELECT attempts, content_hash FROM detail_attempts "
+            "WHERE event_id=?", (eid,)).fetchone()
+        attempts = (prev["attempts"] + 1
+                    if prev and prev["content_hash"] == chash else 1)
+        self.conn.execute(
+            "INSERT OR REPLACE INTO detail_attempts VALUES (?,?,?,?)",
+            (eid, attempts, chash,
+             dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")))
+        self.conn.commit()
+
+    def prune_detail_attempts(self) -> None:
+        """Drop attempt rows for events whose run is over (tiny table,
+        called once per pipeline run)."""
+        self.conn.execute(
+            "DELETE FROM detail_attempts WHERE event_id IN "
+            "(SELECT id FROM events "
+            " WHERE COALESCE(end_date, start_date) < ?)",
+            (jst_today().isoformat(),))
+        self.conn.commit()
 
     def events_for_soldout_sweep(self, source: str, exclude_urls: set[str],
                                  limit: int, window_days: int = 10

@@ -205,6 +205,7 @@ def run(store: EventStore, only: list[str] | None = None,
         fetch_details: bool = True,
         force_status: ReviewStatus | None = None) -> list[dict]:
     reports = []
+    store.prune_detail_attempts()      # forget attempts for past events
     for source_id, (factory, registry_status) in SCRAPERS.items():
         if only and source_id not in only:
             continue
@@ -250,6 +251,14 @@ def run(store: EventStore, only: list[str] | None = None,
                     enriched = scraper.parse_detail(html, ev)
                     store.upsert(enriched, default_status)
                     report["details"] += 1
+                    # attempt memory (R17): a fetch that enriched nothing
+                    # gets remembered; after 2 of those the backlog stops
+                    # offering this event until its content changes
+                    if (not enriched.ticket_links
+                            and enriched.start_time is None
+                            and enriched.price_min is None
+                            and enriched.is_free is None):
+                        store.note_detail_attempt(enriched)
                 except Exception:      # one bad detail page never kills a run
                     detail_failures += 1
                     continue
