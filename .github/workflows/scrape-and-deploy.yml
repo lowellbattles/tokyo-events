@@ -8,12 +8,6 @@ on:
     branches: [main]
     paths: ["site/**", "src/**", "cli.py", ".github/workflows/**"]
 
-permissions:
-  contents: write                # commit events.db + public.json
-  pages: write                   # deploy Pages
-  id-token: write                # Pages OIDC
-  issues: write                  # file scraper-error issues
-
 concurrency:
   group: scrape-deploy
   cancel-in-progress: false
@@ -21,10 +15,14 @@ concurrency:
 jobs:
   scrape:
     runs-on: ubuntu-latest
+    # job-scoped permissions (R19/OPS-4): deploy needs none of these
+    permissions:
+      contents: write            # commit events.db + public.json
+      issues: write              # rolling scraper-error/gap/stale issues
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
-      - uses: actions/setup-python@v5
+      - uses: actions/setup-python@v6
         with:
           python-version: "3.12"
           cache: pip
@@ -77,6 +75,9 @@ jobs:
   deploy:
     needs: scrape
     runs-on: ubuntu-latest
+    permissions:
+      pages: write               # deploy Pages
+      id-token: write            # Pages OIDC
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

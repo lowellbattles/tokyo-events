@@ -1,3 +1,8 @@
 __pycache__/
 *.pyc
 .pytest_cache/
+scrape_report.json
+r.json
+*.db-journal
+site/events.ics
+site/ical/

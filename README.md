@@ -28,11 +28,10 @@ live-validation status, and the "checked but not scrapeable" list
 | Curated seasonal (matsuri/hanabi/flowers) | 3 | 11 matsuri + 12 hanabi editions live; flowers grows via a curated watch list |
 | Curated festivals | 1 | Fuji Rock, Summer Sonic Tokyo, Rock in Japan, @JAM EXPO... |
 
-Promoters' calendars count as a *primary* source for their own productions
-and are the only way to cover "gap venues" with no schedule of their own
-(Nippon Budokan and similar); their raw venue strings are resolved and
-deduplicated against the venue registry at export time, and whatever can't
-be resolved is dropped and reported, not guessed at.
+Promoters' calendars count as a *primary* source for their own
+productions, and the only way to cover "gap venues" with no schedule of
+their own (Nippon Budokan and similar) — raw venue strings resolve against
+the registry at export; whatever can't be matched is dropped, not guessed.
 
 ## Architecture
 
@@ -53,10 +52,10 @@ GitHub Actions, daily 07:00 JST:
   own pages to fill in times, prices, and ticket links. Content-hash
   change detection keeps a steady-state source down to a few pages a day.
 - **Stage, don't publish blind.** Events land `pending` by default; a
-  human approves via the CLI, or a run can be force-published with
-  `AUTO_PUBLISH=true` / `--auto` (how the live deployment runs). A source
-  can also default to `AUTO` status in the `pipeline.py` registry once
-  it's proven reliable, independent of that global switch.
+  human approves via the CLI, or a run force-publishes everything with
+  `AUTO_PUBLISH=true` / `--auto` (how the live deployment runs) — a
+  source can also default to `AUTO` in the `pipeline.py` registry once
+  it's individually proven reliable.
 - **Export-time derivation, not scrape-time.** Venue de-duplication
   (`promoters.py`), genre tagging (`genres.py`), and the artist index
   (`artists.py`) are computed when `cli.py export` runs, from per-source
@@ -73,23 +72,19 @@ GitHub Actions, daily 07:00 JST:
    the source's own site; we link to it.
 2. **Politeness, and no bypassing bot detection.** 2-second-minimum
    per-host rate limits, an identifiable User-Agent, capped detail-fetch
-   volume, and a robots.txt check before any source is added. A site that
-   disallows us, or whose WAF 403s our honest UA, stays out permanently —
-   not "until we find a workaround" (two museum sources were retired the
-   day their WAF started blocking GitHub's runner IPs specifically). We
-   never scrape ticketing companies' own listing pages (e+, Pia) either —
-   only official sites, promoters' own calendars, and a couple of
-   owner-approved platforms. `CLAUDE.md` tracks everything checked and
-   skipped this way.
+   volume, and a robots.txt check before any source is added. A site
+   that disallows us, or whose WAF 403s our honest UA, stays out
+   permanently, not "until we find a workaround." We also never scrape
+   ticketing companies' own listing pages (e+, Pia) — only official
+   sites, promoters' calendars, and a couple of owner-approved
+   platforms; `CLAUDE.md` tracks the full checked-and-skipped list.
 3. **Structural failure is loud, not silent.** Parsers key off URL
    patterns and text conventions (OPEN/START, ¥ tiers) rather than CSS
-   class names, so redesigns rarely break them — and when a page's
-   structure really changes, the scraper returns `found=0` or a typed
-   fetch error instead of quietly parsing garbage.
-4. **Every parser is fixture-tested.** Each scraper has HTML captured from
-   the live site under `tests/fixtures/` (scrubbed of embedded API keys)
-   and pure, offline-testable parse functions. `python -m pytest tests/
-   -q` must stay green before anything is committed.
+   class names, so redesigns rarely break them — a page that's really
+   changed shape returns `found=0` or a typed fetch error, not garbage.
+4. **Every parser is fixture-tested** against HTML captured from the live
+   site (scrubbed of embedded API keys) under `tests/fixtures/`, via
+   pure, offline parse functions — `pytest tests/ -q` must stay green.
 5. Schema changes move `models.py`, `to_json()`, and `site/index.html`'s
    read side together — the feed contract is one thing, not two things
    that happen to currently agree.
@@ -98,7 +93,6 @@ GitHub Actions, daily 07:00 JST:
 
 ```bash
 pip install -r requirements.txt
-
 python cli.py scrape                          # all sources -> staging
 python cli.py scrape --only zepp_divercity oeast
 python cli.py scrape --no-details             # listing pass only, faster
@@ -139,16 +133,14 @@ runs on a **schedule** (22:00 UTC daily = 07:00 JST, plus a manual "Run
 workflow" button) and on **push to `main`** touching `site/`, `src/`,
 `cli.py`, or the workflow itself (redeploys without re-scraping).
 
-A scheduled/manual run: tests → scrape → export → commit `events.db` +
-`site/public.json` back to the repo → deploy to Pages. The data commit
-(`scripts/commit_data.sh`) rebuilds itself on top of whatever the remote
-currently holds rather than rebasing, so a push landing mid-scrape can't
-produce a binary merge conflict on `events.db`. `scripts/report_errors.py`
-then files or updates up to three rolling, labeled issues —
-`scraper-error`, `venue-gap` (unresolved promoter venues), and
-`stale-upcoming` (approved events their source stopped listing — possibly
-cancelled) — and never fails the workflow itself, so one broken source
-never blocks deploying the ones that worked.
+A scheduled run: tests → scrape → export → commit `events.db` +
+`site/public.json` → deploy to Pages. The commit step
+(`scripts/commit_data.sh`) rebuilds on the remote's current tip rather
+than rebasing, so a push landing mid-scrape can't binary-conflict on
+`events.db`. `scripts/report_errors.py` then files or updates up to three
+rolling issues — `scraper-error`, `venue-gap` (unresolved promoter
+venues), `stale-upcoming` (possible cancellations) — without ever failing
+the workflow, so one broken source never blocks deploying the rest.
 
 - **`AUTO_PUBLISH`** repo variable (`true`/`false`) — true runs the scrape
   with `--auto` so new events publish immediately instead of waiting for
@@ -157,9 +149,9 @@ never blocks deploying the ones that worked.
   refinement at export (`genres.py`); without it, rule-based and
   venue-prior tagging still run.
 
-One-time setup on a fork: repo **Settings → Pages → Source: GitHub
-Actions**, and **Settings → Actions → General → Workflow permissions: Read
-and write permissions** (the bot commits data and files issues).
+One-time fork setup: repo **Settings → Pages → Source: GitHub Actions**,
+and **Settings → Actions → General → Workflow permissions: Read and
+write permissions**.
 
 ## Docs
 
