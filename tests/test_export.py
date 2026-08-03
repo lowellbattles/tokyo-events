@@ -71,6 +71,21 @@ def test_export_strips_internal_fields_keeps_rendered_ones(tmp_path):
             assert f in e, f"{f} missing from the public feed"
 
 
+def test_export_writes_ical_fanout(tmp_path):
+    # R26: events.ics (music + music_festival) + one calendar per venue,
+    # generated next to the feed
+    store = _store(tmp_path)
+    out = tmp_path / "pub.json"
+    store.export_public_json(out)
+    main_ics = (tmp_path / "events.ics").read_text(encoding="utf-8")
+    assert "BEGIN:VCALENDAR" in main_ics
+    assert "テスト公演" in main_ics
+    # the art range event is not a music calendar entry
+    assert main_ics.count("BEGIN:VEVENT") == 1
+    venue_ics = tmp_path / "ical" / "liquidroom.ics"
+    assert venue_ics.exists()
+
+
 def test_export_sources_slim_generated_at_aware_and_compact(tmp_path):
     store = _store(tmp_path)
     store.conn.execute(
