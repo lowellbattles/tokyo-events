@@ -86,6 +86,17 @@ def test_export_writes_ical_fanout(tmp_path):
     assert venue_ics.exists()
 
 
+def test_export_carries_venue_capacity_map(tmp_path):
+    # the frontend's キャパ size filter joins events to venues[venue_key]
+    _n, _raw, data = _export(tmp_path, _store(tmp_path))
+    assert data["venues"]["liquidroom"] == {"capacity": 900}
+    # only venues present in the feed are listed, and only known values
+    feed_keys = {e.get("venue_key") or e["source"] for e in data["events"]}
+    assert set(data["venues"]) <= feed_keys
+    assert all(isinstance(v["capacity"], int)
+               for v in data["venues"].values())
+
+
 def test_export_sources_slim_generated_at_aware_and_compact(tmp_path):
     store = _store(tmp_path)
     store.conn.execute(

@@ -411,11 +411,21 @@ class EventStore:
         sources = [{"source": s["source"], "found": s["found"],
                     "error": s["error"]} for s in self.source_health()
                    if s["source"] in SCRAPERS]
+        # per-venue metadata the frontend joins on venue_key||source:
+        # approximate capacity, powering the キャパ size-tier filter.
+        # Only venues actually present in the feed, only known values.
+        from .venues import capacity_of
+        venues = {}
+        for k in sorted({d.get("venue_key") or d["source"] for d in events}):
+            cap = capacity_of(k)
+            if cap is not None:
+                venues[k] = {"capacity": cap}
         Path(path).write_text(
             json.dumps({"generated_at":
                         dt.datetime.now(dt.timezone.utc).isoformat(
                             timespec="seconds"),
                         "sources": sources,
+                        "venues": venues,
                         "events": events},
                        ensure_ascii=False, separators=(",", ":")),
             encoding="utf-8")

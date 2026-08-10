@@ -32,6 +32,11 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
 - `src/tokyo_events/venues.py` — canonical venue registry (normalized
   aliases; scraped source_ids + promoter-only gap venues like Budokan,
   each with a vclass: livehouse/jazz/hall/arena the frontend filters by).
+  Also CAPACITY: approx max capacity per music venue (curated metadata,
+  tests enforce coverage) → export adds top-level
+  `venues:{venue_key:{capacity}}` to public.json, powering the frontend
+  キャパ size-tier filter (〜300/1K/2K/10K/10K+), the 大きい順
+  within-day sort, and venue-page 約N人 display (2026-08-10).
 - `src/tokyo_events/promoters.py` — export-time merge for promoter
   sources: duplicate rows fold into venue records (sold-out OR,
   ticket-link union, gap-fill); gap-venue events export standalone under

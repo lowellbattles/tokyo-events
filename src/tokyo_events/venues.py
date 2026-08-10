@@ -17,6 +17,10 @@ festival sites and fireworks sites in the まつり・花火 view).
 
 Festivals are venue identities too — a festival's "venue" is the festival
 itself (FUJI ROCK, not 苗場スキー場), giving each its own chip and page.
+
+CAPACITY holds each music venue's approximate max capacity (standing
+where the room is standing-format) for the frontend's キャパ size-tier
+filter — see capacity_of() below.
 """
 
 from __future__ import annotations
@@ -233,6 +237,133 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "chigasaki_bunka": ("茅ヶ崎市民文化会館", "hall"),
 }
 
+#: venue_key -> approximate max capacity (people). Curated metadata for
+#: the frontend's キャパ size-tier filter and the venue pages' 約N人
+#: display — NOT a scraped fact. Standing capacity where the room is
+#: standing-format, largest concert configuration for multi-config
+#: rooms. Rough is fine: the UI buckets into tiers (300 / 1,000 /
+#: 2,000 / 10,000 boundaries), so ±20% only matters near a boundary.
+#: Music vclasses only (livehouse/jazz/hall/arena — enforced by tests);
+#: festivals are grounds, not rooms, and art/matsuri venues don't
+#: size-filter, so none of those carry an entry.
+CAPACITY: dict[str, int] = {
+    # --- live houses / clubs ---------------------------------------------
+    "liquidroom": 900,
+    "oeast": 1300,
+    "owest": 600,
+    "ocrest": 250,
+    "onest": 350,
+    "zepp_divercity": 2473,
+    "zepp_haneda": 2925,
+    "zepp_shinjuku": 1500,
+    "zepp_yokohama": 2146,
+    "toyosu_pit": 3103,
+    "quattro_shibuya": 750,
+    "www": 450,
+    "www_x": 600,
+    "duo": 700,
+    "loft_shinjuku": 550,
+    "shelter": 250,
+    "loft_heaven": 350,
+    "unit_daikanyama": 600,
+    "club_citta": 1300,
+    "eggman": 350,
+    "shibuya_dive": 400,
+    "reny_shinjuku": 700,
+    "que_shimokitazawa": 250,
+    "yokohama_bay_hall": 1200,
+    "fever_shindaita": 300,
+    "veats_shibuya": 500,
+    "club_seata": 550,
+    "stellar_ball": 1884,
+    "yokohama_mint_hall": 500,
+    "heavens_rock_saitama": 450,
+    "chiba_anga": 400,
+    "harajuku_ruido": 300,
+    "grapefruit_moon": 150,
+    "nishikawaguchi_hearts": 700,
+    "shimokita_shangrila": 250,
+    "shibuya_lovez": 300,
+    "kinema_club": 700,
+    "shinjuku_head_power": 300,
+    "kashiwa_palooza": 600,
+    "supernova_kawasaki": 500,
+    "unravel_tokyo": 200,
+    "kata_ebisu": 200,
+    "baysis_yokohama": 500,
+    "daikanyama_space_odd": 600,
+    "blaze_gotanda": 500,
+    "shimokita_adrift": 200,
+    "flowers_loft": 250,
+    "kichijoji_warp": 300,
+    "akabane_reny_alpha": 550,
+    "yokohama_reny_beta": 500,
+    "new_side_beach": 300,
+    "fad_yokohama": 300,
+    "serbian_night": 200,
+    # --- jazz clubs ------------------------------------------------------
+    "billboard_tokyo": 300,
+    "billboard_yokohama": 340,
+    "bluenote_tokyo": 300,
+    "cotton_club": 180,
+    "blues_alley_japan": 180,
+    # --- halls / theaters ------------------------------------------------
+    "ex_theater": 1700,           # 900 seated / ~1,700 standing
+    "line_cube_shibuya": 2000,
+    "hulic_hall": 972,
+    "kanadevia_hall": 3122,
+    "sgc_hall_ariake": 5306,      # 3,767 seated / 5,306 standing
+    "tokyo_intl_forum": 5012,     # Hall A — the hall our funnel targets
+    "nhk_hall": 3601,
+    "opera_city": 1632,
+    "tachikawa_stage_garden": 3000,
+    "orchard_hall": 2150,
+    "pleasure_pleasure": 800,
+    "meguro_persimmon": 1200,
+    "otemachi_mitsui_hall": 700,
+    "im_a_show": 400,
+    "tokyo_fm_hall": 300,
+    "jcom_hall_hachioji": 2021,
+    "carats_kawasaki": 2013,
+    "omiya_sonic_city": 2505,
+    "ichikawa_bunkakaikan": 1945,
+    "kanda_myojin_hall": 500,
+    "yokosuka_arts_theatre": 1806,
+    "showa_hitomi": 2000,
+    "kanda_square_hall": 1000,    # ~450 seated / ~1,000 standing
+    "suntory_hall": 2006,
+    "ebisu_garden_hall": 750,
+    "kannai_hall": 1102,
+    "kawaguchi_lilia": 2002,
+    "saitama_kaikan": 1315,
+    "mori_no_hall21": 1811,
+    "pacifico_yokohama": 5002,
+    "ueno_yagai_stage": 1212,
+    "renne_kodaira": 1229,
+    "asakusa_hanagekijo": 700,
+    "koshigaya_suncity": 1530,
+    "chigasaki_bunka": 1500,
+    # --- arenas / domes / stadiums ---------------------------------------
+    "yokohama_arena": 17000,
+    "tokyo_dome": 55000,
+    "tokyo_garden_theater": 8000,
+    "ariake_arena": 15000,
+    "toyota_arena_tokyo": 10000,
+    "k_arena_yokohama": 20033,
+    "yoyogi_gym1": 13291,
+    "kokuritsu_stadium": 68000,
+    "makuhari_messe": 9000,       # イベントホール; 展示ホール shows run bigger
+    "yokohama_buntai": 5000,
+    "pia_arena_mm": 12141,
+    "budokan": 14471,
+    "lala_arena_tokyo_bay": 10000,
+    "todoroki_arena": 6500,
+    "tokyo_taiikukan": 10000,
+    "zozo_marine_stadium": 30000,
+    "belluna_dome": 31552,
+    "tatsumi_ice_arena": 3500,
+}
+
 #: extra spellings seen in the wild -> venue_key (normalized at build time)
 _EXTRA_ALIASES: dict[str, str] = {
     # promoter-side variants (skipped_venues sweep, 2026-07-26)
@@ -347,3 +478,10 @@ def vclass_of(key: str) -> str | None:
 def display_of(key: str) -> str | None:
     entry = CANONICAL.get(key)
     return entry[0] if entry else None
+
+
+def capacity_of(key: str) -> int | None:
+    """Approximate max capacity for a venue key, or None where a fixed
+    capacity isn't meaningful (festivals, museums, matsuri sites) or the
+    venue is unknown."""
+    return CAPACITY.get(key)

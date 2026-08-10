@@ -159,6 +159,7 @@
     <button class="chip" data-when="all"></button>
   </div>
   <div class="f-row" id="vclass-row"><span class="f-label" data-i18n="l_vclass"></span></div>
+  <div class="f-row" id="cap-row"><span class="f-label" data-i18n="l_cap"></span></div>
   <div class="f-row" id="genre-row"><span class="f-label" data-i18n="l_genre"></span></div>
   <div class="f-row" style="align-items:flex-start">
     <span class="f-label" style="padding-top:6px" data-i18n="l_venue"></span>
@@ -181,6 +182,8 @@
    Data contract: ./public.json produced by `cli.py export`
    { generated_at,                    // tz-aware UTC ISO string
      sources:[{source,found,error}],
+     venues:{venue_key:{capacity}},   // approx max cap, music venues only —
+                                      // powers the キャパ size-tier filter
      events:[Event.to_json() minus db.EXPORT_DROP_FIELDS] }
    Only upcoming (JST) events are exported; past/other-category
    rows never reach the feed (roadmap R3).
@@ -388,6 +391,19 @@ const FAM_CLASS={liquid:"livehouse",ogroup:"livehouse",zepp:"livehouse",
 const VCLASS_OVERRIDE={toyosu_pit:"livehouse",pia_arena_mm:"arena"};
 const vclassOf=id=>VCLASS_OVERRIDE[id]||
   FAM_CLASS[(VENUE_META[id]||{}).fam]||"livehouse";
+/* capacity tiers (キャパ): venue-size bands over venues.py capacities,
+   carried in the feed's venues map. Half-open [min,max). A venue with
+   no known capacity (festivals — grounds, not rooms) only shows while
+   the tier filter is off. Bounds are one line to retune. */
+const CAP_TIERS=[{key:"c300",max:300},{key:"c1k",min:300,max:1000},
+  {key:"c2k",min:1000,max:2000},{key:"c10k",min:2000,max:10000},
+  {key:"cbig",min:10000}];
+const capOf=id=>(VENUES[id]||{}).cap||null;
+function capTierOf(id){
+  const c=capOf(id); if(!c) return null;
+  const t=CAP_TIERS.find(t=>(t.min==null||c>=t.min)&&(t.max==null||c<t.max));
+  return t?t.key:null;
+}
 const GENRE_KEYS = ["idol","j-rock","international","k-pop","jazz-soul",
                     "classical","hiphop-rnb","electronic","anime-seiyu"];
 const ART_GENRE_KEYS = ["contemporary","photography","design","craft",
@@ -403,8 +419,14 @@ const I18N = {
       flowers:"花・庭園"},
     detailsSeasonal:"公式サイト →",
     l_when:"日付",l_genre:"ジャンル",l_venue:"会場",l_vclass:"会場タイプ",
+    l_cap:"キャパ",
     vclasses:{all:"すべて",livehouse:"ライブハウス・クラブ",jazz:"ジャズクラブ",
       hall:"ホール・劇場",arena:"アリーナ・スタジアム",festival:"フェス"},
+    capTier:t=>{const f=n=>n.toLocaleString();
+      return t.min==null?`〜${f(t.max)}人`:t.max==null?`${f(t.min)}人〜`
+        :`${f(t.min)}〜${f(t.max)}人`;},
+    sortBig:"大きい順",
+    capacity:n=>`キャパ 約${n.toLocaleString()}人`,
     today:"今日",week:"今週",weekend:"今週末",all:"すべて",
     genres:{all:"すべて",idol:"アイドル","j-rock":"ロック・バンド",
       international:"来日・海外","k-pop":"K-POP","jazz-soul":"ジャズ・ソウル",
@@ -449,8 +471,14 @@ const I18N = {
       flowers:"Flowers / Gardens"},
     detailsSeasonal:"Official site →",
     l_when:"When",l_genre:"Genre",l_venue:"Venue",l_vclass:"Venue type",
+    l_cap:"Capacity",
     vclasses:{all:"All",livehouse:"Live houses / clubs",jazz:"Jazz clubs",
       hall:"Halls / theaters",arena:"Arenas / stadiums",festival:"Festivals"},
+    capTier:t=>{const f=n=>n.toLocaleString();
+      return t.min==null?`Under ${f(t.max)}`:t.max==null?`${f(t.min)}+`
+        :`${f(t.min)}–${f(t.max)}`;},
+    sortBig:"Biggest first",
+    capacity:n=>`Capacity ~${n.toLocaleString()}`,
     today:"Today",week:"This week",weekend:"Weekend",all:"All dates",
     genres:{all:"All",idol:"Idol","j-rock":"Rock / Band",
       international:"Int'l artists","k-pop":"K-pop","jazz-soul":"Jazz / Soul",
@@ -492,6 +520,8 @@ const I18N = {
 /* ============================================================ state */
 let DATA=null, VENUES={}, VENUE_COUNTS={}, lang="ja", when="week", genre="all", query="";
 let vclass="all";
+let cap="all";       /* キャパ tier key from CAP_TIERS, or "all" */
+let bigFirst=false;  /* within-day ordering: capacity desc before time */
 let section="music";   /* "music" | "art" — top-level category toggle */
 let venuesExpanded=false;
 let activeVenues=new Set();
@@ -526,7 +556,8 @@ async function load(){
       const meta=VENUE_META[vid]||
         {fam:"other",letter:(ev.venue_name||"?")[0].toUpperCase()};
       VENUES[vid]={...meta,
-        name:ev.venue_name||vid, area:ev.venue_area||""};
+        name:ev.venue_name||vid, area:ev.venue_area||"",
+        cap:((DATA.venues||{})[vid]||{}).capacity||null};
     }
     // upcoming-show count drives which chips the collapsed strip shows
     if(ev.start_date&&isMusic(ev)&&P(ev.end_date||ev.start_date)>=TODAY)
@@ -570,6 +601,7 @@ function matches(ev){
   if(!ev.start_date) return false;
   if(!inSection(ev)) return false;
   if(vclass!=="all"&&vclassOf(venueIdOf(ev))!==vclass) return false;
+  if(cap!=="all"&&capTierOf(venueIdOf(ev))!==cap) return false;
   if(!activeVenues.has(venueIdOf(ev))) return false;
   if(genre!=="all"&&!(ev.genres||[]).includes(genre)) return false;
   if(!inWindow(ev)) return false;
@@ -697,6 +729,39 @@ function renderVclassChips(){
     row.appendChild(b);
   }
 }
+function renderCapChips(){
+  const row=document.getElementById("cap-row");
+  row.querySelectorAll(".chip").forEach(n=>n.remove());
+  const L=I18N[lang];
+  const present=new Set(Object.keys(VENUES).map(capTierOf));
+  const allBtn=document.createElement("button");
+  allBtn.className="chip";allBtn.textContent=L.allVenues;
+  allBtn.setAttribute("aria-pressed",cap==="all");
+  allBtn.onclick=()=>{cap="all";render();};
+  row.appendChild(allBtn);
+  for(const t of CAP_TIERS.filter(t=>present.has(t.key))){
+    const b=document.createElement("button");
+    b.className="chip";b.textContent=L.capTier(t);
+    b.setAttribute("aria-pressed",cap===t.key);
+    b.onclick=()=>{
+      cap=t.key;
+      /* like a class pick: a tier pick means "show me this size band",
+         so any single-venue selection resets to the whole band */
+      activeVenues=new Set(Object.keys(VENUES));
+      widenWhenIfEmpty();
+      render();
+    };
+    row.appendChild(b);
+  }
+  /* within-day ordering toggle rides on the size row: biggest venue
+     first instead of by start time */
+  const s=document.createElement("button");
+  s.className="chip";s.textContent=L.sortBig;
+  s.style.marginLeft="auto";
+  s.setAttribute("aria-pressed",bigFirst);
+  s.onclick=()=>{bigFirst=!bigFirst;render();};
+  row.appendChild(s);
+}
 function renderVenueChips(){
   const wrap=document.getElementById("venue-chips");wrap.innerHTML="";
   const L=I18N[lang];
@@ -715,9 +780,11 @@ function renderVenueChips(){
   }else if(section==="matsuri"){
     shown=Object.keys(VENUES).filter(id=>vclassOf(id)==="matsuri")
       .sort(byClassThenName);
-  }else if(vclass!=="all"){
-    shown=Object.keys(VENUES).filter(id=>vclassOf(id)===vclass)
-      .sort(byClassThenName);
+  }else if(vclass!=="all"||cap!=="all"){
+    /* a class and/or size pick: the strip is that slice, in full */
+    shown=Object.keys(VENUES).filter(id=>
+      (vclass==="all"||vclassOf(id)===vclass)&&
+      (cap==="all"||capTierOf(id)===cap)).sort(byClassThenName);
   }else{
     const pool=Object.keys(VENUES).filter(id=>
       !["festival","museum","gallery","matsuri"].includes(vclassOf(id)));
@@ -764,7 +831,7 @@ function renderVenueChips(){
     };
     wrap.appendChild(b);
   }
-  if(section==="music"&&vclass==="all"&&(hidden>0||venuesExpanded)){
+  if(section==="music"&&vclass==="all"&&cap==="all"&&(hidden>0||venuesExpanded)){
     const t=document.createElement("button");
     t.className="chip";
     t.textContent=venuesExpanded?L.fewerVenues:L.moreVenues(hidden);
@@ -906,15 +973,19 @@ function renderList(){
   /* fresh generation: invalidates any chunked render loop still appending
      from a previous call (FE-3) — checked in the step() closure below */
   const myGen=++renderGen;
+  /* day order always wins; inside a day, "biggest first" ranks by venue
+     capacity (unknown-cap last) before falling back to start time */
   const evs=DATA.events.filter(matches).sort((a,b)=>
     a.start_date.localeCompare(b.start_date)||
+    (bigFirst?(capOf(venueIdOf(b))||0)-(capOf(venueIdOf(a))||0):0)||
     (a.start_time||"99").localeCompare(b.start_time||"99"));
   document.getElementById("count").textContent=L.count(evs.length);
 
   if(!evs.length){
     list.innerHTML=`<div class="empty"><p>${L.empty}</p><p style="margin-top:8px"><button id="clear-btn">${L.clear}</button></p></div>`;
     document.getElementById("clear-btn").onclick=()=>{
-      when="all";genre="all";query="";document.getElementById("search").value="";
+      when="all";genre="all";vclass="all";cap="all";query="";
+      document.getElementById("search").value="";
       activeVenues=new Set(Object.keys(VENUES));render();
     };
     return;
@@ -996,6 +1067,7 @@ function renderVenuePage(id){
       <div class="detail-sub">
         <span>${esc(V.area)}</span>
         ${sample?`<span>${esc(sample.address)}</span>`:""}
+        ${V.cap?`<span>${L.capacity(V.cap)}</span>`:""}
         <span>${L.venueShows(upcoming.length)}</span>
       </div>
       <a class="back-btn alink" href="#" data-back="1">${L.back}</a>
@@ -1017,9 +1089,11 @@ function render(){
     b.textContent=L.sections[b.dataset.section];
     b.setAttribute("aria-pressed",b.dataset.section===section);
   });
-  /* venue-type row is music-only; the genre row serves every section
-     (music genres / art facets / seasonal types) */
+  /* venue-type + capacity rows are music-only; the genre row serves every
+     section (music genres / art facets / seasonal types) */
   document.getElementById("vclass-row").style.display=
+    section==="music"?"":"none";
+  document.getElementById("cap-row").style.display=
     section==="music"?"":"none";
   document.getElementById("search").placeholder=L.search;
   document.getElementById("expand-all").textContent=L.expandAll;
@@ -1034,6 +1108,7 @@ function render(){
   if(route&&route.venue){renderVenuePage(route.venue);return;}
   document.title=BASE_TITLE;
   renderVclassChips();
+  renderCapChips();
   renderGenreChips();
   renderVenueChips();
   renderList();
@@ -1051,7 +1126,8 @@ document.querySelectorAll("[data-section]").forEach(b=>{
     /* mode change: reset music-side filters; exhibitions and seasonal
        events spread over months, so those lists default to the full
        window */
-    genre="all";vclass="all";activeVenues=new Set(Object.keys(VENUES));
+    genre="all";vclass="all";cap="all";
+    activeVenues=new Set(Object.keys(VENUES));
     when=section==="music"?"week":"all";
     render();
   };

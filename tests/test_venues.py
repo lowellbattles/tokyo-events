@@ -3,7 +3,8 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
-from tokyo_events.venues import norm_venue, resolve_venue, vclass_of
+from tokyo_events.venues import (CANONICAL, CAPACITY, capacity_of,
+                                 norm_venue, resolve_venue, vclass_of)
 
 
 def test_resolves_all_probe_observed_variants():
@@ -60,6 +61,36 @@ def test_gap_venues_have_classes():
     assert vclass_of("budokan") == "arena"
     assert vclass_of("blues_alley_japan") == "jazz"
     assert vclass_of("pleasure_pleasure") == "hall"
+
+
+def test_every_music_venue_has_a_capacity():
+    # the キャパ filter buckets music venues by size — a music venue
+    # without a capacity would silently vanish from every size band.
+    # Adding a venue to CANONICAL means adding its capacity here too.
+    music = {"livehouse", "jazz", "hall", "arena"}
+    for key, (_display, vclass) in CANONICAL.items():
+        if vclass in music:
+            assert key in CAPACITY, f"music venue without capacity: {key}"
+
+
+def test_capacities_are_canonical_and_plausible_for_their_class():
+    # typo guard: a stray zero would put a livehouse among the domes
+    bounds = {"livehouse": (80, 3500), "jazz": (80, 1000),
+              "hall": (200, 6000), "arena": (3000, 100000)}
+    for key, cap in CAPACITY.items():
+        assert key in CANONICAL, f"capacity for unknown venue: {key}"
+        vclass = CANONICAL[key][1]
+        assert vclass in bounds, \
+            f"capacity on non-music venue {key} ({vclass})"
+        lo, hi = bounds[vclass]
+        assert lo <= cap <= hi, f"{key} ({vclass}): {cap}"
+
+
+def test_capacity_of():
+    assert capacity_of("budokan") == 14471
+    assert capacity_of("fuji_rock") is None    # grounds, not a room
+    assert capacity_of("mori_art_museum") is None
+    assert capacity_of("no_such_venue") is None
 
 
 def test_curly_apostrophe_and_promoter_recovered_venues():
