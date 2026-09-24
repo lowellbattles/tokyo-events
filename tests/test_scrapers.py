@@ -48,6 +48,26 @@ def test_liquidroom_combined_open_start_and_sold_out():
     assert ev["matenrouopera_20260607-2"].start_date == "2026-06-07"
 
 
+def test_liquidroom_walk_stops_cleanly_on_missing_month(monkeypatch):
+    # R-horizon (2026-09-24): scrape() previously called self.fetch() with no
+    # NotFoundError guard at all — fine at the old months_ahead=3, but a real
+    # crash risk once the walk goes out to 12 months and a far month 404s.
+    from tokyo_events.scrapers.base import NotFoundError
+    s = LiquidroomScraper()
+    calls = []
+
+    def fake_fetch(url, retries=2):
+        calls.append(url)
+        if len(calls) == 1:
+            return _load("liquidroom_schedule.html")
+        raise NotFoundError("gone")
+
+    monkeypatch.setattr(s, "fetch", fake_fetch)
+    evs = list(s.scrape())
+    assert len(evs) == 5           # month-1 events, parsed before the 404
+    assert len(calls) == 2         # month-2 404 ended the walk, no crash
+
+
 # --------------------------------------------------------------------- zepp
 def _zepp():
     return {e.source_url.split("rid=")[-1]: e
@@ -139,6 +159,26 @@ def test_billboard_2026_07_relayout_titles_lose_date_prefix():
     assert (e.open_time, e.start_time) == ("14:30", "15:30")
     assert e.price_min == 9300                                 # casual tier
     assert "2-stages" in e.tags
+
+
+def test_billboard_walk_stops_cleanly_on_missing_month(monkeypatch):
+    # R-horizon (2026-09-24): scrape() previously called self.fetch() with no
+    # NotFoundError guard at all — fine at the old months_ahead=2, but a real
+    # crash risk once the walk goes out to 12 months and a far month 404s.
+    from tokyo_events.scrapers.base import NotFoundError
+    s = BillboardScraper("billboard_tokyo")
+    calls = []
+
+    def fake_fetch(url, retries=2):
+        calls.append(url)
+        if len(calls) == 1:
+            return _load("billboard_schedule.html")
+        raise NotFoundError("gone")
+
+    monkeypatch.setattr(s, "fetch", fake_fetch)
+    evs = list(s.scrape())
+    assert len(evs) == 3           # month-1 events, parsed before the 404
+    assert len(calls) == 2         # month-2 404 ended the walk, no crash
 
 
 # --------------------------------------------------------- detail enrichment

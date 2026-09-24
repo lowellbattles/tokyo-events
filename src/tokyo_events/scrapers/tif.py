@@ -112,7 +112,7 @@ class TokyoIntlForumScraper(BaseScraper):
     BASE = "https://www.t-i-forum.co.jp"
     EVENT_BASE = "https://www.t-i-forum.co.jp/visitors/event/"
 
-    def __init__(self, months_ahead: int = 4, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 
@@ -120,6 +120,7 @@ class TokyoIntlForumScraper(BaseScraper):
     def scrape(self) -> Iterable[Event]:
         first = tu.jst_today().replace(day=1)
         merged: dict[str, Event] = {}
+        empty_streak = 0
         for i in range(self.months_ahead):
             m = tu.add_months(first, i)
             url = f"{self.EVENT_BASE}?year={m.year}&month={m.month}"
@@ -129,9 +130,12 @@ class TokyoIntlForumScraper(BaseScraper):
                 if i == 0:
                     raise          # the current month must be reachable
                 break              # far-future month not published yet
-            # A reachable future month with no event stubs at all means we've
-            # walked past the published calendar — stop (like zepp.py).
-            if "detail.html?id=" not in html and i > 0:
+            # A reachable future month with no event stubs at all can be a
+            # real gap (nothing booked yet in a slow month); only stop after
+            # two consecutive such months rather than hiding a later one.
+            empty_streak = (empty_streak + 1
+                            if "detail.html?id=" not in html else 0)
+            if i and empty_streak >= 3:
                 break
             for ev in self.parse(html, page_url=url):
                 _merge(merged, ev)

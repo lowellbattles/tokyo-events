@@ -229,6 +229,15 @@ def range_from_hits(hits: list, max_days: int = 3 * 365
     return start.isoformat(), end.isoformat()
 
 
+#: Default month-walk horizon for venue scrapers (2026-09-24, owner call):
+#: big arena/hall shows go on presale up to ~a year ahead, so every
+#: month-walking venue scraper defaults to this instead of a per-venue
+#: 2-9 month guess. One knob for all of them (promoter scrapers
+#: creativeman/smash/sogo_tokyo/disk_garage already matched this
+#: independently on 2026-09-24 too; see CLAUDE.md).
+HORIZON_MONTHS = 12
+
+
 def add_months(d: dt.date, n: int) -> dt.date:
     """Month arithmetic for month-page pagination (day preserved as d.day
     only when valid; callers normally pass a first-of-month date)."""

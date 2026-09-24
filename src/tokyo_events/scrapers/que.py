@@ -81,18 +81,19 @@ class QueScraper(BaseScraper):
         lat=35.6612, lng=139.6684,
     )
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 
     # ------------------------------------------------------------------ fetch
     def scrape(self) -> Iterable[Event]:
-        """Walk the current month + a few forward archive pages. Future
-        months exist in the archive dropdown even when empty, so stop after
-        the first month that yields nothing (live houses fill forward
-        contiguously)."""
+        """Walk the current month + forward archive pages. Future months
+        exist in the archive dropdown even when empty, and a single quiet
+        month (nothing booked yet) shouldn't hide a later-booked one, so
+        stop only after two consecutive empty months."""
         first = tu.jst_today().replace(day=1)
         seen: set[str] = set()
+        empty_streak = 0
         for i in range(self.months_ahead):
             m = tu.add_months(first, i)
             url = (f"{self.BASE}/schedule/" if i == 0
@@ -104,7 +105,8 @@ class QueScraper(BaseScraper):
             fresh = [e for e in self.parse(html, month=m)
                      if e.source_url not in seen]
             seen.update(e.source_url for e in fresh)
-            if not fresh and i > 0:
+            empty_streak = 0 if fresh else empty_streak + 1
+            if i and empty_streak >= 3:
                 break   # reached the not-yet-announced future
             yield from fresh
 

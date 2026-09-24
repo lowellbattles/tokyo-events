@@ -87,13 +87,14 @@ class FeverScraper(BaseScraper):
     venue_name = "新代田FEVER"
     venue_area = "Shindaita"
 
-    def __init__(self, months_ahead: int = 4, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 
     # ---- fetch + delegate (pure parse below) ----
     def scrape(self) -> Iterable[Event]:
         first = tu.jst_today().replace(day=1)
+        empty_streak = 0
         for i in range(self.months_ahead):
             m = tu.add_months(first, i)
             url = f"{self.BASE}/schedule/{m.year}/{m.month:02d}/"
@@ -102,8 +103,12 @@ class FeverScraper(BaseScraper):
             except NotFoundError:
                 break   # month page not published yet -> stop walking
             events = self.parse(html, month=m)
-            if not events:
-                break   # no entries this month -> assume nothing further out
+            # A real gap month (nothing booked yet) can legitimately be
+            # empty; only stop after two consecutive empty months rather
+            # than hiding everything past a single quiet month.
+            empty_streak = 0 if events else empty_streak + 1
+            if empty_streak >= 3:
+                break
             yield from events
 
     # ---- pure parse (html string in, list[Event] out) ----

@@ -125,7 +125,8 @@ VENUES = {
 class SeataScraper(BaseScraper):
     source_name = "吉祥寺CLUB SEATA"
 
-    def __init__(self, venue_id: str = "club_seata", months_ahead: int = 4,
+    def __init__(self, venue_id: str = "club_seata",
+                 months_ahead: int = tu.HORIZON_MONTHS,
                  **kw):
         super().__init__(**kw)
         if venue_id not in VENUES:

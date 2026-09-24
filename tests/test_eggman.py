@@ -155,3 +155,43 @@ def test_detail_pass_bare_digits_stay_off_in_free_text():
                title_ja="Y", category=Category.MUSIC)
     out = EggmanScraper().parse_detail(html, ev)
     assert out.price_min is None
+
+
+def test_scrape_survives_a_gap_month(monkeypatch):
+    # R-horizon (2026-09-24): a month with nothing booked YET must not hide
+    # a later-booked month. Each category (daytime/nighttime) walks its own
+    # months_ahead window; a single empty month used to stop that category's
+    # walk outright (`if not fresh: break`) — now it takes two consecutive
+    # empty months.
+    import re
+    from tokyo_events.scrapers.base import NotFoundError
+    from tokyo_events.scrapers import textutils as tu
+
+    first = tu.jst_today().replace(day=1)
+    event_html = (
+        '<article class="scheduleList"><div class="scheListHeader">'
+        '<time><strong>05</strong></time>'
+        '<h1><a href="http://eggman.jp/schedule/gap-test/">Gap Test Live</a>'
+        '</h1></div><div class="scheListBody"><ul>'
+        '<li><small>OPEN</small>18:00</li></ul>'
+        '<div class="act"><p>-</p></div></div></article>'
+    )
+
+    def fake_fetch(url, retries=2):
+        if "?" not in url:
+            return "<html></html>"        # current month: nothing booked
+        m = re.search(r"syear=(\d+)&smonth=(\d+)", url)
+        year, month = int(m.group(1)), int(m.group(2))
+        i = (year - first.year) * 12 + (month - first.month)
+        if i == 1:
+            return "<html></html>"        # gap month: nothing booked yet
+        if i == 2:
+            return event_html             # booking resumes
+        raise NotFoundError("gone")
+
+    s = EggmanScraper(months_ahead=4)
+    monkeypatch.setattr(s, "fetch", fake_fetch)
+    evs = list(s.scrape())
+    # Both categories hit the same fake pages; dedupe keeps one event.
+    assert len(evs) == 1
+    assert evs[0].source_url == "http://eggman.jp/schedule/gap-test/"

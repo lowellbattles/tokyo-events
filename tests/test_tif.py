@@ -154,3 +154,37 @@ def test_detail_nonmusic_title_in_hall_a_is_other():
     TokyoIntlForumScraper().parse_detail(html, ev)
     assert ev.title_ja == "日本アカデミー賞 表彰式"
     assert ev.category == Category.OTHER
+
+
+def test_scrape_survives_a_gap_month(monkeypatch):
+    # R-horizon (2026-09-24): a reachable month with no event stubs at all
+    # used to stop the walk outright (`if "detail.html?id=" not in html and
+    # i > 0: break`) — now it takes two consecutive such months, so a
+    # later-booked month still surfaces.
+    import re
+    from tokyo_events.scrapers.base import NotFoundError
+    from tokyo_events.scrapers import textutils as tu
+
+    first = tu.jst_today().replace(day=1)
+
+    def fake_fetch(url, retries=2):
+        m = re.search(r"[?&]year=(\d+)&month=(\d+)", url)
+        year, month = int(m.group(1)), int(m.group(2))
+        i = (year - first.year) * 12 + (month - first.month)
+        if i in (0, 1):
+            return "<html></html>"        # current + one gap month: quiet
+        if i == 2:
+            return (
+                '<ul class="p-eventTop-newsGroup"><dl>'
+                f'<dt>{year}年{month}月5日（水）</dt>'
+                '<dd><a href="https://www.t-i-forum.co.jp/visitors/event/'
+                'detail.html?id=999">Gap Test Live</a></dd>'
+                '</dl></ul>'
+            )
+        raise NotFoundError("gone")
+
+    s = TokyoIntlForumScraper(months_ahead=5)
+    monkeypatch.setattr(s, "fetch", fake_fetch)
+    evs = list(s.scrape())
+    assert len(evs) == 1
+    assert evs[0].title_ja == "Gap Test Live"

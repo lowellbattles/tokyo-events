@@ -71,7 +71,7 @@ class HulicHallScraper(BaseScraper):
     SCHEDULE_URL = "https://hulic-theater.com/entertainment/schedules/"
     supports_detail = False        # everything is on the listing page
 
-    def __init__(self, months_ahead: int = 4, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

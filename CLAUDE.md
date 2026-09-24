@@ -69,7 +69,7 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
 |---|---|---|
 | Liquidroom | liquidroom | |
 | O-Group | oeast owest ocrest onest | |
-| Zepp | zepp_divercity zepp_haneda zepp_shinjuku zepp_yokohama | month pages `?_y=YYYY&_m=M`, walks 6 months |
+| Zepp | zepp_divercity zepp_haneda zepp_shinjuku zepp_yokohama | month pages `?_y=YYYY&_m=M`, walks 12 months |
 | Billboard | billboard_tokyo billboard_yokohama | scraper-set genres |
 | Pia | toyosu_pit pia_arena_mm | |
 | Shibuya indie (step 3) | quattro_shibuya www www_x duo | |
@@ -83,6 +83,24 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
 | Galleries / art spaces (2026-07-26) | opera_city_gallery ggg | scrapers/galleries.py; vclass gallery (ggg) joins museum in the art view. opera_city_gallery = public pages are JS shells; content fragments at /contents/exhibition/current+upcoming (robots wildcard rule is commented out = allowed); identity canonicalized to detail.php?id=N from the item's image path so upcoming→current keeps ONE identity (upcoming items have no anchors). ggg = top-page box-information (ttl02 title; 詳細 link sits outside the box) |
 | Seasonal curated: matsuri + hanabi + flowers (2026-07-27) | matsuri hanabi flowers | scrapers/matsuri.py — the festivals pattern for categories "festival" (matsuri) and "fireworks": curated SeasonalEdition config, dates verified against official pages when added; scraper fetches NOTHING (allow_empty; finished editions self-sunset; non-contiguous dates like 酉の市 zodiac days or Yokohama Night Flowers series → one event per date with #anchors). Each edition IS its venue identity (vclass matsuri; promoters.py assigns venue_key like festivals). genres[] carries the section type facet (models.SEASONAL_GENRES matsuri/hanabi, set by the scraper). Frontend third section まつり・花火 (day-group rendering, 公式サイト links, type filter in the genre row). 11 matsuri + 12 hanabi editions live incl. 深川八幡 本祭 year, あつぎ鮎まつり moved Aug→Oct 2026. **Flowers** (owner-decided 2026-07-27): ONLY organizer-dated events, no bloom forecasts — "best time to see X" is a prediction, not a fact; the dated festival entry itself carries the season signal. (Owner may revisit and add spots/best-time guidance later; if so, keep it clearly separated from the factual event feed.) Venue identity = the GARDEN (multiple events/yr share it), not the event. 2 seeded (向島百花園 萩まつり via metro press release, 日比谷ガーデニングショー); 9-item autumn watch list with announcement leads documented in FLOWER_EDITIONS comments — web-search AI summaries have been caught relabeling 2025 runs as "2026", confirm on the venue's own page. Watch: 神田古本まつり (jimbou.info 2026 page pending), Yokohama Night Flowers Oct+ dates (announced Aug), 隅田川+立川昭和記念公園 next season |
 | Festivals (2026-07-14, expanded 07-26; NATIONWIDE 2026-08-03 per owner) | festivals | curated ACTIVE_EDITIONS config (dates = facts, lineups scraped): Fuji Rock, Summer Sonic Tokyo, Rock in Japan, Sweet Love Shower, Ultra Japan, Countdown Japan skeleton, @JAM EXPO (Nuxt SPA — lineup via its public JSON API, Live-Nation-style), a-nation + Local Green skeletons (lineups unannounced; Local Green '26 relaunches FREE-admission). **Nationwide since 2026-08-03** (owner call — festivals nationwide, venue coverage stays Kanto): LuckyFes (Ibaraki, fespli-platform SSR extractor) + RISING SUN in EZO (Hokkaido, positional day-split extractor — day headers are empty-alt images) live with lineups; verified-date skeletons for WILD BUNCH FEST. (Yamaguchi), Sky Jamboree (Nagasaki), MONSTER baSH (Kagawa), RUSH BALL (Osaka), りんご音楽祭 (Nagano — year-scoped /fes2026/ URLs only, the year-less path serves an orphaned old lineup), FFKT (Izu Shirahama, ex-Nagano), GMO SONIC 2027 (April, GMO Arena Saitama — /lineup/ still serves the FINISHED Jan-26 roster, cross-check dates before targeting), JOIN ALIVE 2027 (Hokkaido). allow_empty=True (seasonal); category music_festival; the festival IS the venue identity (vclass festival); DORMANT_EDITIONS documents finished editions for next-season curation (incl. POP YOURS, PUNKSPRING, OSAKA GIGANTIC — clean article#dayMMDD structure, ARABAKI — recheck Nov/Dec, 京都大作戦 + NUMBER SHOT — poster alt-text names, FUJI & SUN — evergreen domain). Nationwide sweep verdicts 2026-08-03: Sunset Live OUT (successor sunsetlive.jp WAFs every fetch incl. robots.txt — rule 2), BAYCAMP unreachable (DNS dead, no 2026 edition found), OTODAMA ambiguous (robots.txt 403s while content 200s — owner call), 森道市場 not extractable (image-only timetable), ONE MUSIC CAMP postponed to 2027 |
+
+**Venue month-walk horizon (2026-09-24, owner call):** every month-walking
+music-venue scraper (Liquidroom/Zepp/Billboard/Pia/Shibuya-indie/Loft-style
+families, live houses, halls/theaters, arenas/domes/stadiums, plus Cotton
+Club) now defaults to `months_ahead=12` (was 2–9 per venue) via one shared
+`scrapers/textutils.HORIZON_MONTHS` constant — big shows go on sale up to a
+year out, matching the promoter-scraper horizon bump above. Five scrapers
+(eggman, fever, que, tif, unit) previously stopped their walk at the FIRST
+empty/no-stub month, which could hide a later-booked month behind one quiet
+one; they now match the rest of the codebase's `empty_streak >= 3`
+convention. billboard and liquidroom had no `NotFoundError` guard on their
+month fetch at all (fine at a 2–3 month walk, a real crash risk at 12) and
+now stop cleanly on a 404 like their siblings. Live-probed 2026-09-24: no
+scraper needed capping below 12 — venues with nothing booked that far out
+already stop early via their own `NotFoundError`/`empty_streak` logic
+(confirmed via request-count reasoning, not just event counts, to rule out
+a site silently re-serving the same "current month" page for a param it
+ignores) rather than walking uselessly to month 12.
 
 Checked and NOT scrapeable (2026-07-13): Budokan (official site
 publishes no concert listings), Hibiya Yaon (closed for reconstruction),

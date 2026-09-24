@@ -73,7 +73,7 @@ class KokuritsuStadiumScraper(BaseScraper):
     BASE = "https://jns-e.com"
     supports_detail = False        # listing already carries every wanted field
 
-    def __init__(self, months_ahead: int = 4, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

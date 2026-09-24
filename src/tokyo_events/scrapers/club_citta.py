@@ -89,7 +89,7 @@ class ClubCittaScraper(BaseScraper):
         lng=139.6994,
     )
 
-    def __init__(self, months_ahead: int = 4, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

@@ -46,7 +46,7 @@ class WWWScraper(BaseScraper):
     source_name = "WWW Shibuya"
     BASE = "https://www-shibuya.jp"
 
-    def __init__(self, hall_id: str, months_ahead: int = 3, **kw):
+    def __init__(self, hall_id: str, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         if hall_id not in HALLS:
             raise ValueError(f"unknown WWW hall: {hall_id}")

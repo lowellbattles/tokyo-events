@@ -134,7 +134,7 @@ class ToyotaArenaScraper(BaseScraper):
     BASE = "https://www.toyota-arena-tokyo.jp"
     supports_detail = False        # the listing already carries the facts
 
-    def __init__(self, months_ahead: int = 6, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

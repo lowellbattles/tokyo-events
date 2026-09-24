@@ -55,7 +55,7 @@ class UnitScraper(BaseScraper):
     source_name = "UNIT (Daikanyama)"
     BASE = "https://www.unit-tokyo.com"
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 
@@ -68,6 +68,9 @@ class UnitScraper(BaseScraper):
             if ev.source_url not in seen:
                 seen.add(ev.source_url)
                 yield ev
+        # A single quiet month (nothing booked yet) shouldn't hide a
+        # later-booked one; stop only after two consecutive empty months.
+        empty_streak = 0
         for i in range(1, self.months_ahead):
             m = tu.add_months(first, i)
             url = f"{self.BASE}/schedule/{m.year}-{m.month:02d}/"
@@ -76,8 +79,9 @@ class UnitScraper(BaseScraper):
             except NotFoundError:
                 break               # far-future months may 404
             page = self.parse(html, month=m)
-            if not page:
-                break               # empty month -> no more scheduled shows
+            empty_streak = 0 if page else empty_streak + 1
+            if empty_streak >= 3:
+                break               # reached the not-yet-announced future
             for ev in page:
                 if ev.source_url not in seen:
                     seen.add(ev.source_url)

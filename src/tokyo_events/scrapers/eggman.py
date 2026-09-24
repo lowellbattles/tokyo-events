@@ -119,7 +119,7 @@ class EggmanScraper(BaseScraper):
         lat=None, lng=None,
     )
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 
@@ -134,8 +134,11 @@ class EggmanScraper(BaseScraper):
                 if ev.source_url not in seen:
                     seen.add(ev.source_url)
                     yield ev
-            # future months; stop the category on the first empty / all-seen
-            # page (guards against the archive clamping to the current month).
+            # future months; a single empty/all-seen month can be a real
+            # gap (nothing booked yet), so only stop the category after two
+            # consecutive ones (guards against the archive clamping to the
+            # current month without hiding a later-booked month).
+            empty_streak = 0
             for i in range(1, self.months_ahead):
                 m = tu.add_months(first, i)
                 url = f"{base}?syear={m.year}&smonth={m.month:02d}"
@@ -145,7 +148,8 @@ class EggmanScraper(BaseScraper):
                     break
                 fresh = [ev for ev in self.parse(html, month=m)
                          if ev.source_url not in seen]
-                if not fresh:
+                empty_streak = 0 if fresh else empty_streak + 1
+                if empty_streak >= 3:
                     break
                 for ev in fresh:
                     seen.add(ev.source_url)

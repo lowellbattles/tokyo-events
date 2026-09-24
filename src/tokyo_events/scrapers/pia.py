@@ -47,7 +47,7 @@ class ToyosuPitScraper(BaseScraper):
                  address="6-1-23 Toyosu, Koto-ku, Tokyo",
                  lat=35.649623, lng=139.792071)
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 
@@ -127,7 +127,7 @@ class PiaArenaMMScraper(BaseScraper):
                  address="3-2-2 Minatomirai, Nishi-ku, Yokohama",
                  lat=35.460199, lng=139.628839)
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

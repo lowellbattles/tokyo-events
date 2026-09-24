@@ -122,3 +122,38 @@ def test_detail_does_not_overwrite_existing_listing_fields():
                open_time="12:00", start_time="13:00", price_min=999)
     QueScraper().parse_detail(_load("que_shimokitazawa_detail_live.html"), ev)
     assert (ev.open_time, ev.start_time, ev.price_min) == ("12:00", "13:00", 999)
+
+
+def test_scrape_survives_a_gap_month(monkeypatch):
+    # R-horizon (2026-09-24): a single not-yet-booked month used to stop the
+    # walk (`if not fresh and i > 0: break`) — now it takes two consecutive
+    # empty months, so a later-booked month still surfaces.
+    import re
+    from tokyo_events.scrapers.base import NotFoundError
+    from tokyo_events.scrapers import textutils as tu
+
+    first = tu.jst_today().replace(day=1)
+
+    def fake_fetch(url, retries=2):
+        if url.endswith("/schedule/"):
+            return "<html></html>"        # current month: nothing booked
+        m = re.search(r"/schedule/date/(\d{4})/(\d{2})$", url)
+        year, month = int(m.group(1)), int(m.group(2))
+        i = (year - first.year) * 12 + (month - first.month)
+        if i == 1:
+            return "<html></html>"        # gap month: nothing booked yet
+        if i == 2:
+            return (
+                f'<article id="entry{year}{month:02d}05">'
+                '<a href="https://clubque.net/schedule/999/">'
+                '<div class="date"><p><b>05</b><span>Wed</span></p></div>'
+                '<div class="text"><h2>Gap Test Live</h2></div>'
+                '</a></article>'
+            )
+        raise NotFoundError("gone")
+
+    s = QueScraper(months_ahead=4)
+    monkeypatch.setattr(s, "fetch", fake_fetch)
+    evs = list(s.scrape())
+    assert len(evs) == 1
+    assert evs[0].title_ja == "Gap Test Live"

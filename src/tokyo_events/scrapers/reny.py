@@ -81,7 +81,7 @@ class RenyScraper(BaseScraper):
     supports_detail = True          # every event needs its detail page
 
     def __init__(self, hall_id: str = "reny_shinjuku",
-                 months_ahead: int = 3, **kw):
+                 months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         if hall_id not in HALLS:
             raise ValueError(f"unknown RUIDO hall: {hall_id}")

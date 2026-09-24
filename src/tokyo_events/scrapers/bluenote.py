@@ -278,7 +278,7 @@ class CottonClubScraper(BaseScraper):
     #: the redesigned listing no longer carries them (see module docstring).
     supports_detail = True
 
-    def __init__(self, months_ahead: int = 6, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

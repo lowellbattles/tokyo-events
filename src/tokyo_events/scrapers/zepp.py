@@ -45,7 +45,7 @@ class ZeppScraper(BaseScraper):
     source_name = "Zepp"
     BASE = "https://www.zepp.co.jp"
 
-    def __init__(self, hall_id: str, months_ahead: int = 6, **kw):
+    def __init__(self, hall_id: str, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         if hall_id not in HALLS:
             raise ValueError(f"unknown Zepp hall: {hall_id}")

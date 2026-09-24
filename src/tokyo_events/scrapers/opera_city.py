@@ -91,7 +91,7 @@ class OperaCityScraper(BaseScraper):
     BASE = "https://www.operacity.jp"
     supports_detail = False        # every stored fact is on the listing
 
-    def __init__(self, months_ahead: int = 9, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

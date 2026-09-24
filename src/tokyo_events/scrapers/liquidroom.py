@@ -15,7 +15,7 @@ from typing import Iterable
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 EVENT_HREF_RE = re.compile(r"/schedule/[^/]+_(\d{8})(?:-\d+)?/?$")
@@ -36,7 +36,7 @@ class LiquidroomScraper(BaseScraper):
         lng=139.710580,
     )
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 
@@ -44,7 +44,15 @@ class LiquidroomScraper(BaseScraper):
         today = tu.jst_today().replace(day=1)
         for i in range(self.months_ahead):
             month = tu.add_months(today, i)
-            html = self.fetch(f"{self.BASE}/schedule/{month:%Y/%m}")
+            # Was never guarded against a far-future month 404ing; walking
+            # 12 months out (was 3) makes that a real possibility, so stop
+            # quietly there instead of crashing the whole scrape (R7).
+            try:
+                html = self.fetch(f"{self.BASE}/schedule/{month:%Y/%m}")
+            except NotFoundError:
+                if i == 0:
+                    raise
+                break
             yield from self.parse(html)
 
     def parse(self, html: str, **context) -> list[Event]:

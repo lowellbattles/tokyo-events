@@ -86,7 +86,7 @@ class BayHallScraper(BaseScraper):
     source_name = "Yokohama Bay Hall"
     BASE = "https://bayhall.jp"
 
-    def __init__(self, months_ahead: int = 8, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

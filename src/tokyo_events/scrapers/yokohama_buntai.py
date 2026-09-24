@@ -104,7 +104,7 @@ class YokohamaBuntaiScraper(BaseScraper):
     BASE = "https://yokohama-buntai.jp"
     supports_detail = False        # the archive/month page is already complete
 
-    def __init__(self, months_ahead: int = 8, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

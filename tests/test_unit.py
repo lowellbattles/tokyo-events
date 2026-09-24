@@ -96,3 +96,38 @@ def test_parse_detail_fills_start_price_and_ticket():
     providers = {t["provider"]: t for t in ev.ticket_links}
     assert "eplus" in providers
     assert "eplus.jp" in providers["eplus"]["url"]
+
+
+def test_scrape_survives_a_gap_month(monkeypatch):
+    # R-horizon (2026-09-24): a single not-yet-booked month used to stop the
+    # walk (`if not page: break`) — now it takes two consecutive empty
+    # months, so a later-booked month still surfaces.
+    import re
+    from tokyo_events.scrapers.base import NotFoundError
+    from tokyo_events.scrapers import textutils as tu
+
+    first = tu.jst_today().replace(day=1)
+
+    def fake_fetch(url, retries=2):
+        if url.endswith("/schedule/"):
+            return "<html></html>"        # current month: nothing booked
+        m = re.search(r"/schedule/(\d{4})-(\d{2})/$", url)
+        year, month = int(m.group(1)), int(m.group(2))
+        i = (year - first.year) * 12 + (month - first.month)
+        if i == 1:
+            return "<html></html>"        # gap month: nothing booked yet
+        if i == 2:
+            return (
+                '<div class="p-schedule__item">'
+                '<a href="https://www.unit-tokyo.com/schedule/999/">'
+                f'<div class="p-schedule__item-date">{month}/05</div>'
+                '<div class="p-schedule__item-title">Gap Test Live</div>'
+                '</a></div>'
+            )
+        raise NotFoundError("gone")
+
+    s = UnitScraper(months_ahead=4)
+    monkeypatch.setattr(s, "fetch", fake_fetch)
+    evs = list(s.scrape())
+    assert len(evs) == 1
+    assert evs[0].title_ja == "Gap Test Live"

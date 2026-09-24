@@ -103,7 +103,7 @@ class TachikawaStageGardenScraper(BaseScraper):
         lng=139.410453,
     )
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

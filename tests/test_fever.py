@@ -119,3 +119,42 @@ def test_nonmusic_row_downgraded_to_other():
     assert len(evs) == 1
     assert evs[0].category == Category.OTHER
     assert evs[0].start_date == "2026-07-15"
+
+
+def test_scrape_survives_a_gap_month(monkeypatch):
+    # R-horizon (2026-09-24): a single quiet month (nothing booked yet) used
+    # to stop the whole walk (`if not events: break`) — now it takes two
+    # consecutive empty months, so a later-booked month still surfaces.
+    import re
+    from tokyo_events.scrapers.base import NotFoundError
+    from tokyo_events.scrapers import textutils as tu
+
+    first = tu.jst_today().replace(day=1)
+
+    def fake_fetch(url, retries=2):
+        m = re.search(r"/schedule/(\d{4})/(\d{2})/$", url)
+        year, month = int(m.group(1)), int(m.group(2))
+        i = (year - first.year) * 12 + (month - first.month)
+        if i in (0, 1):
+            return "<html></html>"        # current + one gap month: quiet
+        if i == 2:
+            return (
+                '<div class="entry-asset asset hentry">'
+                '<div class="asset-header">'
+                '<h2 class="eventtitle">Gap Test Live</h2>'
+                '<meta property="og:title" content="Gap Test Live" />'
+                '<meta property="og:url" '
+                f'content="https://www.fever-popo.com/schedule/{year}/'
+                f'{month:02d}/0519.html" />'
+                '</div><div class="asset-content entry-content">'
+                '<div class="asset-body">'
+                '<div>OPEN 18:00 / START 19:00</div>'
+                '</div></div></div>'
+            )
+        raise NotFoundError("gone")
+
+    s = FeverScraper(months_ahead=5)
+    monkeypatch.setattr(s, "fetch", fake_fetch)
+    evs = list(s.scrape())
+    assert len(evs) == 1
+    assert evs[0].title_ja == "Gap Test Live"

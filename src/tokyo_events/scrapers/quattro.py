@@ -47,7 +47,7 @@ class QuattroScraper(BaseScraper):
     BASE = "https://www.club-quattro.com"
 
     def __init__(self, hall_id: str = "quattro_shibuya",
-                 months_ahead: int = 3, **kw):
+                 months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         if hall_id not in HALLS:
             raise ValueError(f"unknown Quattro hall: {hall_id}")

@@ -71,7 +71,7 @@ class GardenTheaterScraper(BaseScraper):
     BASE = "https://www.shopping-sumitomo-rd.com"
     SCHEDULE = "/tokyo_garden_theater/schedule/"
 
-    def __init__(self, months_ahead: int = 8, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

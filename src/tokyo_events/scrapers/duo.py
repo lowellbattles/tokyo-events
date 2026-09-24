@@ -40,7 +40,7 @@ class DuoScraper(BaseScraper):
     BASE = "https://www.duomusicexchange.com"
     supports_detail = False       # day anchors only, no event pages
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

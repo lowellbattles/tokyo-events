@@ -35,7 +35,7 @@ class YokohamaArenaScraper(BaseScraper):
     BASE = "https://www.yokohama-arena.co.jp"
     supports_detail = False        # the JSON feed is already complete
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
         self.session.headers["Accept"] = "application/vnd.api+json"

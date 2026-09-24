@@ -50,7 +50,7 @@ class ShibuyaDiveScraper(BaseScraper):
     source_name = "SHIBUYA DIVE"
     BASE = "https://shibuya-dive.com"
 
-    def __init__(self, months_ahead: int = 6, **kw):
+    def __init__(self, months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
 

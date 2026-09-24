@@ -54,7 +54,7 @@ class VeatsScraper(BaseScraper):
     )
 
     def __init__(self, source_id: str = "veats_shibuya",
-                 months_ahead: int = 5, **kw):
+                 months_ahead: int = tu.HORIZON_MONTHS, **kw):
         super().__init__(**kw)
         self.source_id = source_id
         self.months_ahead = months_ahead

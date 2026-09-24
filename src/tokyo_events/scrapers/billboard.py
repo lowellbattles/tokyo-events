@@ -33,7 +33,7 @@ from urllib.parse import parse_qs, urlparse
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from .base import BaseScraper
+from .base import BaseScraper, NotFoundError
 from . import textutils as tu
 
 CITIES = {
@@ -61,7 +61,8 @@ class BillboardScraper(BaseScraper):
     BASE = "https://www.billboard-live.com"
     supports_detail = False   # listing already carries times/prices/tiers
 
-    def __init__(self, club_id: str, months_ahead: int = 2, **kw):
+    def __init__(self, club_id: str, months_ahead: int = tu.HORIZON_MONTHS,
+                 **kw):
         super().__init__(**kw)
         if club_id not in CITIES:
             raise ValueError(f"unknown Billboard club: {club_id}")
@@ -75,7 +76,16 @@ class BillboardScraper(BaseScraper):
             month = tu.add_months(first, i)
             url = (f"{self.BASE}/{self.club['city']}/schedules"
                    f"?month={month:%Y-%m-01}")
-            yield from self.parse(self.fetch(url))
+            # Was never guarded against a far-future month 404ing; walking
+            # 12 months out (was 2) makes that a real possibility, so stop
+            # quietly there instead of crashing the whole scrape (R7).
+            try:
+                html = self.fetch(url)
+            except NotFoundError:
+                if i == 0:
+                    raise
+                break
+            yield from self.parse(html)
 
     def parse(self, html: str, **context) -> list[Event]:
         soup = BeautifulSoup(html, "lxml")
