@@ -77,6 +77,7 @@ from .scrapers.museums import (TnmScraper, NactScraper,
                                ShozokanScraper)
 from .scrapers.galleries import OcagScraper, GggScraper
 from .scrapers.matsuri import CuratedSeasonalScraper
+from .scrapers.curated import CuratedConcertsScraper
 
 # source_id -> (factory, default review status)
 # Promote a source to ReviewStatus.AUTO once it has proven reliable.
@@ -189,6 +190,9 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
                           ReviewStatus.PENDING),
     "flowers":           (lambda: CuratedSeasonalScraper("flowers"),
                           ReviewStatus.PENDING),
+    # --- hand-entered concerts (official pages read by a person; see
+    #     scrapers/curated.py) -------------------------------------------
+    "curated_concerts":  (CuratedConcertsScraper,            ReviewStatus.PENDING),
 }
 
 #: max detail-page fetches per source per run (politeness cap; the

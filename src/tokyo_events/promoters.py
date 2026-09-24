@@ -31,7 +31,8 @@ from .artists import canonical_spelling, norm_key
 from .venues import resolve_venue
 
 PROMOTER_SOURCES = {"sogo_tokyo", "creativeman", "smash_jpn", "udo_artists",
-                    "disk_garage", "livenation_jp"}
+                    "disk_garage", "livenation_jp",
+                    "curated_concerts"}
 FESTIVAL_SOURCE = "festivals"
 #: curated seasonal sources — like festivals, each event's venue_name IS a
 #: canonical identity that must become its venue_key
@@ -148,7 +149,7 @@ def _merge(into: dict, promo: dict) -> None:
     # unknown/backfill sentinel beats every date
     if "first_seen" in into and "first_seen" in promo:
         into["first_seen"] = min(into["first_seen"], promo["first_seen"])
-    have ={t.get("url") for t in into.get("ticket_links") or [] if t.get("url")}
+    have = {t.get("url") for t in into.get("ticket_links") or [] if t.get("url")}
     for t in promo.get("ticket_links") or []:
         if t.get("url") and t["url"] not in have:
             into.setdefault("ticket_links", []).append(t)
