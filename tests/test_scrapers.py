@@ -862,6 +862,44 @@ def test_sale_window_infers_year_from_show_date():
     assert tu.sale_window("先行", "04-20", None, None) is None
 
 
+# --------------------------------- restricted ticket tiers (2026-09-24,
+# kajimoto + japan_arts): price_min must never be won by an age/status-
+# restricted discount tier (student, U25, a promoter's own named child
+# seat) -- only the tier list open to everyone counts.
+def test_is_restricted_tier_matches_known_keywords():
+    from tokyo_events.scrapers import textutils as tu
+    for label in ("学生席", "学生割引 S席", "U25席", "U-25割引", "ユース割引",
+                  "高校生以下", "中学生割引", "小学生限定", "25歳以下"):
+        assert tu.is_restricted_tier(label), label
+    for label in ("S席", "一般 A席", "プレミアムシート", "シニア割"):
+        assert not tu.is_restricted_tier(label), label
+
+
+def test_restricted_tier_names_harvests_footnote_only_restrictions():
+    from tokyo_events.scrapers import textutils as tu
+    # a tier named after the artist ("Miyujiシート") carries no
+    # restriction keyword of its own -- only a "◎<name>（...restriction
+    # word...)" footnote elsewhere on the page reveals it's age-gated.
+    text = "◎Miyujiシート（小学生限定A席1,000円）＊当日は身分証明書を提示"
+    assert tu.restricted_tier_names(text) == {"Miyujiシート"}
+    assert tu.restricted_tier_names("no footnotes here") == set()
+
+
+def test_open_tier_min_excludes_labeled_and_footnoted_restrictions():
+    from tokyo_events.scrapers import textutils as tu
+    entries = [("S席", 7000), ("A席", 5000), ("学生割引 S席", 3500),
+              ("学生割引 A席", 2500), ("プレミアムシート", 10000),
+              ("Miyujiシート A席", 1000)]
+    # without the footnote, the regex alone excludes only 学生割引 (label
+    # keyword) -- Miyujiシート carries no keyword of its own, so it still
+    # (wrongly) wins as the floor
+    assert tu.open_tier_min(entries) == 1000
+    # the footnote-harvested name closes that gap
+    assert tu.open_tier_min(entries, {"Miyujiシート"}) == 5000
+    assert tu.open_tier_min([], set()) is None
+    assert tu.open_tier_min([("学生", 100)]) is None   # every tier restricted
+
+
 def test_empty_sales_keeps_the_pre_field_content_hash():
     # adding Event.sales must not re-stage every stored event as changed
     import dataclasses, hashlib, json

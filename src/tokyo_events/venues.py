@@ -236,6 +236,16 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "asakusa_hanagekijo": ("浅草花劇場", "hall"),
     "koshigaya_suncity": ("サンシティ越谷市民ホール", "hall"),
     "chigasaki_bunka": ("茅ヶ崎市民文化会館", "hall"),
+    # --- classical promoters (kajimoto, japan_arts; 2026-09-24) -----------
+    "kioi_hall": ("日本製鉄紀尾井ホール", "hall"),
+    "hamarikyu_asahi_hall": ("浜離宮朝日ホール", "hall"),
+    "sumida_triphony": ("すみだトリフォニーホール", "hall"),
+    "yokohama_minatomirai_hall": ("横浜みなとみらいホール", "hall"),
+    "geigeki_concert_hall": ("東京芸術劇場コンサートホール", "hall"),
+    "hakuju_hall": ("Hakuju Hall", "hall"),
+    "daiichi_seimei_hall": ("第一生命ホール", "hall"),
+    "muza_kawasaki": ("ミューザ川崎 シンフォニーホール", "hall"),
+    "suntory_hall_blue_rose": ("サントリーホール ブルーローズ", "hall"),
 }
 
 #: venue_key -> approximate max capacity (people). Curated metadata for
@@ -344,6 +354,16 @@ CAPACITY: dict[str, int] = {
     "asakusa_hanagekijo": 700,
     "koshigaya_suncity": 1530,
     "chigasaki_bunka": 1500,
+    # --- classical promoters (kajimoto, japan_arts; 2026-09-24) -----------
+    "kioi_hall": 800,
+    "hamarikyu_asahi_hall": 552,
+    "sumida_triphony": 1801,
+    "yokohama_minatomirai_hall": 2020,
+    "geigeki_concert_hall": 1999,
+    "hakuju_hall": 300,
+    "daiichi_seimei_hall": 700,
+    "muza_kawasaki": 2001,
+    "suntory_hall_blue_rose": 432,
     # --- arenas / domes / stadiums ---------------------------------------
     "yokohama_arena": 17000,
     "tokyo_dome": 55000,
@@ -429,6 +449,10 @@ _EXTRA_ALIASES: dict[str, str] = {
     "西武ドーム": "belluna_dome",
     "パシフィコ横浜": "pacifico_yokohama",
     "横浜BAYSIS": "baysis_yokohama",
+    # classical promoters (kajimoto, japan_arts; 2026-09-24)
+    "紀尾井ホール": "kioi_hall",         # pre-naming-rights spelling
+    "はくじゅホール": "hakuju_hall",
+    "ミューザ川崎シンフォニーホール": "muza_kawasaki",  # no-space spelling
 }
 
 

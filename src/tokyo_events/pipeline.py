@@ -67,6 +67,8 @@ from .scrapers.smash import SmashScraper
 from .scrapers.udo import UdoArtistsScraper
 from .scrapers.disk_garage import DiskGarageScraper
 from .scrapers.livenation import LiveNationScraper
+from .scrapers.kajimoto import KajimotoScraper
+from .scrapers.japan_arts import JapanArtsScraper
 from .scrapers.festivals import FestivalsScraper
 from .scrapers.mori import MoriMuseumScraper
 from .scrapers.museums import (TnmScraper, NactScraper,
@@ -154,6 +156,8 @@ SCRAPERS: dict[str, tuple[Callable[[], BaseScraper], ReviewStatus]] = {
     "udo_artists":       (UdoArtistsScraper,                 ReviewStatus.PENDING),
     "disk_garage":       (DiskGarageScraper,                 ReviewStatus.PENDING),
     "livenation_jp":     (LiveNationScraper,                 ReviewStatus.PENDING),
+    "kajimoto":          (KajimotoScraper,                   ReviewStatus.PENDING),
+    "japan_arts":        (JapanArtsScraper,                  ReviewStatus.PENDING),
     # --- festivals (curated editions; lineups scraped, dates are facts) ---
     "festivals":         (FestivalsScraper,                  ReviewStatus.PENDING),
     # --- museums / galleries (ART phase; category art, date-range events) --

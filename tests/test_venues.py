@@ -110,6 +110,45 @@ def test_gmo_arena_saitama_and_its_old_name_resolve():
     assert capacity_of("gmo_arena_saitama") == 37000
 
 
+# --------------------------------- classical promoters (kajimoto, japan_arts)
+def test_classical_promoter_venues_resolve():
+    cases = {
+        # kajimoto listing/detail spellings (2026-09-24 probe)
+        "サントリーホール": "suntory_hall",
+        "サントリーホール ブルーローズ": "suntory_hall_blue_rose",
+        "東京オペラシティ コンサートホール": "opera_city",
+        "すみだトリフォニーホール 大ホール": "sumida_triphony",
+        "日本製鉄紀尾井ホール": "kioi_hall",
+        "紀尾井ホール": "kioi_hall",              # pre-naming-rights spelling
+        "浜離宮朝日ホール": "hamarikyu_asahi_hall",
+        "横浜みなとみらいホール": "yokohama_minatomirai_hall",
+        # japan_arts detail spellings (JA half only -- the scraper splits
+        # off the trailing "　EnglishName" before resolving)
+        "東京芸術劇場コンサートホール": "geigeki_concert_hall",
+        "Hakuju Hall": "hakuju_hall",
+        "はくじゅホール": "hakuju_hall",
+        "第一生命ホール": "daiichi_seimei_hall",
+        "ミューザ川崎 シンフォニーホール": "muza_kawasaki",
+        "ミューザ川崎シンフォニーホール": "muza_kawasaki",   # no-space spelling
+        # a paren annotation on the small-hall spelling still resolves to
+        # the same key as the bare "サントリーホール ブルーローズ" above
+        "サントリーホール ブルーローズ(小ホール)": "suntory_hall_blue_rose",
+        # a colon-suffixed sub-venue funnels to the main hall (prefix
+        # tolerance), same convention as tokyo_intl_forum's ホールA
+        "東京オペラシティ コンサートホール：タケミツメモリアル": "opera_city",
+    }
+    for raw, expected in cases.items():
+        assert resolve_venue(raw) == expected, raw
+
+
+def test_classical_promoter_venues_out_of_kanto_stay_unresolved():
+    # nationwide legs a classical tour also plays -- never curated, they
+    # must keep dropping so the feed stays Kanto-scoped.
+    for raw in ("福岡シンフォニーホール", "札幌コンサートホールKitara 大ホール",
+                "高崎芸術劇場 音楽ホール", "京都コンサートホール"):
+        assert resolve_venue(raw) is None, raw
+
+
 def test_venues_named_in_free_text():
     from tokyo_events.venues import venues_named_in
     alt = ("RADIOHEAD TOKYO 2027 6.8tue/9/wed/11fri/12sat/13sun "

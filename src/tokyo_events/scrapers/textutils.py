@@ -67,6 +67,10 @@ REPEATED_TITLE_RE = re.compile(r"^(.{2,}?)\1+", re.S)
 # Playguide / ticketing domains -> provider ids
 TICKET_PROVIDERS = {
     "eplus.jp": "eplus",
+    # e+'s white-label storefront domain (used by kajimoto as "カジモト・
+    # イープラス" -- w1.onlineticket.jp/sf/kajimoto/...); same operator,
+    # doesn't contain "eplus.jp" so needs its own entry (2026-09-24).
+    "onlineticket.jp": "eplus",
     "t.pia.jp": "pia",
     "w.pia.jp": "pia",
     "l-tike.com": "lawson",
@@ -413,3 +417,53 @@ def sale_window(label: str, opens: str | None, closes: str | None,
         return None
     return {"kind": sale_kind(label), "label": (label or "").strip(),
             "opens": o, "closes": sale_datetime(closes, show_date)}
+
+
+# --------------------------------------------------------- restricted tiers
+# Classical promoters (kajimoto, japan_arts) print several price tiers per
+# show, some restricted by age/status: student (学生), U25, youth (ユース),
+# high-schooler-and-under, a promoter's own named child-only seat. These are
+# real discounts but not open to everyone, so price_min (the frontend's
+# "from ¥N" headline) must never be won by one -- a "¥1,000〜" quoted from an
+# elementary-school-only seat misleads every other visitor. The full tier
+# list still goes in price_text; only price_min excludes these.
+RESTRICTED_TIER_RE = re.compile(
+    r"学生|U[\-\s]?25|ユース|高校生|中学生|小学生|子ども|こども|ジュニア|"
+    r"\d{1,2}歳(?:以下|未満|まで)", re.I)
+
+
+def is_restricted_tier(label: str) -> bool:
+    """True when a tier/category label itself names an age/status
+    restriction (student discount, U25, child seat, ...)."""
+    return bool(RESTRICTED_TIER_RE.search(label or ""))
+
+
+#: a promoter sometimes names a restricted tier with no restriction word in
+#: the tier's OWN label (e.g. a fan-branded "Miyujiシート") and explains the
+#: restriction only in a footnote bullet elsewhere on the page:
+#: "◎Miyujiシート（小学生限定A席1,000円）". This harvests those names so
+#: is_restricted_tier() alone doesn't have to catch every such case.
+_RESTRICTED_FOOTNOTE_RE = re.compile(
+    r"◎\s*([^\s（(＊*※\n]{1,20})[^\n]{0,80}?"
+    r"(?:学生|歳(?:以下|未満|まで)?|小学生|中学生|高校生|ユース|U[\-\s]?25|ジュニア)")
+
+
+def restricted_tier_names(text: str) -> set[str]:
+    """Tier/seat names called out in a page's own '◎<name> ...' footnotes
+    as age/status-restricted, even when the tier's own label carries no
+    restriction keyword. Combine with is_restricted_tier() when picking a
+    price_min open to everyone."""
+    return {m.group(1) for m in _RESTRICTED_FOOTNOTE_RE.finditer(text or "")}
+
+
+def open_tier_min(entries: list[tuple[str, int]],
+                  restricted_names: "set[str] | None" = None) -> int | None:
+    """min() over (label, yen) tier entries, excluding any tier whose label
+    is itself restricted (is_restricted_tier) or named in restricted_names
+    (restricted_tier_names). None when every tier is restricted or there
+    are no entries -- never a guess."""
+    names = restricted_names or set()
+    opens = [yen for label, yen in entries
+             if not is_restricted_tier(label)
+             and not any(n and n in label for n in names)]
+    return min(opens) if opens else None

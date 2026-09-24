@@ -31,7 +31,7 @@ from .artists import canonical_spelling, norm_key
 from .venues import resolve_venue
 
 PROMOTER_SOURCES = {"sogo_tokyo", "creativeman", "smash_jpn", "udo_artists",
-                    "disk_garage", "livenation_jp",
+                    "disk_garage", "livenation_jp", "kajimoto", "japan_arts",
                     "curated_concerts"}
 FESTIVAL_SOURCE = "festivals"
 #: curated seasonal sources — like festivals, each event's venue_name IS a
