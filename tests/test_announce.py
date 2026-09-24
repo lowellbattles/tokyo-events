@@ -36,6 +36,13 @@ def test_onboarding_day_and_backfill_are_unknown():
     assert sighting_date("creativeman", ts("2026-09-26"), "2026-07-14",
                          bf) == "2026-09-26"
     assert sighting_date("creativeman", None, "2026-07-14", bf) == UNKNOWN
+    # "*" covers every source; the later of the two cutoffs wins
+    bf = {"*": "2026-09-25", "cotton_club": "2026-10-01"}
+    assert sighting_date("zepp", ts("2026-09-25"), "2026-07-13", bf) == UNKNOWN
+    assert sighting_date("zepp", ts("2026-09-26"), "2026-07-13", bf) \
+        == "2026-09-26"
+    assert sighting_date("cotton_club", ts("2026-09-30"), "2026-07-13",
+                         bf) == UNKNOWN
 
 
 def test_promoter_fold_keeps_the_earliest_sighting():

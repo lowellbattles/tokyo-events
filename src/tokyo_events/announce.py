@@ -30,6 +30,11 @@ from .scrapers.textutils import JST
 #: source_id -> JST date (inclusive) up to which first sightings are
 #: backfill from a coverage change, not announcements.
 BACKFILL: dict[str, str] = {
+    # "*" applies to every source. 12-month venue horizon (HORIZON_MONTHS,
+    # ~30 venue scrapers in one change) — first scheduled run 2026-09-25.
+    # Costs that one day's genuine announcements; listing each source by
+    # hand risked missing one and flooding the view.
+    "*": "2026-09-25",
     # 12-month promoter horizon + creativeman tour cap/microsites
     # (commit 405be97; first scheduled run 2026-09-25 07:00 JST)
     "creativeman": "2026-09-25",
@@ -65,7 +70,7 @@ def sighting_date(source: str, first_seen: str | None,
     day = jst_date(first_seen)
     if day is None or day == source_start:
         return UNKNOWN
-    cutoff = backfill.get(source)
+    cutoff = max(backfill.get(source, ""), backfill.get("*", ""))
     if cutoff and day <= cutoff:
         return UNKNOWN
     return day
