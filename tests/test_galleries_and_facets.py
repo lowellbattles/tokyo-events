@@ -61,8 +61,10 @@ def test_what_museum_detail_kaiki_wins_over_card_start_date():
     assert all("/exhibitions/" in t for t in targets)
     assert len(targets) == 8
     url = next(t for t in targets if t.endswith("corrugatedcoral"))
+    # pinned to the capture date: the run ends 2026-09-13 and parse()
+    # drops finished runs, so the real clock broke CI from 09-14
     evs = s.parse(listing, detail_pages={
-        url: _load("what_museum_detail_live.html")})
+        url: _load("what_museum_detail_live.html")}, today="2026-07-26")
     assert len(evs) == 1                   # cards without a fetched detail skip
     e = evs[0]
     assert e.title_ja == "波板と珊瑚礁 ー 建築を遠くに投げる八の実践"

@@ -197,8 +197,32 @@ def handle_stale(reports: list[dict]) -> None:
         print("created stale issue")
 
 
+def handle_gate_failure(run_url: str) -> None:
+    """The pre-scrape test gate failed: NOTHING was scraped or deployed.
+    Uses the same rolling scraper-error issue so it lands where the
+    owner already looks."""
+    body = (f"Run {date.today().isoformat()} ABORTED — the offline test "
+            f"gate failed, so no source was scraped and the site was not "
+            f"redeployed.\n\n{run_url}\n\n_Usually a fixture test that "
+            "depends on the real clock or a parser regression; fix, then "
+            "re-run the workflow manually._")
+    gh("label", "create", LABEL, "--color", "d73a4a",
+       "--description", "A venue scraper is failing", "--force")
+    num = find_open_issue()
+    if num:
+        gh("issue", "comment", num, "--body", body)
+        print(f"commented on existing issue #{num}")
+    else:
+        gh("issue", "create", "--title", "Daily run aborted: test gate failed",
+           "--body", body, "--label", LABEL)
+        print("created new issue")
+
+
 def main():
     if len(sys.argv) < 2:
+        sys.exit(0)
+    if sys.argv[1] == "--gate-failed":
+        handle_gate_failure(sys.argv[2] if len(sys.argv) > 2 else "")
         sys.exit(0)
     try:
         reports = json.load(open(sys.argv[1]))

@@ -30,7 +30,19 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Tests (fixture-based, offline)
+        id: tests
         run: python -m pytest tests/ -q
+
+      # A red test gate aborts the whole run before any scrape report
+      # exists, so the step below can't see it — 2026-09-14..24 went
+      # ten days dark silently. Raise it on the rolling issue instead.
+      - name: File issue if the test gate failed
+        if: ${{ failure() && steps.tests.outcome == 'failure' && github.event_name != 'push' }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: python scripts/report_errors.py --gate-failed "$RUN_URL"
 
       # Scheduled/manual runs scrape; push runs just redeploy the site.
       - name: Scrape all sources
