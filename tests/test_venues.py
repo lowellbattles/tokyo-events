@@ -98,3 +98,23 @@ def test_curly_apostrophe_and_promoter_recovered_venues():
     assert resolve_venue("東京キネマ倶楽部") == "kinema_club"
     assert resolve_venue("東京体育館 メインアリーナ") == "tokyo_taiikukan"
     assert resolve_venue("ZOZOマリンスタジアム") == "zozo_marine_stadium"
+
+
+# --------------------------------------------- GMO Arena Saitama (2026-09-24)
+def test_gmo_arena_saitama_and_its_old_name_resolve():
+    from tokyo_events.venues import capacity_of
+    for s in ("GMOアリーナさいたま", "GMO Arena Saitama",
+              "さいたまスーパーアリーナ", "Saitama Super Arena"):
+        assert resolve_venue(s) == "gmo_arena_saitama", s
+    assert vclass_of("gmo_arena_saitama") == "arena"
+    assert capacity_of("gmo_arena_saitama") == 37000
+
+
+def test_venues_named_in_free_text():
+    from tokyo_events.venues import venues_named_in
+    alt = ("RADIOHEAD TOKYO 2027 6.8tue/9/wed/11fri/12sat/13sun "
+           "GMOアリーナさいたま")
+    assert venues_named_in(alt) == {"gmo_arena_saitama"}
+    # a name nested in a longer matched one doesn't count on its own
+    assert venues_named_in("会場：東京ドームシティホール") == {"kanadevia_hall"}
+    assert venues_named_in("RADIOHEAD 2027") == set()

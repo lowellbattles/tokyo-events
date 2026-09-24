@@ -256,3 +256,52 @@ def test_two_night_leg_header_venue_cleanup():
     assert _EXTRA_DAY_RE.sub("", "・12（日）東京ドーム").strip() == "東京ドーム"
     # normal venues pass through
     assert _EXTRA_DAY_RE.sub("", "日本武道館") == "日本武道館"
+
+
+# -------------------------------------------------- microsites (2026-09-24)
+# creativeman_202706_live.html: the June 2027 calendar, whose five
+# RADIOHEAD rows link OFF-SITE to radiohead2027.jp
+# (creativeman_microsite_radiohead_live.html) — a microsite with no leg
+# tables; dates/venue are images, named only in the hero img alt text.
+JUNE27 = dt.date(2027, 6, 1)
+RH_URL = "https://www.radiohead2027.jp/"
+
+
+class _MicrositeScraper(CreativemanScraper):
+    def __init__(self, page, **kw):
+        super().__init__(**kw)
+        self.page = page
+
+    def fetch(self, url, retries=2):
+        return self.page
+
+
+def _rh_rows():
+    rows = CreativemanScraper().parse(_load("creativeman_202706_live.html"),
+                                      month=JUNE27)
+    return [r for r in rows if r.title_ja == "RADIOHEAD"]
+
+
+def test_microsite_rows_take_the_single_named_venue():
+    rows = _rh_rows()
+    assert [r.start_date for r in rows] == [
+        "2027-06-08", "2027-06-09", "2027-06-11", "2027-06-12", "2027-06-13"]
+    assert all(r.source_url == RH_URL for r in rows)
+    s = _MicrositeScraper(_load("creativeman_microsite_radiohead_live.html"))
+    evs = list(s._process(rows))
+    assert len(evs) == 5
+    assert {e.venue_name for e in evs} == {"GMOアリーナさいたま"}
+    assert evs[0].source_url == RH_URL + "#2027-06-08"
+    assert evs[0].title_ja == "RADIOHEAD"
+    assert evs[0].lineup == ["RADIOHEAD"]
+    assert evs[0].price_min is None        # ¥ tiers stay unparsed: honest gap
+    assert not s.skipped_venues
+
+
+def test_microsite_without_a_named_venue_is_reported_not_dropped():
+    s = _MicrositeScraper("<html><head><title>X TOUR</title></head>"
+                          "<body><img alt='X 2027'></body></html>")
+    evs = list(s._process(_rh_rows()))
+    assert len(evs) == 5 and all(e.venue_name is None for e in evs)
+    [msg] = s.skipped_venues
+    assert msg.startswith("[no leg table] RADIOHEAD") and RH_URL in msg

@@ -81,7 +81,7 @@ class SogoTokyoScraper(BaseScraper):
     source_name = "SOGO TOKYO"
     BASE = "https://sogotokyo.com"
 
-    def __init__(self, months_ahead: int = 3, **kw):
+    def __init__(self, months_ahead: int = 12, **kw):  # arena runs announce ~1yr out
         super().__init__(**kw)
         self.months_ahead = months_ahead
         #: raw venue strings resolve_venue() couldn't place — distinct,

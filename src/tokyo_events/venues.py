@@ -91,6 +91,7 @@ CANONICAL: dict[str, tuple[str, str]] = {
     "yokohama_buntai": ("横浜BUNTAI", "arena"),
     # --- gap venues (promoter-covered, no direct scraper) ----------------
     "budokan": ("日本武道館", "arena"),
+    "gmo_arena_saitama": ("GMOアリーナさいたま", "arena"),
     "pleasure_pleasure": ("SHIBUYA PLEASURE PLEASURE", "hall"),
     "meguro_persimmon": ("めぐろパーシモンホール", "hall"),
     "yokohama_mint_hall": ("Yokohama mint hall", "livehouse"),
@@ -356,6 +357,7 @@ CAPACITY: dict[str, int] = {
     "yokohama_buntai": 5000,
     "pia_arena_mm": 12141,
     "budokan": 14471,
+    "gmo_arena_saitama": 37000,   # stadium mode; arena mode ~22,500
     "lala_arena_tokyo_bay": 10000,
     "todoroki_arena": 6500,
     "tokyo_taiikukan": 10000,
@@ -390,6 +392,10 @@ _EXTRA_ALIASES: dict[str, str] = {
     "日本武道館 (東京)": "budokan",
     "Nippon Budokan": "budokan",
     "武道館": "budokan",
+    # renamed from さいたまスーパーアリーナ (naming rights, 2026)
+    "GMO Arena Saitama": "gmo_arena_saitama",
+    "さいたまスーパーアリーナ": "gmo_arena_saitama",
+    "Saitama Super Arena": "gmo_arena_saitama",
     "Shinagawa Stellar Ball": "stellar_ball",
     "品川ステラボール": "stellar_ball",
     "東京国際フォーラム ホールA": "tokyo_intl_forum",
@@ -468,6 +474,22 @@ def resolve_venue(name: str) -> str | None:
         if len(prefix) >= 4 and n.startswith(prefix):
             return key
     return None
+
+
+def venues_named_in(text: str) -> set[str]:
+    """Venue keys whose display name or alias appears anywhere inside a
+    free-text blob (e.g. a tour microsite's hero-image alt text). Only
+    names of 4+ normalized chars count, so short ones like "duo" can't
+    match stray words; a name nested inside a longer matched name
+    (東京ドーム in 東京ドームシティホール) doesn't count on its own.
+    Callers should require exactly ONE hit."""
+    s = unicodedata.normalize("NFKC", str(text or ""))
+    s = _WS_RE.sub("", s).casefold()
+    hits = [(name, key) for name, key in _INDEX.items()
+            if len(name) >= 4 and name in s]
+    return {key for name, key in hits
+            if not any(name != other and name in other
+                       for other, _ in hits)}
 
 
 def vclass_of(key: str) -> str | None:

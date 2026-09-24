@@ -40,6 +40,12 @@ instance (self.skipped_venues) for the integrator to add to venues.py.
 The RAW venue string is stored on kept Events — canonical resolution
 happens again at export.
 
+Microsites: flagship tours (RADIOHEAD 2027) link from the calendar to a
+dedicated off-site page with no leg tables. Those rows keep their
+calendar dates and take the venue from the single curated venue named in
+the page's title/headings/img alt text; anything else is reported in
+skipped_venues as "[no leg table] ..." instead of vanishing.
+
 Parsers key off URL/text conventions (the /event/ slug, the YYYY/M/D leg
 header, the Japanese row labels) rather than CSS class names, so a
 structural break yields zero events (loud), never silent garbage.
@@ -56,7 +62,7 @@ from urllib.parse import urljoin
 from bs4 import BeautifulSoup
 
 from ..models import Category, Event
-from ..venues import resolve_venue
+from ..venues import display_of, resolve_venue, venues_named_in
 from .base import BaseScraper, FetchError, NotFoundError
 from . import textutils as tu
 
@@ -184,7 +190,13 @@ class CreativemanScraper(BaseScraper):
     #: all enrichment happens inside scrape(); there is no per-event page.
     supports_detail = False
 
-    def __init__(self, months_ahead: int = 3, tour_fetch_cap: int = 25, **kw):
+    #: 12 months: big arena/stadium shows are announced (and presold) up
+    #: to a year out — at 3 months RADIOHEAD's Jun-2027 GMO Arena run
+    #: (announced 2026-09-07) was invisible. The cap must cover the
+    #: whole horizon (~100 Kanto tours as of 2026-09): tours past it are
+    #: yielded venue-less, and export drops venue-less promoter rows.
+    def __init__(self, months_ahead: int = 12, tour_fetch_cap: int = 110,
+                 **kw):
         super().__init__(**kw)
         self.months_ahead = months_ahead
         self.tour_fetch_cap = tour_fetch_cap
@@ -248,6 +260,12 @@ class CreativemanScraper(BaseScraper):
                 except FetchError:
                     yield from self._deferred(tour_rows)   # fetch failed
                     continue
+                if not page["legs"]:
+                    # flagship tours link to their own microsite, which has
+                    # no leg tables (radiohead2027.jp) — never drop silently
+                    yield from self._microsite_events(
+                        cache[tour_url], tour_url, tour_rows, badge_sold)
+                    continue
                 yield from self._legs_to_events(
                     page, tour_url, badge_sold, artist_hint, floor_date)
             else:
@@ -301,6 +319,45 @@ class CreativemanScraper(BaseScraper):
                 is_sold_out=leg["sold_out"] or badge_sold.get(date, False),
                 ticket_links=leg["ticket_links"],
                 lineup=lineup,
+            )
+
+    def _microsite_events(self, html: str, tour_url: str,
+                          tour_rows: list[Event],
+                          badge_sold: dict[str, bool]) -> Iterator[Event]:
+        """Tour page without leg tables — typically a dedicated microsite
+        whose dates/venue live in images. Dates come from our own Kanto
+        calendar rows (authoritative); the venue is taken only when
+        exactly ONE curated venue is named in the page's title, headings
+        or image alt text. Otherwise the rows go out venue-less (export
+        skips them) and the tour is reported for curation."""
+        soup = BeautifulSoup(html, "lxml")
+        bits = [soup.title.get_text(" ", strip=True) if soup.title else ""]
+        bits += [h.get_text(" ", strip=True)
+                 for h in soup.find_all(["h1", "h2", "h3"])]
+        bits += [img.get("alt") or "" for img in soup.find_all("img")]
+        keys = venues_named_in(" | ".join(bits))
+        artist = tour_rows[0].title_ja
+        if len(keys) != 1:
+            self.skipped_venues.add(
+                f"[no leg table] {artist} — {tour_url} "
+                f"(venues named: {', '.join(sorted(keys)) or 'none'})")
+            yield from self._deferred(tour_rows)
+            return
+        venue = display_of(keys.pop())
+        seen: set[str] = set()
+        for r in tour_rows:
+            if not r.start_date or r.start_date in seen:
+                continue
+            seen.add(r.start_date)
+            yield Event(
+                source=self.source_id,
+                source_url=f"{tour_url}#{r.start_date}",
+                title_ja=artist,
+                category=r.category,
+                start_date=r.start_date,
+                venue_name=venue,                 # canonical display name
+                is_sold_out=badge_sold.get(r.start_date, False),
+                lineup=[artist] if artist else [],
             )
 
     @staticmethod

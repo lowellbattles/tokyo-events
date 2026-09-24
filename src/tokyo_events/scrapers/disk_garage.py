@@ -138,7 +138,7 @@ class DiskGarageScraper(BaseScraper):
     BASE = "https://diskgarage.com"
     supports_detail = True
 
-    def __init__(self, months_ahead: int = 2, **kw):
+    def __init__(self, months_ahead: int = 12, **kw):  # arena runs announce ~1yr out
         super().__init__(**kw)
         self.months_ahead = months_ahead
         #: raw venue strings resolve_venue() couldn't place — distinct,
