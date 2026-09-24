@@ -115,6 +115,10 @@
   .showdate{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.03em;margin-bottom:2px;font-variant-numeric:tabular-nums}
   .ann-head{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--ink-3);margin:26px 0 10px}
   .ann-head:first-child{margin-top:4px}
+  /* ticket-sale badges (Event.sales) */
+  .sale{font-size:10.5px;font-weight:800;letter-spacing:.04em;padding:1px 7px;border-radius:4px;border:1.5px solid;white-space:nowrap}
+  .sale.open{color:var(--tix);border-color:var(--tix)}
+  .sale.soon{color:var(--ink-2);border-color:var(--line)}
   .empty,.loading,.loaderr{text-align:center;color:var(--ink-2);padding:60px 20px 40px;font-size:14px;line-height:1.8}
   .empty button{text-decoration:underline;font-weight:700}
   .loaderr code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
@@ -163,6 +167,7 @@
     <button class="chip" data-when="weekend"></button>
     <button class="chip" data-when="all"></button>
     <button class="chip" data-when="new"></button>
+    <button class="chip" data-when="presale"></button>
   </div>
   <div class="f-row" id="vclass-row"><span class="f-label" data-i18n="l_vclass"></span></div>
   <div class="f-row" id="cap-row"><span class="f-label" data-i18n="l_cap"></span></div>
@@ -435,7 +440,9 @@ const I18N = {
     sortBig:"大きい順",
     capacity:n=>`キャパ 約${n.toLocaleString()}人`,
     today:"今日",week:"今週",weekend:"今週末",all:"すべて",
-    new:"新着",newTag:"NEW",
+    new:"新着",newTag:"NEW",presale:"先行受付中",
+    saleOpen:(k,c)=>`${k==="lottery"?"抽選受付中":"先行受付中"}${c?` 〜${c}`:""}`,
+    saleSoon:(k,o)=>`${k==="general"?"一般発売":k==="lottery"?"抽選受付":"先行"} ${o}〜`,
     announcedOn:d=>`${d.getMonth()+1}月${d.getDate()}日に発表`,
     showDate:d=>`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日（${"日月火水木金土"[d.getDay()]}）`,
     genres:{all:"すべて",idol:"アイドル","j-rock":"ロック・バンド",
@@ -490,7 +497,9 @@ const I18N = {
     sortBig:"Biggest first",
     capacity:n=>`Capacity ~${n.toLocaleString()}`,
     today:"Today",week:"This week",weekend:"Weekend",all:"All dates",
-    new:"Just announced",newTag:"NEW",
+    new:"Just announced",newTag:"NEW",presale:"Presale open",
+    saleOpen:(k,c)=>`${k==="lottery"?"Lottery open":"Presale open"}${c?` until ${c}`:""}`,
+    saleSoon:(k,o)=>`${k==="general"?"On sale":k==="lottery"?"Lottery":"Presale"} ${o}`,
     announcedOn:d=>`ANNOUNCED ${["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"][d.getMonth()]} ${d.getDate()}`,
     showDate:d=>`${["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()]}, ${["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`,
     genres:{all:"All",idol:"Idol","j-rock":"Rock / Band",
@@ -588,6 +597,39 @@ const P=s=>new Date(s+"T00:00:00+09:00");
    omits it for backfills — see announce.py), shown for NEW_DAYS days */
 const NEW_DAYS=14;
 const isNew=ev=>!!ev.announced&&(TODAY-P(ev.announced))/864e5<=NEW_DAYS;
+/* ticket-sale state from ev.sales ([{kind,label,opens,closes}], JST ISO
+   date or datetime). A window OPEN now (presale/lottery; closes null =
+   until the show) wins, soonest-closing first; otherwise the next window
+   to open. General sale already running -> no badge (on sale is the
+   default); sold-out and past shows -> none. */
+const NOW=new Date();
+const saleT=(s,end)=>!s?null:s.includes("T")?new Date(s+":00+09:00")
+  :new Date(P(s).getTime()+(end?864e5:0));   /* date-only close = end of day */
+function saleState(ev){
+  if(ev.is_sold_out||!(ev.sales||[]).length) return null;
+  if(P(ev.end_date||ev.start_date)<TODAY) return null;
+  const showEnd=new Date(P(ev.start_date).getTime()+864e5);
+  let open=null,soon=null;
+  for(const w of ev.sales){
+    const o=saleT(w.opens), c=saleT(w.closes,true)||showEnd;
+    if(!o) continue;
+    if(o<=NOW&&NOW<c&&w.kind!=="general"){
+      if(!open||c<open.c) open={w,c};
+    }else if(o>NOW&&(!soon||o<soon.o)) soon={w,o};
+  }
+  /* `at` = the printed JST boundary string (close for open, open for soon) */
+  if(open) return {open:true,kind:open.w.kind,at:open.w.closes};
+  if(soon) return {open:false,kind:soon.w.kind,at:soon.w.opens};
+  return null;
+}
+/* "2026-09-27T23:59" / "2026-09-27" -> "9/27" (strings are already JST) */
+const saleMD=s=>s?`${+s.slice(5,7)}/${+s.slice(8,10)}`:"";
+function saleBadge(ev){
+  const st=saleState(ev); if(!st) return "";
+  const L=I18N[lang];
+  return st.open?`<span class="sale open">${L.saleOpen(st.kind,saleMD(st.at))}</span>`
+    :`<span class="sale soon">${L.saleSoon(st.kind,saleMD(st.at))}</span>`;
+}
 const sameDay=(a,b)=>a.getTime()===b.getTime();
 function inWindow(ev){
   const s=P(ev.start_date), e=P(ev.end_date||ev.start_date);
@@ -595,6 +637,7 @@ function inWindow(ev){
      keeps a little history but the list is forward-looking */
   if(e<TODAY) return false;
   if(when==="new") return isNew(ev);
+  if(when==="presale") return !!saleState(ev)&&saleState(ev).open;
   if(when==="all") return true;
   if(when==="today") return s<=TODAY&&TODAY<=e;
   if(when==="week"){const end=new Date(TODAY);end.setDate(end.getDate()+6);return s<=end&&e>=TODAY;}
@@ -932,7 +975,7 @@ function musicCardHtml(ev,withDate){
             ${newTag}
             <a class="venue-tag alink" href="${venueHash(venueIdOf(ev))}" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</a>
             <span class="area">${esc(V.area)}</span>
-            ${price}${gtags}
+            ${price}${saleBadge(ev)}${gtags}
             ${srcHtml}
           </div>
           ${lineupHtml?`<div class="lineup">${lineupHtml}</div>`:""}
