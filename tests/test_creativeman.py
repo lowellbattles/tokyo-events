@@ -23,7 +23,7 @@ sys.path.insert(0, str(Path(__file__).parent.parent / "src"))
 
 from tokyo_events.models import Category, Event
 from tokyo_events.scrapers.creativeman import (
-    CreativemanScraper, parse_tour)
+    CreativemanScraper, parse_artist_page, parse_tour)
 
 FIX = Path(__file__).parent / "fixtures"
 JULY = dt.date(2026, 7, 1)
@@ -305,3 +305,141 @@ def test_microsite_without_a_named_venue_is_reported_not_dropped():
     assert len(evs) == 5 and all(e.venue_name is None for e in evs)
     [msg] = s.skipped_venues
     assert msg.startswith("[no leg table] RADIOHEAD") and RH_URL in msg
+
+
+# --------------------------------------- /artist/ headliner pages (2026-09-24)
+# Newer headliner-tour template (no leg <table>s -> parse_tour finds zero
+# legs -> parse_artist_page is tried before the microsite fallback). Four
+# real pages saved as fixtures, each exercising a different quirk:
+#   * evanescence — two-night leg via the "/12.2" slash-restated span, a
+#     Support Act line, a 一般発売日 WITH a 10:00am time.
+#   * weezer      — five single-night legs across cities (Kanto filter),
+#     a 一般発売日 with NO time, and (unrendered) leftover VIP-upsell
+#     markup copy-pasted from the evanescence template.
+#   * ironmaiden  — two-night leg via the bare "25" continuation span (no
+#     slash, no month — inherits the first night's month), and a Lコード
+#     embedded in the playguide anchor's own text.
+#   * a7x         — every price tier marked soldout (whole-leg sold out),
+#     and a closed-out presale anchor elsewhere on the page that points at
+#     a stale eplus.jp/dreamtheater/ URL from an earlier announcement —
+#     ticket_links must not pick that up.
+def _artist_page(name):
+    return parse_artist_page(_load(name))
+
+
+def test_artist_page_evanescence_two_night_leg_and_support_act():
+    page = _artist_page("creativeman_artist_evanescence_live.html")
+    assert page["artist"] == "EVANESCENCE"
+    # Tokyo (2 nights) + Osaka = 3 legs; JA-only (section#info-en, right
+    # after, is NOT double-counted).
+    assert len(page["legs"]) == 3
+    tokyo = [l for l in page["legs"] if l["venue"] == "SGC HALL ARIAKE"]
+    assert [l["date"] for l in tokyo] == ["2026-12-01", "2026-12-02"]
+    leg = tokyo[0]
+    assert leg["pref"] == "東京"
+    assert (leg["open_time"], leg["start_time"]) == ("18:00", "19:00")
+    assert leg["price_min"] == 16500
+    assert leg["sold_out"] is False
+    assert leg["guests"] == ["Ave Mujica"]
+    assert [l["provider"] for l in leg["ticket_links"]] == \
+        ["eplus", "pia", "lawson"]
+    # Both nights share venue/times/price (same leg, split one-per-night).
+    assert tokyo[1]["price_min"] == 16500
+    assert (tokyo[1]["open_time"], tokyo[1]["start_time"]) == ("18:00", "19:00")
+    # sales: kept for a future feature only, never fed into Event/DB.
+    assert leg["sales"]["general_on_sale"] == "07-18 10:00"
+    assert {"label", "opens", "closes"} <= leg["sales"]["windows"][0].keys()
+    assert any(w["label"] == "オフィシャル先行" for w in leg["sales"]["windows"])
+
+
+def test_artist_page_weezer_multi_city_kanto_filter_and_no_time_onsale():
+    page = _artist_page("creativeman_artist_weezer_live.html")
+    assert page["artist"] == "WEEZER"
+    assert len(page["legs"]) == 5
+    prefs = {l["pref"] for l in page["legs"]}
+    assert prefs == {"東京", "京都", "大阪", "愛知"}
+    tokyo = [l for l in page["legs"] if l["pref"] == "東京"]
+    assert [l["date"] for l in tokyo] == ["2027-02-12", "2027-02-13"]
+    assert all(l["venue"] == "東京ガーデンシアター" for l in tokyo)
+    # 一般発売日：9/5(土) has no time -> no time in the normalized string.
+    assert tokyo[0]["sales"]["general_on_sale"] == "09-05"
+    # Leftover evanescence VIP-upsell markup (real eplus.jp/evanescence
+    # link, "Tour/Premium Upgrade" price tiers) must not leak in.
+    for leg in page["legs"]:
+        assert leg["price_min"] in (16000, 18000)
+        assert all("eplus.jp/evanescence" not in (l.get("url") or "")
+                  for l in leg["ticket_links"])
+        assert "Upgrade" not in (leg["price_text"] or "")
+
+    # Kanto filter at _legs_to_events: only the two Tokyo legs survive.
+    s = CreativemanScraper()
+    evs = list(s._legs_to_events(page, "https://x/weezer/", {}, "WEEZER"))
+    assert len(evs) == 2
+    assert {e.start_date for e in evs} == {"2027-02-12", "2027-02-13"}
+    assert all(e.venue_name == "東京ガーデンシアター" for e in evs)
+    assert all(e.price_min == 16000 for e in evs)
+    assert s.skipped_venues == set()          # non-Kanto prefs, not reported
+
+
+def test_artist_page_ironmaiden_bare_day_continuation_and_l_code():
+    page = _artist_page("creativeman_artist_ironmaiden_live.html")
+    assert page["artist"] == "IRON MAIDEN"
+    assert len(page["legs"]) == 2
+    assert [l["date"] for l in page["legs"]] == ["2026-11-24", "2026-11-25"]
+    assert all(l["venue"] == "Kアリーナ横浜" for l in page["legs"])
+    assert all(l["pref"] == "神奈川" for l in page["legs"])
+    leg = page["legs"][0]
+    assert leg["price_min"] == 15000
+    codes = [l["code"] for l in leg["ticket_links"] if l["code"]]
+    assert "L75989" in codes
+
+
+def test_artist_page_a7x_whole_leg_soldout_no_stale_link_leak():
+    page = _artist_page("creativeman_artist_a7x_live.html")
+    assert page["artist"] == "AVENGED SEVENFOLD"
+    assert len(page["legs"]) == 1
+    leg = page["legs"][0]
+    assert leg["date"] == "2026-09-30"
+    assert leg["venue"] == "SGC HALL ARIAKE"
+    assert leg["price_min"] == 17500
+    # Every price tier carries the soldout class -> the whole leg is out.
+    assert leg["sold_out"] is True
+    # A closed presale anchor elsewhere on the page points at a stale
+    # eplus.jp/dreamtheater/ URL (an earlier co-headline announcement) —
+    # ticket_links must only carry THIS leg's three real playguide links.
+    assert [l["provider"] for l in leg["ticket_links"]] == \
+        ["eplus", "pia", "lawson"]
+    assert all("dreamtheader" not in (l.get("url") or "").lower()
+              and "dreamtheater" not in (l.get("url") or "").lower()
+              for l in leg["ticket_links"])
+    assert leg["ticket_links"][0]["url"] == "https://eplus.jp/avengedsevenfold/"
+
+
+def test_process_falls_back_to_artist_page_when_no_leg_tables():
+    # parse_tour finds zero <table> legs on this template; _process must
+    # try parse_artist_page before the microsite heuristic.
+    class _ArtistPageScraper(CreativemanScraper):
+        def fetch(self, url, retries=2):
+            return _load("creativeman_artist_evanescence_live.html")
+
+    rows = [Event(source="creativeman",
+                  source_url="https://www.creativeman.co.jp/artist/2026/12evanescence/",
+                  title_ja="EVANESCENCE", category=Category.MUSIC,
+                  start_date="2026-12-01")]
+    s = _ArtistPageScraper()
+    evs = list(s._process(rows))
+    assert len(evs) == 2                      # the two Kanto (Tokyo) legs
+    assert all(e.venue_name == "SGC HALL ARIAKE" for e in evs)
+    assert {e.start_date for e in evs} == {"2026-12-01", "2026-12-02"}
+    ev = next(e for e in evs if e.start_date == "2026-12-01")
+    assert ev.price_min == 16500
+    assert ev.lineup == ["EVANESCENCE", "Ave Mujica"]
+    # source_url identity matches the plain tour-URL + "#date" convention,
+    # so a row a previous run deferred (cap or microsite fallback) resolves
+    # to the same event instead of duplicating.
+    assert ev.source_url == \
+        "https://www.creativeman.co.jp/artist/2026/12evanescence/#2026-12-01"
+    assert s.skipped_venues == set()
+    # "sales" never reaches the Event model (schema changes are a separate
+    # owner decision) — Event has no such field to begin with.
+    assert not hasattr(ev, "sales")

@@ -46,6 +46,16 @@ calendar dates and take the venue from the single curated venue named in
 the page's title/headings/img alt text; anything else is reported in
 skipped_venues as "[no leg table] ..." instead of vanishing.
 
+/artist/ pages (2026-09-24): a newer headliner-tour template at
+/artist/YYYY/MMslug/ (a growing minority — 6 tours as of 2026-09) also has
+no leg <table>s, but unlike a microsite it DOES carry full leg detail —
+just in its own div.info-det/h3 markup instead of parse_tour's tables. When
+parse_tour finds no legs, parse_artist_page() is tried first (full
+times/prices/ticket_links/support-act, exactly like a table leg) and only
+falls through to the microsite heuristic when that finds nothing either.
+See parse_artist_page's own docstring for the template's shape and its one
+real landmine (leftover cross-artist VIP-upsell markup).
+
 Parsers key off URL/text conventions (the /event/ slug, the YYYY/M/D leg
 header, the Japanese row labels) rather than CSS class names, so a
 structural break yields zero events (loud), never silent garbage.
@@ -59,7 +69,7 @@ from collections import Counter
 from typing import Iterable, Iterator
 from urllib.parse import urljoin
 
-from bs4 import BeautifulSoup
+from bs4 import BeautifulSoup, Comment, NavigableString
 
 from ..models import Category, Event
 from ..venues import display_of, resolve_venue, venues_named_in
@@ -182,6 +192,278 @@ def _parse_leg(table, hdr) -> dict | None:
     }
 
 
+# ------------------------------------------------------- /artist/ page parse
+# Headliner tours (a growing minority — 6 as of 2026-09) now live on a NEWER
+# per-artist template at /artist/YYYY/MMslug/ instead of the classic
+# leg-<table> template parse_tour() reads. Structurally: one <h3> per leg
+# inside div.info-det (section#info is the Japanese copy; section#info-en
+# duplicates everything in English right after it — we deliberately scope to
+# #info only, or every leg would be double-counted). The h3's own <br> is the
+# hard split between the "pref YYYY. M.D(wd) [/M.D(wd) ...]" date run (one
+# <span> per night — a second night is a bare day number, e.g. "25", when it
+# shares the first night's month, or "/12.2" when the site restates it) and
+# the trailing venue <span>. A leg missing that <br> boundary, or whose first
+# text node doesn't match "<pref> YYYY.", is a structural break -> skipped
+# (loud: parse_artist_page returns zero legs for a page that doesn't fit).
+#
+# Landmine (found on the weezer/artgarfunkel fixtures): the CMS leaves
+# leftover EVANESCENCE upsell markup (div.vipticket, "Premium Upgrade" /
+# "Tour Upgrade" ticket-lines with real eplus.jp/evanescence links) sitting
+# unrendered (style="display:none") inside otherwise-unrelated artist pages
+# — copy-paste residue from the template, not this artist's own VIP tier.
+# _base_ticket_lines() and the ticket_links clone both exclude div.vipticket
+# AND any ticket-line whose name reads as an addon (UPGRADE/EXPERIENCE/
+# PREMIUM) so this residue can never leak into price_min or ticket_links.
+PREF_YEAR_RE = re.compile(r"(.+?)\s*(\d{4})\.?")
+#: leg header day-token: "12.1" / "/12.2" (continuation, same or new month)
+#: or a bare day "25" (continuation, inherits the running month).
+_ADDON_TICKET_RE = re.compile(r"upgrade|experience|premium", re.I)
+#: "受付期間：4/13(月)12:00～4/19(日)23:59" (weekday paren optional, "・祝"
+#: allowed inside it); both fullwidth and ASCII dash/tilde separators seen.
+_SALE_WINDOW_RE = re.compile(
+    r"(\d{1,2})/(\d{1,2})\s*(?:[（(][^）)]*[)）])?\s*(\d{1,2}:\d{2})\s*"
+    r"[〜～~]\s*(\d{1,2})/(\d{1,2})\s*(?:[（(][^）)]*[)）])?\s*(\d{1,2}:\d{2})")
+
+
+def _node_text(node) -> str:
+    """Text of one h3 child — comments (the site leaves plenty inline, e.g.
+    '<!-- <span class="kaijo-ttl">...--> ') must never leak into the venue
+    string."""
+    if isinstance(node, Comment):
+        return ""
+    if isinstance(node, NavigableString):
+        return str(node)
+    return node.get_text(" ", strip=True)
+
+
+def _norm_md_time(mo: str, da: str, time_s: str) -> str:
+    return f"{int(mo):02d}-{int(da):02d} {time_s}"
+
+
+def _parse_general_sale(text: str | None) -> str | None:
+    """'一般発売日：7/18(土)10:00am〜' -> '07-18 10:00'; a date with no time
+    ('一般発売日：9/5(土)', seen on the weezer fixture) -> '09-05'. No year
+    printed on the page, so none is guessed (roadmap: this is a facts-only
+    scrape — a wrong guessed year is worse than an absent one)."""
+    if not text:
+        return None
+    m = re.search(r"(\d{1,2})/(\d{1,2})", text)
+    if not m:
+        return None
+    mo, da = int(m.group(1)), int(m.group(2))
+    tm = re.search(r"(\d{1,2}):(\d{2})\s*(am|pm)?", text, re.I)
+    if not tm:
+        return f"{mo:02d}-{da:02d}"
+    hour, minute, ap = int(tm.group(1)), tm.group(2), (tm.group(3) or "").lower()
+    if ap == "pm" and hour != 12:
+        hour += 12
+    elif ap == "am" and hour == 12:
+        hour = 0
+    return f"{mo:02d}-{da:02d} {hour:02d}:{minute}"
+
+
+def _sales_windows(leg_div) -> list[dict]:
+    """Every {label, opens, closes} presale window on the leg (member
+    presales, playguide pre-orders, closed-out early tiers alike) — walked
+    as h4-label/p-window pairs in document order so <del>-wrapped (expired)
+    entries are picked up exactly like live ones. VIP-upsell h4/p pairs are
+    excluded (see the module docstring landmine note)."""
+    windows: list[dict] = []
+    label = None
+    for tag in leg_div.find_all(["h4", "p"]):
+        if tag.find_parent(class_="vipticket"):
+            continue
+        if tag.name == "h4":
+            label = _clean(tag.get_text(" ", strip=True))
+            continue
+        if label is None:
+            continue
+        text = tag.get_text(" ", strip=True)
+        if "受付期間" not in text:
+            continue
+        m = _SALE_WINDOW_RE.search(text)
+        if m:
+            mo1, da1, t1, mo2, da2, t2 = m.groups()
+            windows.append({
+                "label": label,
+                "opens": _norm_md_time(mo1, da1, t1),
+                "closes": _norm_md_time(mo2, da2, t2),
+            })
+        label = None
+    return windows
+
+
+def _primary_playguide_links(leg_div) -> list[dict]:
+    """The leg's real "buy now" playguide links — anchors with class
+    ippan-hatubai (the site's one consistent marker for an actionable
+    playguide button), excluding div.vipticket residue and unfilled
+    placeholder anchors (href="#").
+
+    Deliberately NOT a whole-leg scan for any anchor whose href matches a
+    known ticket domain: the presale-history accordion re-states the SAME
+    playguide links inside class="no-link" ("受付終了"/"受付はこちら")
+    anchors once a window closes, and on the a7x fixture one of those
+    closed-window anchors happens to point at a stale
+    eplus.jp/dreamtheater/ URL from an earlier co-headline announcement —
+    a real link, but not this leg's ticket. Scoping to ippan-hatubai only
+    (the button class, never used for a historical/status anchor) keeps
+    that out without guessing at div nesting, which varies leg to leg."""
+    anchors = [a for a in leg_div.select("a.ippan-hatubai")
+              if not a.find_parent(class_="vipticket")
+              and (a.get("href") or "").strip() not in ("", "#")]
+    if not anchors:
+        return []
+    frag = BeautifulSoup("<div></div>", "lxml").div
+    for a in anchors:
+        frag.append(BeautifulSoup(str(a), "lxml").a)
+    text = " ".join(a.get_text(" ", strip=True) for a in anchors)
+    return tu.extract_ticket_links(frag, text)
+
+
+def _base_ticket_lines(leg_div) -> list:
+    """The leg's real admission price tiers: every div.ticket-line except
+    ones inside div.vipticket or named like an addon (UPGRADE/EXPERIENCE/
+    PREMIUM) that requires a base ticket already in hand — see the module
+    docstring landmine note. Both price_min and sold_out are derived from
+    this list only."""
+    lines = []
+    for tl in leg_div.find_all("div", class_="ticket-line"):
+        if tl.find_parent(class_="vipticket"):
+            continue
+        name_el = tl.select_one(".tickets-name")
+        name = name_el.get_text(" ", strip=True) if name_el else ""
+        if _ADDON_TICKET_RE.search(name):
+            continue
+        lines.append(tl)
+    return lines
+
+
+def _parse_artist_leg(leg_div) -> list[dict]:
+    """One div.info-det -> zero-or-more leg dicts (one per night — a
+    two-night leg like '12.1(火)/12.2(水)' shares venue/times/prices).
+    A structural break (no <br> splitting date-run from venue, or a header
+    that doesn't start with '<pref> YYYY.') yields [] — loud, not a guess."""
+    h3 = leg_div.find("h3")
+    if h3 is None:
+        return []
+    br = h3.find("br")
+    if br is None:
+        return []
+    pre_nodes, post_nodes, reached = [], [], False
+    for child in h3.children:
+        if child is br:
+            reached = True
+            continue
+        (post_nodes if reached else pre_nodes).append(child)
+
+    first_text = next((n for n in pre_nodes if isinstance(n, NavigableString)
+                       and not isinstance(n, Comment)), None)
+    if first_text is None:
+        return []
+    m = PREF_YEAR_RE.match(_clean(str(first_text)))
+    if not m:
+        return []
+    pref, year = m.group(1), int(m.group(2))
+
+    month = None
+    day_tokens: list[tuple[int, int]] = []
+    for n in pre_nodes:
+        if getattr(n, "name", None) != "span":
+            continue
+        t = _clean(n.get_text(strip=True)).lstrip("/／")
+        if not t:
+            continue
+        if "." in t:
+            mo_s, da_s = t.split(".", 1)
+            month = int(mo_s)
+            day = int(da_s)
+        elif "/" in t:
+            mo_s, da_s = t.split("/", 1)
+            month = int(mo_s)
+            day = int(da_s)
+        elif t.isdigit():
+            if month is None:
+                continue                   # no month seen yet -> unparsable
+            day = int(t)
+        else:
+            continue
+        day_tokens.append((month, day))
+    if not day_tokens:
+        return []
+
+    venue = _clean("".join(_node_text(n) for n in post_nodes))
+    if not venue:
+        return []
+
+    support = leg_div.select_one(".support-sct")
+    guests: list[str] = []
+    if support:
+        gtext = re.sub(r"^\s*Support Act\s*[:：]\s*", "",
+                       support.get_text(" ", strip=True))
+        guests = [g.strip() for g in re.split(r"[/／、,]", gtext) if g.strip()]
+
+    open_time = start_time = None
+    open_start = leg_div.select_one(".open-start")
+    if open_start:
+        open_time, start_time = tu.parse_times(open_start.get_text(" ", strip=True))
+
+    base_lines = _base_ticket_lines(leg_div)
+    price_text = price_min = is_free = None
+    if base_lines:
+        text = " ".join(tl.get_text(" ", strip=True) for tl in base_lines)
+        price_text, price_min, is_free = tu.parse_prices(tu.strip_drink_charges(text))
+    sold_out = bool(base_lines) and all(
+        "soldout" in (tl.get("class") or []) for tl in base_lines)
+
+    ticket_links = _primary_playguide_links(leg_div)
+
+    sale_p = next((p for p in leg_div.select("p.info-sale-date")
+                  if not p.find_parent(class_="vipticket")), None)
+    sales = {
+        "general_on_sale": _parse_general_sale(
+            sale_p.get_text(" ", strip=True) if sale_p else None),
+        "windows": _sales_windows(leg_div),
+    }
+
+    legs = []
+    for mo, da in day_tokens:
+        try:
+            date = dt.date(year, mo, da).isoformat()
+        except ValueError:
+            continue
+        legs.append({
+            "pref": pref, "date": date, "venue": venue,
+            "open_time": open_time, "start_time": start_time,
+            "price_text": price_text, "price_min": price_min, "is_free": is_free,
+            "ticket_links": ticket_links, "guests": guests, "sold_out": sold_out,
+            "sales": sales,
+        })
+    return legs
+
+
+def parse_artist_page(html: str, tour_url: str | None = None,
+                      **context) -> dict:
+    """Pure parse of a /artist/YYYY/MMslug/ headliner page into the same
+    {title, artist, legs} shape as parse_tour() — a fallback for tours that
+    have migrated to this newer template (parse_tour finds no leg <table>s
+    on them). JA legs only: section#info-en duplicates every leg in English
+    right after section#info, and would double every event if not excluded.
+    """
+    soup = BeautifulSoup(html, "lxml")
+    artist = None
+    if soup.title:
+        artist = soup.title.get_text(strip=True).split("|", 1)[0].strip() or None
+
+    legs: list[dict] = []
+    info = soup.find("section", id="info")
+    if info is not None:
+        for leg_div in info.select("div.info-det"):
+            legs.extend(_parse_artist_leg(leg_div))
+    # Title kept as the plain artist name, not the promo tagline after "|"
+    # in <title> — rule 1 is facts only, and that tagline is marketing copy.
+    return {"title": artist, "artist": artist, "legs": legs}
+
+
 # --------------------------------------------------------------------- class
 class CreativemanScraper(BaseScraper):
     source_id = "creativeman"
@@ -261,6 +543,16 @@ class CreativemanScraper(BaseScraper):
                     yield from self._deferred(tour_rows)   # fetch failed
                     continue
                 if not page["legs"]:
+                    # Newer headliner template (/artist/YYYY/MMslug/) has no
+                    # leg <table>s either — try its own parser before
+                    # falling back to the microsite heuristic.
+                    artist_page = parse_artist_page(cache[tour_url],
+                                                    tour_url=tour_url)
+                    if artist_page["legs"]:
+                        yield from self._legs_to_events(
+                            artist_page, tour_url, badge_sold, artist_hint,
+                            floor_date)
+                        continue
                     # flagship tours link to their own microsite, which has
                     # no leg tables (radiohead2027.jp) — never drop silently
                     yield from self._microsite_events(
