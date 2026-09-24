@@ -12,10 +12,51 @@ carries two classes that only share a small English-time helper:
 
 - COTTON CLUB (cotton_club) — reservation subdomain month pages
   https://reserve.cottonclubjapan.co.jp/reserve/schedule/move/YYYYMM
-  One page per calendar month; each show is a <div class="detailsOpen">
-  block carrying the price, English open/start times, and a detail link
-  whose slug ENCODES the date (/jp/sp/artists/<slug>-YYMMDD/). The listing
-  already carries everything, so no detail pass is needed.
+  REDESIGNED 2026-09 (the old div.scheduleTable/detailsOpen markup and
+  artist-slug detail links are gone; this class went from found=47 to
+  found=0 overnight). The current template renders a
+  <div class="m-schedule-list" data-schedule-panel="list"> of
+  .m-schedule-list__row blocks, one per calendar day (consecutive days
+  showing the SAME show collapse into one row with several
+  .m-schedule-list__date-num day numbers and ONE
+  <a class="c-schedule-list-card" href=".../schedule/exec/<id>">
+  carrying the title (.c-schedule-list-card__title, <br>-stacked like
+  Blue Note Tokyo) and Music Charge price — but no times. Closed days
+  render a class="type-closed" <div> (PRIVATE/OFF, no href) instead of
+  an <a>; those are skipped.
+  Times + per-night sold-out live on the reservation-flow page at
+  .../schedule/exec/<id> (fetched via parse_detail — this venue now
+  NEEDS a detail pass): one .threeColumnsTypeBg block per night (its
+  hidden <input class="e_date" value="YYYYMMDD"> pins the date), each
+  holding one .columnAreaBg per stage (1st/2nd) with "Open Hh:MMam/pm /
+  Start Hh:MMam/pm" text; a stage that's full carries a "selloutBg"
+  class instead of "reservationBtn" (confirmed via the page's own JS:
+  `.columnAreaBg.hasClass('selloutBg')`) — no live example was on the
+  calendar when this was written, so that path is unit-tested against a
+  constructed snippet mirroring the real markup, not a captured fixture.
+  A closed reservation window (past shows, or the window not yet open)
+  serves an unrelated "ご予約は受付終了" error page instead — NOT sold
+  out (受付終了 is deliberately excluded from SOLD_OUT_RE elsewhere in
+  this project; a closed window just means parse_detail finds nothing
+  to fill and leaves the event as the listing described it).
+  There is also a read_event_info/<id> JSON endpoint (backs the
+  calendar-view popup) with basic_info/date_range_label/links —
+  including a links.detail_page_url that DOES match the old
+  www.cottonclubjapan.co.jp/jp/sp/artists/<slug>/ scheme — but its
+  schedule_list (meant to carry times) came back empty on every live
+  event checked, so it isn't useful for the one thing we actually need.
+  Fetching it just to keep the old identity scheme would mean an extra
+  request per event on every listing pass (the identity is needed at
+  listing time, before we know which events are new/changed), which
+  fails the "listing pass stays cheap" architecture and buys nothing
+  parse_detail doesn't already need to hit anyway. So identity moves to
+  the reservation engine's own exec/<id> URL: one id per booked run
+  (confirmed distinct across repeated bookings of the same title — the
+  two "コントと音楽 vol.7" weeks in Sept 2026 are ids 5686 and 5687), a
+  #YYYY-MM-DD fragment disambiguating each night of a multi-night run
+  (yokohama_arena/veats precedent — the fragment is stripped before the
+  HTTP GET, so parse_detail's fetch of ev.source_url still lands on the
+  one shared exec page and picks its own night out of it).
 
 Both venues stage TWO sets a night ([1st]/[2nd] or [1st.show]/[2nd.show]).
 We emit ONE Event per night/run and capture the EARLIEST (1st set) open/
@@ -224,23 +265,18 @@ COTTON_VENUE = dict(
     lat=35.6776, lng=139.7639,
 )
 
-_CC_ARTIST_RE = re.compile(r"/jp/sp/artists/")
-_CC_SLUG_DATE_RE = re.compile(r"(\d{6})/?$")   # trailing YYMMDD in the slug
-# Per-night show date as printed in the details block, e.g. "2026 7.2 thu.".
-# The English weekday anchor keeps the reservation-window dates (4/21(火),
-# no year) and marketing prose from ever matching.
-_CC_DATE_RE = re.compile(
-    r"(20\d{2})\s+(\d{1,2})\.(\d{1,2})\s*"
-    r"(?:sun|mon|tue|wed|thu|fri|sat)\b", re.I)
+#: .../schedule/exec/<id> — the reservation-flow page, also this venue's
+#: stable per-run event identity (see the module docstring for why).
+_CC_EXEC_ID_RE = re.compile(r"/schedule/exec/(\d+)")
 
 
 class CottonClubScraper(BaseScraper):
     source_id = "cotton_club"
     source_name = "COTTON CLUB"
     RESERVE = "https://reserve.cottonclubjapan.co.jp"
-    WWW = "https://www.cottonclubjapan.co.jp"
-    #: listing already carries price + times; no detail page needed
-    supports_detail = False
+    #: times + sold-out live on the exec/<id> reservation page now —
+    #: the redesigned listing no longer carries them (see module docstring).
+    supports_detail = True
 
     def __init__(self, months_ahead: int = 6, **kw):
         super().__init__(**kw)
@@ -265,100 +301,132 @@ class CottonClubScraper(BaseScraper):
     def parse(self, html: str, month: dt.date | None = None,
               today: dt.date | None = None, **context) -> list[Event]:
         soup = BeautifulSoup(html, "lxml")
-        table = soup.find("div", class_="scheduleTable")
-        if table is None:
+        listing = soup.find("div", class_="m-schedule-list")
+        if listing is None:
             return []                       # structural failure = loud (0)
+        if month is None:
+            month = tu.jst_today().replace(day=1)
         events: dict[str, Event] = {}
-        for det in table.find_all("div", class_="detailsOpen"):
-            ev = self._parse_details(det)
-            if ev and ev.source_url not in events:
-                events[ev.source_url] = ev
+        for row in listing.find_all("div", class_="m-schedule-list__row",
+                                     recursive=False):
+            for ev in self._parse_row(row, month.year, month.month):
+                if ev.source_url not in events:
+                    events[ev.source_url] = ev
         return list(events.values())
 
-    def _parse_details(self, det) -> Event | None:
-        a = det.find("a", href=_CC_ARTIST_RE)
-        if not a or not a.get("href"):
-            return None
-        base_url = a["href"].strip()
-        if not base_url.startswith("http"):
-            base_url = urljoin(self.WWW, base_url)
+    def _parse_row(self, row, year: int, mon: int) -> list[Event]:
+        # Closed/empty days render a plain <div class="type-closed|
+        # type-empty"> (PRIVATE/OFF/nothing yet) with no href — only an
+        # <a class="c-schedule-list-card" href=…> is a real booking.
+        card = row.find("a", class_="c-schedule-list-card", href=True)
+        if card is None:
+            return []
+        m = _CC_EXEC_ID_RE.search(card["href"])
+        if not m:
+            return []
+        exec_url = f"{self.RESERVE}/reserve/schedule/exec/{m.group(1)}"
 
-        block_text = det.get_text(" ", strip=True)
-        # Date: the VISIBLE per-night "2026 M.D ddd." string is authoritative.
-        # The slug's trailing YYMMDD is only a stable detail-page id — it can
-        # differ from the real show date (a two-night run reuses one slug;
-        # some slugs even carry the artist's original booking date), so it is
-        # only a last-ditch fallback.
-        date = None
-        dm = _CC_DATE_RE.search(block_text)
-        if dm:
-            try:
-                date = dt.date(int(dm.group(1)), int(dm.group(2)),
-                               int(dm.group(3))).isoformat()
-            except ValueError:
-                date = None
-        if not date:
-            sm = _CC_SLUG_DATE_RE.search(base_url.rstrip("/"))
-            if sm:
-                date = _fmt_ymd("20" + sm.group(1))
-        if not date:
-            return None
-        # Multi-night runs share one detail URL; a #date fragment keeps every
-        # night's dedupe key unique (yokohama_arena precedent).
-        url = f"{base_url}#{date}"
+        # A run of consecutive nights for the SAME show shares one row and
+        # one card, with one .date-num per night ("today" wraps its date-num
+        # in a .date-badge instead of .date-item, hence the flatter select).
+        days = [int(sp.get_text(strip=True))
+                for sp in row.select(".m-schedule-list__date-num")
+                if sp.get_text(strip=True).isdigit()]
+        if not days:
+            return []
 
-        title = self._title_for(det)
-        if not title:
-            return None
+        title_el = card.select_one(".c-schedule-list-card__title")
+        if not title_el:
+            return []
+        for br in title_el.find_all("br"):
+            br.replace_with("\n")
+        lines = [re.sub(r"\s+", " ", x).strip()
+                 for x in title_el.get_text().split("\n") if x.strip()]
+        if not lines:
+            return []
+        title = lines[0]
+        subtitle = " / ".join(lines[1:]) if len(lines) > 1 else None
 
-        price_text, price_min = self._price_for(det)
-        open_time, start_time = _earliest_times(block_text)
+        price_min = None
+        price_text = None
+        price_el = card.select_one(".c-schedule-list-card__charge-price")
+        if price_el:
+            ym = tu.YEN_RE.search(price_el.get_text())
+            if ym:
+                price_min = int(re.sub(r"[,，]", "", ym.group(1)))
+            charge = card.select_one(".c-schedule-list-card__charge")
+            if charge:
+                price_text = re.sub(
+                    r"\s+", " ", charge.get_text(" ", strip=True)
+                ).strip()[:120]
 
-        cat = (Category.OTHER if tu.is_nonmusic(title)
+        cat = (Category.OTHER
+               if tu.is_nonmusic(f"{title} {subtitle or ''}")
                else Category.MUSIC)
-        return Event(
-            source=self.source_id, source_url=url,
-            title_ja=title, category=cat, start_date=date,
-            open_time=open_time, start_time=start_time,
-            price_text=price_text, price_min=price_min,
-            is_sold_out=bool(tu.SOLD_OUT_RE.search(block_text)),
-            **COTTON_VENUE,
-        )
 
-    @staticmethod
-    def _title_for(det) -> str | None:
-        """Nearest preceding scheduleBox title (the day's oldBox table sits
-        just before this block's priceBox). Stops at the previous event's
-        detailsOpen so titles never bleed across events."""
-        sib = det
-        while True:
-            sib = sib.find_previous_sibling()
-            if sib is None:
-                return None
-            if (sib.name == "div"
-                    and "detailsOpen" in (sib.get("class") or [])):
-                return None                 # crossed into the previous event
-            if sib.name == "table":
-                t = sib.find("span", class_="title")
-                if t and t.get_text(strip=True):
-                    return re.sub(r"\s+", " ",
-                                  t.get_text(" ", strip=True)).strip()
+        out: list[Event] = []
+        for day in days:
+            try:
+                date = dt.date(year, mon, day).isoformat()
+            except ValueError:
+                continue
+            # Single-night shows keep the bare exec URL; a multi-night run
+            # gets a #date fragment per night (yokohama_arena/veats
+            # precedent — stripped before the HTTP GET, so parse_detail's
+            # fetch of this URL still lands on the one shared exec page).
+            url = exec_url if len(days) == 1 else f"{exec_url}#{date}"
+            out.append(Event(
+                source=self.source_id, source_url=url,
+                title_ja=title, subtitle=subtitle, category=cat,
+                start_date=date,
+                price_text=price_text, price_min=price_min,
+                **COTTON_VENUE,
+            ))
+        return out
 
-    @staticmethod
-    def _price_for(det) -> tuple[str | None, int | None]:
-        sib = det
-        while True:
-            sib = sib.find_previous_sibling()
-            if sib is None:
-                return None, None
-            if (sib.name == "div"
-                    and "detailsOpen" in (sib.get("class") or [])):
-                return None, None
-            if sib.name == "div" and "priceBox" in (sib.get("class") or []):
-                prices = [int(re.sub(r"[,，]", "", s.get_text()))
-                          for s in sib.find_all("span", class_="price")
-                          if re.search(r"\d", s.get_text())]
-                if not prices:
-                    return None, None
-                text = re.sub(r"\s+", " ", sib.get_text(" ", strip=True))
-                return text.strip()[:120], min(prices)
+    # --- detail enrichment: per-night times + sold-out from the exec page --
+    #
+    # The reservation engine is mid-migration (checked 2026-09-24): most
+    # exec/<id> pages still serve the OLD flow (.threeColumnsTypeBg per
+    # night), but some already serve the NEW one (.c-date-slot-group per
+    # night, data-theme="cotton-club" like the redesigned listing) — the
+    # split isn't predictable from the event id, so both are tried. A show
+    # whose reservation window is closed (past) or not yet open serves a
+    # different page again ("ご予約は受付終了" / "予約開始日ご確認") with
+    # neither structure — not a failure, just nothing to add.
+    def parse_detail(self, html: str, ev: Event) -> Event:
+        soup = BeautifulSoup(html, "lxml")
+        target = (ev.start_date or "").replace("-", "")  # YYYYMMDD
+
+        for group in soup.select(".c-date-slot-group"):        # NEW flow
+            slots = group.select(".c-time-slot")
+            radio = slots[0].find("input", attrs={"name": "time-slot"}) \
+                if slots else None
+            slot_date = (radio["value"].split("_")[0]
+                         if radio and radio.get("value") else None)
+            if not slots or slot_date != target:
+                continue
+            if not (ev.open_time or ev.start_time):
+                o, s = _earliest_times(group.get_text(" ", strip=True))
+                ev.open_time, ev.start_time = o, s
+            if not ev.is_sold_out:
+                ev.is_sold_out = all(
+                    sl.get("data-status") == "sold-out" for sl in slots)
+            return ev
+
+        for block in soup.select(".threeColumnsTypeBg"):        # OLD flow
+            e_date = block.find("input", class_="e_date")
+            if e_date is None or e_date.get("value") != target:
+                continue
+            stages = block.select(".columnAreaBg")
+            if not stages:
+                continue
+            if not (ev.open_time or ev.start_time):
+                o, s = _earliest_times(block.get_text(" ", strip=True))
+                ev.open_time, ev.start_time = o, s
+            if not ev.is_sold_out:
+                ev.is_sold_out = all(
+                    "selloutBg" in (st.get("class") or []) for st in stages)
+            return ev
+
+        return ev

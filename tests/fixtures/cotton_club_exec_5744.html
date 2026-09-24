@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="ja" data-theme="cotton-club">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="format-detection" content="telephone=no">
+  <title>日時選択 | Cotton Club</title>
+    <script>
+    (function() {
+      const googleTagManagerId = "GTM-PQRNK8N";
+
+      (function(w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({
+          "gtm.start": new Date().getTime(),
+          event: "gtm.js",
+        });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", googleTagManagerId);
+    })();
+
+  </script>
+  <script>
+    (function() {
+      const yahooTagManagerSiteId = "LwyGJ4j";
+
+      (function() {
+        var tagjs = document.createElement("script");
+        var firstScript = document.getElementsByTagName("script")[0];
+        tagjs.async = true;
+        tagjs.src = "https://s.yjtag.jp/tag.js#site=" + yahooTagManagerSiteId;
+        firstScript.parentNode.insertBefore(tagjs, firstScript);
+      })();
+    })();
+
+  </script>
+  <script>
+    (function() {
+      const typekitId = "mxq3rlq";
+
+      (function(d) {
+        var config = {
+            kitId: typekitId,
+            scriptTimeout: 3000,
+            async: true,
+          },
+          h = d.documentElement,
+          t = setTimeout(function() {
+            h.className =
+              h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+          }, config.scriptTimeout),
+          tk = d.createElement("script"),
+          f = false,
+          s = d.getElementsByTagName("script")[0],
+          a;
+        h.className += " wf-loading";
+        tk.src = "https://use.typekit.net/" + config.kitId + ".js";
+        tk.async = true;
+        tk.onload = tk.onreadystatechange = function() {
+          a = this.readyState;
+          if (f || (a && a != "complete" && a != "loaded")) return;
+          f = true;
+          clearTimeout(t);
+          try {
+            Typekit.load(config);
+          } catch (e) {}
+        };
+        s.parentNode.insertBefore(tk, s);
+      })(document);
+    })();
+
+  </script>
+
+  <!-- グローバルスクリプト -->
+  <script src="/assets/js/lang-config.js" defer></script>
+  <!-- type="module" は仕様上 defer 相当で実行される（defer 属性はモック転記のまま・無害） -->
+  <script type="module" src="/assets/js/script.js?20260902_1" defer></script>
+
+  <link rel="stylesheet" href="/assets/css/style.css?20260828_1">
+    <link rel="stylesheet" href="/assets/css/schedule-slot-grid.css?20260829_1">
+</head>
+<body class="full-screen-wrapper page-reserve">
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PQRNK8N" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe>
+  </noscript>
+  <noscript>
+    <iframe src="https://b.yjtag.jp/iframe?c=LwyGJ4j" width="1" height="1" frameborder="0" scrolling="no"
+      marginheight="0" marginwidth="0"></iframe>
+  </noscript>
+  <header class="m-header">
+    <div class="m-header__inner"><a href="https://www.cottonclubjapan.co.jp/jp/" class="m-header__brand"><svg width="270" height="151" viewBox="0 0 270 151"
+          xmlns="http://www.w3.org/2000/svg" class="c-logo cc m-header__brand-logo" focusable="false" role="img">
+          <path
+            d="M22 50.9537C22 45.6968 23.5247 40.7885 26.1544 36.6332V65.2741C23.5247 61.1188 22 56.2105 22 50.9537ZM73.5868 62.2343L71.111 61.1049C67.2504 69.4154 58.8157 75.2022 49.0383 75.2022C47.9613 75.2022 46.9122 75.1325 45.8771 74.993V26.9143C46.9122 26.7748 47.9752 26.7051 49.0383 26.7051C57.5708 26.7051 65.0823 31.1114 69.4185 37.7487L71.6985 36.2707C66.8867 28.8943 58.522 24 49.0383 24C40.8555 24 33.5119 27.6394 28.5603 33.3843V68.523C33.5259 74.2679 40.8555 77.9073 49.0383 77.9073C59.9068 77.9073 69.2926 71.4791 73.5868 62.2204V62.2343ZM64.6207 113.395V84.7538C61.991 88.9091 60.4803 93.8174 60.4803 99.0742C60.4803 104.331 62.005 109.239 64.6207 113.395ZM87.5186 123.309C86.4415 123.309 85.3925 123.239 84.3574 123.1V75.0209C85.3925 74.8815 86.4415 74.8118 87.5186 74.8118C96.0511 74.8118 103.563 79.218 107.899 85.8554L110.179 84.3773C105.353 76.987 97.0023 72.0927 87.5046 72.0927C79.3218 72.0927 71.9782 75.7321 67.0266 81.477V116.616C71.9922 122.361 79.3218 126 87.5046 126C98.3731 126 107.759 119.572 112.053 110.327L109.577 109.198C105.717 117.508 97.282 123.295 87.5046 123.295L87.5186 123.309ZM116.809 67.547H118.613V32.2688H106.57V34.2627L116.809 33.8444V67.547ZM132.475 33.8863L142.267 34.2627L152.506 33.8444V67.547H154.31V32.2688H120.124V67.547H132.475V33.8863ZM113.2 116.379H115.005V81.1005H113.2V116.379ZM128.866 81.0865H116.515V116.365H145.442V114.273C145.442 114.273 138.098 114.775 128.866 114.775V81.0865ZM168.158 33.8863L177.949 34.2627V32.2688H155.807V67.547H168.158V33.8863ZM213.954 48.9318C213.954 59.3758 213.548 67.3936 213.548 67.3936H215.926C215.926 67.3936 215.702 62.2761 215.674 49.9218L247.594 68.4394V66.3338L213.954 46.8123V48.9178V48.9318ZM76.9019 56.1547V39.4638C74.9017 42.4618 73.7407 46.0454 73.7407 49.8939C73.7407 53.7424 74.9017 57.34 76.9019 60.324V56.1408V56.1547ZM78.5105 62.4156V37.3862C81.6018 33.9002 85.966 31.5576 90.8617 31.0835C91.4771 31.0278 92.0926 30.9859 92.722 30.9859C103.185 30.9859 111.703 39.4778 111.703 49.9079C111.703 60.3379 103.185 68.8298 92.722 68.8298C92.0926 68.8298 91.4771 68.8019 90.8617 68.7322C85.966 68.2581 81.6018 65.9155 78.5105 62.4295V62.4156ZM90.8477 66.7661C91.4631 66.8358 92.0786 66.8637 92.7081 66.8637C102.094 66.8637 109.731 59.2503 109.731 49.8939C109.731 40.5375 102.094 32.9241 92.7081 32.9241C92.0786 32.9241 91.4631 32.966 90.8477 33.0217V66.7382V66.7661ZM177.949 56.1547V39.4638C175.949 42.4618 174.788 46.0454 174.788 49.8939C174.788 53.7424 175.949 57.34 177.949 60.324V56.1408V56.1547ZM179.558 62.4156V37.3862C182.649 33.9002 187.013 31.5576 191.909 31.0835C192.525 31.0278 193.14 30.9859 193.77 30.9859C204.232 30.9859 212.751 39.4778 212.751 49.9079C212.751 60.3379 204.232 68.8298 193.77 68.8298C193.14 68.8298 192.525 68.8019 191.909 68.7322C187.013 68.2581 182.649 65.9155 179.558 62.4295V62.4156ZM191.909 66.7661C192.525 66.8358 193.14 66.8637 193.77 66.8637C203.155 66.8637 210.793 59.2503 210.793 49.8939C210.793 40.5375 203.155 32.9241 193.77 32.9241C193.14 32.9241 192.525 32.966 191.909 33.0217V66.7382V66.7661ZM245.398 31.962C245.398 31.962 245.832 37.0794 245.874 49.4338L213.954 30.9162V44.8741L247.594 64.3956V50.4377C247.594 39.9937 248 31.9759 248 31.9759H245.398V31.962ZM147.498 96.4249V97.4288C147.428 100.552 147.33 107.064 149.163 111.052C149.247 111.247 149.344 111.415 149.442 111.596V81.0865H147.498V96.4249ZM179.74 81.0865L180.006 96.4249C180.006 87.6402 180.006 97.4567 180.006 97.4567C180.062 100.441 180.159 106.646 178.509 110.243C176.774 114.008 172.256 115.835 164.717 115.835C164.213 115.835 163.71 115.835 163.234 115.807V81.0865H151.037V113.743C153.709 116.448 158.227 117.773 164.717 117.773C173.096 117.773 178.187 115.57 180.285 111.038C182.132 107.05 182.02 100.538 181.964 97.4149V96.4109C181.964 87.8075 182.356 81.0726 182.356 81.0726H179.726L179.74 81.0865ZM186.02 116.379H187.713V81.1005H186.02V116.379ZM189.489 81.0865V116.365H201.589L201.687 81.0865H189.489ZM216.863 85.5347C215.87 84.4749 214.709 83.5964 213.408 82.9271C212.163 82.2857 210.737 81.8395 209.268 81.6303C207.743 81.4072 205.519 81.0865 201.701 81.0865V83.0945C203.617 83.0945 207.408 83.3315 209.002 83.5546C210.247 83.7359 211.464 84.1124 212.527 84.6562C213.632 85.2279 214.625 85.9669 215.451 86.8593C216.248 87.7239 216.877 88.686 217.325 89.7178C217.758 90.7497 217.982 91.7955 217.996 92.8413C217.996 93.901 217.8 94.9189 217.367 95.8532C216.933 96.8014 216.304 97.6101 215.492 98.2655C214.695 98.9069 213.772 99.381 212.723 99.6738C211.66 99.9666 210.541 100.05 209.38 99.9388C208.205 99.8133 207.044 99.4786 205.939 98.9487V101.068C206.988 101.487 208.079 101.751 209.184 101.877C210.345 102.002 211.478 101.933 212.569 101.71C215.087 103.006 216.625 105.14 216.625 107.468C216.625 111.317 212.471 114.44 207.366 114.44H201.701L201.603 116.379H207.352C213.534 116.379 218.556 112.377 218.556 107.455C218.556 104.903 217.227 102.546 214.947 100.887C215.576 100.58 216.164 100.204 216.709 99.7714C217.758 98.9208 218.57 97.875 219.129 96.6619C219.675 95.4627 219.955 94.166 219.927 92.8134C219.913 91.5166 219.633 90.2198 219.101 88.9649C218.57 87.7099 217.814 86.5665 216.863 85.5347Z">
+          </path>
+        </svg></a>
+      <nav class="m-header__nav">
+        <div class="m-header__lang-wrap"><button type="button" class="m-header__lang" data-action="toggle-lang"
+            aria-expanded="false" aria-controls="header-lang-dropdown"><span class="u-sr-only">言語切替</span><span
+              class="m-header__lang-text">JP</span><span class="m-header__lang-icon"><svg width="20" height="20"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="c-icon" fill="currentColor"
+                focusable="false" aria-hidden="true">
+                <path
+                  d="M9.99625 13.75L3.90625 7.66L5.32625 6.25L9.99625 10.92L14.6663 6.25L16.0863 7.66L9.99625 13.75Z">
+                </path>
+              </svg></span></button>
+          <div id="header-lang-dropdown" class="m-header__lang-dropdown" role="menu" aria-label="言語選択">
+            <p class="m-header__lang-note">This website uses an automatic machine translation service.</p>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="l-container">
+    
+<div class="l-plan">
+  <div class="l-plan__inner">
+    <div class="l-plan__details">
+      <div class="l-plan__event">
+        <div class="l-plan__event-pad" aria-hidden="true"></div>
+        <div class="l-plan__event-inner">
+          <div class="m-event-panel">
+            <div class="m-event-panel__image"><img data-schedule-modal-field="thumbnail"
+                src="/reserve/img/event/5744.jpg"
+                alt="KONISHI RYOSEI Autumn Live 2026&lt;br /&gt; 「色なき風と、月待言結び。」" width="252"
+                height="252" /></div>
+            <div class="m-event-panel__info">
+              <div class="m-event-panel__titles">
+                <p class="m-event-panel__name" data-schedule-modal-field="artist-name">KONISHI RYOSEI Autumn Live 2026<br /> 「色なき風と、月待言結び。」</p>
+                <p class="m-event-panel__name-sub" data-schedule-modal-field="artist-name-sub">小西遼生</p>
+              </div>
+              <div class="m-event-panel__meta">
+                <p class="m-event-panel__date" data-schedule-modal-field="date-range">2026 9.25 fri.                </p>
+                <div class="m-event-panel__charge"><span class="m-event-panel__charge-label">Music
+                    Charge</span><span class="m-event-panel__charge-price"
+                    data-schedule-modal-field="music-charge">¥9,800</span></div>
+              </div>
+            </div><a class="m-event-panel__reserve-tab" href="#plan-select-content"><svg width="20" height="20"
+                viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"
+                class="c-icon m-event-panel__reserve-tab-icon" fill="currentColor" focusable="false"
+                aria-hidden="true">
+                <path d="M10 15.8828L16 4.88281H4L10 15.8828Z"></path>
+              </svg><span class="m-event-panel__reserve-tab-text">Reserve</span></a>
+          </div>
+
+        </div>
+      </div>
+      <div class="l-plan__cta">
+        <div class="m-plan-cta">
+          <div class="m-plan-cta__buttons"><a href="https://reserve.cottonclubjapan.co.jp/reserve/schedule/move/202609/"
+              class="c-button secondary c-cta-button"><span class="c-button__icon"><svg width="20" height="20"
+                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="c-icon" fill="currentColor"
+                  focusable="false" aria-hidden="true">
+                  <path
+                    d="M8.04 3.90625L9.45 5.32625L5.78 8.99625H18V10.9963H5.78L9.45 14.6663L8.04 16.0863L1.95 9.99625L8.04 3.90625Z">
+                  </path>
+                </svg></span><span class="c-button__text">戻る</span></a><button
+              class="c-button accent c-cta-button disabled" data-plan-cta-next="true" type="submit"
+              form="plan-date-form" disabled><span
+                class="c-button__text">次へ進む</span><span class="c-button__icon"><svg width="20" height="20"
+                  viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="c-icon" fill="currentColor"
+                  focusable="false" aria-hidden="true">
+                  <path
+                    d="M11.96 3.90625L10.55 5.32625L14.22 8.99625H2V10.9963H14.22L10.55 14.6663L11.96 16.0863L18.05 9.99625L11.96 3.90625Z">
+                  </path>
+                </svg></span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="l-plan__content" id="plan-select-content">
+      <div class="m-step-block">
+        <nav class="c-step-bar" aria-label="予約ステップ">
+          <ol class="c-step-bar__list">
+            <li class="c-step-bar__step" aria-current="step"><span class="c-step-bar__label">日時/座席/プラン</span></li>
+            <li class="c-step-bar__step"><span class="c-step-bar__label">内容のご確認</span></li>
+            <li class="c-step-bar__step"><span class="c-step-bar__label">お支払い</span></li>
+          </ol>
+        </nav>
+      </div>
+
+      <div class="l-plan__body">
+
+        <form id="plan-date-form" method="POST" action="https://reserve.cottonclubjapan.co.jp/reserve/plan/change/">
+                    <input type="hidden" name="event_id" value="5744" />
+          <section class="c-stack l-plan__section">
+            <div class="m-heading-block">
+              <h1 class="c-heading">公演日時を選ぶ</h1>
+              <div class="c-lead">ご希望の日時を選択してください。</div>
+                            <div class="c-lead">公演当日2:00pm以降のご予約は、お電話にてお問い合わせください。<br>TEL：03-3215-1555</div>
+            </div>
+            <div class="c-seat-legend">
+              <div class="c-seat-legend__items">
+                <div class="c-seat-legend__item"><svg width="20" height="20" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg" class="c-icon sm c-seat-legend__status-icon available"
+                    fill="currentColor" focusable="false" aria-hidden="true">
+                    <path
+                      d="M10.0025 18.4425C5.3525 18.4425 1.5625 14.6525 1.5625 10.0025C1.5625 5.3525 5.3525 1.5625 10.0025 1.5625C14.6525 1.5625 18.4425 5.3525 18.4425 10.0025C18.4425 14.6525 14.6525 18.4425 10.0025 18.4425ZM10.0025 4.5625C7.0025 4.5625 4.5625 7.0025 4.5625 10.0025C4.5625 13.0025 7.0025 15.4425 10.0025 15.4425C13.0025 15.4425 15.4425 13.0025 15.4425 10.0025C15.4425 7.0025 13.0025 4.5625 10.0025 4.5625Z">
+                    </path>
+                  </svg><span>空席あり</span></div>
+                <div class="c-seat-legend__item"><svg width="20" height="20" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg" class="c-icon sm c-seat-legend__status-icon few"
+                    fill="currentColor" focusable="false" aria-hidden="true">
+                    <path
+                      d="M17.8366 17.2306H2.15656L1.72656 16.4806L9.56656 2.89062H10.4366L18.2766 16.4806L17.8466 17.2306H17.8366ZM6.48656 14.2306H13.5166L10.0066 8.14062L6.49656 14.2306H6.48656Z">
+                    </path>
+                  </svg><span>残りわずか</span></div>
+                <div class="c-seat-legend__item"><svg width="20" height="20" viewBox="0 0 20 20"
+                    xmlns="http://www.w3.org/2000/svg" class="c-icon sm c-seat-legend__status-icon sold-out"
+                    fill="currentColor" focusable="false" aria-hidden="true">
+                    <path
+                      d="M17.25 4.87L15.13 2.75L10 7.88L4.87 2.75L2.75 4.87L7.88 10L2.75 15.13L4.87 17.25L10 12.12L15.13 17.25L17.25 15.13L12.12 10L17.25 4.87Z">
+                    </path>
+                  </svg><span>空席なし</span></div>
+              </div>            </div>
+          </section>
+
+          <div class="l-plan__dates">
+            <div class="c-date-slot-group">
+              <p class="c-date-slot-group__label">2026 9.25 fri.</p>
+              <div class="c-date-slot-group__slots">
+                <label class="c-time-slot" data-status="few"><span
+                    class="c-time-slot__wrap"><input class="u-sr-only" type="radio"  name="time-slot"
+                      value="20260925_1" /></span><span class="c-time-slot__icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="c-icon" fill="currentColor" focusable="false" aria-hidden="true"><path d="M17.8366 17.2306H2.15656L1.72656 16.4806L9.56656 2.89062H10.4366L18.2766 16.4806L17.8466 17.2306H17.8366ZM6.48656 14.2306H13.5166L10.0066 8.14062L6.49656 14.2306H6.48656Z"></path></svg></span><span
+                    class="c-time-slot__label">1st</span><span class="c-time-slot__times"><span
+                      class="c-time-slot__time-row"><span class="c-time-slot__time-type">Open</span><span
+                        class="c-time-slot__time-value">3:30pm</span></span><span
+                      class="c-time-slot__time-row"><span class="c-time-slot__time-type">Start</span><span
+                        class="c-time-slot__time-value">4:30pm</span></span></span></label>
+                <label class="c-time-slot" data-status="few"><span
+                    class="c-time-slot__wrap"><input class="u-sr-only" type="radio"  name="time-slot"
+                      value="20260925_2" /></span><span class="c-time-slot__icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="c-icon" fill="currentColor" focusable="false" aria-hidden="true"><path d="M17.8366 17.2306H2.15656L1.72656 16.4806L9.56656 2.89062H10.4366L18.2766 16.4806L17.8466 17.2306H17.8366ZM6.48656 14.2306H13.5166L10.0066 8.14062L6.49656 14.2306H6.48656Z"></path></svg></span><span
+                    class="c-time-slot__label">2nd</span><span class="c-time-slot__times"><span
+                      class="c-time-slot__time-row"><span class="c-time-slot__time-type">Open</span><span
+                        class="c-time-slot__time-value">6:30pm</span></span><span
+                      class="c-time-slot__time-row"><span class="c-time-slot__time-type">Start</span><span
+                        class="c-time-slot__time-value">7:30pm</span></span></span></label>
+              </div>
+            </div>
+          </div>
+        </form>
+
+        <dialog class="c-info-modal" id="sold-out-info" aria-labelledby="sold-out-info-title"
+          aria-describedby="sold-out-info-description" data-basic-modal data-modal>
+          <div class="c-info-modal__panel" data-modal-panel><button type="button"
+              class="c-modal-icon-button c-info-modal__close-circle" data-basic-modal-close
+              data-modal-close><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="c-icon" fill="currentColor" focusable="false" aria-hidden="true"><path d="M4.52359 3.10922L3.10938 4.52344L15.4837 16.8978L16.898 15.4836L4.52359 3.10922Z"></path><path d="M15.4837 3.10219L3.10938 15.4766L4.52359 16.8908L16.898 4.51641L15.4837 3.10219Z"></path></svg><span class="u-sr-only">閉じる</span></button>
+            <div class="c-info-modal__content">
+              <h2 class="c-info-modal__title" id="sold-out-info-title">満席の場合</h2>
+              <div class="c-info-modal__body" id="sold-out-info-description">
+                                <p>
+                  満席表示（×の表示）で日時選択ができない公演も、お電話にて2階席（ステージ真横/下手側）のご予約を承っている場合がございます。
+                </p>
+                                <p class="c-info-modal__contact">
+                  <span>TEL：</span>
+                  <a class="c-info-modal__link" href="tel:0332151555">03-3215-1555</a>
+                </p>
+                <p>
+                  公演開催２日前までキャンセルが出る場合がございます。空席状況はリアルタイムでご確認いただけます。
+                </p>
+                              </div><button type="button" class="c-button primary w-full c-info-modal__close-btn"
+                data-basic-modal-close data-modal-close><span
+                  class="c-button__text"><span>閉じる</span></span><span class="c-button__icon"><svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg" class="c-icon" fill="currentColor" focusable="false" aria-hidden="true"><path d="M4.52359 3.10922L3.10938 4.52344L15.4837 16.8978L16.898 15.4836L4.52359 3.10922Z"></path><path d="M15.4837 3.10219L3.10938 15.4766L4.52359 16.8908L16.898 4.51641L15.4837 3.10219Z"></path></svg></span></button>
+            </div>
+          </div>
+        </dialog>
+
+      </div>
+
+            <footer class="m-page-footer">
+  <ul class="m-page-footer__links">
+    <li><a href="https://www.cottonclubjapan.co.jp/jp/reserve/faq.html#payment" class="m-page-footer__link"
+        target="_blank" rel="noopener noreferrer">お支払いについて</a></li>
+    <li><a href="https://www.cottonclubjapan.co.jp/jp/reserve/faq.html#change" class="m-page-footer__link"
+        target="_blank" rel="noopener noreferrer">キャンセルについて</a></li>
+    <li><a href="https://www.cottonclubjapan.co.jp/jp/reserve/faq.html" class="m-page-footer__link" target="_blank"
+        rel="noopener noreferrer">よくあるご質問</a></li>
+  </ul>
+  <p class="m-page-footer__copy">COPYRIGHT © BLUE NOTE JAPAN,INC</p>
+</footer>
+    </div>
+  </div>
+</div>
+
+  </main>
+</body>
+</html>
