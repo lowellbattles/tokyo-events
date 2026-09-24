@@ -440,6 +440,26 @@ def test_process_falls_back_to_artist_page_when_no_leg_tables():
     assert ev.source_url == \
         "https://www.creativeman.co.jp/artist/2026/12evanescence/#2026-12-01"
     assert s.skipped_venues == set()
-    # "sales" never reaches the Event model (schema changes are a separate
-    # owner decision) — Event has no such field to begin with.
-    assert not hasattr(ev, "sales")
+    # Event.sales (owner-approved 2026-09-24): years inferred from the show
+    # date, ordered by opening moment, general sale last
+    assert ev.sales[0] == {"kind": "presale", "label": "オフィシャル先行",
+                           "opens": "2026-04-13T12:00",
+                           "closes": "2026-04-19T23:59"}
+    assert ev.sales[-1] == {"kind": "general", "label": "一般発売",
+                            "opens": "2026-07-18T10:00", "closes": None}
+    assert len(ev.sales) == 13
+
+
+def test_classic_tour_table_sale_rows():
+    # チケット先行 packs several "<label> 期間：M/D(曜)HH:MM～…" windows in
+    # one cell; チケット発売日 is the general sale
+    from tokyo_events.scrapers.creativeman import _event_sales
+    page = parse_tour(_load("creativeman_tour_multi_live.html"))
+    leg = next(l for l in page["legs"] if l["pref"].startswith("東京"))
+    sales = _event_sales(leg["sales"], leg["date"])
+    assert [s["label"] for s in sales] == [
+        "クリエイティブマン 3A 会員先行", "クリエイティブマン モバイル 会員先行",
+        "オフィシャル先行", "チケットぴあ", "ローソンチケット", "一般発売"]
+    assert sales[2]["opens"] == "2026-03-16T12:00"
+    assert sales[-1] == {"kind": "general", "label": "一般発売",
+                         "opens": "2026-03-28T10:00", "closes": None}

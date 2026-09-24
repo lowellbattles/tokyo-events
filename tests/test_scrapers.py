@@ -841,3 +841,37 @@ def test_user_agent_is_honest_everywhere_and_libfree_only_for_livenation():
         assert ua.startswith("TokyoEventsAggregator/"), sid
         assert "contact:" in ua, sid
         assert ("python-requests" in ua) == (sid != "livenation_jp"), sid
+
+
+# ------------------------------------------------ sale windows (2026-09-24)
+def test_sale_window_infers_year_from_show_date():
+    from tokyo_events.scrapers import textutils as tu
+    # an April sale for a December show: same year
+    assert tu.sale_window("オフィシャル2次先行", "04-20 12:00", "04-26 23:59",
+                          "2026-12-01") == {
+        "kind": "presale", "label": "オフィシャル2次先行",
+        "opens": "2026-04-20T12:00", "closes": "2026-04-26T23:59"}
+    # a November sale for a February show: the previous year
+    w = tu.sale_window("CMP会員先行（抽選）", "11-20 12:00", "11-30", "2027-02-12")
+    assert (w["kind"], w["opens"], w["closes"]) == \
+        ("lottery", "2026-11-20T12:00", "2026-11-30")
+    assert tu.sale_window("一般発売日", "07-18 10:00", None,
+                          "2026-12-01")["kind"] == "general"
+    assert tu.sale_datetime("09-27 24:00", "2026-12-01") == "2026-09-27T23:59"
+    assert tu.sale_window("先行", "13-40", None, "2026-12-01") is None
+    assert tu.sale_window("先行", "04-20", None, None) is None
+
+
+def test_empty_sales_keeps_the_pre_field_content_hash():
+    # adding Event.sales must not re-stage every stored event as changed
+    import dataclasses, hashlib, json
+    from tokyo_events.models import Category, Event
+    e = Event(source="x", source_url="https://x/1", title_ja="A",
+              category=Category.MUSIC, start_date="2099-01-01")
+    d = dataclasses.asdict(e); d.pop("sales")
+    legacy = hashlib.sha256(json.dumps(d, sort_keys=True, ensure_ascii=False,
+                                       default=str).encode()).hexdigest()[:16]
+    assert e.content_hash() == legacy
+    e.sales = [{"kind": "general", "label": "一般", "opens": "2098-12-01",
+                "closes": None}]
+    assert e.content_hash() != legacy

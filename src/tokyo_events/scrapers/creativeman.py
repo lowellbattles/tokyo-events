@@ -166,6 +166,8 @@ def _parse_leg(table, hdr) -> dict | None:
     price_text = price_min = is_free = None
     ticket_links: list[dict] = []
     guests: list[str] = []
+    general_on_sale = None
+    windows: list[dict] = []
     for tr in table.find_all("tr"):
         th = tr.find("th")
         td = tr.find("td")
@@ -183,12 +185,25 @@ def _parse_leg(table, hdr) -> dict | None:
         elif "ゲスト" in label or "support act" in label.lower():
             guests = [g.strip() for g in re.split(r"[/／、,]", cell_text)
                       if g.strip()]
+        elif "発売日" in label:            # チケット発売日: 6/3(水)10:00am～
+            general_on_sale = _parse_general_sale(cell_text)
+        elif "先行" in label:              # "<label> 期間：M/D(曜)HH:MM～…" ×N
+            prev = 0
+            for m in _SALE_WINDOW_RE.finditer(cell_text):
+                name = re.sub(r"期間\s*[:：]?\s*$", "",
+                              cell_text[prev:m.start()]).strip()
+                prev = m.end()
+                mo1, da1, t1, mo2, da2, t2 = m.groups()
+                windows.append({"label": _clean(name) or label,
+                                "opens": _norm_md_time(mo1, da1, t1),
+                                "closes": _norm_md_time(mo2, da2, t2)})
 
     return {
         "pref": pref, "date": date, "venue": venue,
         "open_time": open_time, "start_time": start_time,
         "price_text": price_text, "price_min": price_min, "is_free": is_free,
         "ticket_links": ticket_links, "guests": guests, "sold_out": sold_out,
+        "sales": {"general_on_sale": general_on_sale, "windows": windows},
     }
 
 
@@ -291,6 +306,25 @@ def _sales_windows(leg_div) -> list[dict]:
             })
         label = None
     return windows
+
+
+def _event_sales(sales: dict | None, show_date: str) -> list[dict]:
+    """A leg's parsed sale info ({general_on_sale, windows}, month-day
+    strings as printed) -> Event.sales, years inferred from the show date,
+    de-duplicated and ordered by opening moment."""
+    if not sales:
+        return []
+    out: list[dict] = []
+    for w in sales.get("windows") or []:
+        e = tu.sale_window(w.get("label"), w.get("opens"), w.get("closes"),
+                           show_date)
+        if e and e not in out:
+            out.append(e)
+    gen = tu.sale_window("一般発売", sales.get("general_on_sale"), None,
+                         show_date)
+    if gen and gen not in out:
+        out.append(gen)
+    return sorted(out, key=lambda e: e["opens"])
 
 
 def _primary_playguide_links(leg_div) -> list[dict]:
@@ -610,6 +644,7 @@ class CreativemanScraper(BaseScraper):
                 is_free=leg["is_free"],
                 is_sold_out=leg["sold_out"] or badge_sold.get(date, False),
                 ticket_links=leg["ticket_links"],
+                sales=_event_sales(leg.get("sales"), date),
                 lineup=lineup,
             )
 

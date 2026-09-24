@@ -90,7 +90,7 @@ CREATE TABLE IF NOT EXISTS detail_attempts (
 #: clobber them AND make the barer version the stored state, so the event
 #: never re-enriches).
 DETAIL_FILL_FIELDS = ("open_time", "start_time", "price_text", "price_min",
-                      "is_free", "ticket_url", "ticket_links")
+                      "is_free", "ticket_url", "ticket_links", "sales")
 
 #: internal / never-rendered fields stripped from the public feed
 #: (roadmap R3): they stay in events.db, so re-add one deliberately if

@@ -354,3 +354,62 @@ def parse_admission(text: str) -> tuple[int | None, str | None, bool | None]:
     if _FREE_RE.search(text):
         return None, None, True
     return None, None, None
+
+
+# ------------------------------------------------------- ticket sale windows
+#: label keywords -> sale kind (checked in this order). 抽選 wins over 先行
+#: ("オフィシャル先行（抽選）" is a lottery); 一般 alone means general sale.
+_SALE_KINDS = (
+    ("lottery", re.compile(r"抽選|ロッテリー|lottery", re.I)),
+    ("general", re.compile(r"一般(?:発売|販売)|general\s*(?:sale|on\s*sale)",
+                           re.I)),
+    ("presale", re.compile(r"先行|プレオーダー|プレリザーブ|プレリクエスト|"
+                           r"会員|presale|pre-sale|pre\s*order", re.I)),
+)
+_MD_RE = re.compile(r"^\s*(\d{1,2})-(\d{1,2})(?:\s+(\d{1,2}):(\d{2}))?\s*$")
+
+
+def sale_kind(label: str | None) -> str:
+    """Classify a sale-window label; unknown labels count as presale
+    (anything printed as a window before 一般発売 is some kind of 先行)."""
+    for kind, rx in _SALE_KINDS:
+        if rx.search(label or ""):
+            return kind
+    return "presale"
+
+
+def sale_datetime(md: str | None, show_date: str | None) -> str | None:
+    """'MM-DD[ HH:MM]' as printed (no year) -> ISO date/datetime. The year
+    is INFERRED from the show date: a sale precedes its show, so it is the
+    show's year unless that would put it after the show, then the year
+    before. Pages print sales up to ~a year ahead, so this is unambiguous.
+    Returns None for anything unparseable (never guesses a shape)."""
+    m = _MD_RE.match(md or "")
+    if not m or not show_date:
+        return None
+    try:
+        show = dt.date.fromisoformat(show_date)
+        mo, da = int(m.group(1)), int(m.group(2))
+        year = show.year if (mo, da) <= (show.month, show.day) else show.year - 1
+        day = dt.date(year, mo, da)
+    except ValueError:
+        return None
+    if m.group(3) is None:
+        return day.isoformat()
+    hh, mm = int(m.group(3)), int(m.group(4))
+    if hh == 24 and mm == 0:              # "24:00" = end of that day
+        return f"{day.isoformat()}T23:59"
+    if not (0 <= hh < 24 and 0 <= mm < 60):
+        return None
+    return f"{day.isoformat()}T{hh:02d}:{mm:02d}"
+
+
+def sale_window(label: str, opens: str | None, closes: str | None,
+                show_date: str | None) -> dict | None:
+    """One Event.sales entry from printed month-day strings, or None when
+    the opening moment can't be read."""
+    o = sale_datetime(opens, show_date)
+    if o is None:
+        return None
+    return {"kind": sale_kind(label), "label": (label or "").strip(),
+            "opens": o, "closes": sale_datetime(closes, show_date)}

@@ -88,6 +88,13 @@ class Event:
     ticket_url: Optional[str] = None
     #: [{"provider": "eplus"|"pia"|"lawson"|..., "url": str, "code": str|None}]
     ticket_links: list[dict] = field(default_factory=list)
+    #: ticket sale windows as printed by the source (2026-09-24), each
+    #: {"kind": "lottery"|"presale"|"general", "label": str (as printed,
+    #: e.g. オフィシャル2次先行), "opens": ISO date or datetime,
+    #: "closes": ISO date/datetime or None}. Years are inferred from the
+    #: show date (a sale precedes its show) when the page omits them —
+    #: see textutils.sale_window. Feeds the frontend 先行受付中/発売 badges.
+    sales: list[dict] = field(default_factory=list)
 
     # --- extras (facts only) ---
     lineup: list[str] = field(default_factory=list)
@@ -102,6 +109,10 @@ class Event:
     def content_hash(self) -> str:
         """Changes when any scraped field changes -> triggers re-review."""
         d = asdict(self)
+        if not d.get("sales"):
+            # added 2026-09-24: an empty list must hash like the field's
+            # absence, or every stored event would re-stage as "changed"
+            d.pop("sales", None)
         return hashlib.sha256(
             json.dumps(d, sort_keys=True, ensure_ascii=False, default=str).encode()
         ).hexdigest()[:16]

@@ -154,7 +154,7 @@ def _merge(into: dict, promo: dict) -> None:
             into.setdefault("ticket_links", []).append(t)
             have.add(t["url"])
     for f in ("open_time", "start_time", "price_text", "price_min",
-              "is_free", "ticket_url"):
+              "is_free", "ticket_url", "sales"):
         if into.get(f) in (None, []) and promo.get(f) not in (None, []):
             into[f] = promo[f]
 
