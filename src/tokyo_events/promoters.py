@@ -144,7 +144,11 @@ def _merge(into: dict, promo: dict) -> None:
     SOLD OUT badge is a positive signal the venue page may lack)."""
     if promo.get("is_sold_out"):
         into["is_sold_out"] = True
-    have = {t.get("url") for t in into.get("ticket_links") or [] if t.get("url")}
+    # announcement sighting (announce.py): the earliest wins, and the ""
+    # unknown/backfill sentinel beats every date
+    if "first_seen" in into and "first_seen" in promo:
+        into["first_seen"] = min(into["first_seen"], promo["first_seen"])
+    have ={t.get("url") for t in into.get("ticket_links") or [] if t.get("url")}
     for t in promo.get("ticket_links") or []:
         if t.get("url") and t["url"] not in have:
             into.setdefault("ticket_links", []).append(t)

@@ -395,7 +395,10 @@ class EventStore:
         events = [d for d in self.list_events(public_only=True)
                   if (d.get("end_date") or d.get("start_date") or "") >= today
                   and d.get("category") != "other"]
+        from .announce import attach_first_seen, finalize
+        attach_first_seen(self.conn, events)    # merge keeps the earliest
         events = apply_promoter_merge(events)   # before genre/artist passes
+        finalize(events)                        # -> optional "announced"
         apply_genres(self.conn, events)
         apply_artists(self.conn, events)
         apply_title_en(self.conn, events)       # MT titles, flagged (R12)

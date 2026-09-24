@@ -110,6 +110,11 @@
   .art-group-head{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--ink-3);margin:26px 0 10px}
   .art-cards{display:flex;flex-direction:column;gap:10px}
   .closing{color:var(--stamp);font-weight:800;font-size:10px;letter-spacing:.08em}
+  /* 新着 / just announced */
+  .new-tag{background:var(--ink);color:var(--card);font-size:9.5px;font-weight:800;letter-spacing:.1em;padding:1px 6px;border-radius:4px}
+  .showdate{font-size:11.5px;font-weight:800;color:var(--ink);letter-spacing:.03em;margin-bottom:2px;font-variant-numeric:tabular-nums}
+  .ann-head{font-size:11px;font-weight:800;letter-spacing:.16em;color:var(--ink-3);margin:26px 0 10px}
+  .ann-head:first-child{margin-top:4px}
   .empty,.loading,.loaderr{text-align:center;color:var(--ink-2);padding:60px 20px 40px;font-size:14px;line-height:1.8}
   .empty button{text-decoration:underline;font-weight:700}
   .loaderr code{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:1px 6px}
@@ -157,6 +162,7 @@
     <button class="chip" data-when="week" aria-pressed="true"></button>
     <button class="chip" data-when="weekend"></button>
     <button class="chip" data-when="all"></button>
+    <button class="chip" data-when="new"></button>
   </div>
   <div class="f-row" id="vclass-row"><span class="f-label" data-i18n="l_vclass"></span></div>
   <div class="f-row" id="cap-row"><span class="f-label" data-i18n="l_cap"></span></div>
@@ -429,6 +435,9 @@ const I18N = {
     sortBig:"大きい順",
     capacity:n=>`キャパ 約${n.toLocaleString()}人`,
     today:"今日",week:"今週",weekend:"今週末",all:"すべて",
+    new:"新着",newTag:"NEW",
+    announcedOn:d=>`${d.getMonth()+1}月${d.getDate()}日に発表`,
+    showDate:d=>`${d.getFullYear()}年${d.getMonth()+1}月${d.getDate()}日（${"日月火水木金土"[d.getDay()]}）`,
     genres:{all:"すべて",idol:"アイドル","j-rock":"ロック・バンド",
       international:"来日・海外","k-pop":"K-POP","jazz-soul":"ジャズ・ソウル",
       classical:"クラシック","hiphop-rnb":"ヒップホップ/R&B",
@@ -481,6 +490,9 @@ const I18N = {
     sortBig:"Biggest first",
     capacity:n=>`Capacity ~${n.toLocaleString()}`,
     today:"Today",week:"This week",weekend:"Weekend",all:"All dates",
+    new:"Just announced",newTag:"NEW",
+    announcedOn:d=>`ANNOUNCED ${["JAN","FEB","MAR","APR","MAY","JUN","JUL","AUG","SEP","OCT","NOV","DEC"][d.getMonth()]} ${d.getDate()}`,
+    showDate:d=>`${["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][d.getDay()]}, ${["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"][d.getMonth()]} ${d.getDate()}, ${d.getFullYear()}`,
     genres:{all:"All",idol:"Idol","j-rock":"Rock / Band",
       international:"Int'l artists","k-pop":"K-pop","jazz-soul":"Jazz / Soul",
       classical:"Classical","hiphop-rnb":"Hip-hop / R&B",
@@ -572,12 +584,17 @@ async function load(){
 
 /* ============================================================ helpers */
 const P=s=>new Date(s+"T00:00:00+09:00");
+/* 新着: `announced` = JST day the aggregator first saw the show (export
+   omits it for backfills — see announce.py), shown for NEW_DAYS days */
+const NEW_DAYS=14;
+const isNew=ev=>!!ev.announced&&(TODAY-P(ev.announced))/864e5<=NEW_DAYS;
 const sameDay=(a,b)=>a.getTime()===b.getTime();
 function inWindow(ev){
   const s=P(ev.start_date), e=P(ev.end_date||ev.start_date);
   /* every window — including "all dates" — starts at today; the feed
      keeps a little history but the list is forward-looking */
   if(e<TODAY) return false;
+  if(when==="new") return isNew(ev);
   if(when==="all") return true;
   if(when==="today") return s<=TODAY&&TODAY<=e;
   if(when==="week"){const end=new Date(TODAY);end.setDate(end.getDate()+6);return s<=end&&e>=TODAY;}
@@ -875,7 +892,16 @@ function dayGroupsArray(evs){
       <div class="day-dow ${dow===6?"sat":dow===0?"sun":""}">${L.dow[dow]}${lang==="ja"?"曜日":""}</div>${rel}
       <div class="day-count">${L.count(dayEvents.length)}</div>
     </div><div class="cards">`;
-    for(const ev of dayEvents){
+    for(const ev of dayEvents) html+=musicCardHtml(ev,false);
+    html+=`</div></section>`;
+    out.push(html);
+  }
+  return out;
+}
+/* one music/seasonal card; withDate prints the show date on the card
+   itself (the 新着 view groups by announcement, not by show day) */
+function musicCardHtml(ev,withDate){
+      const L=I18N[lang];
       const V=VENUES[venueIdOf(ev)];
       const past=P(ev.end_date||ev.start_date)<TODAY;
       const times=ev.open_time||ev.start_time
@@ -894,13 +920,16 @@ function dayGroupsArray(evs){
         `<a class="alink" href="${artistHash(a)}" data-artist="${esc(a)}">${esc(a)}</a>`).join(" / ");
       const srcUrl=safeUrl(ev.source_url);
       const srcHtml=srcUrl?`<a class="srclink" href="${esc(srcUrl)}" target="_blank" rel="noopener">${isSeasonal(ev)?L.detailsSeasonal:L.details}</a>`:"";
-      html+=`<article class="card ${past?"past":""}">
+      const newTag=isNew(ev)?`<span class="new-tag">${L.newTag}</span>`:"";
+      return `<article class="card ${past?"past":""}">
         <div class="stub">${times}</div>
         <div class="body">
+          ${withDate?`<div class="showdate">${L.showDate(P(ev.start_date))}</div>`:""}
           <div class="title">${titleSegments(title||"")}${mtBadge}</div>
           ${ev.subtitle?`<div class="subtitle">${esc(ev.subtitle)}</div>`:""}
           ${multi}
           <div class="meta">
+            ${newTag}
             <a class="venue-tag alink" href="${venueHash(venueIdOf(ev))}" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</a>
             <span class="area">${esc(V.area)}</span>
             ${price}${gtags}
@@ -911,9 +940,22 @@ function dayGroupsArray(evs){
         </div>
         ${ev.is_sold_out?`<div class="stamp">${L.sold}</div>`:""}
       </article>`;
-    }
-    html+=`</div></section>`;
-    out.push(html);
+}
+/* 新着 view: groups by announcement day (newest first); inside a group,
+   shows run in date order. One chunk per group for the rAF renderer. */
+function announcedGroupsArray(evs){
+  const L=I18N[lang];
+  const groups=new Map();
+  for(const ev of [...evs].sort((a,b)=>b.announced.localeCompare(a.announced)
+      ||a.start_date.localeCompare(b.start_date))){
+    if(!groups.has(ev.announced)) groups.set(ev.announced,[]);
+    groups.get(ev.announced).push(ev);
+  }
+  const out=[];
+  for(const [d,g] of groups){
+    out.push(`<div class="ann-head">${L.announcedOn(P(d))} · ${L.count(g.length)}</div>`+
+      (section==="art"?`<div class="art-cards">${g.map(artCardHtml).join("")}</div>`
+        :`<div class="cards">${g.map(ev=>musicCardHtml(ev,true)).join("")}</div>`));
   }
   return out;
 }
@@ -944,6 +986,7 @@ function artCardHtml(ev){
       <div class="title">${esc(title||"")}${mtBadge}</div>
       <div class="multiday">${L.range(fmt(s),fmt(e))}</div>
       <div class="meta">
+        ${isNew(ev)?`<span class="new-tag">${L.newTag}</span>`:""}
         <a class="venue-tag alink" href="${venueHash(venueIdOf(ev))}" data-venue-link="${esc(venueIdOf(ev))}">${dot(venueIdOf(ev))}${esc(V.name)}</a>
         <span class="area">${esc(V.area)}</span>
         ${ev.is_free?`<span class="price">${L.free}</span>`
@@ -991,13 +1034,13 @@ function renderList(){
     };
     return;
   }
-  if(section==="art"){ list.innerHTML=artListHtml(evs); return; }
+  if(section==="art"&&when!=="new"){ list.innerHTML=artListHtml(evs); return; }
   /* Chunk the day-group render across rAF batches so "All dates" (~2000
      cards across many day-groups) doesn't force one giant synchronous
      layout on first paint. insertAdjacentHTML appends without re-parsing
      what's already in the list (unlike list.innerHTML+=). */
   list.innerHTML="";
-  const chunks=dayGroupsArray(evs);
+  const chunks=when==="new"?announcedGroupsArray(evs):dayGroupsArray(evs);
   let i=0;
   (function step(){
     if(myGen!==renderGen) return;   /* superseded by a newer render */

@@ -37,6 +37,15 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
   `venues:{venue_key:{capacity}}` to public.json, powering the frontend
   キャパ size-tier filter (〜300/1K/2K/10K/10K+), the 大きい順
   within-day sort, and venue-page 約N人 display (2026-08-10).
+- `src/tokyo_events/announce.py` — 新着 / "Just announced" (2026-09-24):
+  export adds optional `announced` (JST date we first saw the show) to
+  public.json events; the frontend 新着 chip lists the last 14 days
+  grouped by that date and cards carry a NEW tag. Onboarding runs and
+  entries in `announce.BACKFILL` are excluded — **whenever a change
+  widens coverage (longer horizon, recovered shows, source_url identity
+  migration), add a BACKFILL entry** dated the first scheduled run that
+  includes it, or the view floods with old shows. Promoter folds keep
+  the earliest sighting (backfill = unknown beats any date).
 - `src/tokyo_events/promoters.py` — export-time merge for promoter
   sources: duplicate rows fold into venue records (sold-out OR,
   ticket-link union, gap-fill); gap-venue events export standalone under
