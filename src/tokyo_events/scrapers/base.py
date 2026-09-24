@@ -38,6 +38,15 @@ USER_AGENT = (
     "TokyoEventsAggregator/0.1 (+contact: lowellbattles@gmail.com) "
     "python-requests"
 )
+#: The same honest identity minus the HTTP-library token. Some WAFs block
+#: the "python-requests" substring itself while admitting a named,
+#: contactable bot (Live Nation Japan since 2026-08-29: every path incl.
+#: robots.txt 403'd with the token, 200 without it). Still fully
+#: self-identified — NOT a browser disguise; rule 2 is unchanged. Opt in
+#: per scraper via `user_agent`, on explicit owner approval only.
+USER_AGENT_NO_LIB_TOKEN = (
+    "TokyoEventsAggregator/0.1 (+contact: lowellbattles@gmail.com)"
+)
 
 
 class FetchError(RuntimeError):
@@ -81,10 +90,12 @@ class BaseScraper(ABC):
     rate_limit_s: float = 2.0
     #: whether the pipeline should fetch detail pages for new/changed events
     supports_detail: bool = True
+    #: request User-Agent; see USER_AGENT_NO_LIB_TOKEN for the one variant
+    user_agent: str = USER_AGENT
 
     def __init__(self, session: requests.Session | None = None):
         self.session = session or requests.Session()
-        self.session.headers.update({"User-Agent": USER_AGENT})
+        self.session.headers.update({"User-Agent": self.user_agent})
         self._last_request = 0.0
 
     def fetch(self, url: str, retries: int = 2) -> str:

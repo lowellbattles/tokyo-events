@@ -82,11 +82,14 @@ from typing import Iterable
 from ..models import Category, Event
 from ..venues import resolve_venue
 from . import textutils as tu
-from .base import BaseScraper
+from .base import USER_AGENT_NO_LIB_TOKEN, BaseScraper
 
 
 class LiveNationScraper(BaseScraper):
     source_id = "livenation_jp"
+    #: owner-approved 2026-09-24: the site 403s the "python-requests" token
+    #: (not our bot name) since 2026-08-29 — see base.USER_AGENT_NO_LIB_TOKEN
+    user_agent = USER_AGENT_NO_LIB_TOKEN
     source_name = "Live Nation Japan"
     BASE = "https://www.livenationhip.co.jp"
     supports_detail = False        # the search feed is already complete

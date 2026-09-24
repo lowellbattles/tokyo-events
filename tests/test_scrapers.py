@@ -830,3 +830,14 @@ def test_pia_arena_walk_stops_cleanly_on_missing_month(monkeypatch):
     evs = list(s.scrape())
     assert len(evs) == 1
     assert len(calls) == 2      # month-2 404 ended the walk, no error
+
+
+def test_user_agent_is_honest_everywhere_and_libfree_only_for_livenation():
+    # 2026-09-24: Live Nation 403s the "python-requests" token; owner
+    # approved dropping it there only. Every UA still names our bot.
+    from tokyo_events.pipeline import SCRAPERS
+    for sid, (cls, _status) in SCRAPERS.items():
+        ua = cls().session.headers["User-Agent"]
+        assert ua.startswith("TokyoEventsAggregator/"), sid
+        assert "contact:" in ua, sid
+        assert ("python-requests" in ua) == (sid != "livenation_jp"), sid
