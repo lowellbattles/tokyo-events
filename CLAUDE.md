@@ -26,7 +26,7 @@ GitHub Actions: daily 07:00 JST scrape → commit data → deploy Pages
   closes} in JST ISO → frontend badges (先行受付中 〜M/D / 一般発売 M/D〜)
   and a 先行受付中 When-chip. Pages omit years: `textutils.sale_window`
   infers them from the show date. Filled by creativeman (both
-  templates), kajimoto and curated_concerts; NOT by livenation_jp (its tickets[]
+  templates), kajimoto, japan_arts and curated_concerts; NOT by livenation_jp (its tickets[]
   "General Onsale" windows are link-visibility, not real sale dates —
   checked 2026-09-24). Empty `sales` hashes like its absence.
 - `src/tokyo_events/db.py` — EventStore: upsert with content-hash change
