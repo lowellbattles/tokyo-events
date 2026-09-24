@@ -43,6 +43,9 @@ BACKFILL: dict[str, str] = {
     "disk_garage": "2026-09-25",
     # redesigned calendar: every show re-keyed to exec/<id> URLs
     "cotton_club": "2026-09-25",
+    # /event/ -> /calendar/ identity migration (fix(kokuritsu_stadium):
+    # parse relocated /calendar/ listing); every upcoming row re-keyed
+    "kokuritsu_stadium": "2026-09-25",
 }
 
 #: sighting whose announcement date is unknown — sorts before any date
